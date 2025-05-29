@@ -18,7 +18,7 @@ namespace DevNest.CredManager.Api
     public static class RegisterServices
     {
         private const string _ConfigurationsDirectory = "configurations";
-        private const string _LoggerConfigurations = "loggerConfiguration.json";
+        private const string _LoggerConfigurations = "logger.configuration.json";
         private const string _ApiServiceName = "Credential-Manager";
         private const string _AssemblySearchPattern = "DevNest.";
 

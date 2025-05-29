@@ -1,0 +1,50 @@
+﻿namespace DevNest.Common.Base.Entity
+{
+    /// <summary>
+    /// Represents the class instance for Metadata informations.
+    /// </summary>
+    public class MetadataEntity
+    {
+
+        /// <summary>
+        /// Gets or sets the client identifier.
+        /// </summary>
+        public string? ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the transaction date and time.
+        /// </summary>
+        public DateTime? TransactionDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets the transaction station or machine name.
+        /// </summary>
+        public string? TransactionStation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the transaction initiator.
+        /// </summary>
+        public string? TransactionUser { get; set; }
+
+        /// <summary>
+        /// Gets or sets the transaction approval status.
+        /// </summary>
+        public string? TransactionApprovalStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the transaction user role.
+        /// </summary>
+        public string? TransactionUserRole { get; set; }
+    }
+
+    /// <summary>
+    /// Represents the interface instance for meta data information.
+    /// </summary>
+    public interface IMedataEntity
+    {
+        /// <summary>
+        /// Gets or sets the meta data entity information.
+        /// </summary>
+        MetadataEntity? Metadata { get; set; }
+    }
+}

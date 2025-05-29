@@ -16,8 +16,4 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj" />
-  </ItemGroup>
 </Project>

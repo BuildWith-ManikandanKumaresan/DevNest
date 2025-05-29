@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DevNest.SharedAssembly", "DevNest.SharedAssembly\DevNest.SharedAssembly.shproj", "{112CB1D3-1E7D-4788-9E20-F6C83CC7828D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Common.Logger", "DevNest.Common.Logger\DevNest.Common.Logger.csproj", "{EDC33B4C-DFE5-4EC1-9114-56C713C61B17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Common.Base", "DevNest.Common.Base\DevNest.Common.Base.csproj", "{1EAAAA87-3076-45A1-B019-5A878E492282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.CredManager.Api", "DevNest.CredManager.Api\DevNest.CredManager.Api.csproj", "{F3EA8EC5-A767-47C1-A934-A63C8A375EE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Application.Queries", "DevNest.Application.Queries\DevNest.Application.Queries.csproj", "{E7393CEF-0BF0-4464-891D-FBE3D418D293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Application.Commands", "DevNest.Application.Commands\DevNest.Application.Commands.csproj", "{0F345B99-400F-40A4-9799-4E98A79C7F3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Business.Domain", "DevNest.Business.Domain\DevNest.Business.Domain.csproj", "{2F3162D3-4949-4BF5-8A61-0508974631D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Infrastructure.Entity", "DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj", "{081A7F98-9776-45B5-A8AD-07F498502B2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Infrastructure.DTOs", "DevNest.Infrastructure.DTOs\DevNest.Infrastructure.DTOs.csproj", "{926DA305-A579-4D70-95A2-DC18755CDEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Infrastructure.Routers", "DevNest.Infrastructure.Routers\DevNest.Infrastructure.Routers.csproj", "{7D757CBD-5C3C-4496-9180-43D9F0C45B5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		DevNest.SharedAssembly\AssemblyInfo.cs = DevNest.SharedAssembly\AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDC33B4C-DFE5-4EC1-9114-56C713C61B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC33B4C-DFE5-4EC1-9114-56C713C61B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC33B4C-DFE5-4EC1-9114-56C713C61B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC33B4C-DFE5-4EC1-9114-56C713C61B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EAAAA87-3076-45A1-B019-5A878E492282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EAAAA87-3076-45A1-B019-5A878E492282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EAAAA87-3076-45A1-B019-5A878E492282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EAAAA87-3076-45A1-B019-5A878E492282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EA8EC5-A767-47C1-A934-A63C8A375EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EA8EC5-A767-47C1-A934-A63C8A375EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EA8EC5-A767-47C1-A934-A63C8A375EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EA8EC5-A767-47C1-A934-A63C8A375EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7393CEF-0BF0-4464-891D-FBE3D418D293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7393CEF-0BF0-4464-891D-FBE3D418D293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7393CEF-0BF0-4464-891D-FBE3D418D293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7393CEF-0BF0-4464-891D-FBE3D418D293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F345B99-400F-40A4-9799-4E98A79C7F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F345B99-400F-40A4-9799-4E98A79C7F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F345B99-400F-40A4-9799-4E98A79C7F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F345B99-400F-40A4-9799-4E98A79C7F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F3162D3-4949-4BF5-8A61-0508974631D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3162D3-4949-4BF5-8A61-0508974631D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3162D3-4949-4BF5-8A61-0508974631D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3162D3-4949-4BF5-8A61-0508974631D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081A7F98-9776-45B5-A8AD-07F498502B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081A7F98-9776-45B5-A8AD-07F498502B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081A7F98-9776-45B5-A8AD-07F498502B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081A7F98-9776-45B5-A8AD-07F498502B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926DA305-A579-4D70-95A2-DC18755CDEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926DA305-A579-4D70-95A2-DC18755CDEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926DA305-A579-4D70-95A2-DC18755CDEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926DA305-A579-4D70-95A2-DC18755CDEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D757CBD-5C3C-4496-9180-43D9F0C45B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D757CBD-5C3C-4496-9180-43D9F0C45B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D757CBD-5C3C-4496-9180-43D9F0C45B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D757CBD-5C3C-4496-9180-43D9F0C45B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{112CB1D3-1E7D-4788-9E20-F6C83CC7828D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDEACA45-B8C6-42DD-8209-D34D5AC8E8C5}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		DevNest.SharedAssembly\DevNest.SharedAssembly.projitems*{112cb1d3-1e7d-4788-9e20-f6c83cc7828d}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)build-debug\</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
+    <PackageReference Include="Scrutor" Version="6.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevNest.Application.Commands\DevNest.Application.Commands.csproj" />
+    <ProjectReference Include="..\DevNest.Application.Queries\DevNest.Application.Queries.csproj" />
+    <ProjectReference Include="..\DevNest.Business.Domain\DevNest.Business.Domain.csproj" />
+    <ProjectReference Include="..\DevNest.Common.Base\DevNest.Common.Base.csproj" />
+    <ProjectReference Include="..\DevNest.Common.Logger\DevNest.Common.Logger.csproj" />
+    <ProjectReference Include="..\DevNest.Infrastructure.DTOs\DevNest.Infrastructure.DTOs.csproj" />
+    <ProjectReference Include="..\DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj" />
+    <ProjectReference Include="..\DevNest.Infrastructure.Routers\DevNest.Infrastructure.Routers.csproj" />
+  </ItemGroup>
+
+</Project>

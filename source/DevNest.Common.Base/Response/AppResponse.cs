@@ -1,5 +1,4 @@
 ﻿#region using directives
-using Newtonsoft.Json;
 #endregion using directives
 
 namespace DevNest.Common.Base.Response

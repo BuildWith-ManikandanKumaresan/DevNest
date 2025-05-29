@@ -1,7 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Logger.Model;
-using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;

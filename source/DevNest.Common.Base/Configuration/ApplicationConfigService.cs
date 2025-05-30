@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 /// Represents the class structure for standard configuration of type T.
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class AppConfigService<T> : IAppConfigService<T> where T: class, new()
+public class ApplicationConfigService<T> : IApplicationConfigService<T> where T: class, new()
 {
     private readonly IOptionsMonitor<T> _optionsMonitor;
 
@@ -15,7 +15,7 @@ public class AppConfigService<T> : IAppConfigService<T> where T: class, new()
     /// Intialize the constructor for configurations services of type T.
     /// </summary>
     /// <param name="optionsMonitor"></param>
-    public AppConfigService(IOptionsMonitor<T> optionsMonitor)
+    public ApplicationConfigService(IOptionsMonitor<T> optionsMonitor)
     {
         _optionsMonitor = optionsMonitor;
     }

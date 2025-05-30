@@ -9,4 +9,8 @@
     <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DevNest.Common.Base\DevNest.Common.Base.csproj" />
+  </ItemGroup>
+
 </Project>

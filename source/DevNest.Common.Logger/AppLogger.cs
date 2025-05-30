@@ -1,6 +1,6 @@
 ﻿#region user directives
 using DevNest.Common.Base.Contracts;
-using DevNest.Common.Logger.Model;
+using DevNest.Common.Base.Entity;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Serilog.Core;
@@ -10,22 +10,22 @@ using System.Text;
 namespace DevNest.Common.Logger
 {
     /// <summary>
-    /// Reprents the class instance for <see cref="AppLogger{T}">class./>
+    /// Reprents the class instance for <see cref="ApplicationLogger{T}">class./>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AppLogger<T> : IAppLogger<T>
+    public class ApplicationLogger<T> : IApplicationLogger<T>
     {
         private readonly Serilog.ILogger _logger;
-        private readonly IAppConfigService<LoggerConfig> _configurationService;
+        private readonly IApplicationConfigService<LoggerConfigEntity> _configurationService;
 
         /// <summary>
         /// Constructor intialization for standard logger of T type.
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="configuration"></param>
-        public AppLogger(
+        public ApplicationLogger(
             Serilog.ILogger logger, 
-            IAppConfigService<LoggerConfig> configuration)
+            IApplicationConfigService<LoggerConfigEntity> configuration)
         {
             this._logger = logger;
             this._configurationService = configuration;

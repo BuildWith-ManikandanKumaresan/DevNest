@@ -6,7 +6,7 @@ namespace DevNest.Common.Base.Response
     /// <summary>
     /// Represents the class instance for app response of type T data.
     /// </summary>
-    public class AppResponse<T>
+    public class ApplicationResponse<T>
     {
         /// <summary>
         /// Gets or sets the data of type T.
@@ -31,12 +31,12 @@ namespace DevNest.Common.Base.Response
         /// <summary>
         /// Gets or sets the List of Warnings.
         /// </summary>
-        public IEnumerable<AppWarning> Warnings { get; set; } = [];
+        public IEnumerable<ApplicationWarnings> Warnings { get; set; } = [];
 
         /// <summary>
         /// Gets or sets the List of Errors.
         /// </summary>
-        public IEnumerable<AppError> Errors { get; set; } = [];
+        public IEnumerable<ApplicationErrors> Errors { get; set; } = [];
 
         /// <summary>
         /// Gets or sets the success message.

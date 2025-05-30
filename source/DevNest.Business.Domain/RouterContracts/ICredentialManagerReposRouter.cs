@@ -8,7 +8,7 @@ namespace DevNest.Business.Domain.RouterContracts
     /// <summary>
     /// Represents the interface instance for Credential manager repository.
     /// </summary>
-    public interface ICredManagerReposRouter : IReposRouter
+    public interface ICredentialManagerReposRouter : IReposRouter
     {
         /// <summary>
         /// Handler method to get the credentials entity from the plugin repository.

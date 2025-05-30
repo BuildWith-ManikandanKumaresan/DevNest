@@ -1,4 +1,4 @@
-﻿namespace DevNest.Common.Base.Entity
+﻿namespace DevNest.Common.Base.Entity.Contracts
 {
     /// <summary>
     /// Gets or sets the base entity model class.

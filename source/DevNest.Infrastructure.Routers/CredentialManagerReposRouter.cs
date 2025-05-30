@@ -9,15 +9,15 @@ namespace DevNest.Infrastructure.Routers
     /// <summary>
     /// Represents the class instance for cred manager repository router.
     /// </summary>
-    public class CredManagerReposRouter : ICredManagerReposRouter
+    public class CredentialManagerReposRouter : ICredentialManagerReposRouter
     {
-        private readonly IAppLogger<CredManagerReposRouter> _logger;
+        private readonly IApplicationLogger<CredentialManagerReposRouter> _logger;
 
         /// <summary>
-        /// Initialize the new instance for <see cref="CredManagerReposRouter" class./>
+        /// Initialize the new instance for <see cref="CredentialManagerReposRouter" class./>
         /// </summary>
         /// <param name="logger"></param>
-        public CredManagerReposRouter(IAppLogger<CredManagerReposRouter> logger)
+        public CredentialManagerReposRouter(IApplicationLogger<CredentialManagerReposRouter> logger)
         {
             _logger = logger;
         }
@@ -28,7 +28,11 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<IEnumerable<CredentialEntity>?> GetAsync()
         {
-            return [new CredentialEntity()];
+            return [new CredentialEntity()
+            {
+                Metadata = new(),
+                HistoryInformation =new()
+            }];
         }
     }
 }

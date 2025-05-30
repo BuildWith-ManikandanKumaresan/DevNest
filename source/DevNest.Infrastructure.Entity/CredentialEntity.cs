@@ -1,4 +1,4 @@
-﻿using DevNest.Common.Base.Entity;
+﻿using DevNest.Common.Base.Entity.Contracts;
 
 namespace DevNest.Infrastructure.Entity
 {

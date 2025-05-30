@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the interface structure for standard configuration injector.
     /// </summary>
-    public interface IAppConfigService<T>
+    public interface IApplicationConfigService<T>
     {
         /// <summary>
         /// Gets the configuration of type T.

@@ -1,8 +1,8 @@
 #region using directives
 using DevNest.Common.Logger;
-using DevNest.Application.Queries.credmanager;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using DevNest.Application.Queries.CredentialManager;
 #endregion using directives
 
 namespace DevNest.CredManager.Api.Controllers
@@ -12,10 +12,10 @@ namespace DevNest.CredManager.Api.Controllers
     /// </summary>
     [Produces("application/json")]
     [ApiController]
-    [Route("api/credmanager")] // api/credmanager
-    public class CredManagerController : ControllerBase
+    [Route("api/credentialmanager")] // api/credmanager
+    public class CredentialManagerController : ControllerBase
     {
-        private readonly IAppLogger<CredManagerController> _logger;
+        private readonly IApplicationLogger<CredentialManagerController> _logger;
         private readonly IMediator _mediator;
 
         /// <summary>
@@ -23,8 +23,8 @@ namespace DevNest.CredManager.Api.Controllers
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="mediatr"></param>
-        public CredManagerController(
-            IAppLogger<CredManagerController> logger,
+        public CredentialManagerController(
+            IApplicationLogger<CredentialManagerController> logger,
             IMediator mediatr)
         {
             _logger = logger;

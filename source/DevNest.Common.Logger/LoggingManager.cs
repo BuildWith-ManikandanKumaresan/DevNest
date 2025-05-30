@@ -1,6 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.Contracts;
-using DevNest.Common.Logger.Model;
+using DevNest.Common.Base.Entity;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -18,7 +18,7 @@ namespace DevNest.Common.Logger
     /// </summary>
     public class LoggingManager
     {
-        private readonly IAppConfigService<LoggerConfig> _config;
+        private readonly IApplicationConfigService<LoggerConfigEntity> _config;
         private const string _LoggerConfigurationsMissing = "Logger configuration is missing.";
         private const string _UpDirectory = "..";
         private const string _DefaultLoggingDirectory = "logs";
@@ -40,7 +40,7 @@ namespace DevNest.Common.Logger
         /// Initialize the constructor instance for logging manager.
         /// </summary>
         /// <param name="config"></param>
-        public LoggingManager(IAppConfigService<LoggerConfig> config)
+        public LoggingManager(IApplicationConfigService<LoggerConfigEntity> config)
         {
             _config = config;
         }

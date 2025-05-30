@@ -1,24 +1,24 @@
 ﻿namespace DevNest.Common.Base.Response
 {
     /// <summary>
-    /// Represents the class instance for Application errrors.
+    /// Represents the class instance for applications warnings.
     /// </summary>
-    public class AppError
+    public class ApplicationWarnings
     {
         private string? _description = string.Empty;
 
         /// <summary>
-        /// Gets or sets the error code.
+        /// Gets or sets the warning code.
         /// </summary>
         public string Code { get; set; } = "UNDEFINED";
 
         /// <summary>
-        /// Gets or sets the error message.
+        /// Gets or sets the warning message.
         /// </summary>
         public string? Message { get; set; }
 
         /// <summary>
-        /// Gets or sets the error description.
+        /// Gets or sets the warning description.
         /// </summary>
         public string? Description
         {
@@ -33,8 +33,8 @@
         }
 
         /// <summary>
-        /// Gets or sets the error field.
+        /// Gets or sets the warning field.
         /// </summary>
-        public string? Field { get; set; } // Optional: useful for validation errors
+        public string? Field { get; set; } // Optional: useful for validation warnings
     }
 }

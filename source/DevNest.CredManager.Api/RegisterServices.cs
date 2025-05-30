@@ -5,9 +5,9 @@ using MediatR;
 using DevNest.Business.Domain.Mappers;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Logger;
-using DevNest.Common.Logger.Model;
 using DevNest.Business.Domain.RouterContracts;
 using DevNest.Infrastructure.Routers;
+using DevNest.Common.Base.Entity;
 #endregion using directives
 
 namespace DevNest.CredManager.Api
@@ -30,16 +30,16 @@ namespace DevNest.CredManager.Api
         {
             // Setup AppConfigService for LoggerConfig
             var provider = services.BuildServiceProvider();
-            var loggerConfigOptions = provider.GetRequiredService<IOptionsMonitor<LoggerConfig>>();
-            var appConfigService = new AppConfigService<LoggerConfig>(loggerConfigOptions);
+            var loggerConfigOptions = provider.GetRequiredService<IOptionsMonitor<LoggerConfigEntity>>();
+            var appConfigService = new ApplicationConfigService<LoggerConfigEntity>(loggerConfigOptions);
 
             // Initialize logger and register in DI
             var loggingManager = new LoggingManager(appConfigService);
             Serilog.ILogger logger = loggingManager.Initialize(_ApiServiceName);
 
-            services.AddSingleton<IAppConfigService<LoggerConfig>>(appConfigService);
+            services.AddSingleton<IApplicationConfigService<LoggerConfigEntity>>(appConfigService);
             services.AddSingleton(logger);
-            services.AddScoped(typeof(IAppLogger<>), typeof(AppLogger<>));
+            services.AddScoped(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DevNest.CredManager.Api
                 _LoggerConfigurations);
 
             builder.Configuration.AddJsonFile(jsonFilePath, optional: false, reloadOnChange: true);
-            builder.Services.Configure<LoggerConfig>(builder.Configuration);
+            builder.Services.Configure<LoggerConfigEntity>(builder.Configuration);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace DevNest.CredManager.Api
                 .AsImplementedInterfaces()
                 .WithScopedLifetime()
 
-                .AddClasses(classes => classes.InNamespaceOf<CredManagerReposRouter>())
+                .AddClasses(classes => classes.InNamespaceOf<CredentialManagerReposRouter>())
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
         }

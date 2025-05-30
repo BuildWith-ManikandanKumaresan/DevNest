@@ -1,9 +1,9 @@
-﻿namespace DevNest.Common.Base.Entity
+﻿namespace DevNest.Common.Base.DTOs
 {
     /// <summary>
     /// Represents the class instance for Metadata informations.
     /// </summary>
-    public class MetadataEntity
+    public class MetadataDTO
     {
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿#region using directives
 using AutoMapper;
-using DevNest.Business.Domain.DomainContracts;
+using DevNest.Business.Domain.Domains.Contracts;
 using DevNest.Business.Domain.RouterContracts;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
@@ -13,19 +13,19 @@ namespace DevNest.Business.Domain.Services
     /// <summary>
     /// Represents the class instance for credential manager services.
     /// </summary>
-    public class CredManagerDomainService : ICredManagerDomainService
+    public class CredentialManagerDomainService : ICredentialManagerDomainService
     {
-        private readonly IAppLogger<CredManagerDomainService> _logger;
-        private readonly ICredManagerReposRouter _router;
+        private readonly IApplicationLogger<CredentialManagerDomainService> _logger;
+        private readonly ICredentialManagerReposRouter _router;
         private readonly IMapper _mapper;
 
         /// <summary>
         /// Initialize the new instance for credential manager services.
         /// </summary>
         /// <param name="logger"></param>
-        public CredManagerDomainService(
-            IAppLogger<CredManagerDomainService> logger,
-            ICredManagerReposRouter router,
+        public CredentialManagerDomainService(
+            IApplicationLogger<CredentialManagerDomainService> logger,
+            ICredentialManagerReposRouter router,
             IMapper mapper)
         {
             _logger = logger;
@@ -37,20 +37,20 @@ namespace DevNest.Business.Domain.Services
         /// Handler method for get credentials as DTO response.
         /// </summary>
         /// <returns></returns>
-        public async Task<AppResponse<IEnumerable<CredentialDTO>>> Get()
+        public async Task<ApplicationResponse<IEnumerable<CredentialsDTO>>> Get()
         {
-            var response = new AppResponse<IEnumerable<CredentialDTO>>() { Data = null, IsSuccess = false };
+            var response = new ApplicationResponse<IEnumerable<CredentialsDTO>>() { Data = null, IsSuccess = false };
             try
             {
                 IEnumerable<CredentialEntity>? _data = await _router.GetAsync();
 
                 if (_data == null)
                 {
-                    return new AppResponse<IEnumerable<CredentialDTO>>()
+                    return new ApplicationResponse<IEnumerable<CredentialsDTO>>()
                     {
                         Data = null,
                         IsSuccess = false,
-                        Errors = new List<AppError>() { new AppError()
+                        Errors = new List<ApplicationErrors>() { new ApplicationErrors()
                         {
                             Code = Guid.NewGuid().ToString(),
                             Message = "No Credentials found"
@@ -59,17 +59,17 @@ namespace DevNest.Business.Domain.Services
                 }
 
 
-                return new AppResponse<IEnumerable<CredentialDTO>>()
+                return new ApplicationResponse<IEnumerable<CredentialsDTO>>()
                 {
-                    Data = _mapper.Map<IEnumerable<CredentialDTO>>(_data),
+                    Data = _mapper.Map<IEnumerable<CredentialsDTO>>(_data),
                     IsSuccess = true
                 };
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message,ex);
-                var errors = new List<AppError>();
-                errors.Add(new AppError()
+                var errors = new List<ApplicationErrors>();
+                errors.Add(new ApplicationErrors()
                 {
                     Code = Guid.NewGuid().ToString(),
                     Message = ex.Message

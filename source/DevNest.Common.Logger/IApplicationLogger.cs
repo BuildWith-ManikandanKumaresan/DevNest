@@ -4,9 +4,9 @@
 namespace DevNest.Common.Logger
 {
     /// <summary>
-    /// Represents the interface for <see cref="IAppLogger{T}"> class./>.
+    /// Represents the interface for <see cref="IApplicationLogger{T}"> class./>.
     /// </summary>
-    public interface IAppLogger<T>
+    public interface IApplicationLogger<T>
     {
         /// <summary>
         /// Handler method for logging debug logs.

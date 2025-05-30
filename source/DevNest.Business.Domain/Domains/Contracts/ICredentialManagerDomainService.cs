@@ -4,17 +4,17 @@ using DevNest.Common.Base.Response;
 using DevNest.Infrastructure.DTOs;
 #endregion using directives
 
-namespace DevNest.Business.Domain.DomainContracts
+namespace DevNest.Business.Domain.Domains.Contracts
 {
     /// <summary>
     /// Represents the interface instance for credential manager services.
     /// </summary>
-    public interface ICredManagerDomainService : IDomainService
+    public interface ICredentialManagerDomainService : IDomainService
     {
         /// <summary>
         /// Handler method interface for get credentials.
         /// </summary>
         /// <returns></returns>
-        Task<AppResponse<IEnumerable<CredentialDTO>>> Get();
+        Task<ApplicationResponse<IEnumerable<CredentialsDTO>>> Get();
     }
 }

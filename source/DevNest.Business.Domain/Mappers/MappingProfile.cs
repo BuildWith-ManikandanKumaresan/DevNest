@@ -1,5 +1,7 @@
 ﻿#region using directives
 using AutoMapper;
+using DevNest.Common.Base.DTOs;
+using DevNest.Common.Base.Entity;
 using DevNest.Infrastructure.DTOs;
 using DevNest.Infrastructure.Entity;
 #endregion using directives
@@ -16,8 +18,12 @@ namespace DevNest.Business.Domain.Mappers
         /// </summary>
         public MappingProfile() 
         {
-            CreateMap<CredentialDTO, CredentialEntity>();
-            CreateMap<CredentialEntity, CredentialDTO>();
+            CreateMap<HistoryEntity,HistoryDTO>();
+            CreateMap<HistoryDTO,HistoryEntity>();
+            CreateMap<MetadataDTO,MetadataEntity>();
+            CreateMap<MetadataEntity, MetadataDTO>();
+            CreateMap<CredentialsDTO, CredentialEntity>();
+            CreateMap<CredentialEntity, CredentialsDTO>();
         }
     }
 }

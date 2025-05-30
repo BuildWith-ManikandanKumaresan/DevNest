@@ -1,9 +1,9 @@
-﻿namespace DevNest.Common.Base.Entity
+﻿namespace DevNest.Common.Base.DTOs
 {
     /// <summary>
     /// Represents the class instance for entity history.
     /// </summary>
-    public class HistoryEntity
+    public class HistoryDTO
     {
 
         /// <summary>

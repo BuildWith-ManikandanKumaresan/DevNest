@@ -1,9 +1,9 @@
-﻿namespace DevNest.Common.Logger.Model
+﻿namespace DevNest.Common.Base.Entity
 {
     /// <summary>
     /// Represents the class instance for standard logger.
     /// </summary>
-    public class LoggerConfig
+    public class LoggerConfigEntity
     {
         /// <summary>
         /// Gets or set the logging enable.

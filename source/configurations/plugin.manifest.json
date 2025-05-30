@@ -1,11 +1,15 @@
-[{
-        "PluginId": "EA3F8AE3-347C-4290-AB3B-3D2380B9E14D",
-        "PluginName": "Json",
-        "PluginType": "Storage",
-        "Version": "1.0.0.0",
-        "Description": "To store the data as Json",
-        "AssemblyLocation": "Plugin\\DevNest.Plugin.Json",
-        "StorageId": "EA3F8AE3-347C-4290-AB3B-3D2380B9E14D"
-        "IsActive": true
-    }
-]
+{
+	"Plugins": [
+		{
+			"pluginId": "EA3F8AE3-347C-4290-AB3B-3D2380B9E14D",
+			"pluginName": "Json",
+			"pluginType": "Storage",
+			"version": "1.0.0.0",
+			"description": "To store the data as Json",
+			"assemblyLocation": "DevNest.Plugin.Json.dll",
+			"storageId": "EA3F8AE3-347C-4290-AB3B-3D2380B9E14D",
+			"isActive": true,
+			"isPrimary": true
+		}
+	]
+}

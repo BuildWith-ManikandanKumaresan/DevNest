@@ -1,6 +1,7 @@
 ﻿#region using directives
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Entity;
+using Microsoft.Extensions.Options;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -18,7 +19,7 @@ namespace DevNest.Common.Logger
     /// </summary>
     public class LoggingManager
     {
-        private readonly IApplicationConfigService<LoggerConfigEntity> _config;
+        private readonly IOptions<LoggerConfigEntity> _config;
         private const string _LoggerConfigurationsMissing = "Logger configuration is missing.";
         private const string _UpDirectory = "..";
         private const string _DefaultLoggingDirectory = "logs";
@@ -40,7 +41,7 @@ namespace DevNest.Common.Logger
         /// Initialize the constructor instance for logging manager.
         /// </summary>
         /// <param name="config"></param>
-        public LoggingManager(IApplicationConfigService<LoggerConfigEntity> config)
+        public LoggingManager(IOptions<LoggerConfigEntity> config)
         {
             _config = config;
         }
@@ -52,10 +53,10 @@ namespace DevNest.Common.Logger
         /// <returns></returns>
         public Serilog.Core.Logger Initialize(string serviceName)
         {
-            var config = _config.Value ?? throw new InvalidOperationException(_LoggerConfigurationsMissing);
+            var config = _config ?? throw new InvalidOperationException(_LoggerConfigurationsMissing);
             var logDir = Path.Combine(
                 Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), _UpDirectory)),
-                config.LoggerDirectory ?? _DefaultLoggingDirectory,
+                config.Value.LoggerDirectory ?? _DefaultLoggingDirectory,
                 serviceName.ToLower());
 
             Directory.CreateDirectory(logDir); // Ensure log directory exists
@@ -67,11 +68,11 @@ namespace DevNest.Common.Logger
                 .WriteTo.Console()
                 .WriteTo.File(
                     path: logPath,
-                    rollingInterval: GetRollingInterval(config.FileRollingInterval),
-                    fileSizeLimitBytes: config.FileSizeLimits,
+                    rollingInterval: GetRollingInterval(config.Value.FileRollingInterval),
+                    fileSizeLimitBytes: config.Value.FileSizeLimits,
                     rollOnFileSizeLimit: true,
-                    outputTemplate: config.OutputTemplate ?? string.Empty)
-                .MinimumLevel.Is(GetLogLevel(config.MinimumLogLevel));
+                    outputTemplate: config.Value.OutputTemplate ?? string.Empty)
+                .MinimumLevel.Is(GetLogLevel(config.Value.MinimumLogLevel));
 
             return loggerConfig.CreateLogger();
         }

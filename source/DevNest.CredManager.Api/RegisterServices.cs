@@ -8,6 +8,7 @@ using DevNest.Common.Logger;
 using DevNest.Business.Domain.RouterContracts;
 using DevNest.Infrastructure.Routers;
 using DevNest.Common.Base.Entity;
+using DevNest.Common.Base.Helpers;
 #endregion using directives
 
 namespace DevNest.CredManager.Api
@@ -20,26 +21,24 @@ namespace DevNest.CredManager.Api
         private const string _ConfigurationsDirectory = "configurations";
         private const string _LoggerConfigurations = "logger.configuration.json";
         private const string _ApiServiceName = "Credential-Manager";
-        private const string _AssemblySearchPattern = "DevNest.";
 
         /// <summary>
         /// Register the logging depdency injections for the services.
         /// </summary>
         /// <param name="builder"></param>
-        public static void RegisterLogger(this IServiceCollection services)
+        public static void RegisterLogger(this WebApplicationBuilder builder)
         {
+            builder.Services.Configure<LoggerConfigEntity>(
+                builder.Configuration.GetSection("ApplicationLoggers"));
             // Setup AppConfigService for LoggerConfig
-            var provider = services.BuildServiceProvider();
-            var loggerConfigOptions = provider.GetRequiredService<IOptionsMonitor<LoggerConfigEntity>>();
-            var appConfigService = new ApplicationConfigService<LoggerConfigEntity>(loggerConfigOptions);
-
+            using var provider = builder.Services.BuildServiceProvider();
+            var config = provider.GetRequiredService<IOptions<LoggerConfigEntity>>();
             // Initialize logger and register in DI
-            var loggingManager = new LoggingManager(appConfigService);
+            var loggingManager = new LoggingManager(config);
             Serilog.ILogger logger = loggingManager.Initialize(_ApiServiceName);
-
-            services.AddSingleton<IApplicationConfigService<LoggerConfigEntity>>(appConfigService);
-            services.AddSingleton(logger);
-            services.AddScoped(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
+            builder.Services.AddSingleton<IOptions<LoggerConfigEntity>>(config);
+            builder.Services.AddSingleton(logger);
+            builder.Services.AddSingleton(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
         }
 
         /// <summary>
@@ -48,14 +47,6 @@ namespace DevNest.CredManager.Api
         /// <param name="builder"></param>
         public static void RegisterConfigurations(this WebApplicationBuilder builder)
         {
-            string jsonFilePath = Path.Combine(
-                Directory.GetCurrentDirectory(),
-                "..",
-                _ConfigurationsDirectory,
-                _LoggerConfigurations);
-
-            builder.Configuration.AddJsonFile(jsonFilePath, optional: false, reloadOnChange: true);
-            builder.Services.Configure<LoggerConfigEntity>(builder.Configuration);
         }
 
         /// <summary>
@@ -64,8 +55,8 @@ namespace DevNest.CredManager.Api
         /// <param name="builder"></param>
         public static void RegisterMediatr(this IServiceCollection services)
         {
-            var currentAssembly = GetCurrentAssembly();
-            var referencedAssemblies = GetReferencedAssemblies(currentAssembly).ToList();
+            var currentAssembly = Assembly.GetAssembly(typeof(RegisterServices));
+            var referencedAssemblies = AssemblyHelper.GetReferencedAssemblies(currentAssembly).ToList();
             referencedAssemblies.Add(currentAssembly);
 
             services.AddMediatR(cfg =>
@@ -91,34 +82,5 @@ namespace DevNest.CredManager.Api
                 .WithScopedLifetime());
         }
 
-        /// <summary>
-        /// Handler method to get the current executing assmbly.
-        /// </summary>
-        /// <returns></returns>
-        public static Assembly? GetCurrentAssembly()
-        {
-            return Assembly.GetAssembly(typeof(RegisterServices));
-        }
-
-        /// <summary>
-        /// Gets the referenced assemblies that match the specified search pattern.
-        /// </summary>
-        /// <param name="assembly">The assembly to get referenced assemblies from.</param>
-        /// <returns>An enumerable collection of referenced assemblies.</returns>
-        public static IEnumerable<Assembly> GetReferencedAssemblies(Assembly assembly)
-        {
-            var assembliesName = assembly.GetReferencedAssemblies().Where(referenced => IsAssemblyAccepted(referenced.Name));
-            return assembliesName.Select(Assembly.Load);
-        }
-
-        /// <summary>
-        /// Determines whether an assembly name is accepted based on a search pattern.
-        /// </summary>
-        /// <param name="name">The name of the assembly to check.</param>
-        /// <returns><c>true</c> if the assembly name matches the search pattern; otherwise, <c>false</c>.</returns>
-        private static bool IsAssemblyAccepted(string? name)
-        {
-            return name?.StartsWith(_AssemblySearchPattern) ?? false;
-        }
     }
 }

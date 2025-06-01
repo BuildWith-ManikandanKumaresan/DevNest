@@ -7,14 +7,30 @@ namespace DevNest.Manager.FileSystem
     /// </summary>
     public class FileSystemManager : IFileSystemManager
     {
+        /// <summary>
+        /// Gets or sets the filesystem root directory.
+        /// </summary>
         public string? RootDirectory => GetRootDirectory();
 
+        /// <summary>
+        /// Get configuration directory from the file systems.
+        /// </summary>
         public string? ConfigurationDirectory => GetConfigurationDirectory();
 
+        /// <summary>
+        /// Get the directry path than contains the plugins.
+        /// </summary>
         public string? PluginDirectory => GetPluginDirectory();
 
+        /// <summary>
+        /// Get the directory path that contains the data's.
+        /// </summary>
         public string? DataDirectrory => GetDataDirectory();
 
+        /// <summary>
+        /// Handler method to Get the root directory.
+        /// </summary>
+        /// <returns></returns>
         private string? GetRootDirectory()
         {
             string executionPath = Path.GetFullPath(Directory.GetParent(Assembly.GetExecutingAssembly().Location)?.FullName ?? string.Empty);
@@ -23,6 +39,10 @@ namespace DevNest.Manager.FileSystem
             return executionPath;
         }
 
+        /// <summary>
+        /// Handler method to get the directory that contains the configuration files.
+        /// </summary>
+        /// <returns></returns>
         private string? GetConfigurationDirectory()
         {
             string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, "..", "configurations"));
@@ -31,6 +51,10 @@ namespace DevNest.Manager.FileSystem
             return configDir;
         }
 
+        /// <summary>
+        /// Handler method to get the directory path that contains the plugins.
+        /// </summary>
+        /// <returns></returns>
         private string? GetPluginDirectory()
         {
             string plugInDirectory = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, "Plugins"));
@@ -39,6 +63,10 @@ namespace DevNest.Manager.FileSystem
             return plugInDirectory;
         }
 
+        /// <summary>
+        /// Handler method to get the directory path that contains the data.
+        /// </summary>
+        /// <returns></returns>
         private string? GetDataDirectory()
         {
             string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, "..", "data"));

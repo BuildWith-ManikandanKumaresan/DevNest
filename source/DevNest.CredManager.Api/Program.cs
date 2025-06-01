@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.RegisterConfigurations();
 
 //Register the logger injections.
-builder.Services.RegisterLogger();
+builder.RegisterLogger();
 
 //Register the mediatr service injections.
 builder.Services.RegisterMediatr();

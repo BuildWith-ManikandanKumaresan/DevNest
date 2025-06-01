@@ -2,6 +2,7 @@
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Entity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Serilog.Core;
 using System.Text;
@@ -16,7 +17,7 @@ namespace DevNest.Common.Logger
     public class ApplicationLogger<T> : IApplicationLogger<T>
     {
         private readonly Serilog.ILogger _logger;
-        private readonly IApplicationConfigService<LoggerConfigEntity> _configurationService;
+        private readonly IOptions<LoggerConfigEntity> _configurationService;
 
         /// <summary>
         /// Constructor intialization for standard logger of T type.
@@ -24,8 +25,8 @@ namespace DevNest.Common.Logger
         /// <param name="logger"></param>
         /// <param name="configuration"></param>
         public ApplicationLogger(
-            Serilog.ILogger logger, 
-            IApplicationConfigService<LoggerConfigEntity> configuration)
+            Serilog.ILogger logger,
+            IOptions<LoggerConfigEntity> configuration)
         {
             this._logger = logger;
             this._configurationService = configuration;

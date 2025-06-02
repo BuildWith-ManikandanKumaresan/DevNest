@@ -9,6 +9,8 @@ using DevNest.Business.Domain.RouterContracts;
 using DevNest.Infrastructure.Routers;
 using DevNest.Common.Base.Entity;
 using DevNest.Common.Base.Helpers;
+using DevNest.Manager.Plugin;
+using DevNest.Manager.FileSystem;
 #endregion using directives
 
 namespace DevNest.CredManager.Api
@@ -18,10 +20,6 @@ namespace DevNest.CredManager.Api
     /// </summary>
     public static class RegisterServices
     {
-        private const string _ConfigurationsDirectory = "configurations";
-        private const string _LoggerConfigurations = "logger.configuration.json";
-        private const string _ApiServiceName = "Credential-Manager";
-
         /// <summary>
         /// Register the logging depdency injections for the services.
         /// </summary>
@@ -30,12 +28,14 @@ namespace DevNest.CredManager.Api
         {
             builder.Services.Configure<LoggerConfigEntity>(
                 builder.Configuration.GetSection("ApplicationLoggers"));
+            
             // Setup AppConfigService for LoggerConfig
             using var provider = builder.Services.BuildServiceProvider();
             var config = provider.GetRequiredService<IOptions<LoggerConfigEntity>>();
+            
             // Initialize logger and register in DI
             var loggingManager = new LoggingManager(config);
-            Serilog.ILogger logger = loggingManager.Initialize(_ApiServiceName);
+            Serilog.ILogger logger = loggingManager.Initialize("Credential-Manager");
             builder.Services.AddSingleton<IOptions<LoggerConfigEntity>>(config);
             builder.Services.AddSingleton(logger);
             builder.Services.AddSingleton(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
@@ -63,8 +63,12 @@ namespace DevNest.CredManager.Api
             {
                 cfg.RegisterServicesFromAssemblies(referencedAssemblies.ToArray());
             });
+
             services.AddScoped<IMediator, Mediator>();
             services.AddAutoMapper(typeof(MappingProfile));
+            // Register the FileSystemManager in DI container
+            services.AddScoped<IFileSystemManager, FileSystemManager>();
+            services.AddScoped<IPluginManager,PluginManager>();
 
             services.Scan(scan => scan
                 .FromAssemblies(referencedAssemblies)

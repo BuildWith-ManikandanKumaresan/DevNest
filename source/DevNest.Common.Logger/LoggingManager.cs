@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Entity;
 using Microsoft.Extensions.Options;
@@ -21,21 +22,6 @@ namespace DevNest.Common.Logger
     {
         private readonly IOptions<LoggerConfigEntity> _config;
         private const string _LoggerConfigurationsMissing = "Logger configuration is missing.";
-        private const string _UpDirectory = "..";
-        private const string _DefaultLoggingDirectory = "logs";
-        private static readonly string _LogFileNameWithExtension = $".log";
-
-        private const string _RollingInterval_Hour = "hour";
-        private const string _RollingInterval_Minute = "minute";
-        private const string _RollingInterval_Infinite = "infinite";
-        private const string _RollingInterval_Year = "year";
-        private const string _RollingInterval_Day = "day";
-
-        private const string _LogLevel_Debug = "debug";
-        private const string _LogLevel_Info = "info";
-        private const string _LogLevel_Warning = "warning";
-        private const string _LogLevel_Fatal = "fatal";
-        private const string _LogLevel_Verbose = "verbose";
 
         /// <summary>
         /// Initialize the constructor instance for logging manager.
@@ -55,14 +41,14 @@ namespace DevNest.Common.Logger
         {
             var config = _config ?? throw new InvalidOperationException(_LoggerConfigurationsMissing);
             var logDir = Path.Combine(
-                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), _UpDirectory)),
-                config.Value.LoggerDirectory ?? _DefaultLoggingDirectory,
+                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..")),
+                config.Value.LoggerDirectory ?? LoggerConstants.DefaultLoggingDirectory,
                 serviceName.ToLower());
 
             Directory.CreateDirectory(logDir); // Ensure log directory exists
 
             string logPath = Path.Combine(logDir, 
-                $"{serviceName.ToLower()}.{_LogFileNameWithExtension}");
+                $"{serviceName.ToLower()}.{LoggerConstants.LogFileNameWithExtension}");
 
             var loggerConfig = new LoggerConfiguration()
                 .WriteTo.Console()
@@ -83,10 +69,10 @@ namespace DevNest.Common.Logger
         /// <returns></returns>
         private RollingInterval GetRollingInterval(string? interval) => interval?.ToLower() switch
         {
-            _RollingInterval_Hour => RollingInterval.Hour,
-            _RollingInterval_Minute => RollingInterval.Minute,
-            _RollingInterval_Infinite => RollingInterval.Infinite,
-            _RollingInterval_Year => RollingInterval.Year,
+            LoggerConstants.RollingInterval_Hour => RollingInterval.Hour,
+            LoggerConstants.RollingInterval_Minute => RollingInterval.Minute,
+            LoggerConstants.RollingInterval_Infinite => RollingInterval.Infinite,
+            LoggerConstants.RollingInterval_Year => RollingInterval.Year,
             _ => RollingInterval.Day
         };
 
@@ -95,10 +81,10 @@ namespace DevNest.Common.Logger
         /// </summary>
         private LogEventLevel GetLogLevel(string? level) => level?.ToLower() switch
         {
-            _LogLevel_Debug => LogEventLevel.Debug,
-            _LogLevel_Info => LogEventLevel.Information,
-            _LogLevel_Warning => LogEventLevel.Warning,
-            _LogLevel_Fatal => LogEventLevel.Fatal,
+            LoggerConstants.LogLevel_Debug => LogEventLevel.Debug,
+            LoggerConstants.LogLevel_Info => LogEventLevel.Information,
+            LoggerConstants.LogLevel_Warning => LogEventLevel.Warning,
+            LoggerConstants.LogLevel_Fatal => LogEventLevel.Fatal,
             _ => LogEventLevel.Verbose
         };
     }

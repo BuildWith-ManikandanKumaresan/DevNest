@@ -22,6 +22,7 @@
     <ProjectReference Include="..\DevNest.Infrastructure.DTOs\DevNest.Infrastructure.DTOs.csproj" />
     <ProjectReference Include="..\DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj" />
     <ProjectReference Include="..\DevNest.Infrastructure.Routers\DevNest.Infrastructure.Routers.csproj" />
+    <ProjectReference Include="..\DevNest.Manager\DevNest.Manager.csproj" />
   </ItemGroup>
 
 </Project>

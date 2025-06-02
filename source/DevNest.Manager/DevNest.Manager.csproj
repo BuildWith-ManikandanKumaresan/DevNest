@@ -10,11 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Task\" />
+    <Compile Remove="Task\**" />
+    <EmbeddedResource Remove="Task\**" />
+    <None Remove="Task\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DevNest.Common.Base\DevNest.Common.Base.csproj" />
+    <ProjectReference Include="..\DevNest.Common.Logger\DevNest.Common.Logger.csproj" />
+    <ProjectReference Include="..\DevNest.Plugin.Contracts\DevNest.Plugin.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using DevNest.Business.Domain.RouterContracts;
 using DevNest.Infrastructure.Entity;
 using DevNest.Common.Logger;
+using DevNest.Manager.Plugin;
 #endregion using directives
 
 namespace DevNest.Infrastructure.Routers
@@ -12,14 +13,18 @@ namespace DevNest.Infrastructure.Routers
     public class CredentialManagerReposRouter : ICredentialManagerReposRouter
     {
         private readonly IApplicationLogger<CredentialManagerReposRouter> _logger;
+        private readonly IPluginManager _pluginManager;
 
         /// <summary>
         /// Initialize the new instance for <see cref="CredentialManagerReposRouter" class./>
         /// </summary>
         /// <param name="logger"></param>
-        public CredentialManagerReposRouter(IApplicationLogger<CredentialManagerReposRouter> logger)
+        public CredentialManagerReposRouter(
+            IApplicationLogger<CredentialManagerReposRouter> logger,
+            IPluginManager pluginManager)
         {
             _logger = logger;
+            _pluginManager = pluginManager;
         }
 
         /// <summary>
@@ -28,11 +33,8 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<IEnumerable<CredentialEntity>?> GetAsync()
         {
-            return [new CredentialEntity()
-            {
-                Metadata = new(),
-                HistoryInformation =new()
-            }];
+            var context = _pluginManager.GetContext<CredentialEntity>(new Dictionary<string, object>());
+            return context.Get();
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿#region using directives
+using DevNest.Common.Base.Constants;
+using System.Reflection;
+#endregion using directives
 
 namespace DevNest.Common.Base.Helpers
 {
@@ -7,8 +10,6 @@ namespace DevNest.Common.Base.Helpers
     /// </summary>
     public static class AssemblyHelper
     {
-        private const string _AssemblySearchPattern = "DevNest.";
-
         /// <summary>
         /// Gets the referenced assemblies that match the specified search pattern.
         /// </summary>
@@ -27,7 +28,7 @@ namespace DevNest.Common.Base.Helpers
         /// <returns><c>true</c> if the assembly name matches the search pattern; otherwise, <c>false</c>.</returns>
         private static bool IsAssemblyAccepted(string? name)
         {
-            return name?.StartsWith(_AssemblySearchPattern) ?? false;
+            return name?.StartsWith(CommonConstants.AssemblySearchPattern) ?? false;
         }
     }
 }

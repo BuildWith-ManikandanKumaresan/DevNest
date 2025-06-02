@@ -1,0 +1,50 @@
+﻿namespace DevNest.Plugin.Contracts
+{
+    /// <summary>
+    /// Represents the interface for data context operations.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IDataContext<T> where T : class
+    {
+        /// <summary>
+        /// Gets the connection params for the data context.
+        /// </summary>
+        Dictionary<string,object>? ConnectionParams { get; }
+
+        /// <summary>
+        /// Gets the collection of entities of type T.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<T>? Get();
+
+        /// <summary>
+        /// Gets an entity by its identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        T? GetById(Guid id);
+
+        /// <summary>
+        /// Adds a new entity to the data context.
+        /// </summary>
+        /// <param name="entity"></param>
+        void Add(T entity);
+
+        /// <summary>
+        /// Updates an existing entity in the data context.
+        /// </summary>
+        /// <param name="entity"></param>
+        void Update(T entity);
+
+        /// <summary>
+        /// Deletes an entity by its identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        void Delete(Guid id);
+
+        /// <summary>
+        /// Deletes all entities in the data context.
+        /// </summary>
+        void DeleteAll();
+    }
+}

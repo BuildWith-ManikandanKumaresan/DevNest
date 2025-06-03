@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj" />
     <ProjectReference Include="..\..\DevNest.Plugin.Contracts\DevNest.Plugin.Contracts.csproj" />
   </ItemGroup>

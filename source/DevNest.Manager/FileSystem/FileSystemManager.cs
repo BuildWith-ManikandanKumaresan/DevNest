@@ -7,6 +7,11 @@ namespace DevNest.Manager.FileSystem
     /// </summary>
     public class FileSystemManager : IFileSystemManager
     {
+        private const string FolderUp = "..";
+        private const string ConfigurationsDirectory = "configurations";
+        private const string PlugInsDirectory = "Plugins";
+        private const string DatasDirectory = "data";
+
         /// <summary>
         /// Gets or sets the filesystem root directory.
         /// </summary>
@@ -45,9 +50,9 @@ namespace DevNest.Manager.FileSystem
         /// <returns></returns>
         private string? GetConfigurationDirectory()
         {
-            string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, "..", "configurations"));
+            string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, FolderUp, ConfigurationDirectory));
             if (!Directory.Exists(configDir))
-                return null;
+                Directory.CreateDirectory(configDir);
             return configDir;
         }
 
@@ -57,9 +62,9 @@ namespace DevNest.Manager.FileSystem
         /// <returns></returns>
         private string? GetPluginDirectory()
         {
-            string plugInDirectory = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, "Plugins"));
+            string plugInDirectory = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, PlugInsDirectory));
             if (!Directory.Exists(plugInDirectory))
-                return null;
+                Directory.CreateDirectory(plugInDirectory);
             return plugInDirectory;
         }
 
@@ -69,9 +74,9 @@ namespace DevNest.Manager.FileSystem
         /// <returns></returns>
         private string? GetDataDirectory()
         {
-            string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, "..", "data"));
+            string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, FolderUp, DatasDirectory));
             if (!Directory.Exists(configDir))
-                return null;
+                Directory.CreateDirectory(configDir);
             return configDir;
         }
 

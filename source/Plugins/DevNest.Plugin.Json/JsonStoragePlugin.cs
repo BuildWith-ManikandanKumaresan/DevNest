@@ -10,6 +10,11 @@ namespace DevNest.Plugin.Json
     {
         private readonly Dictionary<Type, object> _contexts = new();
 
+        public JsonStoragePlugin()
+        {
+            _contexts = new();
+        }
+
         /// <summary>
         /// Gets or sets the unique identifier for the plugin.
         /// </summary>
@@ -55,9 +60,6 @@ namespace DevNest.Plugin.Json
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IDataContext<T>)context;
-
-            if (!connectionParams.TryGetValue($"{typeof(T).Name}_Path", out var pathObj) || pathObj is not string dataPath)
-                throw new ArgumentException($"Missing or invalid path for {typeof(T).Name}_Path");
 
             var newContext = new JsonDataContext<T>(connectionParams);
             _contexts[typeof(T)] = newContext;

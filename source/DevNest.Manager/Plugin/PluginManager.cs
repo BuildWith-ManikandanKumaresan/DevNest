@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Logger;
 using DevNest.Manager.FileSystem;
@@ -16,15 +17,18 @@ namespace DevNest.Manager.Plugin
     {
         private readonly IFileSystemManager _fileSystemManager;
         private readonly IApplicationLogger<PluginManager> _logger;
-        private IStoragePlugin? _pluginInstance;
+        private readonly IList<IStoragePlugin>? _pluginInstance;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PluginManager"/> class.
         /// </summary>
         /// <param name="fileSystemManager"></param>
         /// <param name="logger"></param>
-        public PluginManager(IFileSystemManager fileSystemManager, IApplicationLogger<PluginManager> logger)
+        public PluginManager(
+            IFileSystemManager fileSystemManager, 
+            IApplicationLogger<PluginManager> logger)
         {
+            this._pluginInstance = [];
             this._logger = logger;
             this._fileSystemManager = fileSystemManager;
             LoadPlugins();
@@ -39,7 +43,7 @@ namespace DevNest.Manager.Plugin
             string[] pluginDirectories = Directory.GetDirectories(_fileSystemManager.PluginDirectory ?? string.Empty) ?? [];
             foreach (string pluginDirectory in pluginDirectories)
             {
-                var pluginFiles = Directory.GetFiles(pluginDirectory, "DevNest.*.dll") ?? throw new FileNotFoundException("No plugin found.");
+                var pluginFiles = Directory.GetFiles(pluginDirectory, CommonConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException("No plugin found.");
                 foreach (var pluginFile in pluginFiles)
                 {
                     Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));
@@ -47,7 +51,7 @@ namespace DevNest.Manager.Plugin
 
                     if (type != null)
                     {
-                        _pluginInstance = (IStoragePlugin)Activator.CreateInstance(type)!;
+                        _pluginInstance?.Add((IStoragePlugin)Activator.CreateInstance(type)!);
                     }
                 }
             }
@@ -61,7 +65,15 @@ namespace DevNest.Manager.Plugin
         /// <returns></returns>
         public IDataContext<T>? GetContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
-            return _pluginInstance?.GetDataContext<T>(connectionParams);
+            var activePlugin = connectionParams["storageId"] != null ?
+                _pluginInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams["storageId"].ToString() ?? string.Empty) && p.IsActive == true) :
+                _pluginInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
+            if (activePlugin == null)
+            {
+                this._logger.LogError(message: "No active primary plugin found.", apiCall: null);
+                return null;
+            }
+            return activePlugin?.GetDataContext<T>(connectionParams);
         }
     }
 }

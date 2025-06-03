@@ -1,56 +1,106 @@
-﻿using DevNest.Infrastructure.Entity;
+﻿#region using directives
+using DevNest.Infrastructure.Entity;
 using DevNest.Plugin.Contracts;
+using DevNest.Plugin.Json.Handler;
+#endregion using directives
 
 namespace DevNest.Plugin.Json
 {
+    /// <summary>
+    /// Represents the class instance for JSON data context plugin.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class JsonDataContext<T> : IDataContext<T> where T : class
     {
+        private readonly JsonDataHandler<T> _JsonHandler;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JsonDataContext{T}"/> class with the specified connection parameters.
+        /// </summary>
+        /// <param name="_connectionParams"></param>
         public JsonDataContext(Dictionary<string, object>? _connectionParams)
         {
             ConnectionParams = _connectionParams;
+            _JsonHandler = new JsonDataHandler<T>(_connectionParams ?? new Dictionary<string, object>());
         }
 
+        /// <summary>
+        /// Gets the connection parameters for the data context.
+        /// </summary>
         public Dictionary<string, object>? ConnectionParams { get; private set; }
 
+        /// <summary>
+        /// Add the entity type of T to the data context.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <exception cref="NotImplementedException"></exception>
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+                return;
+            if(entity is List<CredentialEntity>)
+            {
+                _JsonHandler.Write(entity as List<T>);
+            }
         }
 
+        /// <summary>
+        /// Deletes the entity of type T by its identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="NotImplementedException"></exception>
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            int res = data.RemoveAll(x => x.Id == id);
+            if(res > 0)
+            {
+                _JsonHandler.Write(data as List<T>);
+            }
         }
 
+        /// <summary>
+        /// Deletes all entities of type T from the data context.
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public void DeleteAll()
         {
-            throw new NotImplementedException();
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            int res = data.RemoveAll(a=>a.Id == a.Id);
+            if (res > 0)
+            {
+                _JsonHandler.Write(data as List<T>);
+            }
         }
 
+        /// <summary>
+        /// Gets the collection of entities of type T from the data context.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<T>? Get()
         {
-            return new List<CredentialEntity>()
-            {
-                new(){
-                    Id = Guid.NewGuid(),
-                    Title = "Test Credential",
-                    HistoryInformation = new Common.Base.Entity.HistoryEntity()
-                    { 
-                        CreatedAt = DateTime.UtcNow,
-                        UpdatedAt = DateTime.UtcNow
-                    }
-                }
-            } as IEnumerable<T>;
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            return data as IEnumerable<T>;
         }
 
+        /// <summary>
+        /// Gets an entity of type T by its identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public T? GetById(Guid id)
         {
-            throw new NotImplementedException();
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            return data.FirstOrDefault(a => a.Id == id) as T;
         }
 
-        public void Update(T entity)
+        /// <summary>
+        /// Updates an existing entity of type T in the data context.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void Update(T entity = null)
         {
-            throw new NotImplementedException();
         }
     }
 }

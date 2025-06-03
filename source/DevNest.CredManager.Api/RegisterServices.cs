@@ -11,6 +11,8 @@ using DevNest.Common.Base.Entity;
 using DevNest.Common.Base.Helpers;
 using DevNest.Manager.Plugin;
 using DevNest.Manager.FileSystem;
+using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
+using DevNest.Common.Base.Constants;
 #endregion using directives
 
 namespace DevNest.CredManager.Api
@@ -27,7 +29,7 @@ namespace DevNest.CredManager.Api
         public static void RegisterLogger(this WebApplicationBuilder builder)
         {
             builder.Services.Configure<LoggerConfigEntity>(
-                builder.Configuration.GetSection("ApplicationLoggers"));
+                builder.Configuration.GetSection("applicationLoggers"));
             
             // Setup AppConfigService for LoggerConfig
             using var provider = builder.Services.BuildServiceProvider();
@@ -35,18 +37,28 @@ namespace DevNest.CredManager.Api
             
             // Initialize logger and register in DI
             var loggingManager = new LoggingManager(config);
-            Serilog.ILogger logger = loggingManager.Initialize("Credential-Manager");
+            Serilog.ILogger logger = loggingManager.Initialize(ServiceConstants.ServiceName_CredentialManager);
             builder.Services.AddSingleton<IOptions<LoggerConfigEntity>>(config);
             builder.Services.AddSingleton(logger);
             builder.Services.AddSingleton(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
+            builder.Services.AddSingleton(typeof(IApplicationConfigService<>), typeof(ApplicationConfigService<>));
         }
 
         /// <summary>
         /// Registers the custom configuration files to the services.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="configuration"></param>
         public static void RegisterConfigurations(this WebApplicationBuilder builder)
         {
+            FileSystemManager manager = new FileSystemManager();
+            string configDirectory = manager.ConfigurationDirectory;
+
+            builder.Configuration.AddJsonFile(Path.Combine(configDirectory, ConfigurationFileConstants.ConfigurationFileName_CredentialManager), optional: true, reloadOnChange: true)
+                         .AddEnvironmentVariables();
+            builder.Services.Configure<CredentialManagerConfigurations>(
+                builder.Configuration);
+
+
         }
 
         /// <summary>
@@ -73,11 +85,11 @@ namespace DevNest.CredManager.Api
             services.Scan(scan => scan
                 .FromAssemblies(referencedAssemblies)
 
-                .AddClasses(classes => classes.AssignableTo(typeof(IDomainService)))
+                .AddClasses(classes => classes.AssignableTo(typeof(IReposRouter)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime()
 
-                .AddClasses(classes => classes.AssignableTo(typeof(IReposRouter)))
+                .AddClasses(classes => classes.AssignableTo(typeof(IDomainService)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime()
 

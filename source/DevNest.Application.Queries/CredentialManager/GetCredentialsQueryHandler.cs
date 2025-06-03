@@ -4,6 +4,8 @@ using DevNest.Infrastructure.DTOs;
 using DevNest.Common.Logger;
 using MediatR;
 using DevNest.Business.Domain.Domains.Contracts;
+using DevNest.Common.Base.Contracts;
+using DevNest.Infrastructure.Entity;
 #endregion using directives
 
 namespace DevNest.Application.Queries.CredentialManager
@@ -15,16 +17,19 @@ namespace DevNest.Application.Queries.CredentialManager
     {
         private readonly IApplicationLogger<GetCredentialsQueryHandler> _logger;
         private readonly ICredentialManagerDomainService _domainService;
+        private readonly IApplicationConfigService<CredentialEntity> _applicationConfigService;
 
         /// <summary>
         /// Initialize the new instance for Get Credentials query handler class.
         /// </summary>
         public GetCredentialsQueryHandler(
             IApplicationLogger<GetCredentialsQueryHandler> appLogger,
+            IApplicationConfigService<CredentialEntity> applicationConfigService,
             ICredentialManagerDomainService domainService)
         {
             this._logger = appLogger;
             this._domainService = domainService;
+            this._applicationConfigService = applicationConfigService;
         }
 
         /// <summary>

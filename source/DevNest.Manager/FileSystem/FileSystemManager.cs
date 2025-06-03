@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using DevNest.Common.Base.Constants;
+using System.Reflection;
 
 namespace DevNest.Manager.FileSystem
 {
@@ -7,15 +8,22 @@ namespace DevNest.Manager.FileSystem
     /// </summary>
     public class FileSystemManager : IFileSystemManager
     {
-        private const string FolderUp = "..";
-        private const string ConfigurationsDirectory = "configurations";
-        private const string PlugInsDirectory = "Plugins";
-        private const string DatasDirectory = "data";
+        private string? _rootDirectory = string.Empty;
 
         /// <summary>
         /// Gets or sets the filesystem root directory.
         /// </summary>
-        public string? RootDirectory => GetRootDirectory();
+        public string? RootDirectory
+        {
+            get
+            {
+                if(string.IsNullOrEmpty(_rootDirectory))
+                {
+                    _rootDirectory = GetRootDirectory() ?? string.Empty;
+                }
+                return _rootDirectory;
+            }
+        }
 
         /// <summary>
         /// Get configuration directory from the file systems.
@@ -33,15 +41,40 @@ namespace DevNest.Manager.FileSystem
         public string? DataDirectrory => GetDataDirectory();
 
         /// <summary>
+        /// Get the directory path that contains the assets.
+        /// </summary>
+        public string? AssetsDirectory => GetAssetsDirectory();
+
+        /// <summary>
+        /// Get the directory path that contains the error codes.
+        /// </summary>
+        public string? ErrorCodesDirectory => GetErrorCodesDirectory();
+
+        /// <summary>
+        /// Get the directory path that contains the warning codes.
+        /// </summary>
+        public string? WarningCodesDirectory => GetWarningCodesDirectory();
+
+        /// <summary>
+        /// Get the directory path that contains the success codes.
+        /// </summary>
+        public string? SuccessCodesDirectory => GetSuccessCodesDirectory();
+
+        /// <summary>
         /// Handler method to Get the root directory.
         /// </summary>
         /// <returns></returns>
         private string? GetRootDirectory()
         {
-            string executionPath = Path.GetFullPath(Directory.GetParent(Assembly.GetExecutingAssembly().Location)?.FullName ?? string.Empty);
-            if (!Directory.Exists(executionPath))
+            try
+            {
+                string executionPath = Path.GetFullPath(Directory.GetParent(Assembly.GetExecutingAssembly().Location)?.FullName ?? string.Empty);
+                return executionPath != null && Directory.Exists(executionPath) ? Path.GetFullPath(executionPath) : null;
+            }
+            catch
+            {
                 return null;
-            return executionPath;
+            }
         }
 
         /// <summary>
@@ -50,7 +83,7 @@ namespace DevNest.Manager.FileSystem
         /// <returns></returns>
         private string? GetConfigurationDirectory()
         {
-            string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, FolderUp, ConfigurationDirectory));
+            string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.FolderUp, FileSystemConstants.ConfigurationsDirectoryName));
             if (!Directory.Exists(configDir))
                 Directory.CreateDirectory(configDir);
             return configDir;
@@ -62,7 +95,7 @@ namespace DevNest.Manager.FileSystem
         /// <returns></returns>
         private string? GetPluginDirectory()
         {
-            string plugInDirectory = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, PlugInsDirectory));
+            string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.PlugInsDirectoryName));
             if (!Directory.Exists(plugInDirectory))
                 Directory.CreateDirectory(plugInDirectory);
             return plugInDirectory;
@@ -74,13 +107,58 @@ namespace DevNest.Manager.FileSystem
         /// <returns></returns>
         private string? GetDataDirectory()
         {
-            string configDir = Path.GetFullPath(Path.Combine(GetRootDirectory() ?? string.Empty, FolderUp, DatasDirectory));
+            string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.FolderUp, FileSystemConstants.DatasDirectoryName));
             if (!Directory.Exists(configDir))
                 Directory.CreateDirectory(configDir);
             return configDir;
         }
 
+        /// <summary>
+        /// Handler method to get the directory path that contains the assets.
+        /// </summary>
+        /// <returns></returns>
+        private string? GetAssetsDirectory()
+        {
+            string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.FolderUp, FileSystemConstants.AssetsDirectoryName));
+            if (!Directory.Exists(assetsDir))
+                Directory.CreateDirectory(assetsDir);
+            return assetsDir;
+        }
 
+        /// <summary>
+        /// Handler method to get the directory path that contains the assets.
+        /// </summary>
+        /// <returns></returns>
+        private string? GetWarningCodesDirectory()
+        {
+            string warningCodesDir = Path.GetFullPath(Path.Combine(GetAssetsDirectory() ?? string.Empty, FileSystemConstants.WarningCodesDirectoryName));
+            if (!Directory.Exists(warningCodesDir))
+                Directory.CreateDirectory(warningCodesDir);
+            return warningCodesDir;
+        }
 
+        /// <summary>
+        /// Handler method to get the directory path that contains the error codes.
+        /// </summary>
+        /// <returns></returns>
+        private string? GetErrorCodesDirectory()
+        {
+            string errorCodesDir = Path.GetFullPath(Path.Combine(GetAssetsDirectory() ?? string.Empty, FileSystemConstants.ErrorCodesDirectoryName));
+            if (!Directory.Exists(errorCodesDir))
+                Directory.CreateDirectory(errorCodesDir);
+            return errorCodesDir;
+        }
+
+        /// <summary>
+        /// Handler method to get the directory path that contains the success codes.
+        /// </summary>
+        /// <returns></returns>
+        private string? GetSuccessCodesDirectory()
+        {
+            string successCodesDir = Path.GetFullPath(Path.Combine(GetAssetsDirectory() ?? string.Empty, FileSystemConstants.SuccessCodesDirectoryName));
+            if (!Directory.Exists(successCodesDir))
+                Directory.CreateDirectory(successCodesDir);
+            return successCodesDir;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿#region user directives
+using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Entity;
 using Microsoft.AspNetCore.Http;
@@ -18,13 +19,6 @@ namespace DevNest.Common.Logger
     {
         private readonly Serilog.ILogger _logger;
         private readonly IOptions<LoggerConfigEntity> _configurationService;
-        private const string MessageTemplate = "Message: ";
-        private const string ApiCallTemplate = "Api-Call: ";
-        private const string RequestTemplate = "Request: ";
-        private const string RequestBodyTemplate = "Request Body: ";
-        private const string ResponseTemplate = "Response: ";
-        private const string HttpGet = "GET";
-
 
         /// <summary>
         /// Constructor intialization for standard logger of T type.
@@ -114,7 +108,7 @@ namespace DevNest.Common.Logger
             if (!_configurationService.Value?.Logging ?? false || !_logger.IsEnabled(level)) return;
 
             var logBuilder = new StringBuilder()
-                .AppendLine($"{MessageTemplate}{message}");
+                .AppendLine($"{LoggerConstants.MessageTemplate}{message}");
 
             if (apiCall is not null)
             {
@@ -122,19 +116,19 @@ namespace DevNest.Common.Logger
 
                 var fullUrl = $"{httpContext?.Scheme}://{httpContext?.Host}{httpContext?.Path}{httpContext?.QueryString}";
                 
-                logBuilder.AppendLine($"{ApiCallTemplate}{JsonConvert.SerializeObject(fullUrl, Formatting.Indented)}");
+                logBuilder.AppendLine($"{LoggerConstants.ApiCallTemplate}{JsonConvert.SerializeObject(fullUrl, Formatting.Indented)}");
                 
-                if(!httpContext?.Method.Equals(HttpGet) ?? false)
+                if(!httpContext?.Method.Equals(LoggerConstants.HttpGet) ?? false)
                 {
-                    logBuilder.AppendLine($"{RequestBodyTemplate}{JsonConvert.SerializeObject(httpContext.Body)}");
+                    logBuilder.AppendLine($"{LoggerConstants.RequestBodyTemplate}{JsonConvert.SerializeObject(httpContext.Body)}");
                 }
             }
 
             if (request is not null)
-                logBuilder.AppendLine($"{RequestTemplate}{JsonConvert.SerializeObject(request)}");
+                logBuilder.AppendLine($"{LoggerConstants.RequestTemplate}{JsonConvert.SerializeObject(request)}");
 
             if (response is not null)
-                logBuilder.AppendLine($"{ResponseTemplate}{JsonConvert.SerializeObject(response)}");
+                logBuilder.AppendLine($"{LoggerConstants.ResponseTemplate}{JsonConvert.SerializeObject(response)}");
 
             if (ex != null)
                 _logger.Write(level, ex, logBuilder.ToString());

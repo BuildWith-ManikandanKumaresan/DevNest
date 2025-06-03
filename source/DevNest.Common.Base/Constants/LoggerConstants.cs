@@ -25,5 +25,12 @@
         public const long Default_FileSizeLimits = 5242880;
         public const string Default_OutputTemplate = "|{Timestamp:yyyy-MM-dd HH:mm:ss.fff}|{Level:u3}|> {Message:lj}{NewLine}{Exception}";
         public const string Default_MinimumLogLevel = "Info";
+
+        public const string MessageTemplate = "Message: ";
+        public const string ApiCallTemplate = "Api-Call: ";
+        public const string RequestTemplate = "Request: ";
+        public const string RequestBodyTemplate = "Request Body: ";
+        public const string ResponseTemplate = "Response: ";
+        public const string HttpGet = "GET";
     }
 }

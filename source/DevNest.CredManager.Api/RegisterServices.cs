@@ -13,6 +13,7 @@ using DevNest.Manager.Plugin;
 using DevNest.Manager.FileSystem;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Common.Base.Constants;
+using DevNest.Common.Base.Constants.Message;
 #endregion using directives
 
 namespace DevNest.CredManager.Api
@@ -30,11 +31,11 @@ namespace DevNest.CredManager.Api
         {
             builder.Services.Configure<LoggerConfigEntity>(
                 builder.Configuration.GetSection("applicationLoggers"));
-            
+
             // Setup AppConfigService for LoggerConfig
             using var provider = builder.Services.BuildServiceProvider();
             var config = provider.GetRequiredService<IOptions<LoggerConfigEntity>>();
-            
+
             // Initialize logger and register in DI
             var loggingManager = new LoggingManager(config);
             Serilog.ILogger logger = loggingManager.Initialize(ServiceConstants.ServiceName_CredentialManager);
@@ -79,8 +80,8 @@ namespace DevNest.CredManager.Api
             services.AddScoped<IMediator, Mediator>();
             services.AddAutoMapper(typeof(MappingProfile));
             // Register the FileSystemManager in DI container
-            services.AddScoped<IFileSystemManager, FileSystemManager>();
-            services.AddScoped<IPluginManager,PluginManager>();
+            services.AddSingleton<IFileSystemManager, FileSystemManager>();
+            services.AddScoped<IPluginManager, PluginManager>();
 
             services.Scan(scan => scan
                 .FromAssemblies(referencedAssemblies)
@@ -98,5 +99,15 @@ namespace DevNest.CredManager.Api
                 .WithScopedLifetime());
         }
 
+        /// <summary>
+        /// Registers the infrastructure services for the application.
+        /// </summary>
+        public static void RegisterInfrastructure()
+        {
+            FileSystemManager manager = new();
+            Messages.InitErrorCodes(manager.ErrorCodesDirectory ?? string.Empty);
+            Messages.InitWarningCodes(manager.WarningCodesDirectory ?? string.Empty);
+            Messages.InitSuccessCodes(manager.SuccessCodesDirectory ?? string.Empty);
+        }
     }
 }

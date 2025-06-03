@@ -1,5 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.Constants;
+using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Entity;
 using Microsoft.Extensions.Options;
@@ -21,7 +22,6 @@ namespace DevNest.Common.Logger
     public class LoggingManager
     {
         private readonly IOptions<LoggerConfigEntity> _config;
-        private const string _LoggerConfigurationsMissing = "Logger configuration is missing.";
 
         /// <summary>
         /// Initialize the constructor instance for logging manager.
@@ -39,9 +39,9 @@ namespace DevNest.Common.Logger
         /// <returns></returns>
         public Serilog.Core.Logger Initialize(string serviceName)
         {
-            var config = _config ?? throw new InvalidOperationException(_LoggerConfigurationsMissing);
+            var config = _config ?? throw new InvalidOperationException(Messages.GetError(ErrorConstants.LoggerConfigurationMissing).Message);
             var logDir = Path.Combine(
-                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..")),
+                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), FileSystemConstants.FolderUp)),
                 config.Value.LoggerDirectory ?? LoggerConstants.DefaultLoggingDirectory,
                 serviceName.ToLower());
 

@@ -3,6 +3,7 @@ using DevNest.CredManager.Api;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Microsoft.OpenApi.Models;
 #endregion using directives
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,9 @@ builder.RegisterLogger();
 
 //Register the mediatr service injections.
 builder.Services.RegisterMediatr();
+
+//Register the infrastructure services.
+RegisterServices.RegisterInfrastructure();
 
 var app = builder.Build();
 

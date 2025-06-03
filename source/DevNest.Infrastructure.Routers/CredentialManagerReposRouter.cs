@@ -38,9 +38,9 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<IEnumerable<CredentialEntity>?> GetAsync()
         {
-            var primaryConfig = _configurations.Value.Storage.FirstOrDefault();
-            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig);
-            return context.Get();
+            var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
+            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
+            return context?.Get();
         }
     }
 }

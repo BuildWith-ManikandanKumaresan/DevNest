@@ -1,5 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.Constants;
+using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Logger;
 using DevNest.Manager.FileSystem;
@@ -43,7 +44,7 @@ namespace DevNest.Manager.Plugin
             string[] pluginDirectories = Directory.GetDirectories(_fileSystemManager.PluginDirectory ?? string.Empty) ?? [];
             foreach (string pluginDirectory in pluginDirectories)
             {
-                var pluginFiles = Directory.GetFiles(pluginDirectory, CommonConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException("No plugin found.");
+                var pluginFiles = Directory.GetFiles(pluginDirectory, CommonConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoPluginFound).Message);
                 foreach (var pluginFile in pluginFiles)
                 {
                     Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));

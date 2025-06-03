@@ -1,4 +1,6 @@
-﻿namespace DevNest.Common.Base.Response
+﻿using DevNest.Common.Base.Constants;
+
+namespace DevNest.Common.Base.Response
 {
     /// <summary>
     /// Represents the class instance for applications warnings.
@@ -10,7 +12,7 @@
         /// <summary>
         /// Gets or sets the warning code.
         /// </summary>
-        public string Code { get; set; } = "UNDEFINED";
+        public string Code { get; set; } = CommonConstants.UndefinedErrorCode;
 
         /// <summary>
         /// Gets or sets the warning message.

@@ -21,5 +21,25 @@
         /// Get the directory path that contains the data's.
         /// </summary>
         string? DataDirectrory { get; }
+
+        /// <summary>
+        /// Get the directory path that contains the assets.
+        /// </summary>
+        string? AssetsDirectory { get; }
+
+        /// <summary>
+        /// Get the directory path that contains the error codes.
+        /// </summary>
+        string? ErrorCodesDirectory { get; }
+
+        /// <summary>
+        /// Get the directory path that contains the warning codes.
+        /// </summary>
+        string? WarningCodesDirectory { get; }
+
+        /// <summary>
+        /// Get the directory path that contains the success codes.
+        /// </summary>
+        string? SuccessCodesDirectory { get; }
     }
 }

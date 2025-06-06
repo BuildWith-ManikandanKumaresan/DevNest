@@ -21,13 +21,18 @@ namespace DevNest.Business.Domain.Mappers
         {
             CreateMap<HistoryEntity,HistoryDTO>();
             CreateMap<HistoryDTO,HistoryEntity>();
+
             CreateMap<MetadataDTO,MetadataEntity>();
             CreateMap<MetadataEntity, MetadataDTO>();
+
             CreateMap<CredentialsDTO, CredentialEntity>();
             CreateMap<CredentialEntity, CredentialsDTO>();
 
             CreateMap<AddCredentialRequest, CredentialEntity>();
             CreateMap<CredentialEntity,AddCredentialRequest>();
+
+            CreateMap<UpdateCredentialRequest, CredentialEntity>();
+            CreateMap<CredentialEntity, UpdateCredentialRequest>();
         }
     }
 }

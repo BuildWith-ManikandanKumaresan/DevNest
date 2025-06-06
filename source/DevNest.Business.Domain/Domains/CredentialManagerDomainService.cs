@@ -84,7 +84,7 @@ namespace DevNest.Business.Domain.Services
 
                 if (_data == null)
                 {
-                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFound)] };
+                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFoundForTheId)] };
                 }
 
                 return new ApplicationResponse<CredentialsDTO>
@@ -115,7 +115,7 @@ namespace DevNest.Business.Domain.Services
 
                 if (_data == null)
                 {
-                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFound)] };
+                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.DeleteCredentialsFailed_All)] };
                 }
 
                 return new ApplicationResponse<bool>
@@ -146,7 +146,7 @@ namespace DevNest.Business.Domain.Services
 
                 if (_data == null)
                 {
-                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFound)] };
+                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById)] };
                 }
 
                 return new ApplicationResponse<bool>
@@ -169,7 +169,7 @@ namespace DevNest.Business.Domain.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<ApplicationResponse<CredentialsDTO>> Add(AddCredentialRequest request)
+        public async Task<ApplicationResponse<CredentialsDTO>> Add(AddCredentialRequest? request)
         {
             var response = new ApplicationResponse<CredentialsDTO>() { Data = null, IsSuccess = false };
             try
@@ -180,7 +180,40 @@ namespace DevNest.Business.Domain.Services
 
                 if (_data == null)
                 {
-                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFound)] };
+                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.CreateCredentialsFailed)] };
+                }
+
+                return new ApplicationResponse<CredentialsDTO>
+                {
+                    Data = _mapper.Map<CredentialsDTO>(_data),
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// Handler method to update the credentials entity.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<ApplicationResponse<CredentialsDTO>> Update(UpdateCredentialRequest? request)
+        {
+            var response = new ApplicationResponse<CredentialsDTO>() { Data = null, IsSuccess = false };
+            try
+            {
+                CredentialEntity entity = _mapper.Map<CredentialEntity>(request);
+                CredentialEntity? _data = await _router.UpdateAsync(entity);
+
+                if (_data == null)
+                {
+                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.UpdateCredentialsFailed)] };
                 }
 
                 return new ApplicationResponse<CredentialsDTO>

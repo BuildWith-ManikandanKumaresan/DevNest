@@ -42,5 +42,12 @@ namespace DevNest.Business.Domain.RouterContracts
         /// <param name="entity"></param>
         /// <returns></returns>
         Task<CredentialEntity> AddAsync(CredentialEntity entity);
+
+        /// <summary>
+        /// Handler method to update the credentials entity.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<CredentialEntity> UpdateAsync(CredentialEntity entity);
     }
 }

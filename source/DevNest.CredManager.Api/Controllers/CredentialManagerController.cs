@@ -155,7 +155,7 @@ namespace DevNest.CredManager.Api.Controllers
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 500)]
         public async Task<IActionResult> DeleteCredentialById(Guid credentialId)
         {
-            _logger.LogInfo($"Api {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request:credentialId);
+            _logger.LogInfo($"Api {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
             DeleteCredentialByIdCommand command = new(id: credentialId);
 
@@ -177,6 +177,11 @@ namespace DevNest.CredManager.Api.Controllers
 
         }
 
+        /// <summary>
+        /// Add credentials.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost()]
         [ProducesResponseType(typeof(ApplicationResponse<CredentialsDTO>), 200)]
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 400)]
@@ -187,7 +192,7 @@ namespace DevNest.CredManager.Api.Controllers
 
             _logger.LogInfo($"Api {nameof(AddCredentials)} called. ", apiCall: HttpContext.Request, request: request);
 
-            AddCredentialCommand command = new(request:request);
+            AddCredentialCommand command = new(request: request);
 
             var response = await _mediator.SendCommandAsync(command);
 
@@ -200,6 +205,37 @@ namespace DevNest.CredManager.Api.Controllers
                 return Ok(response);
             }
             _logger.LogInfo($"Api {nameof(AddCredentials)} encountered an error. ",
+                apiCall: HttpContext.Request,
+                request: command,
+                response: response);
+            return BadRequest(response.Errors);
+        }
+
+        /// <summary>
+        /// Update credentials by Id.
+        /// </summary>
+        /// <param name="credentialId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut("{credentialId}")]
+        [ProducesResponseType(typeof(ApplicationResponse<CredentialsDTO>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 400)]
+        [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 404)]
+        [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 500)]
+        public async Task<IActionResult> UpdateCredentials([FromRoute] Guid credentialId, [FromBody] UpdateCredentialRequest request)
+        {
+            _logger.LogInfo($"Api {nameof(UpdateCredentials)} called. ", apiCall: HttpContext.Request, request: request);
+            UpdateCredentialCommand command = new(request: request);
+            var response = await _mediator.SendCommandAsync(command);
+            if (response.IsSuccess)
+            {
+                _logger.LogInfo($"Api {nameof(UpdateCredentials)} completed. ",
+                    apiCall: HttpContext.Request,
+                    request: command,
+                    response: response);
+                return Ok(response);
+            }
+            _logger.LogInfo($"Api {nameof(UpdateCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);

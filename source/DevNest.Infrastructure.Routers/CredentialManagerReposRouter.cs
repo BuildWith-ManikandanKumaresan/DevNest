@@ -91,5 +91,17 @@ namespace DevNest.Infrastructure.Routers
             var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
             return context?.GetById(id);
         }
+
+        /// <summary>
+        /// Handler method for update the credentials entity.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<CredentialEntity?> UpdateAsync(CredentialEntity entity)
+        {
+            var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
+            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
+            return context?.Update(entity);
+        }
     }
 }

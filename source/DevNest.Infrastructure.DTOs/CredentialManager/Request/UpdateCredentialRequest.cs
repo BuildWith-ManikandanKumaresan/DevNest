@@ -4,11 +4,12 @@ using DevNest.Common.Base.DTOs.Contracts;
 
 namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
 {
-    /// <summary>
-    /// Represents the class instance for add credentials request.
-    /// </summary>
-    public class AddCredentialRequest : BaseDTO
+    public class UpdateCredentialRequest : BaseDTO
     {
+        /// <summary>
+        /// Gets or sets the unique identifier of the credential.
+        /// </summary>
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the title or name of the credential.

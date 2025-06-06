@@ -43,6 +43,13 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<ApplicationResponse<CredentialsDTO>> Add(AddCredentialRequest request);
+        Task<ApplicationResponse<CredentialsDTO>> Add(AddCredentialRequest? request);
+
+        /// <summary>
+        /// Handler method interface for update credentials.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<ApplicationResponse<CredentialsDTO>> Update(UpdateCredentialRequest? request);
     }
 }

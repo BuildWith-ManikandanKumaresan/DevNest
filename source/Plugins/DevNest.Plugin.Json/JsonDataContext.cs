@@ -108,7 +108,27 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public T? Update(T? entity)
         {
-            return entity;
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            if (entity == null || data == null)
+                return entity;
+            var existingEntity = data.FirstOrDefault(a => a.Id == (entity as CredentialEntity ?? new()).Id);
+
+            if (existingEntity != null)
+            {
+                // Update the existing entity with the new values
+                existingEntity.Title = (entity as CredentialEntity)?.Title;
+                existingEntity.Domain = (entity as CredentialEntity)?.Domain;
+                existingEntity.Host = (entity as CredentialEntity)?.Host;
+                existingEntity.Username = (entity as CredentialEntity)?.Username;
+                existingEntity.Password = (entity as CredentialEntity)?.Password;
+                existingEntity.Type = (entity as CredentialEntity)?.Type;
+                existingEntity.Workspace = (entity as CredentialEntity)?.Workspace;
+                existingEntity.Environment = (entity as CredentialEntity)?.Environment;
+                existingEntity.Tags = (entity as CredentialEntity)?.Tags;
+                
+                _JsonHandler.Write(data as List<T> ?? []);
+            }
+            return existingEntity as T;
         }
     }
 }

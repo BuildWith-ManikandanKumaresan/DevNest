@@ -14,6 +14,7 @@ using DevNest.Manager.FileSystem;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Constants.Message;
+using DevNest.Common.Base.MediatR;
 #endregion using directives
 
 namespace DevNest.CredManager.Api
@@ -78,10 +79,11 @@ namespace DevNest.CredManager.Api
             });
 
             services.AddScoped<IMediator, Mediator>();
+            services.AddScoped<IApplicationMedidator, ApplicationMedidator>();
             services.AddAutoMapper(typeof(MappingProfile));
             // Register the FileSystemManager in DI container
             services.AddSingleton<IFileSystemManager, FileSystemManager>();
-            services.AddScoped<IPluginManager, PluginManager>();
+            services.AddSingleton<IPluginManager, PluginManager>();
 
             services.Scan(scan => scan
                 .FromAssemblies(referencedAssemblies)

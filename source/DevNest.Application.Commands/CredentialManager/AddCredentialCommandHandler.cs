@@ -1,0 +1,52 @@
+﻿#region using directives
+using DevNest.Business.Domain.Domains.Contracts;
+using DevNest.Common.Base.Contracts;
+using DevNest.Common.Base.MediatR;
+using DevNest.Common.Base.Response;
+using DevNest.Common.Logger;
+using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.Entity;
+using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
+using MediatR;
+#endregion using directives
+
+namespace DevNest.Application.Commands.CredentialManager
+{
+    /// <summary>
+    /// Represents the class instance for add credentials command handler.
+    /// </summary>
+    public class AddCredentialCommandHandler : ICommandHandler<AddCredentialCommand, ApplicationResponse<CredentialsDTO>>
+    {
+        private readonly IApplicationLogger<AddCredentialCommandHandler> _logger;
+        private readonly ICredentialManagerDomainService _domainService;
+        private readonly IApplicationConfigService<CredentialManagerConfigurations> _applicationConfigService;
+
+        /// <summary>
+        /// Initialize the new instance for <see cref="AddCredentialCommandHandler">class.</see>/>
+        /// </summary>
+        /// <param name="appLogger"></param>
+        /// <param name="applicationConfigService"></param>
+        /// <param name="domainService"></param>
+        public AddCredentialCommandHandler(
+            IApplicationLogger<AddCredentialCommandHandler> appLogger,
+            IApplicationConfigService<CredentialManagerConfigurations> applicationConfigService,
+            ICredentialManagerDomainService domainService)
+        {
+            this._logger = appLogger;
+            this._domainService = domainService;
+            this._applicationConfigService = applicationConfigService;
+        }
+
+        /// <summary>
+        /// Handler method to execute the <see cref="AddCredentialCommandHandler">class.</see>/>
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<ApplicationResponse<CredentialsDTO>> Handle(AddCredentialCommand request, CancellationToken cancellationToken)
+        {
+            return await _domainService.Add(request: request.AddCredentialRequest);
+        }
+    }
+}

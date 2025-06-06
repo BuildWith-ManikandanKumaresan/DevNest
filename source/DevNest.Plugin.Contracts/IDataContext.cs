@@ -28,23 +28,23 @@
         /// Adds a new entity to the data context.
         /// </summary>
         /// <param name="entity"></param>
-        void Add(T entity);
+        T? Add(T? entity);
 
         /// <summary>
         /// Updates an existing entity in the data context.
         /// </summary>
         /// <param name="entity"></param>
-        void Update(T entity);
+        T? Update(T? entity);
 
         /// <summary>
         /// Deletes an entity by its identifier.
         /// </summary>
         /// <param name="id"></param>
-        void Delete(Guid id);
+        bool Delete(Guid id);
 
         /// <summary>
         /// Deletes all entities in the data context.
         /// </summary>
-        void DeleteAll();
+        bool DeleteAll();
     }
 }

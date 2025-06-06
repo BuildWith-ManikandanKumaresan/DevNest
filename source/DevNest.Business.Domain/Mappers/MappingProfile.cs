@@ -2,7 +2,8 @@
 using AutoMapper;
 using DevNest.Common.Base.DTOs;
 using DevNest.Common.Base.Entity;
-using DevNest.Infrastructure.DTOs;
+using DevNest.Infrastructure.DTOs.CredentialManager.Request;
+using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity;
 #endregion using directives
 
@@ -24,6 +25,9 @@ namespace DevNest.Business.Domain.Mappers
             CreateMap<MetadataEntity, MetadataDTO>();
             CreateMap<CredentialsDTO, CredentialEntity>();
             CreateMap<CredentialEntity, CredentialsDTO>();
+
+            CreateMap<AddCredentialRequest, CredentialEntity>();
+            CreateMap<CredentialEntity,AddCredentialRequest>();
         }
     }
 }

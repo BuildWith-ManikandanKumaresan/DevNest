@@ -2,7 +2,7 @@
 using DevNest.Common.Base.DTOs.Contracts;
 #endregion using directives
 
-namespace DevNest.Infrastructure.DTOs
+namespace DevNest.Infrastructure.DTOs.CredentialManager.Response
 {
     /// <summary>
     /// Represents the DTO class instance for credentials.

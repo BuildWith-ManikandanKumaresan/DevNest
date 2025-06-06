@@ -118,10 +118,6 @@ namespace DevNest.Common.Logger
                 
                 logBuilder.AppendLine($"{LoggerConstants.ApiCallTemplate}{JsonConvert.SerializeObject(fullUrl, Formatting.Indented)}");
                 
-                if(!httpContext?.Method.Equals(LoggerConstants.HttpGet) ?? false)
-                {
-                    logBuilder.AppendLine($"{LoggerConstants.RequestBodyTemplate}{JsonConvert.SerializeObject(httpContext.Body)}");
-                }
             }
 
             if (request is not null)

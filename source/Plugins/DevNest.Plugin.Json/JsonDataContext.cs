@@ -20,7 +20,7 @@ namespace DevNest.Plugin.Json
         public JsonDataContext(Dictionary<string, object>? _connectionParams)
         {
             ConnectionParams = _connectionParams;
-            _JsonHandler = new JsonDataHandler<T>(_connectionParams ?? new Dictionary<string, object>());
+            _JsonHandler = new JsonDataHandler<T>(_connectionParams ?? []);
         }
 
         /// <summary>
@@ -33,14 +33,17 @@ namespace DevNest.Plugin.Json
         /// </summary>
         /// <param name="entity"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void Add(T entity)
+        public T? Add(T? entity)
         {
             if (entity == null)
-                return;
-            if(entity is List<CredentialEntity>)
+                return entity;
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            if (!data?.Exists(a=>a.Id == (entity as CredentialEntity ?? new()).Id) ?? false)
             {
-                _JsonHandler.Write(entity as List<T>);
+                data?.Add((entity as CredentialEntity ?? new()));
+                _JsonHandler.Write(data as List<T> ?? []);
             }
+            return entity;
         }
 
         /// <summary>
@@ -48,28 +51,32 @@ namespace DevNest.Plugin.Json
         /// </summary>
         /// <param name="id"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void Delete(Guid id)
+        public bool Delete(Guid id)
         {
             var data = _JsonHandler.Read() as List<CredentialEntity>;
-            int res = data.RemoveAll(x => x.Id == id);
+            int res = data?.RemoveAll(x => x.Id == id) ?? 0;
             if(res > 0)
             {
-                _JsonHandler.Write(data as List<T>);
+                _JsonHandler.Write(data as List<T> ?? []);
+                return true;
             }
+            return false;
         }
 
         /// <summary>
         /// Deletes all entities of type T from the data context.
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
-        public void DeleteAll()
+        public bool DeleteAll()
         {
             var data = _JsonHandler.Read() as List<CredentialEntity>;
-            int res = data.RemoveAll(a=>a.Id == a.Id);
+            int res = data?.RemoveAll(a => a.Id == a.Id) ?? 0;
             if (res > 0)
             {
-                _JsonHandler.Write(data as List<T>);
+                _JsonHandler.Write(data as List<T> ?? []);
+                return true;
             }
+            return false;
         }
 
         /// <summary>
@@ -91,7 +98,7 @@ namespace DevNest.Plugin.Json
         public T? GetById(Guid id)
         {
             var data = _JsonHandler.Read() as List<CredentialEntity>;
-            return data.FirstOrDefault(a => a.Id == id) as T;
+            return data?.FirstOrDefault(a => a.Id == id) as T;
         }
 
         /// <summary>
@@ -99,8 +106,9 @@ namespace DevNest.Plugin.Json
         /// </summary>
         /// <param name="entity"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void Update(T entity = null)
+        public T? Update(T? entity)
         {
+            return entity;
         }
     }
 }

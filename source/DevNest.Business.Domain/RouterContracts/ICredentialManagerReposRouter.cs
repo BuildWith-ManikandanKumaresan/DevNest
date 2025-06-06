@@ -15,5 +15,32 @@ namespace DevNest.Business.Domain.RouterContracts
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<CredentialEntity>?> GetAsync();
+
+        /// <summary>
+        /// Handler method to get the credential entity by its unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<CredentialEntity?> GetByIdAsync(Guid id);
+
+        /// <summary>
+        /// Handler method to delete the credentials.
+        /// </summary>
+        /// <returns></returns>
+        Task<bool> DeleteAsync();
+
+        /// <summary>
+        /// handler method to delete the credential using id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<bool> DeleteByIdAsync(Guid id);
+
+        /// <summary>
+        /// Handler method to add the credentials.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<CredentialEntity> AddAsync(CredentialEntity entity);
     }
 }

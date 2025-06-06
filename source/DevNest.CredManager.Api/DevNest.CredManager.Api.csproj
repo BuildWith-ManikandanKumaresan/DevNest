@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DevNest.Application.Commands\DevNest.Application.Commands.csproj" />
     <ProjectReference Include="..\DevNest.Application.Queries\DevNest.Application.Queries.csproj" />
     <ProjectReference Include="..\DevNest.Business.Domain\DevNest.Business.Domain.csproj" />
     <ProjectReference Include="..\DevNest.Common.Base\DevNest.Common.Base.csproj" />

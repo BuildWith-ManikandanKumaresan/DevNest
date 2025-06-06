@@ -33,6 +33,42 @@ namespace DevNest.Infrastructure.Routers
         }
 
         /// <summary>
+        /// Handler method to add the credentials using entity.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<CredentialEntity> AddAsync(CredentialEntity entity)
+        {
+            var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
+            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
+            return context?.Add(entity) ?? null;
+        }
+
+        /// <summary>
+        /// Handler method for delete credentials entity.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> DeleteAsync()
+        {
+            var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
+            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
+            return context?.DeleteAll() ?? false;
+        }
+
+        /// <summary>
+        /// Handler method for delete credential entity using id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<bool> DeleteByIdAsync(Guid id)
+        {
+            var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
+            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
+            return context?.Delete(id) ?? false;
+        }
+
+        /// <summary>
         /// Handler method for Get credentials entity.
         /// </summary>
         /// <returns></returns>
@@ -41,6 +77,19 @@ namespace DevNest.Infrastructure.Routers
             var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
             var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
             return context?.Get();
+        }
+
+        /// <summary>
+        /// Handler method for Get credential entity by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<CredentialEntity?> GetByIdAsync(Guid id)
+        {
+            var primaryConfig = _configurations.Value?.Storage.FirstOrDefault();
+            var context = _pluginManager.GetContext<CredentialEntity>(primaryConfig ?? []);
+            return context?.GetById(id);
         }
     }
 }

@@ -31,6 +31,5 @@
         public const string RequestTemplate = "Request: ";
         public const string RequestBodyTemplate = "Request Body: ";
         public const string ResponseTemplate = "Response: ";
-        public const string HttpGet = "GET";
     }
 }

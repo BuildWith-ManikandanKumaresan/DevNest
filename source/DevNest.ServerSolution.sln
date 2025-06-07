@@ -34,9 +34,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Manager", "DevNest.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Contracts", "DevNest.Plugin.Contracts\DevNest.Plugin.Contracts.csproj", "{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{26D8E88B-A61D-43BD-817B-32C05FFE913C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStoragePlugins", "DataStoragePlugins", "{26D8E88B-A61D-43BD-817B-32C05FFE913C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Json", "Plugins\DevNest.Plugin.Json\DevNest.Plugin.Json.csproj", "{A8D96A24-4F78-4EB2-92C2-A53311477352}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Json", "Plugins\Storage\DevNest.Plugin.Json\DevNest.Plugin.Json.csproj", "{A8D96A24-4F78-4EB2-92C2-A53311477352}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EncryptionPlugins", "EncryptionPlugins", "{9500F5CD-582B-46BD-A640-F6A14252B3CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.AES.CBC", "Plugins\Encryption\DevNest.Plugin.AES.CBC\DevNest.Plugin.AES.CBC.csproj", "{AA3614FD-9761-49AE-8146-8660C7C343D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +96,10 @@ Global
 		{A8D96A24-4F78-4EB2-92C2-A53311477352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D96A24-4F78-4EB2-92C2-A53311477352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D96A24-4F78-4EB2-92C2-A53311477352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +107,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{112CB1D3-1E7D-4788-9E20-F6C83CC7828D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A8D96A24-4F78-4EB2-92C2-A53311477352} = {26D8E88B-A61D-43BD-817B-32C05FFE913C}
+		{AA3614FD-9761-49AE-8146-8660C7C343D3} = {9500F5CD-582B-46BD-A640-F6A14252B3CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDEACA45-B8C6-42DD-8209-D34D5AC8E8C5}

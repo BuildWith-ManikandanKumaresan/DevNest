@@ -6,7 +6,8 @@
     public class ErrorConstants
     {
         // Plugin Manager
-        public const string NoPluginFound = "DEV-PM-001";
+        public const string NoStoragePluginFound = "DEV-PM-001";
+        public const string NoEncryptionPluginFound = "DEV-PM-002";
 
         // Credential Manager
         public const string NoCredentialsFound = "DEV-CM-001";
@@ -15,6 +16,7 @@
         public const string DeleteCredentialsFailed_ById = "DEV-CM-004";
         public const string UpdateCredentialsFailed = "DEV-CM-005";
         public const string CreateCredentialsFailed = "DEV-CM-006";
+        public const string ArchiveCredentialsFailed = "DEV-CM-007";
 
 
         // Logger Manager

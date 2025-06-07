@@ -1,6 +1,6 @@
 ﻿#region using directives
 using DevNest.Infrastructure.Entity;
-using DevNest.Plugin.Contracts;
+using DevNest.Plugin.Contracts.Storage;
 using DevNest.Plugin.Json.Handler;
 #endregion using directives
 
@@ -10,9 +10,9 @@ namespace DevNest.Plugin.Json
     /// Represents the class instance for JSON data context plugin.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class JsonDataContext<T> : IDataContext<T> where T : class
+    public class JsonDataContext<T> : IStorageDataContext<T> where T : class
     {
-        private readonly JsonDataHandler<T> _JsonHandler;
+        private JsonDataHandler<T> _JsonHandler;
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonDataContext{T}"/> class with the specified connection parameters.
         /// </summary>
@@ -45,6 +45,29 @@ namespace DevNest.Plugin.Json
             }
             return entity;
         }
+
+        /// <summary>
+        /// Archives the entity of type T by its identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool Archive(Guid id)
+        {
+            var data = _JsonHandler.Read() as List<CredentialEntity>;
+
+            if (data == null) return false;
+
+            var entity = data.FirstOrDefault(a => a.Id == id);
+            if (entity == null) return false;
+
+            entity.IsDisabled = true;
+
+            _JsonHandler.Write(data.Cast<T>().ToList());
+
+            return true;
+        }
+
 
         /// <summary>
         /// Deletes the entity of type T by its identifier.
@@ -111,24 +134,37 @@ namespace DevNest.Plugin.Json
             var data = _JsonHandler.Read() as List<CredentialEntity>;
             if (entity == null || data == null)
                 return entity;
-            var existingEntity = data.FirstOrDefault(a => a.Id == (entity as CredentialEntity ?? new()).Id);
 
-            if (existingEntity != null)
+            var input = entity as CredentialEntity;
+            var existingEntity = data.FirstOrDefault(a => a.Id == input?.Id);
+
+            if (existingEntity != null && input != null)
             {
-                // Update the existing entity with the new values
-                existingEntity.Title = (entity as CredentialEntity)?.Title;
-                existingEntity.Domain = (entity as CredentialEntity)?.Domain;
-                existingEntity.Host = (entity as CredentialEntity)?.Host;
-                existingEntity.Username = (entity as CredentialEntity)?.Username;
-                existingEntity.Password = (entity as CredentialEntity)?.Password;
-                existingEntity.Type = (entity as CredentialEntity)?.Type;
-                existingEntity.Workspace = (entity as CredentialEntity)?.Workspace;
-                existingEntity.Environment = (entity as CredentialEntity)?.Environment;
-                existingEntity.Tags = (entity as CredentialEntity)?.Tags;
-                
+                if (input.Title != null) existingEntity.Title = input.Title;
+                if (input.Domain != null) existingEntity.Domain = input.Domain;
+                if (input.Host != null) existingEntity.Host = input.Host;
+                if (input.Username != null) existingEntity.Username = input.Username;
+                if (input.Password != null) existingEntity.Password = input.Password;
+                if (input.Type != null) existingEntity.Type = input.Type;
+                if (input.Workspace != null) existingEntity.Workspace = input.Workspace;
+                if (input.Environment != null) existingEntity.Environment = input.Environment;
+                if (input.Tags != null) existingEntity.Tags = input.Tags;
+                if (input.Notes != null) existingEntity.Notes = input.Notes;
+                if (input.IsValid != null) existingEntity.IsValid = input.IsValid;
+                if (input.IsPasswordMasked != null) existingEntity.IsPasswordMasked = input.IsPasswordMasked;
+                if (input.IsEncrypted != null) existingEntity.IsEncrypted = input.IsEncrypted;
+                if (input.EncryptionAlgorithm != null) existingEntity.EncryptionAlgorithm = input.EncryptionAlgorithm;
+                if (input.ShowPasswordAsEncrypted != null) existingEntity.ShowPasswordAsEncrypted = input.ShowPasswordAsEncrypted;
+                if (input.ExpirationDate != null) existingEntity.ExpirationDate = input.ExpirationDate;
+                if (input.RotationPolicyInDays != null) existingEntity.RotationPolicyInDays = input.RotationPolicyInDays;
+                if (input.IsDisabled != null) existingEntity.IsDisabled = input.IsDisabled;
+                if (input.AssociatedGroups != null) existingEntity.AssociatedGroups = input.AssociatedGroups;
+
                 _JsonHandler.Write(data as List<T> ?? []);
             }
+
             return existingEntity as T;
         }
+
     }
 }

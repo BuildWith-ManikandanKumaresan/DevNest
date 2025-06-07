@@ -8,5 +8,8 @@
         public const string AssemblySearchPattern = "DevNest.";
         public const string Plugin_AssemblySearchPattern = "DevNest.*.dll";
         public const string UndefinedErrorCode = "UNDEFINED";
+        public const string JsonFileSearchPattern = "*.json";
+        public const string JsonFileExtension = ".json";
+
     }
 }

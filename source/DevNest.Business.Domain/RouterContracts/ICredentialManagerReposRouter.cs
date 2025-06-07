@@ -49,5 +49,12 @@ namespace DevNest.Business.Domain.RouterContracts
         /// <param name="entity"></param>
         /// <returns></returns>
         Task<CredentialEntity> UpdateAsync(CredentialEntity entity);
+
+        /// <summary>
+        /// Handler method to archive the credential by its unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<bool> ArchiveByIdAsync(Guid id);
     }
 }

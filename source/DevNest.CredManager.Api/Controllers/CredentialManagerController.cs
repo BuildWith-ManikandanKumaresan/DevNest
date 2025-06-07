@@ -88,7 +88,7 @@ namespace DevNest.CredManager.Api.Controllers
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 500)]
-        public async Task<IActionResult> GetCredentialById(Guid credentialId)
+        public async Task<IActionResult> GetCredentialById([FromRoute] Guid credentialId)
         {
             _logger.LogInfo($"Api {nameof(GetCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
@@ -153,7 +153,7 @@ namespace DevNest.CredManager.Api.Controllers
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 500)]
-        public async Task<IActionResult> DeleteCredentialById(Guid credentialId)
+        public async Task<IActionResult> DeleteCredentialById([FromRoute] Guid credentialId)
         {
             _logger.LogInfo($"Api {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
@@ -236,6 +236,36 @@ namespace DevNest.CredManager.Api.Controllers
                 return Ok(response);
             }
             _logger.LogInfo($"Api {nameof(UpdateCredentials)} encountered an error. ",
+                apiCall: HttpContext.Request,
+                request: command,
+                response: response);
+            return BadRequest(response.Errors);
+        }
+
+        /// <summary>
+        /// Archive credentials by Id.
+        /// </summary>
+        /// <param name="credentialId"></param>
+        /// <returns></returns>
+        [HttpPut("{credentialId}/archive")]
+        [ProducesResponseType(typeof(ApplicationResponse<CredentialsDTO>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 400)]
+        [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 404)]
+        [ProducesResponseType(typeof(IEnumerable<ApplicationErrors>), 500)]
+        public async Task<IActionResult> ArchiveCredentials([FromRoute] Guid credentialId)
+        {
+            _logger.LogInfo($"Api {nameof(ArchiveCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
+            ArchiveCredentialCommand command = new(id: credentialId);
+            var response = await _mediator.SendCommandAsync(command);
+            if (response.IsSuccess)
+            {
+                _logger.LogInfo($"Api {nameof(ArchiveCredentials)} completed. ",
+                    apiCall: HttpContext.Request,
+                    request: command,
+                    response: response);
+                return Ok(response);
+            }
+            _logger.LogInfo($"Api {nameof(ArchiveCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);

@@ -33,7 +33,7 @@ namespace DevNest.Manager.FileSystem
         /// <summary>
         /// Get the directry path than contains the plugins.
         /// </summary>
-        public string? PluginDirectory => GetPluginDirectory();
+        public string? PluginStorageDirectory => GetPluginStorageDirectory();
 
         /// <summary>
         /// Get the directory path that contains the data's.
@@ -59,6 +59,11 @@ namespace DevNest.Manager.FileSystem
         /// Get the directory path that contains the success codes.
         /// </summary>
         public string? SuccessCodesDirectory => GetSuccessCodesDirectory();
+
+        /// <summary>
+        /// Get the directory path that contains the encryption plugin storage.
+        /// </summary>
+        public string? EncryptionPluginStorageDirectory => GetEncryptionPluginDirectory();
 
         /// <summary>
         /// Handler method to Get the root directory.
@@ -93,9 +98,21 @@ namespace DevNest.Manager.FileSystem
         /// Handler method to get the directory path that contains the plugins.
         /// </summary>
         /// <returns></returns>
-        private string? GetPluginDirectory()
+        private string? GetPluginStorageDirectory()
         {
-            string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.PlugInsDirectoryName));
+            string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.StoragePluginsDirectoryName));
+            if (!Directory.Exists(plugInDirectory))
+                Directory.CreateDirectory(plugInDirectory);
+            return plugInDirectory;
+        }
+
+        /// <summary>
+        /// Handler method to get the directory path that contains the encryption plugins.
+        /// </summary>
+        /// <returns></returns>
+        private string? GetEncryptionPluginDirectory()
+        {
+            string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.EncryptionPluginsDirectoryName));
             if (!Directory.Exists(plugInDirectory))
                 Directory.CreateDirectory(plugInDirectory);
             return plugInDirectory;

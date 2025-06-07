@@ -15,7 +15,12 @@
         /// <summary>
         /// Get the directry path than contains the plugins.
         /// </summary>
-        string? PluginDirectory { get; }
+        string? PluginStorageDirectory { get; }
+
+        /// <summary>
+        /// Get the directory path that contains the encryption plugin storage.
+        /// </summary>
+        string? EncryptionPluginStorageDirectory { get; }
 
         /// <summary>
         /// Get the directory path that contains the data's.

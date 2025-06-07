@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Base.Constants;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace DevNest.Plugin.Json.Handler
         private readonly Dictionary<string, object> _Parameters;
         private readonly string _BaseFileName;
         private readonly string _DataDirectory;
+        private readonly bool _ShowArchiveFiles; // Default to not show archive files
+        private readonly bool _IsArchive = false; // Flag to indicate if the operation is for archive files
 
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonDataHandler{T}"/> class with the specified parameters.
@@ -29,9 +32,9 @@ namespace DevNest.Plugin.Json.Handler
         public JsonDataHandler(Dictionary<string, object> Parameters)
         {
             _Parameters = Parameters ?? throw new ArgumentNullException(nameof(Parameters), "Parameters cannot be null.");
-            _DefaultMaxFileSizeBytes = Parameters.TryGetValue("maxFileSizeBytes", out var maxFileSize) && maxFileSize is long size ? size : 10485760; // Default to 10 MB
-            _BaseFileName = Parameters.TryGetValue("baseFileName", out var baseFileName) && baseFileName is string name ? name : "credential"; // Default base file name
-            _DataDirectory = Parameters.TryGetValue("dataDirectory", out var dataDirectory) && dataDirectory is string dir ? dir : "Credential-Manager"; // Default data directory
+            _DefaultMaxFileSizeBytes = Parameters.TryGetValue(ConnectionParamConstants.MaxFileSizeBytes, out var maxFileSize) && maxFileSize is long size ? size : 10485760; // Default to 10 MB
+            _BaseFileName = Parameters.TryGetValue(ConnectionParamConstants.BaseFileName, out var baseFileName) && baseFileName is string name ? name : "credential"; // Default base file name
+            _DataDirectory = Parameters.TryGetValue(ConnectionParamConstants.DataDirectory, out var dataDirectory) && dataDirectory is string dir ? dir : "Credential-Manager"; // Default data directory           
         }
 
         /// <summary>
@@ -45,7 +48,7 @@ namespace DevNest.Plugin.Json.Handler
 
             if (!Directory.Exists(_DataDirectory)) return result;
 
-            var files = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}*.json");
+            var files = Directory.GetFiles(_DataDirectory, CommonConstants.JsonFileSearchPattern);
 
             foreach (var file in files)
             {
@@ -68,7 +71,7 @@ namespace DevNest.Plugin.Json.Handler
             if (!Directory.Exists(_DataDirectory))
                 Directory.CreateDirectory(_DataDirectory);
 
-            var existingFiles = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}*.json")
+            var existingFiles = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}{CommonConstants.JsonFileSearchPattern}")
                                          .OrderByDescending(File.GetCreationTime)
                                          .ToList();
 
@@ -76,8 +79,8 @@ namespace DevNest.Plugin.Json.Handler
 
             if (currentFilePath == null || new FileInfo(currentFilePath).Length >= _DefaultMaxFileSizeBytes)
             {
-                var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                currentFilePath = Path.Combine(_DataDirectory, $"{_BaseFileName}_{timestamp}.json");
+                var timestamp = DateTime.Now.ToString(ConnectionParamConstants.JsonDateFileFormat);
+                currentFilePath = Path.Combine(_DataDirectory, $"{_BaseFileName}_{timestamp}{CommonConstants.JsonFileExtension}");
             }
 
             var json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);

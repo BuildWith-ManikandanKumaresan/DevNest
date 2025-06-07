@@ -1,4 +1,4 @@
-﻿namespace DevNest.Plugin.Contracts
+﻿namespace DevNest.Plugin.Contracts.Storage
 {
     /// <summary>
     /// Represents the interface instances of storage plugins must implement.
@@ -12,6 +12,6 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IDataContext<T>? GetDataContext<T>(Dictionary<string, object> connectionParams) where T : class;
+        IStorageDataContext<T>? GetStorageDataContext<T>(Dictionary<string, object> connectionParams) where T : class;
     }
 }

@@ -1,10 +1,10 @@
-﻿namespace DevNest.Plugin.Contracts
+﻿namespace DevNest.Plugin.Contracts.Storage
 {
     /// <summary>
     /// Represents the interface for data context operations.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IDataContext<T> where T : class
+    public interface IStorageDataContext<T> where T : class
     {
         /// <summary>
         /// Gets the connection params for the data context.
@@ -46,5 +46,12 @@
         /// Deletes all entities in the data context.
         /// </summary>
         bool DeleteAll();
+
+        /// <summary>
+        /// Archives an entity by its identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        bool Archive(Guid id);
     }
 }

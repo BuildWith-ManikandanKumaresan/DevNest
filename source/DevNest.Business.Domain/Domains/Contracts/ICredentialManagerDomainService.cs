@@ -51,5 +51,12 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// <param name="request"></param>
         /// <returns></returns>
         Task<ApplicationResponse<CredentialsDTO>> Update(UpdateCredentialRequest? request);
+
+        /// <summary>
+        /// Handler method interface for archiving a credential by its ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<ApplicationResponse<bool>> Archive(Guid id);
     }
 }

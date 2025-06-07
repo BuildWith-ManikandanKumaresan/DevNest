@@ -1,6 +1,10 @@
 {
     "DEV-PM-001": {
         "Code": "DEV-PM-001",
-        "Message": "No Plugins Found in the directory"
+        "Message": "No Storage Plugins Found in the directory"
+    },
+	"DEV-PM-002": {
+        "Code": "DEV-PM-002",
+        "Message": "No Encryption Plugins Found in the directory"
     }
 }

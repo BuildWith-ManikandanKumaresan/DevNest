@@ -1,5 +1,5 @@
 ﻿using DevNest.Infrastructure.Entity;
-using DevNest.Plugin.Contracts;
+using DevNest.Plugin.Contracts.Storage;
 
 namespace DevNest.Plugin.Json
 {
@@ -56,10 +56,10 @@ namespace DevNest.Plugin.Json
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IDataContext<T>? GetDataContext<T>(Dictionary<string, object>? connectionParams) where T : class
+        public IStorageDataContext<T>? GetStorageDataContext<T>(Dictionary<string, object>? connectionParams) where T : class
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IDataContext<T>)context;
+                return (IStorageDataContext<T>)context;
 
             var newContext = new JsonDataContext<T>(connectionParams);
             _contexts[typeof(T)] = newContext;

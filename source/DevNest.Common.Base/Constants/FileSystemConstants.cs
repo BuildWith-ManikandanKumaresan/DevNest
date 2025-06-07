@@ -8,7 +8,8 @@
 
         public const string FolderUp = "..";
         public const string ConfigurationsDirectoryName = "Configurations";
-        public const string PlugInsDirectoryName = "Plugins";
+        public const string StoragePluginsDirectoryName = "StoragePlugins";
+        public const string EncryptionPluginsDirectoryName = "EncryptionPlugins";
         public const string DatasDirectoryName = "Data";
         public const string AssetsDirectoryName = "Assets";
         public const string ErrorCodesDirectoryName = "Errors";

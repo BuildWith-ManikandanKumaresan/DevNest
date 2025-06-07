@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)build-debug\StoragePlugins\$(MSBuildProjectName)</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\StoragePlugins\$(MSBuildProjectName)</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj" />
+    <ProjectReference Include="..\..\..\DevNest.Plugin.Contracts\DevNest.Plugin.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

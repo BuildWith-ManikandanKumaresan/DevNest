@@ -9,12 +9,7 @@ namespace DevNest.Common.Base.Constants.Message
     {
         private static Dictionary<string, ApplicationErrors>? _errors;
         private static Dictionary<string, ApplicationWarnings>? _warnings;
-        private static Dictionary<string, string>? _success;
-
-        /// <summary>
-        /// Default error code for exceptions when no specific code is provided.
-        /// </summary>
-        public static string DefaultExceptionCode => "DEV-EXP-001";
+        private static Dictionary<string, ApplicationSuccess>? _success;
 
         /// <summary>
         /// Initialize the static instance for Messages.
@@ -39,7 +34,7 @@ namespace DevNest.Common.Base.Constants.Message
         /// <summary>
         /// Initializes the static class with predefined success messages.
         /// </summary>
-        public static Dictionary<string, string>? Success => _success;
+        public static Dictionary<string, ApplicationSuccess>? Success => _success;
 
         /// <summary>
         /// Initializes the error codes from the specified directory.
@@ -51,7 +46,7 @@ namespace DevNest.Common.Base.Constants.Message
             {
                 if (_errors?.Count == 0)
                 {
-                    string[] errorFiles = Directory.GetFiles(errorCodesDirectory, "*errors.json");
+                    string[] errorFiles = Directory.GetFiles(errorCodesDirectory, CommonConstants.ErrorConstantFileSearchPattern);
                     foreach (string errorFile in errorFiles)
                     {
                         if (File.Exists(errorFile))
@@ -85,7 +80,7 @@ namespace DevNest.Common.Base.Constants.Message
             {
                 if (_warnings?.Count == 0)
                 {
-                    string[] warningFiles = Directory.GetFiles(warningCodesDirectory, "*warnings.json");
+                    string[] warningFiles = Directory.GetFiles(warningCodesDirectory, CommonConstants.WarningConstantFileSearchPattern);
                     foreach (string warningFile in warningFiles)
                     {
                         if (File.Exists(warningFile))
@@ -120,13 +115,13 @@ namespace DevNest.Common.Base.Constants.Message
             {
                 if (_success?.Count == 0)
                 {
-                    string[] successFiles = Directory.GetFiles(successCodesDirectory, "*success.json");
+                    string[] successFiles = Directory.GetFiles(successCodesDirectory, CommonConstants.SuccessConstantFileSearchPattern);
                     foreach (string successFile in successFiles)
                     {
                         if (File.Exists(successFile))
                         {
                             string jsonContent = File.ReadAllText(successFile);
-                            var successCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(jsonContent);
+                            var successCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, ApplicationSuccess>>(jsonContent);
                             if (successCodes != null)
                             {
                                 foreach (var successCode in successCodes)
@@ -176,9 +171,24 @@ namespace DevNest.Common.Base.Constants.Message
         /// <returns></returns>
         public static string GetSuccess(string key)
         {
-            if (Success?.TryGetValue(key, out string? success) ?? false)
-                return success;
+            if (Success?.TryGetValue(key, out ApplicationSuccess? success) ?? false)
+                return success.Message ?? string.Empty;
             return string.Empty;
+        }
+
+        /// <summary>
+        /// Creates a default error response for exceptions that do not have a specific error code defined.
+        /// </summary>
+        /// <param name="ex"></param>
+        /// <returns></returns>
+        public static ApplicationErrors DefaultError(Exception ex)
+        {
+            return new ApplicationErrors
+            {
+                Code = ErrorConstants.UndefinedErrorCode,
+                Message = ex.Message,
+                Description = ex.ToString()
+            };
         }
     }
 }

@@ -10,23 +10,18 @@ namespace DevNest.Plugin.Json
     /// Represents the class instance for JSON data context plugin.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class JsonDataContext<T> : IStorageDataContext<T> where T : class
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="JsonStorageContext{T}"/> class with the specified connection parameters.
+    /// </remarks>
+    /// <param name="_connectionParams"></param>
+    public class JsonStorageContext<T>(Dictionary<string, object>? _connectionParams) : IStorageContext<T> where T : class
     {
-        private JsonDataHandler<T> _JsonHandler;
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JsonDataContext{T}"/> class with the specified connection parameters.
-        /// </summary>
-        /// <param name="_connectionParams"></param>
-        public JsonDataContext(Dictionary<string, object>? _connectionParams)
-        {
-            ConnectionParams = _connectionParams;
-            _JsonHandler = new JsonDataHandler<T>(_connectionParams ?? []);
-        }
+        private readonly JsonDataHandler<T> _JsonHandler = new(_connectionParams ?? []);
 
         /// <summary>
         /// Gets the connection parameters for the data context.
         /// </summary>
-        public Dictionary<string, object>? ConnectionParams { get; private set; }
+        public Dictionary<string, object>? ConnectionParams { get; private set; } = _connectionParams;
 
         /// <summary>
         /// Add the entity type of T to the data context.
@@ -54,16 +49,14 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public bool Archive(Guid id)
         {
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
-
-            if (data == null) return false;
+            if (_JsonHandler.Read() is not List<CredentialEntity> data) return false;
 
             var entity = data.FirstOrDefault(a => a.Id == id);
             if (entity == null) return false;
 
             entity.IsDisabled = true;
 
-            _JsonHandler.Write(data.Cast<T>().ToList());
+            _JsonHandler.Write([.. data.Cast<T>()]);
 
             return true;
         }
@@ -131,8 +124,7 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public T? Update(T? entity)
         {
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
-            if (entity == null || data == null)
+            if (entity == null || _JsonHandler.Read() is not List<CredentialEntity> data)
                 return entity;
 
             var input = entity as CredentialEntity;

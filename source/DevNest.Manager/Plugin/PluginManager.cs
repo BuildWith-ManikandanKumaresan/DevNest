@@ -92,7 +92,7 @@ namespace DevNest.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStorageDataContext<T>? GetStorageContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public IStorageContext<T>? GetStorageContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             var activePlugin = connectionParams[ConnectionParamConstants.PluginStorageId] != null ?
                 _pluginStorageInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginStorageId].ToString() ?? string.Empty) && p.IsActive == true) :
@@ -102,7 +102,7 @@ namespace DevNest.Manager.Plugin
                 this._logger.LogError(message: "No active primary plugin found.", apiCall: null);
                 return null;
             }
-            return activePlugin?.GetStorageDataContext<T>(connectionParams);
+            return activePlugin?.GetStorageContext<T>(connectionParams);
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace DevNest.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IEncryptionDataContext<T>? GetEncryptionDataContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             var activePlugin = connectionParams[ConnectionParamConstants.PluginEncryptionId] != null ?
                 _pluginEncryptionInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginEncryptionId].ToString() ?? string.Empty) && p.IsActive == true) :
@@ -121,7 +121,7 @@ namespace DevNest.Manager.Plugin
                 this._logger.LogError(message: "No active primary plugin found.", apiCall: null);
                 return null;
             }
-            return activePlugin?.GetEncryptionDataContext<T>(connectionParams);
+            return activePlugin?.GetEncryptionContext<T>(connectionParams);
         }
     }
 }

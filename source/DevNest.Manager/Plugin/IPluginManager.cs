@@ -17,7 +17,7 @@ namespace DevNest.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageDataContext<T>? GetStorageContext<T>(Dictionary<string, object> connectionParams) where T : class;
+        IStorageContext<T>? GetStorageContext<T>(Dictionary<string, object> connectionParams) where T : class;
 
         /// <summary>
         /// Gets the encryption data context for the plugin with the specified connection parameters.
@@ -25,6 +25,6 @@ namespace DevNest.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IEncryptionDataContext<T>? GetEncryptionDataContext<T>(Dictionary<string, object> connectionParams) where T : class;
+        IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class;
     }
 }

@@ -4,7 +4,7 @@
     /// Represents the interface for data context operations for encryption plugins.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IEncryptionDataContext<T> where T : class
+    public interface IEncryptionContext<T> where T : class
     {
         /// <summary>
         /// Encrypts the given plain text using the specified key.

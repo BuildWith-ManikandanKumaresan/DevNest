@@ -10,14 +10,14 @@ namespace DevNest.Plugin.AES.CBC
     /// </summary>
     public class AESCBCEncryptionPlugin : IEncryptionPlugin
     {
-        private readonly Dictionary<Type, object> _contexts = new();
+        private readonly Dictionary<Type, object> _contexts = [];
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AESCBCEncryptionPlugin"/> class.
         /// </summary>
         public AESCBCEncryptionPlugin()
         {
-            _contexts = new();
+            _contexts = [];
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DevNest.Plugin.AES.CBC
         /// <summary>
         /// Gets or sets the connection parameters for the plugin.
         /// </summary>
-        public Dictionary<string, object>? ConnectionParams { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object>? ConnectionParams { get; set; } = [];
 
         /// <summary>
         /// Gets the encryption data context for the plugin with the specified connection parameters.
@@ -61,12 +61,12 @@ namespace DevNest.Plugin.AES.CBC
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IEncryptionDataContext<T>? GetEncryptionDataContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IEncryptionDataContext<T>)context;
+                return (IEncryptionContext<T>)context;
 
-            var newContext = new AESCBCEncryptionDataContext<T>(connectionParams);
+            var newContext = new AESCBCEncryptionContext<T>(connectionParams);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

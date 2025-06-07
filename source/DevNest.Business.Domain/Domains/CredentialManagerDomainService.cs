@@ -13,32 +13,25 @@ using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using MediatR;
 #endregion using directives
 
-namespace DevNest.Business.Domain.Services
+namespace DevNest.Business.Domain.Domains
 {
     /// <summary>
     /// Represents the class instance for credential manager services.
     /// </summary>
-    public class CredentialManagerDomainService : ICredentialManagerDomainService
+    /// <remarks>
+    /// Initialize the new instance for credential manager services.
+    /// </remarks>
+    /// <param name="logger"></param>
+    public class CredentialManagerDomainService(
+        IApplicationLogger<CredentialManagerDomainService> logger,
+        ICredentialManagerReposRouter router,
+        IApplicationConfigService<CredentialManagerConfigurations> applicationConfigService,
+        IMapper mapper) : ICredentialManagerDomainService
     {
-        private readonly IApplicationLogger<CredentialManagerDomainService> _logger;
-        private readonly ICredentialManagerReposRouter _router;
-        private readonly IMapper _mapper;
-        private readonly IApplicationConfigService<CredentialManagerConfigurations> _applicationConfigService;
-        /// <summary>
-        /// Initialize the new instance for credential manager services.
-        /// </summary>
-        /// <param name="logger"></param>
-        public CredentialManagerDomainService(
-            IApplicationLogger<CredentialManagerDomainService> logger,
-            ICredentialManagerReposRouter router,
-            IApplicationConfigService<CredentialManagerConfigurations> applicationConfigService,
-            IMapper mapper)
-        {
-            _logger = logger;
-            _router = router;
-            _mapper = mapper;
-            _applicationConfigService = applicationConfigService;
-        }
+        private readonly IApplicationLogger<CredentialManagerDomainService> _logger = logger;
+        private readonly ICredentialManagerReposRouter _router = router;
+        private readonly IMapper _mapper = mapper;
+        private readonly IApplicationConfigService<CredentialManagerConfigurations> _applicationConfigService = applicationConfigService;
 
         /// <summary>
         /// Handler method for get credentials as DTO response.
@@ -46,37 +39,25 @@ namespace DevNest.Business.Domain.Services
         /// <returns></returns>
         public async Task<ApplicationResponse<IEnumerable<CredentialsDTO>>> Get()
         {
-            var response = new ApplicationResponse<IEnumerable<CredentialsDTO>>() { Data = null, IsSuccess = false };
             try
             {
-                List<CredentialEntity>? _data = _router.GetAsync().GetAwaiter().GetResult()?.ToList();
+                var data = (await _router.GetAsync())?.ToList();
+                if (data == null)
+                    return ApplicationResponse<IEnumerable<CredentialsDTO>>.Fail(Messages.GetError(ErrorConstants.NoCredentialsFound));
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<IEnumerable<CredentialsDTO>>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFound)] };
-                }
-
-                // Show archived credentials.
                 if (!_applicationConfigService.Value?.ShowArchivedCredentials ?? false)
-                {
-                    _data.RemoveAll(a => a.IsDisabled == true);
-                }
+                    data.RemoveAll(a => a.IsDisabled ?? false);
 
-                // Masking credentials
-                _data.ForEach(async credential => await MaskingPasswords(credential, _applicationConfigService.Value?.ShowPasswordAsMasked));
+                foreach (var credential in data)
+                    await MaskingPasswords(credential, _applicationConfigService.Value?.ShowPasswordAsMasked);
 
-                return new ApplicationResponse<IEnumerable<CredentialsDTO>>()
-                {
-                    Data = _mapper.Map<IEnumerable<CredentialsDTO>>(_data),
-                    IsSuccess = true
-                };
+                return ApplicationResponse<IEnumerable<CredentialsDTO>>.Success(_mapper.Map<IEnumerable<CredentialsDTO>>(data));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<IEnumerable<CredentialsDTO>>.Fail(Messages.DefaultError(ex));
             }
-            return response;
         }
 
         /// <summary>
@@ -87,31 +68,20 @@ namespace DevNest.Business.Domain.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<ApplicationResponse<CredentialsDTO>> GetById(Guid id)
         {
-            var response = new ApplicationResponse<CredentialsDTO>() { Data = null, IsSuccess = false };
             try
             {
-                CredentialEntity? _data = await _router.GetByIdAsync(id);
+                var entity = await _router.GetByIdAsync(id);
+                if (entity == null)
+                    return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.NoCredentialsFoundForTheId));
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.NoCredentialsFoundForTheId)] };
-                }
-
-                // Masking credentials
-                await MaskingPasswords(_data, _applicationConfigService.Value?.ShowPasswordAsMasked);
-
-                return new ApplicationResponse<CredentialsDTO>
-                {
-                    Data = _mapper.Map<CredentialsDTO>(_data),
-                    IsSuccess = true
-                };
+                await MaskingPasswords(entity, _applicationConfigService.Value?.ShowPasswordAsMasked);
+                return ApplicationResponse<CredentialsDTO>.Success(_mapper.Map<CredentialsDTO>(entity));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<CredentialsDTO>.Fail(Messages.DefaultError(ex));
             }
-            return response;
         }
 
 
@@ -121,28 +91,21 @@ namespace DevNest.Business.Domain.Services
         /// <returns></returns>
         public async Task<ApplicationResponse<bool>> Delete()
         {
-            var response = new ApplicationResponse<bool>() { Data = false, IsSuccess = false };
             try
             {
-                bool? _data = await _router.DeleteAsync();
+                var result = await _router.DeleteAsync();
+                if (result == null)
+                    return ApplicationResponse<bool>.Fail(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_All));
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.DeleteCredentialsFailed_All)] };
-                }
-
-                return new ApplicationResponse<bool>
-                {
-                    Data = _mapper.Map<bool>(_data),
-                    IsSuccess = true
-                };
+                return ApplicationResponse<bool>.Success(
+                    data: result,
+                    message: Messages.GetSuccess(SuccessConstants.CredentialsDeletedSuccessfully));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<bool>.Fail(Messages.DefaultError(ex));
             }
-            return response;
         }
 
         /// <summary>
@@ -152,29 +115,22 @@ namespace DevNest.Business.Domain.Services
         /// <returns></returns>
         public async Task<ApplicationResponse<bool>> DeleteById(Guid id)
         {
-            var response = new ApplicationResponse<bool>() { Data = false, IsSuccess = false };
             try
             {
-                bool? _data = await _router.DeleteByIdAsync(id);
+                var result = await _router.DeleteByIdAsync(id);
+                if (result == null)
+                    return ApplicationResponse<bool>.Fail(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById));
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById)] };
-                }
-
-                return new ApplicationResponse<bool>
-                {
-                    Data = _mapper.Map<bool>(_data),
-                    IsSuccess = true
-                };
+                return ApplicationResponse<bool>.Success(
+                    data: result,
+                    message: string.Format(
+                        Messages.GetSuccess(SuccessConstants.CredentialsDeletedByIdSuccessfully),id));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<bool>.Fail(Messages.DefaultError(ex));
             }
-            return response;
-
         }
 
         /// <summary>
@@ -184,30 +140,26 @@ namespace DevNest.Business.Domain.Services
         /// <returns></returns>
         public async Task<ApplicationResponse<CredentialsDTO>> Add(AddCredentialRequest? request)
         {
-            var response = new ApplicationResponse<CredentialsDTO>() { Data = null, IsSuccess = false };
             try
             {
-                CredentialEntity entity = _mapper.Map<CredentialEntity>(request);
+                var entity = _mapper.Map<CredentialEntity>(request);
                 entity.Id = Guid.NewGuid();
-                CredentialEntity? _data = await _router.AddAsync(entity);
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.CreateCredentialsFailed)] };
-                }
+                var result = await _router.AddAsync(entity);
+                if (result == null)
+                    return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.CreateCredentialsFailed));
 
-                return new ApplicationResponse<CredentialsDTO>
-                {
-                    Data = _mapper.Map<CredentialsDTO>(_data),
-                    IsSuccess = true
-                };
+                return ApplicationResponse<CredentialsDTO>.Success( 
+                    data: _mapper.Map<CredentialsDTO>(result),
+                    message: string.Format(
+                        Messages.GetSuccess(SuccessConstants.CredentialsCreatedSuccessfully),
+                        string.IsNullOrEmpty(result.Title) ? result.Id : result.Title));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<CredentialsDTO>.Fail(Messages.DefaultError(ex));
             }
-            return response;
         }
 
         /// <summary>
@@ -218,29 +170,25 @@ namespace DevNest.Business.Domain.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<ApplicationResponse<CredentialsDTO>> Update(UpdateCredentialRequest? request)
         {
-            var response = new ApplicationResponse<CredentialsDTO>() { Data = null, IsSuccess = false };
             try
             {
-                CredentialEntity entity = _mapper.Map<CredentialEntity>(request);
-                CredentialEntity? _data = await _router.UpdateAsync(entity);
+                var entity = _mapper.Map<CredentialEntity>(request);
+                var result = await _router.UpdateAsync(entity);
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<CredentialsDTO>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.UpdateCredentialsFailed)] };
-                }
+                if (result == null)
+                    return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.UpdateCredentialsFailed));
 
-                return new ApplicationResponse<CredentialsDTO>
-                {
-                    Data = _mapper.Map<CredentialsDTO>(_data),
-                    IsSuccess = true
-                };
+                return ApplicationResponse<CredentialsDTO>.Success(
+                    data: _mapper.Map<CredentialsDTO>(result),
+                    message: string.Format(
+                        Messages.GetSuccess(SuccessConstants.CredentialsUpdatedSuccessfully), 
+                        string.IsNullOrEmpty(result.Title) ? result.Id : result.Title));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<CredentialsDTO>.Fail(Messages.DefaultError(ex));
             }
-            return response;
         }
 
         /// <summary>
@@ -250,29 +198,23 @@ namespace DevNest.Business.Domain.Services
         /// <returns></returns>
         public async Task<ApplicationResponse<bool>> Archive(Guid id)
         {
-
-            var response = new ApplicationResponse<bool>() { Data = false, IsSuccess = false };
             try
             {
-                bool? _data = await _router.ArchiveByIdAsync(id);
+                var result = await _router.ArchiveByIdAsync(id);
+                if (result == null)
+                    return ApplicationResponse<bool>.Fail(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById));
 
-                if (_data == null)
-                {
-                    return new ApplicationResponse<bool>() { IsSuccess = false, Errors = [Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById)] };
-                }
-
-                return new ApplicationResponse<bool>
-                {
-                    Data = _mapper.Map<bool>(_data),
-                    IsSuccess = true
-                };
+                return ApplicationResponse<bool>.Success(
+                    data: result, 
+                    message: string.Format(
+                        Messages.GetSuccess(SuccessConstants.CredentialsArchivedSuccessfully),
+                        id));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                response.Errors = [new ApplicationErrors() { Code = Messages.DefaultExceptionCode, Message = ex.Message }];
+                return ApplicationResponse<bool>.Fail(Messages.DefaultError(ex));
             }
-            return response;
         }
 
 
@@ -281,24 +223,12 @@ namespace DevNest.Business.Domain.Services
         /// </summary>
         /// <param name="credentialsDTO"></param>
         /// <returns></returns>
-        private async Task MaskingPasswords(CredentialEntity credentialsDTO, bool? masking_GlobalConfiguration)
+        private async Task MaskingPasswords(CredentialEntity entity, bool? globalMaskingEnabled)
         {
-            if (!string.IsNullOrEmpty(credentialsDTO.Password))
+            if (!string.IsNullOrEmpty(entity.Password) && (entity.IsPasswordMasked ?? globalMaskingEnabled ?? false))
             {
-                if ((credentialsDTO.IsPasswordMasked ?? false))
-                {
-                    credentialsDTO.Password = new string(char.Parse(_applicationConfigService.Value?.MaskingPlaceHolder ?? string.Empty), 
-                        credentialsDTO.Password.Length);
-                }
-                else if (masking_GlobalConfiguration ?? false)
-                {
-                    credentialsDTO.Password = new string(char.Parse(_applicationConfigService.Value?.MaskingPlaceHolder ?? string.Empty), 
-                        credentialsDTO.Password.Length);
-                }
-                else
-                {
-                    credentialsDTO.Password = credentialsDTO.Password;
-                }
+                var maskChar = _applicationConfigService.Value?.MaskingPlaceHolder?.FirstOrDefault() ?? '*';
+                entity.Password = new string(maskChar, entity.Password.Length);
             }
         }
     }

@@ -1,5 +1,7 @@
-﻿using DevNest.Infrastructure.Entity;
+﻿#region using directives
+using DevNest.Infrastructure.Entity;
 using DevNest.Plugin.Contracts.Storage;
+#endregion using directives
 
 namespace DevNest.Plugin.Json
 {
@@ -8,11 +10,11 @@ namespace DevNest.Plugin.Json
     /// </summary>
     public class JsonStoragePlugin : IStoragePlugin
     {
-        private readonly Dictionary<Type, object> _contexts = new();
+        private readonly Dictionary<Type, object> _contexts = [];
 
         public JsonStoragePlugin()
         {
-            _contexts = new();
+            _contexts = [];
         }
 
         /// <summary>
@@ -48,7 +50,7 @@ namespace DevNest.Plugin.Json
         /// <summary>
         /// Gets or sets the connection parameters for the plugin.
         /// </summary>
-        public Dictionary<string, object>? ConnectionParams { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object>? ConnectionParams { get; set; } = [];
 
         /// <summary>
         /// Gets the data context for the plugin with the specified connection parameters.
@@ -56,12 +58,12 @@ namespace DevNest.Plugin.Json
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStorageDataContext<T>? GetStorageDataContext<T>(Dictionary<string, object>? connectionParams) where T : class
+        public IStorageContext<T>? GetStorageContext<T>(Dictionary<string, object>? connectionParams) where T : class
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IStorageDataContext<T>)context;
+                return (IStorageContext<T>)context;
 
-            var newContext = new JsonDataContext<T>(connectionParams);
+            var newContext = new JsonStorageContext<T>(connectionParams);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

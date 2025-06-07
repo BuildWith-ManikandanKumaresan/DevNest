@@ -42,5 +42,183 @@ namespace DevNest.Common.Base.Response
         /// Gets or sets the success message.
         /// </summary>
         public string? Message { get; set; } // Optional: summary of success/failure
+
+        /// <summary>
+        /// Creates a successful response with the provided data.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Success(T data)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                IsSuccess = true
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data and message.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Success(T data, string message)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                IsSuccess = true,
+                Message = message
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data, message, and warnings.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="message"></param>
+        /// <param name="warnings"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Success(T data, string message, List<ApplicationWarnings> warnings)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                IsSuccess = true,
+                Message = message,
+                Warnings = warnings
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data, message, and a single warning.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="message"></param>
+        /// <param name="warning"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Success(T data, string message, ApplicationWarnings warning)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                IsSuccess = true,
+                Message = message,
+                Warnings = [warning]
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data and message.
+        /// </summary>
+        /// <param name="errors"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Fail(List<ApplicationErrors> errors)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = default,
+                IsSuccess = false,
+                Errors = errors
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data and message.
+        /// </summary>
+        /// <param name="error"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Fail(ApplicationErrors error)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = default,
+                IsSuccess = false,
+                Errors = [error]
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data and message.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="warning"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Warning(T data, ApplicationWarnings warning)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                IsSuccess = false,
+                Warnings = [warning]
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data, message, and a single warning.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="message"></param>
+        /// <param name="warning"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Warning(T data, string message, ApplicationWarnings warning)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                Message = message,
+                IsSuccess = false,
+                Warnings = [warning]
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided data, message, and warnings.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="message"></param>
+        /// <param name="warnings"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Warning(T data, string message, List<ApplicationWarnings> warnings)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = data,
+                Message = message,
+                IsSuccess = false,
+                Warnings = warnings
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided warning.
+        /// </summary>
+        /// <param name="warning"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Warning(ApplicationWarnings warning)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = default,
+                IsSuccess = false,
+                Warnings = [warning]
+            };
+        }
+
+        /// <summary>
+        /// Creates a successful response with the provided warnings.
+        /// </summary>
+        /// <param name="warnings"></param>
+        /// <returns></returns>
+        public static ApplicationResponse<T> Warning(List<ApplicationWarnings> warnings)
+        {
+            return new ApplicationResponse<T>
+            {
+                Data = default,
+                IsSuccess = false,
+                Warnings = warnings
+            };
+        }
     }
 }

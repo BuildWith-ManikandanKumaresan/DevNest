@@ -15,27 +15,19 @@ namespace DevNest.Plugin.Json.Handler
     /// Represents the class instance for handling JSON data operations.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class JsonDataHandler<T> where T : class
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="JsonDataHandler{T}"/> class with the specified parameters.
+    /// </remarks>
+    /// <param name="Parameters"></param>
+    /// <exception cref="ArgumentNullException"></exception>
+    public class JsonDataHandler<T>(Dictionary<string, object> Parameters) where T : class
     {
-        private readonly long _DefaultMaxFileSizeBytes;
-        private readonly Dictionary<string, object> _Parameters;
-        private readonly string _BaseFileName;
-        private readonly string _DataDirectory;
+        private readonly long _DefaultMaxFileSizeBytes = Parameters.TryGetValue(ConnectionParamConstants.MaxFileSizeBytes, out var maxFileSize) && maxFileSize is long size ? size : 10485760;
+        private readonly Dictionary<string, object> _Parameters = Parameters ?? throw new ArgumentNullException(nameof(Parameters), "Parameters cannot be null.");
+        private readonly string _BaseFileName = Parameters.TryGetValue(ConnectionParamConstants.BaseFileName, out var baseFileName) && baseFileName is string name ? name : "credential";
+        private readonly string _DataDirectory = Parameters.TryGetValue(ConnectionParamConstants.DataDirectory, out var dataDirectory) && dataDirectory is string dir ? dir : "Credential-Manager";
         private readonly bool _ShowArchiveFiles; // Default to not show archive files
         private readonly bool _IsArchive = false; // Flag to indicate if the operation is for archive files
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JsonDataHandler{T}"/> class with the specified parameters.
-        /// </summary>
-        /// <param name="Parameters"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        public JsonDataHandler(Dictionary<string, object> Parameters)
-        {
-            _Parameters = Parameters ?? throw new ArgumentNullException(nameof(Parameters), "Parameters cannot be null.");
-            _DefaultMaxFileSizeBytes = Parameters.TryGetValue(ConnectionParamConstants.MaxFileSizeBytes, out var maxFileSize) && maxFileSize is long size ? size : 10485760; // Default to 10 MB
-            _BaseFileName = Parameters.TryGetValue(ConnectionParamConstants.BaseFileName, out var baseFileName) && baseFileName is string name ? name : "credential"; // Default base file name
-            _DataDirectory = Parameters.TryGetValue(ConnectionParamConstants.DataDirectory, out var dataDirectory) && dataDirectory is string dir ? dir : "Credential-Manager"; // Default data directory           
-        }
 
         /// <summary>
         /// Reads a list of items of type T from a JSON file at the specified file path.

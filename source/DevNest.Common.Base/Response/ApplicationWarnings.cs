@@ -1,4 +1,5 @@
 ﻿using DevNest.Common.Base.Constants;
+using DevNest.Common.Base.Constants.Message;
 
 namespace DevNest.Common.Base.Response
 {
@@ -12,7 +13,7 @@ namespace DevNest.Common.Base.Response
         /// <summary>
         /// Gets or sets the warning code.
         /// </summary>
-        public string Code { get; set; } = CommonConstants.UndefinedErrorCode;
+        public string Code { get; set; } = ErrorConstants.UndefinedErrorCode;
 
         /// <summary>
         /// Gets or sets the warning message.

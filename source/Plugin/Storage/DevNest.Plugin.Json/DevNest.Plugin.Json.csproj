@@ -5,8 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)build-debug\StoragePlugins\$(MSBuildProjectName)</OutputPath>
-    <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\StoragePlugins\$(MSBuildProjectName)</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)build-debug\Plugin\Storage\$(MSBuildProjectName)</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\Plugin\Storage\$(MSBuildProjectName)</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -12,6 +12,6 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageDataContext<T>? GetStorageDataContext<T>(Dictionary<string, object> connectionParams) where T : class;
+        IStorageContext<T>? GetStorageContext<T>(Dictionary<string, object> connectionParams) where T : class;
     }
 }

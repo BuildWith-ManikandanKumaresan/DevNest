@@ -6,6 +6,7 @@ using DevNest.Manager.Plugin;
 using DevNest.Common.Base.Contracts;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Common.Base.Constants;
+using DevNest.Plugin.Contracts.Storage;
 #endregion using directives
 
 namespace DevNest.Infrastructure.Routers
@@ -13,25 +14,18 @@ namespace DevNest.Infrastructure.Routers
     /// <summary>
     /// Represents the class instance for cred manager repository router.
     /// </summary>
-    public class CredentialManagerReposRouter : ICredentialManagerReposRouter
+    /// <remarks>
+    /// Initialize the new instance for <see cref="CredentialManagerReposRouter" class./>
+    /// </remarks>
+    /// <param name="logger"></param>
+    public class CredentialManagerReposRouter(
+        IApplicationLogger<CredentialManagerReposRouter> logger,
+        IPluginManager pluginManager,
+        IApplicationConfigService<CredentialManagerConfigurations> configurations) : ICredentialManagerReposRouter
     {
-        private readonly IApplicationLogger<CredentialManagerReposRouter> _logger;
-        private readonly IPluginManager _pluginManager;
-        private readonly IApplicationConfigService<CredentialManagerConfigurations> _configurations;
-
-        /// <summary>
-        /// Initialize the new instance for <see cref="CredentialManagerReposRouter" class./>
-        /// </summary>
-        /// <param name="logger"></param>
-        public CredentialManagerReposRouter(
-            IApplicationLogger<CredentialManagerReposRouter> logger,
-            IPluginManager pluginManager,
-            IApplicationConfigService<CredentialManagerConfigurations> configurations)
-        {
-            _logger = logger;
-            _pluginManager = pluginManager;
-            _configurations = configurations;
-        }
+        private readonly IApplicationLogger<CredentialManagerReposRouter> _logger = logger;
+        private readonly IPluginManager _pluginManager = pluginManager;
+        private readonly IApplicationConfigService<CredentialManagerConfigurations> _configurations = configurations;
 
         /// <summary>
         /// Handler method to add the credentials using entity.
@@ -43,19 +37,18 @@ namespace DevNest.Infrastructure.Routers
         {
             var primaryConfig = _configurations.Value?.StorageProvider?.FirstOrDefault();
             var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
-            if(entity.IsEncrypted ?? false)
+
+            if (entity.IsEncrypted == true)
             {
-                var connectionParam = _configurations?.Value?.EncryptionProvider.FirstOrDefault(a => a.TryGetValue(ConnectionParamConstants.EncryptionName, out object encryptionalgorithm) && encryptionalgorithm is not null && encryptionalgorithm.ToString() == entity.EncryptionAlgorithm) ?? [];
-                if(connectionParam == null || connectionParam.Count <= 0)
-                {
-                    connectionParam = _configurations.Value?.EncryptionProvider?.FirstOrDefault() ?? [];
-                }
-                var encryptionContext = _pluginManager.GetEncryptionDataContext<string>(connectionParam);
+                var connectionParam = GetEncryptionParams(entity.EncryptionAlgorithm);
+                var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
+
                 if (encryptionContext != null)
                 {
                     entity.Password = encryptionContext.Encrypt(entity.Password ?? string.Empty);
                 }
             }
+
             return context?.Add(entity) ?? null;
         }
 
@@ -66,8 +59,7 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<bool> ArchiveByIdAsync(Guid id)
         {
-            var primaryConfig = _configurations.Value?.StorageProvider.FirstOrDefault();
-            var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
+            var context = GetStorageContext();
             return context?.Archive(id) ?? false;
         }
 
@@ -77,8 +69,7 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<bool> DeleteAsync()
         {
-            var primaryConfig = _configurations.Value?.StorageProvider.FirstOrDefault();
-            var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
+            var context = GetStorageContext();
             return context?.DeleteAll() ?? false;
         }
 
@@ -89,8 +80,7 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<bool> DeleteByIdAsync(Guid id)
         {
-            var primaryConfig = _configurations.Value?.StorageProvider.FirstOrDefault();
-            var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
+            var context = GetStorageContext();
             return context?.Delete(id) ?? false;
         }
 
@@ -100,27 +90,12 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<IEnumerable<CredentialEntity>?> GetAsync()
         {
-            var primaryConfig = _configurations.Value?.StorageProvider.FirstOrDefault();
-            var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
-            var getCredentials = context?.Get().ToList();
-            getCredentials?.ForEach(credential =>
-            {
-                if(credential.IsEncrypted ?? false)
-                {
-                    var connectionParam = _configurations?.Value?.EncryptionProvider.FirstOrDefault(a => a.TryGetValue(ConnectionParamConstants.EncryptionName, out object encryptionalgorithm) && encryptionalgorithm is not null && encryptionalgorithm.ToString() == credential.EncryptionAlgorithm) ?? [];
-                    if (connectionParam == null || connectionParam.Count <= 0)
-                    {
-                        connectionParam = _configurations.Value?.EncryptionProvider?.FirstOrDefault() ?? [];
-                    }
-                    var encryptionContext = _pluginManager.GetEncryptionDataContext<string>(connectionParam);
-                    if (encryptionContext != null)
-                    {
-                        credential.Password = encryptionContext.Decrypt(credential.Password ?? string.Empty);
-                    }
-                }
-            });
+            var context = GetStorageContext();
+            var credentials = context?.Get().ToList();
 
-            return getCredentials;
+            credentials?.ForEach(DecryptCredential);
+
+            return credentials;
         }
 
         /// <summary>
@@ -131,22 +106,9 @@ namespace DevNest.Infrastructure.Routers
         /// <exception cref="NotImplementedException"></exception>
         public async Task<CredentialEntity?> GetByIdAsync(Guid id)
         {
-            var primaryConfig = _configurations.Value?.StorageProvider?.FirstOrDefault();
-            var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
-            var credential =  context?.GetById(id);
-            if(credential?.IsEncrypted ?? false)
-            {
-                var connectionParam = _configurations?.Value?.EncryptionProvider.FirstOrDefault(a => a.TryGetValue(ConnectionParamConstants.EncryptionName, out object encryptionalgorithm) && encryptionalgorithm is not null && encryptionalgorithm.ToString() == credential.EncryptionAlgorithm) ?? [];
-                if (connectionParam == null || connectionParam.Count <= 0)
-                {
-                    connectionParam = _configurations.Value?.EncryptionProvider?.FirstOrDefault() ?? [];
-                }
-                var encryptionContext = _pluginManager.GetEncryptionDataContext<string>(connectionParam);
-                if (encryptionContext != null)
-                {
-                    credential.Password = encryptionContext.Decrypt(credential.Password ?? string.Empty);
-                }
-            }
+            var context = GetStorageContext();
+            var credential = context?.GetById(id);
+            DecryptCredential(credential);
             return credential;
         }
 
@@ -157,9 +119,56 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         public async Task<CredentialEntity?> UpdateAsync(CredentialEntity entity)
         {
-            var primaryConfig = _configurations.Value?.StorageProvider.FirstOrDefault();
-            var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
+            var context = GetStorageContext();
             return context?.Update(entity);
         }
+
+        #region Private methods
+
+        /// <summary>
+        /// Gets the storage context for credential entity operations.
+        /// </summary>
+        /// <returns></returns>
+        private IStorageContext<CredentialEntity>? GetStorageContext()
+        {
+            var primaryConfig = _configurations.Value?.StorageProvider?.FirstOrDefault();
+            return _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
+        }
+
+        /// <summary>
+        /// Gets the encryption parameters based on the specified algorithm name.
+        /// </summary>
+        /// <param name="algorithm"></param>
+        /// <returns></returns>
+        private Dictionary<string, object> GetEncryptionParams(string? algorithm)
+        {
+            var param = _configurations?.Value?.EncryptionProvider?.FirstOrDefault(
+                a => a.TryGetValue(ConnectionParamConstants.EncryptionName, out var value) &&
+                     value?.ToString() == algorithm);
+
+            return param != null && param.Count > 0
+                ? param
+                : _configurations?.Value?.EncryptionProvider?.FirstOrDefault() ?? [];
+        }
+
+        /// <summary>
+        /// Decrypts the credential's password if it is encrypted.
+        /// </summary>
+        /// <param name="credential"></param>
+        private void DecryptCredential(CredentialEntity? credential)
+        {
+            if (credential?.IsEncrypted == true)
+            {
+                var connectionParam = GetEncryptionParams(credential.EncryptionAlgorithm);
+                var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
+
+                if (encryptionContext != null)
+                {
+                    credential.Password = encryptionContext.Decrypt(credential.Password ?? string.Empty);
+                }
+            }
+        }
+
+        #endregion Private methods
     }
 }

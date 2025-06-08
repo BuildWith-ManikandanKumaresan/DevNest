@@ -45,11 +45,11 @@ namespace DevNest.Business.Domain.Domains
                 if (data == null)
                     return ApplicationResponse<IEnumerable<CredentialsDTO>>.Fail(Messages.GetError(ErrorConstants.NoCredentialsFound));
 
-                if (!_applicationConfigService.Value?.ShowArchivedCredentials ?? false)
+                if (!_applicationConfigService.Value.GeneralSettings?.ShowArchivedCredentials ?? false)
                     data.RemoveAll(a => a.IsDisabled ?? false);
 
                 foreach (var credential in data)
-                    await MaskingPasswords(credential, _applicationConfigService.Value?.ShowPasswordAsMasked);
+                    await MaskingPasswords(credential, _applicationConfigService.Value.GeneralSettings?.ShowPasswordAsMasked);
 
                 return ApplicationResponse<IEnumerable<CredentialsDTO>>.Success(_mapper.Map<IEnumerable<CredentialsDTO>>(data));
             }
@@ -74,7 +74,7 @@ namespace DevNest.Business.Domain.Domains
                 if (entity == null)
                     return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.NoCredentialsFoundForTheId));
 
-                await MaskingPasswords(entity, _applicationConfigService.Value?.ShowPasswordAsMasked);
+                await MaskingPasswords(entity, _applicationConfigService.Value.GeneralSettings?.ShowPasswordAsMasked);
                 return ApplicationResponse<CredentialsDTO>.Success(_mapper.Map<CredentialsDTO>(entity));
             }
             catch (Exception ex)
@@ -227,7 +227,7 @@ namespace DevNest.Business.Domain.Domains
         {
             if (!string.IsNullOrEmpty(entity.Password) && (entity.IsPasswordMasked ?? globalMaskingEnabled ?? false))
             {
-                var maskChar = _applicationConfigService.Value?.MaskingPlaceHolder?.FirstOrDefault() ?? '*';
+                var maskChar = _applicationConfigService.Value?.GeneralSettings.MaskingPlaceHolder?.FirstOrDefault() ?? '*';
                 entity.Password = new string(maskChar, entity.Password.Length);
             }
         }

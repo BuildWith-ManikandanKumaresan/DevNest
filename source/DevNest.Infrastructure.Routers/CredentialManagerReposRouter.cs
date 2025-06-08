@@ -7,6 +7,8 @@ using DevNest.Common.Base.Contracts;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Common.Base.Constants;
 using DevNest.Plugin.Contracts.Storage;
+using Newtonsoft.Json;
+using DevNest.Common.Base.Helpers;
 #endregion using directives
 
 namespace DevNest.Infrastructure.Routers
@@ -35,7 +37,8 @@ namespace DevNest.Infrastructure.Routers
         /// <exception cref="NotImplementedException"></exception>
         public async Task<CredentialEntity> AddAsync(CredentialEntity entity)
         {
-            var primaryConfig = _configurations.Value?.StorageProvider?.FirstOrDefault();
+            Dictionary<string, object>? primaryConfig = _configurations.Value?.StorageProviders?.FirstOrDefault()?.ParseConnectionParams();
+
             var context = _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
 
             if (entity.IsEncrypted == true)
@@ -131,7 +134,7 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         private IStorageContext<CredentialEntity>? GetStorageContext()
         {
-            var primaryConfig = _configurations.Value?.StorageProvider?.FirstOrDefault();
+            Dictionary<string, object>? primaryConfig = _configurations.Value?.StorageProviders?.FirstOrDefault()?.ParseConnectionParams();
             return _pluginManager.GetStorageContext<CredentialEntity>(primaryConfig ?? []);
         }
 
@@ -142,13 +145,14 @@ namespace DevNest.Infrastructure.Routers
         /// <returns></returns>
         private Dictionary<string, object> GetEncryptionParams(string? algorithm)
         {
-            var param = _configurations?.Value?.EncryptionProvider?.FirstOrDefault(
-                a => a.TryGetValue(ConnectionParamConstants.EncryptionName, out var value) &&
-                     value?.ToString() == algorithm);
+            var param = _configurations?.Value?.EncryptionProviders?.FirstOrDefault(
+                a => a.EncryptionName == algorithm);
 
-            return param != null && param.Count > 0
-                ? param
-                : _configurations?.Value?.EncryptionProvider?.FirstOrDefault() ?? [];
+            Dictionary<string, object>? primaryConfig = param?.ParseConnectionParams();
+
+            return primaryConfig != null && primaryConfig.Count > 0
+                ? primaryConfig
+                : _configurations?.Value?.EncryptionProviders?.FirstOrDefault()?.ParseConnectionParams() ?? [];
         }
 
         /// <summary>

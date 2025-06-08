@@ -5,15 +5,15 @@
     /// </summary>
     public partial class ConnectionParamConstants
     {
-        public const string MaxFileSizeBytes = "maxFileSizeBytes";
-        public const string BaseFileName = "baseFileName";
-        public const string DataDirectory = "dataDirectory";
-        public const string ShowArchiveFiles = "showArchiveFiles";
-        public const string IsArchive = "isArchive";
+        public const string MaxFileSizeBytes = "MaxFileSizeBytes";
+        public const string BaseFileName = "BaseFileName";
+        public const string DataDirectory = "DataDirectory";
+        public const string ShowArchiveFiles = "ShowArchiveFiles";
+        public const string IsArchive = "IsArchive";
         public const string JsonDateFileFormat = "yyyyMMdd_HHmmss";
-        public const string EncryptionName = "encryptionName";
-        public const string PluginStorageId = "storageId";
-        public const string PluginEncryptionId = "encryptionId";
-        public const string EncryptionKey = "encryptionKey";
+        public const string EncryptionName = "EncryptionName";
+        public const string PluginStorageId = "StorageId";
+        public const string PluginEncryptionId = "EncryptionId";
+        public const string EncryptionKey = "EncryptionKey";
     }
 }

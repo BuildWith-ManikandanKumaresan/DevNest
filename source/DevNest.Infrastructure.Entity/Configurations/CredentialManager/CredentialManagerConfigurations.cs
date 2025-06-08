@@ -1,33 +1,33 @@
 ﻿namespace DevNest.Infrastructure.Entity.Configurations.CredentialManager
 {
     /// <summary>
-    /// Represents the configuration for credential manager storage.
+    /// Represents the configurations for the Credential Manager application.
     /// </summary>
     public class CredentialManagerConfigurations
     {
         /// <summary>
-        /// Gets or sets the flag indicating whether to show archived credentials.
+        /// Represents the general settings for the Credential Manager application.
         /// </summary>
-        public bool? ShowArchivedCredentials { get; set; }
+        public GeneralSettings? GeneralSettings { get; set; }
 
         /// <summary>
-        /// Gets or sets the flag indicating whether to show password as masked (e.g., asterisks).
+        /// Represents the security settings for the Credential Manager application.
         /// </summary>
-        public bool? ShowPasswordAsMasked { get; set; }
+        public SecuritySettings? SecutirySettings { get; set; }
 
         /// <summary>
-        /// Gets or sets the placeholder for masking the password (e.g., asterisks).
+        /// Represents the storage and encryption providers for the Credential Manager application.
         /// </summary>
-        public string? MaskingPlaceHolder { get; set; }
+        public IEnumerable<StorageProvider>? StorageProviders { get; set; }
 
         /// <summary>
-        /// Gets or sets the storage configurations for credential manager.
+        /// Represents the encryption providers for the Credential Manager application.
         /// </summary>
-        public IEnumerable<Dictionary<string, object>>? StorageProvider { get; set; }
+        public IEnumerable<EncryptionProvider>? EncryptionProviders { get; set; }
 
         /// <summary>
-        /// Gets or sets the encryption provider configurations for credential manager.
+        /// Represents the backup settings for the Credential Manager application.
         /// </summary>
-        public IEnumerable<Dictionary<string,object>>? EncryptionProvider { get; set; }
+        public BackupSettings? BackupSettings { get; set; }
     }
 }

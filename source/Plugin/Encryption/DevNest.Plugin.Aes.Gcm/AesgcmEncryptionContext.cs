@@ -1,0 +1,66 @@
+﻿#region using directives
+using DevNest.Common.Base.Constants;
+using DevNest.Plugin.Contracts.Encryption;
+using System.Security.Cryptography;
+using System.Text;
+#endregion using directives
+
+namespace DevNest.Plugin.Aes.Gcm
+{
+    /// <summary>
+    /// Represents the class instance for AES-GCM encryption data context plugin.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="_connectionParams"></param>
+    public class AesgcmEncryptionContext<T>(Dictionary<string, object>? _connectionParams) : IEncryptionContext<T> where T : class
+    {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        private readonly string _key = _connectionParams.TryGetValue(ConnectionParamConstants.EncryptionKey, out var key) && key is string keyString ? keyString : throw new ArgumentNullException(nameof(_connectionParams), "Encryption key is required.");
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+        /// <summary>
+        /// Gets the connection parameters for the data context.
+        /// </summary>
+        public Dictionary<string, object>? ConnectionParams { get; private set; } = _connectionParams;
+
+        /// <summary>
+        /// Decrypts the given cipher text using the specified key.
+        /// </summary>
+        /// <param name="cipherText"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public T Decrypt(T cipherText)
+        {
+            var data = Convert.FromBase64String(cipherText as string);
+            var nonce = data[..12];
+            var tag = data[^16..];
+            var cipherBytes = data[12..^16];
+            var plainBytes = new byte[cipherBytes.Length];
+
+            using var aesGcm = new AesGcm(SHA256.HashData(Encoding.UTF8.GetBytes(_key)));
+            aesGcm.Decrypt(nonce, cipherBytes, tag, plainBytes);
+
+            return Encoding.UTF8.GetString(plainBytes) as T;
+        }
+
+        /// <summary>
+        /// Encrypts the given plain text using the specified key.
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public T Encrypt(T plainText)
+        {
+            var keyBytes = SHA256.HashData(Encoding.UTF8.GetBytes(_key));
+            var nonce = RandomNumberGenerator.GetBytes(12);
+            var plainBytes = Encoding.UTF8.GetBytes(plainText as string ?? string.Empty);
+            var cipherBytes = new byte[plainBytes.Length];
+            var tag = new byte[16];
+
+            using var aesGcm = new AesGcm(keyBytes);
+            aesGcm.Encrypt(nonce, plainBytes, cipherBytes, tag);
+
+            return Convert.ToBase64String(nonce.Concat(cipherBytes).Concat(tag).ToArray()) as T;
+        }
+    }
+}

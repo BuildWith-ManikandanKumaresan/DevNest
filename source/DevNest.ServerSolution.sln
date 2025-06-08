@@ -36,13 +36,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Contracts", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Json", "Plugin\Storage\DevNest.Plugin.Json\DevNest.Plugin.Json.csproj", "{A8D96A24-4F78-4EB2-92C2-A53311477352}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.AES.CBC", "Plugin\Encryption\DevNest.Plugin.AES.CBC\DevNest.Plugin.AES.CBC.csproj", "{AA3614FD-9761-49AE-8146-8660C7C343D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Aes.Cbc", "Plugin\Encryption\DevNest.Plugin.Aes.Cbc\DevNest.Plugin.Aes.Cbc.csproj", "{AA3614FD-9761-49AE-8146-8660C7C343D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugin", "Plugin", "{08E9FA19-BE7A-4C59-84DF-01E288FF5200}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{79EC675B-680F-43FF-82C0-D1612B310256}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Encryption", "Encryption", "{6AB65799-971F-4641-B68D-99EF3C8E3022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Aes.Gcm", "Plugin\Encryption\DevNest.Plugin.Aes.Gcm\DevNest.Plugin.Aes.Gcm.csproj", "{36D8E2C0-FE48-486E-AFCD-832EAA169837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Rsa", "Plugin\Encryption\DevNest.Plugin.Rsa\DevNest.Plugin.Rsa.csproj", "{D41736DB-0546-42E7-B35B-D8718892A216}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +106,14 @@ Global
 		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA3614FD-9761-49AE-8146-8660C7C343D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D8E2C0-FE48-486E-AFCD-832EAA169837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D8E2C0-FE48-486E-AFCD-832EAA169837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D8E2C0-FE48-486E-AFCD-832EAA169837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D8E2C0-FE48-486E-AFCD-832EAA169837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41736DB-0546-42E7-B35B-D8718892A216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41736DB-0546-42E7-B35B-D8718892A216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41736DB-0546-42E7-B35B-D8718892A216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41736DB-0546-42E7-B35B-D8718892A216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +124,8 @@ Global
 		{AA3614FD-9761-49AE-8146-8660C7C343D3} = {6AB65799-971F-4641-B68D-99EF3C8E3022}
 		{79EC675B-680F-43FF-82C0-D1612B310256} = {08E9FA19-BE7A-4C59-84DF-01E288FF5200}
 		{6AB65799-971F-4641-B68D-99EF3C8E3022} = {08E9FA19-BE7A-4C59-84DF-01E288FF5200}
+		{36D8E2C0-FE48-486E-AFCD-832EAA169837} = {6AB65799-971F-4641-B68D-99EF3C8E3022}
+		{D41736DB-0546-42E7-B35B-D8718892A216} = {6AB65799-971F-4641-B68D-99EF3C8E3022}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDEACA45-B8C6-42DD-8209-D34D5AC8E8C5}

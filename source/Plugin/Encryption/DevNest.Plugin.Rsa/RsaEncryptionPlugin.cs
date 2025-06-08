@@ -1,21 +1,20 @@
 ﻿#region using directives
 using DevNest.Plugin.Contracts.Encryption;
-using DevNest.Plugin.Contracts.Storage;
 #endregion using directives
 
-namespace DevNest.Plugin.AES.CBC
+namespace DevNest.Plugin.Rsa
 {
     /// <summary>
-    /// Represents the class instance for AES-CBC encryption plugin.
+    /// Represents the class instance for RSA encryption plugin.
     /// </summary>
-    public class AescbcEncryptionPlugin : IEncryptionPlugin
+    public class RsaEncryptionPlugin : IEncryptionPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AescbcEncryptionPlugin"/> class.
+        /// Initializes a new instance of the <see cref="RsaEncryptionPlugin"/> class.
         /// </summary>
-        public AescbcEncryptionPlugin()
+        public RsaEncryptionPlugin()
         {
             _contexts = [];
         }
@@ -23,12 +22,12 @@ namespace DevNest.Plugin.AES.CBC
         /// <summary>
         /// Gets or sets the unique identifier for the plugin.
         /// </summary>
-        public Guid PluginId { get; set; } = Guid.Parse("72CC5A1C-24DB-4E1A-B6ED-00B47450960F");
+        public Guid PluginId { get; set; } = Guid.Parse("AC05832F-8C88-438A-A1BE-1FCB22F585D2");
 
         /// <summary>
         /// Gets or sets the name of the plugin.
         /// </summary>
-        public string? Name { get; set; } = "AES-CBC";
+        public string? Name { get; set; } = "RSA";
 
         /// <summary>
         /// Gets or sets the version of the plugin.
@@ -38,7 +37,7 @@ namespace DevNest.Plugin.AES.CBC
         /// <summary>
         /// Gets or sets a value indicating whether this plugin is the primary plugin.
         /// </summary>
-        public bool? IsPrimary { get; set; } = true;
+        public bool? IsPrimary { get; set; } = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether this plugin is active.
@@ -48,7 +47,7 @@ namespace DevNest.Plugin.AES.CBC
         /// <summary>
         /// Gets or sets the description of the plugin.
         /// </summary>
-        public string? Description { get; set; } = "Plugin for AES-CBC encryption and decryption operations.";
+        public string? Description { get; set; } = "RSA Encryption Plugin for DevNest";
 
         /// <summary>
         /// Gets or sets the connection parameters for the plugin.
@@ -66,7 +65,7 @@ namespace DevNest.Plugin.AES.CBC
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IEncryptionContext<T>)context;
 
-            var newContext = new AescbcEncryptionContext<T>(connectionParams);
+            var newContext = new RsaEncryptionContext<T>(connectionParams);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

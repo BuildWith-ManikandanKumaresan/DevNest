@@ -8,8 +8,6 @@ namespace DevNest.Common.Base.Response
     /// </summary>
     public class ApplicationErrors
     {
-        private string? _description = string.Empty;
-
         /// <summary>
         /// Gets or sets the error code.
         /// </summary>
@@ -19,21 +17,6 @@ namespace DevNest.Common.Base.Response
         /// Gets or sets the error message.
         /// </summary>
         public string? Message { get; set; }
-
-        /// <summary>
-        /// Gets or sets the error description.
-        /// </summary>
-        public string? Description
-        {
-            get
-            {
-                return string.IsNullOrEmpty(_description) ? Message : Description;
-            }
-            set
-            {
-                _description = value;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the error field.

@@ -43,7 +43,7 @@ namespace DevNest.Business.Domain.Domains
             {
                 var data = (await _router.GetAsync())?.ToList();
                 if (data == null)
-                    return ApplicationResponse<IEnumerable<CredentialsDTO>>.Fail(Messages.GetError(ErrorConstants.NoCredentialsFound));
+                    return new ApplicationResponse<IEnumerable<CredentialsDTO>>(Messages.GetError(ErrorConstants.NoCredentialsFound));
 
                 if (!_applicationConfigService.Value.GeneralSettings?.ShowArchivedCredentials ?? false)
                     data.RemoveAll(a => a.IsDisabled ?? false);
@@ -51,12 +51,12 @@ namespace DevNest.Business.Domain.Domains
                 foreach (var credential in data)
                     await MaskingPasswords(credential, _applicationConfigService.Value.GeneralSettings?.ShowPasswordAsMasked);
 
-                return ApplicationResponse<IEnumerable<CredentialsDTO>>.Success(_mapper.Map<IEnumerable<CredentialsDTO>>(data));
+                return new ApplicationResponse<IEnumerable<CredentialsDTO>>(_mapper.Map<IEnumerable<CredentialsDTO>>(data));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<IEnumerable<CredentialsDTO>>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<IEnumerable<CredentialsDTO>>(new ApplicationErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
             }
         }
 
@@ -72,15 +72,15 @@ namespace DevNest.Business.Domain.Domains
             {
                 var entity = await _router.GetByIdAsync(id);
                 if (entity == null)
-                    return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.NoCredentialsFoundForTheId));
+                    return new ApplicationResponse<CredentialsDTO>(Messages.GetError(ErrorConstants.NoCredentialsFoundForTheId));
 
                 await MaskingPasswords(entity, _applicationConfigService.Value.GeneralSettings?.ShowPasswordAsMasked);
-                return ApplicationResponse<CredentialsDTO>.Success(_mapper.Map<CredentialsDTO>(entity));
+                return new ApplicationResponse<CredentialsDTO>(_mapper.Map<CredentialsDTO>(entity));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<CredentialsDTO>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<CredentialsDTO>(new ApplicationErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
             }
         }
 
@@ -95,16 +95,16 @@ namespace DevNest.Business.Domain.Domains
             {
                 var result = await _router.DeleteAsync();
                 if (result == null)
-                    return ApplicationResponse<bool>.Fail(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_All));
+                    return new ApplicationResponse<bool>(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_All));
 
-                return ApplicationResponse<bool>.Success(
+                return new ApplicationResponse<bool>(
                     data: result,
                     message: Messages.GetSuccess(SuccessConstants.CredentialsDeletedSuccessfully));
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<bool>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<bool>(new ApplicationErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
             }
         }
 
@@ -119,9 +119,9 @@ namespace DevNest.Business.Domain.Domains
             {
                 var result = await _router.DeleteByIdAsync(id);
                 if (result == null)
-                    return ApplicationResponse<bool>.Fail(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById));
+                    return new ApplicationResponse<bool>(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById));
 
-                return ApplicationResponse<bool>.Success(
+                return new ApplicationResponse<bool>(
                     data: result,
                     message: string.Format(
                         Messages.GetSuccess(SuccessConstants.CredentialsDeletedByIdSuccessfully),id));
@@ -129,7 +129,7 @@ namespace DevNest.Business.Domain.Domains
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<bool>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<bool>(new ApplicationErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
             }
         }
 
@@ -147,9 +147,9 @@ namespace DevNest.Business.Domain.Domains
 
                 var result = await _router.AddAsync(entity);
                 if (result == null)
-                    return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.CreateCredentialsFailed));
+                    return new ApplicationResponse<CredentialsDTO>(Messages.GetError(ErrorConstants.CreateCredentialsFailed));
 
-                return ApplicationResponse<CredentialsDTO>.Success( 
+                return new ApplicationResponse<CredentialsDTO>( 
                     data: _mapper.Map<CredentialsDTO>(result),
                     message: string.Format(
                         Messages.GetSuccess(SuccessConstants.CredentialsCreatedSuccessfully),
@@ -158,7 +158,7 @@ namespace DevNest.Business.Domain.Domains
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<CredentialsDTO>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<CredentialsDTO>(new ApplicationErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
             }
         }
 
@@ -176,9 +176,9 @@ namespace DevNest.Business.Domain.Domains
                 var result = await _router.UpdateAsync(entity);
 
                 if (result == null)
-                    return ApplicationResponse<CredentialsDTO>.Fail(Messages.GetError(ErrorConstants.UpdateCredentialsFailed));
+                    return new ApplicationResponse<CredentialsDTO>(Messages.GetError(ErrorConstants.UpdateCredentialsFailed));
 
-                return ApplicationResponse<CredentialsDTO>.Success(
+                return new ApplicationResponse<CredentialsDTO>(
                     data: _mapper.Map<CredentialsDTO>(result),
                     message: string.Format(
                         Messages.GetSuccess(SuccessConstants.CredentialsUpdatedSuccessfully), 
@@ -187,7 +187,11 @@ namespace DevNest.Business.Domain.Domains
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<CredentialsDTO>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<CredentialsDTO>(new ApplicationErrors
+                {
+                    Code = ErrorConstants.UndefinedErrorCode,
+                    Message = ex.Message
+                });
             }
         }
 
@@ -202,9 +206,9 @@ namespace DevNest.Business.Domain.Domains
             {
                 var result = await _router.ArchiveByIdAsync(id);
                 if (result == null)
-                    return ApplicationResponse<bool>.Fail(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById));
+                    return new ApplicationResponse<bool>(Messages.GetError(ErrorConstants.DeleteCredentialsFailed_ById));
 
-                return ApplicationResponse<bool>.Success(
+                return  new ApplicationResponse<bool>(
                     data: result, 
                     message: string.Format(
                         Messages.GetSuccess(SuccessConstants.CredentialsArchivedSuccessfully),
@@ -213,7 +217,11 @@ namespace DevNest.Business.Domain.Domains
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, ex);
-                return ApplicationResponse<bool>.Fail(Messages.DefaultError(ex));
+                return new ApplicationResponse<bool>(new ApplicationErrors
+                {
+                    Code = ErrorConstants.UndefinedErrorCode,
+                    Message = ex.Message
+                });
             }
         }
 

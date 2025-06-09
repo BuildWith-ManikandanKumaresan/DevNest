@@ -70,7 +70,7 @@ namespace DevNest.CredManager.Api.Controllers
                 return Ok(response);
             }
 
-            _logger.LogInfo($"Api {nameof(GetCredentials)} encountered an error. ",
+            _logger.LogError($"Api {nameof(GetCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: query,
                 response: response);
@@ -104,7 +104,7 @@ namespace DevNest.CredManager.Api.Controllers
                     response: response);
                 return Ok(response);
             }
-            _logger.LogInfo($"Api {nameof(GetCredentialById)} encountered an error. ",
+            _logger.LogError($"Api {nameof(GetCredentialById)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: query,
                 response: response);
@@ -136,7 +136,7 @@ namespace DevNest.CredManager.Api.Controllers
                     response: response);
                 return Ok(response);
             }
-            _logger.LogInfo($"Api {nameof(DeleteCredentials)} encountered an error. ",
+            _logger.LogError($"Api {nameof(DeleteCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);
@@ -169,7 +169,7 @@ namespace DevNest.CredManager.Api.Controllers
                     response: response);
                 return Ok(response);
             }
-            _logger.LogInfo($"Api {nameof(DeleteCredentialById)} encountered an error. ",
+            _logger.LogError($"Api {nameof(DeleteCredentialById)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);
@@ -204,7 +204,7 @@ namespace DevNest.CredManager.Api.Controllers
                     response: response);
                 return Ok(response);
             }
-            _logger.LogInfo($"Api {nameof(AddCredentials)} encountered an error. ",
+            _logger.LogError($"Api {nameof(AddCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);
@@ -235,7 +235,7 @@ namespace DevNest.CredManager.Api.Controllers
                     response: response);
                 return Ok(response);
             }
-            _logger.LogInfo($"Api {nameof(UpdateCredentials)} encountered an error. ",
+            _logger.LogError($"Api {nameof(UpdateCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);
@@ -265,7 +265,7 @@ namespace DevNest.CredManager.Api.Controllers
                     response: response);
                 return Ok(response);
             }
-            _logger.LogInfo($"Api {nameof(ArchiveCredentials)} encountered an error. ",
+            _logger.LogError($"Api {nameof(ArchiveCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);

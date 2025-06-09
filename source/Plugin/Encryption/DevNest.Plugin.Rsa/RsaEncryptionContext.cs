@@ -42,10 +42,19 @@ namespace DevNest.Plugin.Rsa
         /// <exception cref="NotImplementedException"></exception>
         public T Decrypt(T cipherText)
         {
-            using var rsa = RSA.Create();
-            rsa.ImportRSAPrivateKey(Convert.FromBase64String(_privateKey), out _);
-            var decryptedBytes = rsa.Decrypt(Convert.FromBase64String(cipherText as string), RSAEncryptionPadding.OaepSHA256);
-            return Encoding.UTF8.GetString(decryptedBytes) as T;
+            string decryptedText = string.Empty;
+            try
+            {
+                using var rsa = RSA.Create();
+                rsa.ImportRSAPrivateKey(Convert.FromBase64String(_privateKey), out _);
+                var decryptedBytes = rsa.Decrypt(Convert.FromBase64String(cipherText as string), RSAEncryptionPadding.OaepSHA256);
+                decryptedText =  Encoding.UTF8.GetString(decryptedBytes);
+            }
+            catch(Exception)
+            {
+
+            }
+            return decryptedText as T;
         }
 
         /// <summary>

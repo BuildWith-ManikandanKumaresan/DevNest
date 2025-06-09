@@ -175,20 +175,5 @@ namespace DevNest.Common.Base.Constants.Message
                 return success.Message ?? string.Empty;
             return string.Empty;
         }
-
-        /// <summary>
-        /// Creates a default error response for exceptions that do not have a specific error code defined.
-        /// </summary>
-        /// <param name="ex"></param>
-        /// <returns></returns>
-        public static ApplicationErrors DefaultError(Exception ex)
-        {
-            return new ApplicationErrors
-            {
-                Code = ErrorConstants.UndefinedErrorCode,
-                Message = ex.Message,
-                Description = ex.ToString()
-            };
-        }
     }
 }

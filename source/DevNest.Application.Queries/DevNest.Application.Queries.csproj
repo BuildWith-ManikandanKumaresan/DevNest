@@ -8,7 +8,9 @@
     <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)build-debug\</OutputPath>
     <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\</OutputPath>
   </PropertyGroup>
-
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevNest.Business.Domain\DevNest.Business.Domain.csproj" />
     <ProjectReference Include="..\DevNest.Infrastructure.DTOs\DevNest.Infrastructure.DTOs.csproj" />

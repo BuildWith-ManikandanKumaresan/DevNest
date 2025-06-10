@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Logger;
 using DevNest.Plugin.Contracts.Encryption;
 #endregion using directives
 
@@ -10,12 +11,14 @@ namespace DevNest.Plugin.Rsa
     public class RsaEncryptionPlugin : IEncryptionPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
+        private readonly IAppLogger<RsaEncryptionPlugin> _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RsaEncryptionPlugin"/> class.
         /// </summary>
-        public RsaEncryptionPlugin()
+        public RsaEncryptionPlugin(IAppLogger<RsaEncryptionPlugin> logger)
         {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger), "Logger cannot be null.");
             _contexts = [];
         }
 
@@ -65,7 +68,7 @@ namespace DevNest.Plugin.Rsa
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IEncryptionContext<T>)context;
 
-            var newContext = new RsaEncryptionContext<T>(connectionParams);
+            var newContext = new RsaEncryptionContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

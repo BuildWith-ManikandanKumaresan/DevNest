@@ -5,13 +5,14 @@
     /// </summary>
     public class ErrorConstants
     {
+        // Common error codes.
         public const string UndefinedErrorCode = "DEV-EXP-001";
 
         // Plugin Manager
         public const string NoStoragePluginFound = "DEV-PM-100";
         public const string NoEncryptionPluginFound = "DEV-PM-101";
 
-        // Credential Manager
+        // Credential Manager error codes.
         public const string NoCredentialsFound = "DEV-CM-100";
         public const string NoCredentialsFoundForTheId = "DEV-CM-101";
         public const string DeleteCredentialsFailed_All = "DEV-CM-102";
@@ -20,8 +21,7 @@
         public const string CreateCredentialsFailed = "DEV-CM-105";
         public const string ArchiveCredentialsFailed = "DEV-CM-106";
 
-
-        // Logger Manager
+        // Logger Manager error codes.
         public const string LoggerConfigurationMissing = "DEV-LOG-100";
     }
 }

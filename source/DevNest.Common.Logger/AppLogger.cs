@@ -12,26 +12,20 @@ using System.Text;
 namespace DevNest.Common.Logger
 {
     /// <summary>
-    /// Reprents the class instance for <see cref="ApplicationLogger{T}">class./>
+    /// Reprents the class instance for <see cref="AppLogger{T}">class./>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class ApplicationLogger<T> : IApplicationLogger<T>
+    /// <remarks>
+    /// Constructor intialization for standard logger of T type.
+    /// </remarks>
+    /// <param name="logger"></param>
+    /// <param name="configuration"></param>
+    public class AppLogger<T>(
+        Serilog.ILogger logger,
+        IOptions<LoggerConfigEntityModel> configuration) : IAppLogger<T>
     {
-        private readonly Serilog.ILogger _logger;
-        private readonly IOptions<LoggerConfigEntity> _configurationService;
-
-        /// <summary>
-        /// Constructor intialization for standard logger of T type.
-        /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="configuration"></param>
-        public ApplicationLogger(
-            Serilog.ILogger logger,
-            IOptions<LoggerConfigEntity> configuration)
-        {
-            this._logger = logger;
-            this._configurationService = configuration;
-        }
+        private readonly Serilog.ILogger _logger = logger;
+        private readonly IOptions<LoggerConfigEntityModel> _configurationService = configuration;
 
         /// <summary>
         /// Handle the debugging logs and use serilog log to log the message in file.

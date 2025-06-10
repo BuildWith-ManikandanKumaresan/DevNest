@@ -5,7 +5,6 @@
     /// </summary>
     public partial class FileSystemConstants
     {
-
         public const string FolderUp = "..";
         public const string ConfigurationsDirectoryName = "Configurations";
         public const string StoragePluginsDirectoryName = "Plugin\\Storage";

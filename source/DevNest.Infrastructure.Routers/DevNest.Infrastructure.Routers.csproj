@@ -11,9 +11,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevNest.Business.Domain\DevNest.Business.Domain.csproj" />
+    <ProjectReference Include="..\DevNest.Common.Manager\DevNest.Common.Manager.csproj" />
     <ProjectReference Include="..\DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj" />
     <ProjectReference Include="..\DevNest.Common.Logger\DevNest.Common.Logger.csproj" />
-    <ProjectReference Include="..\DevNest.Manager\DevNest.Manager.csproj" />
   </ItemGroup>
 
 </Project>

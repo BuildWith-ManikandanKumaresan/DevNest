@@ -4,7 +4,7 @@ using DevNest.Common.Base.DTOs;
 using DevNest.Common.Base.Entity;
 using DevNest.Infrastructure.DTOs.CredentialManager.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
-using DevNest.Infrastructure.Entity;
+using DevNest.Infrastructure.Entity.Credentials;
 #endregion using directives
 
 namespace DevNest.Business.Domain.Mappers
@@ -19,20 +19,20 @@ namespace DevNest.Business.Domain.Mappers
         /// </summary>
         public MappingProfile() 
         {
-            CreateMap<HistoryEntity,HistoryDTO>();
-            CreateMap<HistoryDTO,HistoryEntity>();
+            CreateMap<HistoryEntityModel,HistoryDTO>();
+            CreateMap<HistoryDTO,HistoryEntityModel>();
 
-            CreateMap<MetadataDTO,MetadataEntity>();
-            CreateMap<MetadataEntity, MetadataDTO>();
+            CreateMap<MetadataDTO,MetadataEntityModel>();
+            CreateMap<MetadataEntityModel, MetadataDTO>();
 
-            CreateMap<CredentialsDTO, CredentialEntity>();
-            CreateMap<CredentialEntity, CredentialsDTO>();
+            CreateMap<CredentialsResponseDTO, CredentialEntityModel>();
+            CreateMap<CredentialEntityModel, CredentialsResponseDTO>();
 
-            CreateMap<AddCredentialRequest, CredentialEntity>();
-            CreateMap<CredentialEntity,AddCredentialRequest>();
+            CreateMap<AddCredentialRequest, CredentialEntityModel>();
+            CreateMap<CredentialEntityModel,AddCredentialRequest>();
 
-            CreateMap<UpdateCredentialRequest, CredentialEntity>();
-            CreateMap<CredentialEntity, UpdateCredentialRequest>();
+            CreateMap<UpdateCredentialRequest, CredentialEntityModel>();
+            CreateMap<CredentialEntityModel, UpdateCredentialRequest>();
         }
     }
 }

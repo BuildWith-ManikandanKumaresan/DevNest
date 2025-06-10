@@ -19,18 +19,13 @@ namespace DevNest.Common.Logger
     /// <summary>
     /// Represents the class instance for <see cref="LoggingManager"/> class./>
     /// </summary>
-    public class LoggingManager
+    /// <remarks>
+    /// Initialize the constructor instance for logging manager.
+    /// </remarks>
+    /// <param name="config"></param>
+    public class LoggingManager(IOptions<LoggerConfigEntityModel> config)
     {
-        private readonly IOptions<LoggerConfigEntity> _config;
-
-        /// <summary>
-        /// Initialize the constructor instance for logging manager.
-        /// </summary>
-        /// <param name="config"></param>
-        public LoggingManager(IOptions<LoggerConfigEntity> config)
-        {
-            _config = config;
-        }
+        private readonly IOptions<LoggerConfigEntityModel> _config = config;
 
         /// <summary>
         /// Handler method to initialize the logger based on each service instance.
@@ -67,7 +62,7 @@ namespace DevNest.Common.Logger
         /// Handle the get rolling interval for logging.
         /// </summary>
         /// <returns></returns>
-        private RollingInterval GetRollingInterval(string? interval) => interval?.ToLower() switch
+        private static RollingInterval GetRollingInterval(string? interval) => interval?.ToLower() switch
         {
             LoggerConstants.RollingInterval_Hour => RollingInterval.Hour,
             LoggerConstants.RollingInterval_Minute => RollingInterval.Minute,
@@ -79,7 +74,7 @@ namespace DevNest.Common.Logger
         /// <summary>
         /// handle to sets the minimum logging levels.
         /// </summary>
-        private LogEventLevel GetLogLevel(string? level) => level?.ToLower() switch
+        private static LogEventLevel GetLogLevel(string? level) => level?.ToLower() switch
         {
             LoggerConstants.LogLevel_Debug => LogEventLevel.Debug,
             LoggerConstants.LogLevel_Info => LogEventLevel.Information,

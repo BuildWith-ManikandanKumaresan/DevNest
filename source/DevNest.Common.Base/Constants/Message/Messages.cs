@@ -7,9 +7,9 @@ namespace DevNest.Common.Base.Constants.Message
     /// </summary>
     public static class Messages
     {
-        private static Dictionary<string, ApplicationErrors>? _errors;
-        private static Dictionary<string, ApplicationWarnings>? _warnings;
-        private static Dictionary<string, ApplicationSuccess>? _success;
+        private static readonly Dictionary<string, AppErrors>? _errors;
+        private static readonly Dictionary<string, AppWarnings>? _warnings;
+        private static readonly Dictionary<string, AppSuccess>? _success;
 
         /// <summary>
         /// Initialize the static instance for Messages.
@@ -24,17 +24,17 @@ namespace DevNest.Common.Base.Constants.Message
         /// <summary>
         /// Initializes the static class with predefined error messages.
         /// </summary>
-        public static Dictionary<string, ApplicationErrors>? Errors => _errors;
+        public static Dictionary<string, AppErrors>? Errors => _errors;
 
         /// <summary>
         /// Initializes the static class with predefined warnings.
         /// </summary>
-        public static Dictionary<string, ApplicationWarnings>? Warnings => _warnings;
+        public static Dictionary<string, AppWarnings>? Warnings => _warnings;
 
         /// <summary>
         /// Initializes the static class with predefined success messages.
         /// </summary>
-        public static Dictionary<string, ApplicationSuccess>? Success => _success;
+        public static Dictionary<string, AppSuccess>? Success => _success;
 
         /// <summary>
         /// Initializes the error codes from the specified directory.
@@ -52,7 +52,7 @@ namespace DevNest.Common.Base.Constants.Message
                         if (File.Exists(errorFile))
                         {
                             string jsonContent = File.ReadAllText(errorFile);
-                            var errorCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, ApplicationErrors>>(jsonContent);
+                            var errorCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, AppErrors>>(jsonContent);
                             if (errorCodes != null)
                             {
                                 foreach (var errorCode in errorCodes)
@@ -86,7 +86,7 @@ namespace DevNest.Common.Base.Constants.Message
                         if (File.Exists(warningFile))
                         {
                             string jsonContent = File.ReadAllText(warningFile);
-                            var warningCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, ApplicationWarnings>>(jsonContent);
+                            var warningCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, AppWarnings>>(jsonContent);
                             if (warningCodes != null)
                             {
                                 foreach (var warningCode in warningCodes)
@@ -121,7 +121,7 @@ namespace DevNest.Common.Base.Constants.Message
                         if (File.Exists(successFile))
                         {
                             string jsonContent = File.ReadAllText(successFile);
-                            var successCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, ApplicationSuccess>>(jsonContent);
+                            var successCodes = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, AppSuccess>>(jsonContent);
                             if (successCodes != null)
                             {
                                 foreach (var successCode in successCodes)
@@ -145,11 +145,11 @@ namespace DevNest.Common.Base.Constants.Message
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static ApplicationErrors GetError(string key)
+        public static AppErrors GetError(string key)
         {
-            if (Errors?.TryGetValue(key, out ApplicationErrors? error) ?? false)
+            if (Errors?.TryGetValue(key, out AppErrors? error) ?? false)
                 return error;
-            return new ApplicationErrors();
+            return new AppErrors();
         }
 
         /// <summary>
@@ -157,11 +157,11 @@ namespace DevNest.Common.Base.Constants.Message
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static ApplicationWarnings GetWarning(string key)
+        public static AppWarnings GetWarning(string key)
         {
-            if (Warnings?.TryGetValue(key, out ApplicationWarnings? warning) ?? false)
+            if (Warnings?.TryGetValue(key, out AppWarnings? warning) ?? false)
                 return warning;
-            return new ApplicationWarnings();
+            return new AppWarnings();
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace DevNest.Common.Base.Constants.Message
         /// <returns></returns>
         public static string GetSuccess(string key)
         {
-            if (Success?.TryGetValue(key, out ApplicationSuccess? success) ?? false)
+            if (Success?.TryGetValue(key, out AppSuccess? success) ?? false)
                 return success.Message ?? string.Empty;
             return string.Empty;
         }

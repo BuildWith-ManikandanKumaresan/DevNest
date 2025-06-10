@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Logger;
 using DevNest.Plugin.Contracts.Encryption;
 using DevNest.Plugin.Contracts.Storage;
 #endregion using directives
@@ -11,12 +12,14 @@ namespace DevNest.Plugin.AES.CBC
     public class AescbcEncryptionPlugin : IEncryptionPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
+        private readonly IAppLogger<AescbcEncryptionPlugin> _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AescbcEncryptionPlugin"/> class.
         /// </summary>
-        public AescbcEncryptionPlugin()
+        public AescbcEncryptionPlugin(IAppLogger<AescbcEncryptionPlugin> logger)
         {
+            _logger = logger;
             _contexts = [];
         }
 
@@ -66,7 +69,7 @@ namespace DevNest.Plugin.AES.CBC
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IEncryptionContext<T>)context;
 
-            var newContext = new AescbcEncryptionContext<T>(connectionParams);
+            var newContext = new AescbcEncryptionContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

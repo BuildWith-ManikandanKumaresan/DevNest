@@ -1,5 +1,6 @@
 ﻿#region using directives
-using DevNest.Infrastructure.Entity;
+using DevNest.Common.Logger;
+using DevNest.Infrastructure.Entity.Credentials;
 using DevNest.Plugin.Contracts.Storage;
 using DevNest.Plugin.Json.Handler;
 #endregion using directives
@@ -14,9 +15,10 @@ namespace DevNest.Plugin.Json
     /// Initializes a new instance of the <see cref="JsonStorageContext{T}"/> class with the specified connection parameters.
     /// </remarks>
     /// <param name="_connectionParams"></param>
-    public class JsonStorageContext<T>(Dictionary<string, object>? _connectionParams) : IStorageContext<T> where T : class
+    public class JsonStorageContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStorageContext<T> where T : class
     {
-        private readonly JsonDataHandler<T> _JsonHandler = new(_connectionParams ?? []);
+        private readonly JsonDataHandler<T> _JsonHandler = new(_connectionParams ?? [],logger);
+        private readonly IAppLogger<JsonStoragePlugin> _logger = logger;
 
         /// <summary>
         /// Gets the connection parameters for the data context.
@@ -30,14 +32,16 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public T? Add(T? entity)
         {
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Adding entity to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             if (entity == null)
-                return entity;
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
-            if (!data?.Exists(a=>a.Id == (entity as CredentialEntity ?? new()).Id) ?? false)
+                return entity as T;
+            var data = _JsonHandler.Read() as List<CredentialEntityModel>;
+            if (!data?.Exists(a=>a.Id == (entity as CredentialEntityModel ?? new()).Id) ?? false)
             {
-                data?.Add((entity as CredentialEntity ?? new()));
+                data?.Add((entity as CredentialEntityModel ?? new()));
                 _JsonHandler.Write(data as List<T> ?? []);
             }
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Entity added successfully to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             return entity;
         }
 
@@ -49,7 +53,8 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public bool Archive(Guid id)
         {
-            if (_JsonHandler.Read() is not List<CredentialEntity> data) return false;
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Archiving entity in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            if (_JsonHandler.Read() is not List<CredentialEntityModel> data) return false;
 
             var entity = data.FirstOrDefault(a => a.Id == id);
             if (entity == null) return false;
@@ -57,6 +62,8 @@ namespace DevNest.Plugin.Json
             entity.IsDisabled = true;
 
             _JsonHandler.Write([.. data.Cast<T>()]);
+
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Entity archived successfully in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
 
             return true;
         }
@@ -69,13 +76,16 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public bool Delete(Guid id)
         {
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Deleting entity from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            var data = _JsonHandler.Read() as List<CredentialEntityModel>;
             int res = data?.RemoveAll(x => x.Id == id) ?? 0;
             if(res > 0)
             {
                 _JsonHandler.Write(data as List<T> ?? []);
+                _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Entity deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
                 return true;
             }
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Entity deletion failed in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
             return false;
         }
 
@@ -85,13 +95,16 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public bool DeleteAll()
         {
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Deleting all entities from JSON storage context.", new { EntityType = typeof(T).Name });
+            var data = _JsonHandler.Read() as List<CredentialEntityModel>;
             int res = data?.RemoveAll(a => a.Id == a.Id) ?? 0;
             if (res > 0)
             {
                 _JsonHandler.Write(data as List<T> ?? []);
+                _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => All entities deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Count = res });
                 return true;
             }
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => All entities deletion failed in JSON storage context.", new { EntityType = typeof(T).Name });
             return false;
         }
 
@@ -101,7 +114,9 @@ namespace DevNest.Plugin.Json
         /// <returns></returns>
         public IEnumerable<T>? Get()
         {
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
+            var data = _JsonHandler.Read() as List<CredentialEntityModel>;
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return data as IEnumerable<T>;
         }
 
@@ -113,8 +128,11 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public T? GetById(Guid id)
         {
-            var data = _JsonHandler.Read() as List<CredentialEntity>;
-            return data?.FirstOrDefault(a => a.Id == id) as T;
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Retrieving entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            var data = _JsonHandler.Read() as List<CredentialEntityModel>;
+            var dataById = data?.FirstOrDefault(a => a.Id == id);
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Retrieved entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id, Entity = dataById });
+            return dataById as T;
         }
 
         /// <summary>
@@ -124,10 +142,11 @@ namespace DevNest.Plugin.Json
         /// <exception cref="NotImplementedException"></exception>
         public T? Update(T? entity)
         {
-            if (entity == null || _JsonHandler.Read() is not List<CredentialEntity> data)
+            _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Updating entity in JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
+            if (entity == null || _JsonHandler.Read() is not List<CredentialEntityModel> data)
                 return entity;
 
-            var input = entity as CredentialEntity;
+            var input = entity as CredentialEntityModel;
             var existingEntity = data.FirstOrDefault(a => a.Id == input?.Id);
 
             if (existingEntity != null && input != null)
@@ -153,6 +172,7 @@ namespace DevNest.Plugin.Json
                 if (input.AssociatedGroups != null) existingEntity.AssociatedGroups = input.AssociatedGroups;
 
                 _JsonHandler.Write(data as List<T> ?? []);
+                _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Entity updated successfully in JSON storage context.", new { EntityType = typeof(T).Name, Entity = existingEntity });
             }
 
             return existingEntity as T;

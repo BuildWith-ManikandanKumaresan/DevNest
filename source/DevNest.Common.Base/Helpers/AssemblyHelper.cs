@@ -15,10 +15,10 @@ namespace DevNest.Common.Base.Helpers
         /// </summary>
         /// <param name="assembly">The assembly to get referenced assemblies from.</param>
         /// <returns>An enumerable collection of referenced assemblies.</returns>
-        public static IEnumerable<Assembly> GetReferencedAssemblies(Assembly assembly)
+        public static IEnumerable<Assembly> GetReferencedAssemblies(Assembly? assembly)
         {
-            var assembliesName = assembly.GetReferencedAssemblies().Where(referenced => IsAssemblyAccepted(referenced.Name));
-            return assembliesName.Select(Assembly.Load);
+            var assembliesName = assembly?.GetReferencedAssemblies().Where(referenced => IsAssemblyAccepted(referenced.Name));
+            return assembliesName?.Select(Assembly.Load) ?? [];
         }
 
         /// <summary>

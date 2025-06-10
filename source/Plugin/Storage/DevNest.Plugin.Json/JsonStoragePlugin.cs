@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Logger;
 using DevNest.Infrastructure.Entity;
 using DevNest.Plugin.Contracts.Storage;
 #endregion using directives
@@ -11,9 +12,11 @@ namespace DevNest.Plugin.Json
     public class JsonStoragePlugin : IStoragePlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
+        private readonly IAppLogger<JsonStoragePlugin> _logger;
 
-        public JsonStoragePlugin()
+        public JsonStoragePlugin(IAppLogger<JsonStoragePlugin> logger)
         {
+            _logger = logger;
             _contexts = [];
         }
 
@@ -63,7 +66,7 @@ namespace DevNest.Plugin.Json
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IStorageContext<T>)context;
 
-            var newContext = new JsonStorageContext<T>(connectionParams);
+            var newContext = new JsonStorageContext<T>(connectionParams,_logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

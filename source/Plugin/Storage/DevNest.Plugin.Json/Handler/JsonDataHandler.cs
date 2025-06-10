@@ -1,5 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.Constants;
+using DevNest.Common.Logger;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,13 @@ namespace DevNest.Plugin.Json.Handler
     /// </remarks>
     /// <param name="Parameters"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    public class JsonDataHandler<T>(Dictionary<string, object> Parameters) where T : class
+    public class JsonDataHandler<T>(Dictionary<string, object> Parameters, IAppLogger<JsonStoragePlugin> logger) where T : class
     {
+        private readonly IAppLogger<JsonStoragePlugin> _Logger = logger ?? throw new ArgumentNullException(nameof(logger), "Logger cannot be null.");
         private readonly long _DefaultMaxFileSizeBytes = Parameters.TryGetValue(ConnectionParamConstants.MaxFileSizeBytes, out var maxFileSize) && maxFileSize is long size ? size : 10485760;
         private readonly Dictionary<string, object> _Parameters = Parameters ?? throw new ArgumentNullException(nameof(Parameters), "Parameters cannot be null.");
         private readonly string _BaseFileName = Parameters.TryGetValue(ConnectionParamConstants.BaseFileName, out var baseFileName) && baseFileName is string name ? name : "credential";
         private readonly string _DataDirectory = Parameters.TryGetValue(ConnectionParamConstants.DataDirectory, out var dataDirectory) && dataDirectory is string dir ? dir : "Credential-Manager";
-        private readonly bool _ShowArchiveFiles; // Default to not show archive files
-        private readonly bool _IsArchive = false; // Flag to indicate if the operation is for archive files
 
         /// <summary>
         /// Reads a list of items of type T from a JSON file at the specified file path.
@@ -36,6 +36,7 @@ namespace DevNest.Plugin.Json.Handler
         /// <returns></returns>
         public List<T> Read()
         {
+            _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Reading JSON files from directory.", new { Directory = _DataDirectory });
             var result = new List<T>();
 
             if (!Directory.Exists(_DataDirectory)) return result;
@@ -49,7 +50,7 @@ namespace DevNest.Plugin.Json.Handler
                 if (items != null)
                     result.AddRange(items);
             }
-
+            _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Json files read successfully.", new { Directory = _DataDirectory, FileCount = files.Length });
             return result;
         }
 
@@ -60,6 +61,7 @@ namespace DevNest.Plugin.Json.Handler
         /// <param name="items"></param>
         public void Write(List<T> items)
         {
+            _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Writing items to JSON file.", new { _DataDirectory = _DataDirectory, ItemCount = items.Count });
             if (!Directory.Exists(_DataDirectory))
                 Directory.CreateDirectory(_DataDirectory);
 
@@ -77,6 +79,7 @@ namespace DevNest.Plugin.Json.Handler
 
             var json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(currentFilePath, json);
+            _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Items written to JSON file successfully.", new { FilePath = currentFilePath, ItemCount = items.Count });
         }
     }
 }

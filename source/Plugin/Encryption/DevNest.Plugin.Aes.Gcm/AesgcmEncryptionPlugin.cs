@@ -1,4 +1,5 @@
 ﻿#region using directives
+using DevNest.Common.Logger;
 using DevNest.Plugin.Contracts.Encryption;
 #endregion using directives
 
@@ -10,12 +11,14 @@ namespace DevNest.Plugin.Aes.Gcm
     public class AesgcmEncryptionPlugin : IEncryptionPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
+        private readonly IAppLogger<AesgcmEncryptionPlugin> _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AesgcmEncryptionPlugin"/> class.
         /// </summary>
-        public AesgcmEncryptionPlugin()
+        public AesgcmEncryptionPlugin(IAppLogger<AesgcmEncryptionPlugin> logger)
         {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger), "Logger cannot be null.");
             _contexts = [];
         }
 
@@ -65,7 +68,7 @@ namespace DevNest.Plugin.Aes.Gcm
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IEncryptionContext<T>)context;
 
-            var newContext = new AesgcmEncryptionContext<T>(connectionParams);
+            var newContext = new AesgcmEncryptionContext<T>(connectionParams,_logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

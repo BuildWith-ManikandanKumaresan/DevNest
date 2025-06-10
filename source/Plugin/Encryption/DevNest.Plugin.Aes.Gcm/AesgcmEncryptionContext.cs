@@ -1,5 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.Constants;
+using DevNest.Common.Logger;
 using DevNest.Plugin.Contracts.Encryption;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,10 +13,11 @@ namespace DevNest.Plugin.Aes.Gcm
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="_connectionParams"></param>
-    public class AesgcmEncryptionContext<T>(Dictionary<string, object>? _connectionParams) : IEncryptionContext<T> where T : class
+    public class AesgcmEncryptionContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<AesgcmEncryptionPlugin> logger) : IEncryptionContext<T> where T : class
     {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
         private readonly string _key = _connectionParams.TryGetValue(ConnectionParamConstants.EncryptionKey, out var key) && key is string keyString ? keyString : throw new ArgumentNullException(nameof(_connectionParams), "Encryption key is required.");
+        private readonly IAppLogger<AesgcmEncryptionPlugin> _logger = logger;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         /// <summary>
@@ -31,7 +33,8 @@ namespace DevNest.Plugin.Aes.Gcm
         /// <exception cref="NotImplementedException"></exception>
         public T Decrypt(T cipherText)
         {
-            var data = Convert.FromBase64String(cipherText as string);
+            _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Decrypt)} called with cipherText: {cipherText}");
+            var data = Convert.FromBase64String(cipherText as string ?? string.Empty);
             var nonce = data[..12];
             var tag = data[^16..];
             var cipherBytes = data[12..^16];
@@ -39,7 +42,7 @@ namespace DevNest.Plugin.Aes.Gcm
 
             using var aesGcm = new AesGcm(SHA256.HashData(Encoding.UTF8.GetBytes(_key)));
             aesGcm.Decrypt(nonce, cipherBytes, tag, plainBytes);
-
+            _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Decrypt)} completed successfully.");
             return Encoding.UTF8.GetString(plainBytes) as T;
         }
 
@@ -51,6 +54,7 @@ namespace DevNest.Plugin.Aes.Gcm
         /// <exception cref="NotImplementedException"></exception>
         public T Encrypt(T plainText)
         {
+            _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Encrypt)} called with plainText: {plainText}");
             var keyBytes = SHA256.HashData(Encoding.UTF8.GetBytes(_key));
             var nonce = RandomNumberGenerator.GetBytes(12);
             var plainBytes = Encoding.UTF8.GetBytes(plainText as string ?? string.Empty);
@@ -59,7 +63,7 @@ namespace DevNest.Plugin.Aes.Gcm
 
             using var aesGcm = new AesGcm(keyBytes);
             aesGcm.Encrypt(nonce, plainBytes, cipherBytes, tag);
-
+            _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Encrypt)} completed successfully.");
             return Convert.ToBase64String(nonce.Concat(cipherBytes).Concat(tag).ToArray()) as T;
         }
     }

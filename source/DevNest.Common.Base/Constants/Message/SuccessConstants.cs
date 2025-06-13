@@ -18,6 +18,8 @@
         public const string CredentialsArchivedSuccessfully = "DEV-CM-204";
         public const string CredentialsRetreivedSuccessfully = "DEV-CM-205";
         public const string CredentialsByIdRetreivedSuccessfully = "DEV-CM-206";
+        public const string CredentialsEncryptedSuccessfully = "DEV-CM-207";
+        public const string CredentialsDecryptedSuccessfully = "DEV-CM-208";
 
 
         // Logger Manager

@@ -39,7 +39,7 @@ namespace DevNest.Business.Domain.Domains
         /// Handler method for get credentials as DTO response.
         /// </summary>
         /// <returns></returns>
-        public async Task<AppResponse<IEnumerable<CredentialResponseDTO>>> Get()
+        public async Task<AppResponse<IList<CredentialResponseDTO>>> Get()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace DevNest.Business.Domain.Domains
                 if (data == null)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Get)} method returned null data.");
-                    return new AppResponse<IEnumerable<CredentialResponseDTO>>(Messages.GetError(ErrorConstants.NoCredentialsFound));
+                    return new AppResponse<IList<CredentialResponseDTO>>(Messages.GetError(ErrorConstants.NoCredentialsFound));
                 }
 
                 // Filter out archived credentials if the setting is enabled - showArchivedCredentials
@@ -74,8 +74,8 @@ namespace DevNest.Business.Domain.Domains
 
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Get)} method returned {data.Count} credentials.");
 
-                return new AppResponse<IEnumerable<CredentialResponseDTO>>(
-                    data: _mapper.Map<IEnumerable<CredentialResponseDTO>>(data))
+                return new AppResponse<IList<CredentialResponseDTO>>(
+                    data: _mapper.Map<IList<CredentialResponseDTO>>(data))
                 {
                     Message = Messages.GetSuccess(SuccessConstants.CredentialsRetreivedSuccessfully)
                 };
@@ -83,7 +83,7 @@ namespace DevNest.Business.Domain.Domains
             catch (Exception ex)
             {
                 _logger.LogError($"{nameof(CredentialDomainService)} => {ex.Message}", ex);
-                return new AppResponse<IEnumerable<CredentialResponseDTO>>(new AppErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
+                return new AppResponse<IList<CredentialResponseDTO>>(new AppErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
             }
         }
 
@@ -319,6 +319,87 @@ namespace DevNest.Business.Domain.Domains
             }
         }
 
+        /// <summary>
+        /// Handler method to encrypt the credentials by its ID and returns DTO response.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<AppResponse<CredentialResponseDTO>> Encrypt(Guid id)
+        {
+            try
+            {
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Encrypt)} method called with ID: {id}.");
+                var entity = await _router.EncryptByIdAsync(id);
+                if (entity == null)
+                {
+                    _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Encrypt)} method returned null for ID: {id}.");
+                    return new AppResponse<CredentialResponseDTO>(Messages.GetError(ErrorConstants.CredentialEncryptionFailed));
+                }
+
+                // Mask passwords if the setting is enabled - showPasswordAsMasked
+                await MaskingPasswords(entity, _applicationConfigService?.Value?.GeneralSettings?.ShowPasswordAsMasked);
+
+                // Check expiration for credentials if the setting is enabled - EnableCredentialExpirationCheck
+                if (_applicationConfigService?.Value?.SecuritySettings?.EnableCredentialExpirationCheck ?? false)
+                    await CheckExpirationForCredentials(entity);
+
+                await SetPasswordHealthCheck(entity);
+
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Encrypt)} method returned credentials for ID: {id}.");
+
+                return new AppResponse<CredentialResponseDTO>(_mapper.Map<CredentialResponseDTO>(entity))
+                {
+                    Message = string.Format(Messages.GetSuccess(SuccessConstants.CredentialsEncryptedSuccessfully), id)
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {ex.Message}", ex);
+                return new AppResponse<CredentialResponseDTO>(new AppErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Handler method to decrypt the credentials by its ID and returns DTO response.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<AppResponse<CredentialResponseDTO>> Decrypt(Guid id)
+        {
+            try
+            {
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Decrypt)} method called with ID: {id}.");
+                var entity = await _router.DecryptByIdAsync(id);
+                if (entity == null)
+                {
+                    _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Decrypt)} method returned null for ID: {id}.");
+                    return new AppResponse<CredentialResponseDTO>(Messages.GetError(ErrorConstants.CredentialDecryptionFailed));
+                }
+
+                // Mask passwords if the setting is enabled - showPasswordAsMasked
+                await MaskingPasswords(entity, _applicationConfigService?.Value?.GeneralSettings?.ShowPasswordAsMasked);
+
+                // Check expiration for credentials if the setting is enabled - EnableCredentialExpirationCheck
+                if (_applicationConfigService?.Value?.SecuritySettings?.EnableCredentialExpirationCheck ?? false)
+                    await CheckExpirationForCredentials(entity);
+                
+                await SetPasswordHealthCheck(entity);
+                
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Decrypt)} method returned credentials for ID: {id}.");
+                
+                return new AppResponse<CredentialResponseDTO>(_mapper.Map<CredentialResponseDTO>(entity))
+                {
+                    Message = string.Format(Messages.GetSuccess(SuccessConstants.CredentialsDecryptedSuccessfully), id)
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {ex.Message}", ex);
+                return new AppResponse<CredentialResponseDTO>(new AppErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
+            }
+        }
+
+        #region Private methods
 
         /// <summary>
         /// Method to mask passwords in the credentials DTO.
@@ -371,7 +452,7 @@ namespace DevNest.Business.Domain.Domains
                 .MakeGenericMethod(typeof(CredentialEntityModel), property.Type)
                 .Invoke(null, [entity, lambda.Compile()]);
 
-            return [.. ((IEnumerable<CredentialEntityModel>)result!)];
+            return ((IEnumerable<CredentialEntityModel>)result!).ToList();
         }
 
         /// <summary>
@@ -427,5 +508,7 @@ namespace DevNest.Business.Domain.Domains
                 entity.PasswordHealth = new PasswordHealthEntityModel() { Score = 0 };
             }
         }
+
+        #endregion Private methods
     }
 }

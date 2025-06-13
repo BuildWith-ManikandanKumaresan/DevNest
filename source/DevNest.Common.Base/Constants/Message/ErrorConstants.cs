@@ -20,6 +20,8 @@
         public const string UpdateCredentialsFailed = "DEV-CM-104";
         public const string CreateCredentialsFailed = "DEV-CM-105";
         public const string ArchiveCredentialsFailed = "DEV-CM-106";
+        public const string CredentialEncryptionFailed = "DEV-CM-107";
+        public const string CredentialDecryptionFailed = "DEV-CM-108";
 
         public const string CredentialTitleAlreadyExist = "DEV-CM-110";
 

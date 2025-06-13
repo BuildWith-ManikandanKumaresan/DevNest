@@ -10,7 +10,7 @@ namespace DevNest.Application.Queries.Credentials
     /// <summary>
     /// Represents the class instance for Get Credentials query class.
     /// </summary>
-    public class GetCredentialsQuery : IQuery<AppResponse<IEnumerable<CredentialResponseDTO>>>
+    public class GetCredentialsQuery : IQuery<AppResponse<IList<CredentialResponseDTO>>>
     {
         // Todo: add the query parameters.
     }

@@ -41,10 +41,10 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet()]
-        [ProducesResponseType(typeof(AppResponse<IEnumerable<CredentialResponseDTO>>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(AppResponse<IList<CredentialResponseDTO>>), 200)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> GetCredentials()
         {
             _logger.LogDebug($"Api => {nameof(GetCredentials)} called. ", apiCall: HttpContext.Request);
@@ -78,9 +78,9 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <returns></returns>
         [HttpGet("{credentialId}")]
         [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> GetCredentialById([FromRoute] Guid credentialId)
         {
             _logger.LogDebug($"Api => {nameof(GetCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
@@ -110,9 +110,9 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <returns></returns>
         [HttpDelete()]
         [ProducesResponseType(typeof(AppResponse<bool>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> DeleteCredentials()
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentials)} called. ", apiCall: HttpContext.Request);
@@ -143,9 +143,9 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <returns></returns>
         [HttpDelete("{credentialId}")]
         [ProducesResponseType(typeof(AppResponse<bool>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> DeleteCredentialById([FromRoute] Guid credentialId)
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
@@ -177,9 +177,9 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <returns></returns>
         [HttpPost()]
         [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> AddCredentials([FromBody] AddCredentialRequest request)
         {
 
@@ -212,9 +212,9 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <returns></returns>
         [HttpPut("{credentialId}")]
         [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> UpdateCredentials([FromRoute] Guid credentialId, [FromBody] UpdateCredentialRequest request)
         {
             _logger.LogDebug($"Api => {nameof(UpdateCredentials)} called. ", apiCall: HttpContext.Request, request: request);
@@ -241,10 +241,10 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <param name="credentialId"></param>
         /// <returns></returns>
         [HttpPut("{credentialId}/archive")]
-        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
-        [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
+        [ProducesResponseType(typeof(AppResponse<bool>), 200)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> ArchiveCredentials([FromRoute] Guid credentialId)
         {
             _logger.LogDebug($"Api => {nameof(ArchiveCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
@@ -259,6 +259,67 @@ namespace DevNest.CredentialsManager.Api.Controllers
                 return Ok(response);
             }
             _logger.LogError($"Api => {nameof(ArchiveCredentials)} encountered an error. ",
+                apiCall: HttpContext.Request,
+                request: command,
+                response: response);
+            return BadRequest(response.Errors);
+        }
+
+        /// <summary>
+        /// Encrypt credentials by Id.
+        /// </summary>
+        /// <param name="credentialId"></param>
+        /// <returns></returns>
+        [HttpPut("{credentialId}/encrypt")]
+        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
+        public async Task<IActionResult> EncryptCredentials([FromRoute] Guid credentialId)
+        {
+            _logger.LogDebug($"Api => {nameof(EncryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
+            EncryptCredentialCommand command = new(credentialId: credentialId);
+            var response = await _mediator.SendCommandAsync(command);
+            if (response.IsSuccess)
+            {
+                _logger.LogDebug($"Api => {nameof(EncryptCredentials)} completed. ",
+                    apiCall: HttpContext.Request,
+                    request: command,
+                    response: response);
+                return Ok(response);
+            }
+            _logger.LogError($"Api => {nameof(EncryptCredentials)} encountered an error. ",
+                apiCall: HttpContext.Request,
+                request: command,
+                response: response);
+            return BadRequest(response.Errors);
+
+        }
+
+        /// <summary>
+        /// Decrypt credentials by Id.
+        /// </summary>
+        /// <param name="credentialId"></param>
+        /// <returns></returns>
+        [HttpPut("{credentialId}/decrypt")]
+        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
+        public async Task<IActionResult> DecryptCredentials([FromRoute] Guid credentialId)
+        {
+            _logger.LogDebug($"Api => {nameof(DecryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
+            DecryptCredentialCommand command = new(credentialId: credentialId);
+            var response = await _mediator.SendCommandAsync(command);
+            if (response.IsSuccess)
+            {
+                _logger.LogDebug($"Api => {nameof(DecryptCredentials)} completed. ",
+                    apiCall: HttpContext.Request,
+                    request: command,
+                    response: response);
+                return Ok(response);
+            }
+            _logger.LogError($"Api => {nameof(DecryptCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
                 response: response);

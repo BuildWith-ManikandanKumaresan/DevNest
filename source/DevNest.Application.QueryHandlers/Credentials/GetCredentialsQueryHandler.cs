@@ -16,7 +16,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
     /// <summary>
     /// Represents the class instance for Get Credentials query handler class.
     /// </summary>
-    public class GetCredentialsQueryHandler : IQueryHandler<GetCredentialsQuery, AppResponse<IEnumerable<CredentialResponseDTO>>>
+    public class GetCredentialsQueryHandler : IQueryHandler<GetCredentialsQuery, AppResponse<IList<CredentialResponseDTO>>>
     {
         private readonly IAppLogger<GetCredentialsQueryHandler> _logger;
         private readonly ICredentialDomainService _domainService;
@@ -41,7 +41,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
         /// <param name="request"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<AppResponse<IEnumerable<CredentialResponseDTO>>> Handle(GetCredentialsQuery query, CancellationToken cancellationToken = default)
+        public async Task<AppResponse<IList<CredentialResponseDTO>>> Handle(GetCredentialsQuery query, CancellationToken cancellationToken = default)
         {
             return await _domainService.Get();
         }

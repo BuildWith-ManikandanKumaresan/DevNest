@@ -112,12 +112,12 @@ namespace DevNest.Plugin.Json
         /// Gets the collection of entities of type T from the data context.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<T>? Get()
+        public IList<T>? Get()
         {
             _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
             var data = _JsonHandler.Read() as List<CredentialEntityModel>;
             _logger.LogDebug($"{nameof(JsonStorageContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
-            return data as IEnumerable<T>;
+            return data as IList<T>;
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace DevNest.Business.Domain.RouterContracts
         /// Handler method to get the credentials entity from the plugin repository.
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<CredentialEntityModel>?> GetAsync();
+        Task<IList<CredentialEntityModel>?> GetAsync();
 
         /// <summary>
         /// Handler method to get the credential entity by its unique identifier.
@@ -56,5 +56,19 @@ namespace DevNest.Business.Domain.RouterContracts
         /// <param name="id"></param>
         /// <returns></returns>
         Task<bool> ArchiveByIdAsync(Guid id);
+
+        /// <summary>
+        /// Handler method to encrypt the credential by its unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<CredentialEntityModel> EncryptByIdAsync(Guid id);
+
+        /// <summary>
+        /// Handler method to decrypt the credential by its unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<CredentialEntityModel> DecryptByIdAsync(Guid id);
     }
 }

@@ -42,16 +42,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
 
             var context = _pluginManager.GetStorageContext<CredentialEntityModel>(primaryConfig ?? []);
 
-            if (entity.Security.IsEncrypted == true)
-            {
-                var connectionParam = GetEncryptionParams(entity.Security.EncryptionAlgorithm);
-                var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
-
-                if (encryptionContext != null)
-                {
-                    entity.Details.Password = encryptionContext.Encrypt(entity.Details.Password ?? string.Empty);
-                }
-            }
+            var encryptedEntity  = EncryptCredential(entity).GetAwaiter().GetResult();
 
             return context?.Add(entity) ?? null;
         }
@@ -92,17 +83,18 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// Handler method for Get credentials entity.
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<CredentialEntityModel>?> GetAsync()
+        public async Task<IList<CredentialEntityModel>?> GetAsync()
         {
             var context = GetStorageContext();
             var credentials = context?.Get().ToList();
-
+            var decryptedCredentials =  new List<CredentialEntityModel>();
             credentials?.ForEach(cred =>
             {
-                DecryptCredential(cred);
+                var listItem = DecryptCredential(cred).GetAwaiter().GetResult();
+                decryptedCredentials.Add(listItem);
             });
 
-            return credentials;
+            return decryptedCredentials;
         }
 
         /// <summary>
@@ -115,8 +107,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         {
             var context = GetStorageContext();
             var credential = context?.GetById(id);
-            DecryptCredential(credential);
-            return credential;
+            return await DecryptCredential(credential);
         }
 
         /// <summary>
@@ -128,6 +119,35 @@ namespace DevNest.Infrastructure.Routers.Credentials
         {
             var context = GetStorageContext();
             return context?.Update(entity);
+        }
+
+        /// <summary>
+        /// Handler method to encrypt the credential entity by its unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<CredentialEntityModel> EncryptByIdAsync(Guid id)
+        {
+            var context = GetStorageContext();
+            var credential = context?.GetById(id);
+            if (credential != null)
+                credential.Security.IsEncrypted = true;
+            var encryptedCredential = EncryptCredential(credential).GetAwaiter().GetResult();
+            return context?.Update(encryptedCredential);
+        }
+
+        /// <summary>
+        /// Handler method to decrypt the credential entity by its unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<CredentialEntityModel> DecryptByIdAsync(Guid id)
+        {
+            var context = GetStorageContext();
+            var credential = context?.GetById(id);
+            if (credential != null)
+                credential.Security.IsEncrypted = true;
+            return await DecryptCredential(credential);
         }
 
         #region Private methods
@@ -163,7 +183,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// Decrypts the credential's password if it is encrypted.
         /// </summary>
         /// <param name="credential"></param>
-        private async Task DecryptCredential(CredentialEntityModel? credential)
+        private async Task<CredentialEntityModel> DecryptCredential(CredentialEntityModel? credential)
         {
             if (credential.Security?.IsEncrypted == true)
             {
@@ -175,6 +195,26 @@ namespace DevNest.Infrastructure.Routers.Credentials
                     credential.Details.Password = encryptionContext.Decrypt(credential.Details.Password ?? string.Empty);
                 }
             }
+            return credential;
+        }
+
+        /// <summary>
+        /// Encrypts the credential's password by its unique identifier if it is encrypted.
+        /// </summary>
+        /// <param name="credential"></param>
+        /// <returns></returns>
+        private async Task<CredentialEntityModel> EncryptCredential(CredentialEntityModel? credential)
+        {
+            if (credential != null && credential.Security?.IsEncrypted == true)
+            {
+                var connectionParam = GetEncryptionParams(credential.Security.EncryptionAlgorithm);
+                var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
+                if (encryptionContext != null)
+                {
+                    credential.Details.Password = encryptionContext.Encrypt(credential.Details.Password ?? string.Empty);
+                }
+            }
+            return credential;
         }
 
         #endregion Private methods

@@ -15,7 +15,7 @@
         /// Gets the collection of entities of type T.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<T>? Get();
+        IList<T>? Get();
 
         /// <summary>
         /// Gets an entity by its identifier.

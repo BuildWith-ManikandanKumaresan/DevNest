@@ -16,7 +16,7 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// Handler method interface for get credentials.
         /// </summary>
         /// <returns></returns>
-        Task<AppResponse<IEnumerable<CredentialResponseDTO>>> Get();
+        Task<AppResponse<IList<CredentialResponseDTO>>> Get();
 
         /// <summary>
         /// Handler method interface for get credentials by id.
@@ -58,5 +58,19 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// <param name="id"></param>
         /// <returns></returns>
         Task<AppResponse<bool>> Archive(Guid id);
+
+        /// <summary>
+        /// Handler method interface for encrypting a credential by its ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<AppResponse<CredentialResponseDTO>> Encrypt(Guid id);
+
+        /// <summary>
+        /// Handler method interface for decrypting a credential by its ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<AppResponse<CredentialResponseDTO>> Decrypt(Guid id);
     }
 }

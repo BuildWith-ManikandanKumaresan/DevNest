@@ -18,12 +18,12 @@
         /// <summary>
         /// Represents the storage and encryption providers for the Credential Manager application.
         /// </summary>
-        public IEnumerable<StorageProvider>? StorageProviders { get; set; }
+        public IList<StorageProvider>? StorageProviders { get; set; }
 
         /// <summary>
         /// Represents the encryption providers for the Credential Manager application.
         /// </summary>
-        public IEnumerable<EncryptionProvider>? EncryptionProviders { get; set; }
+        public IList<EncryptionProvider>? EncryptionProviders { get; set; }
 
         /// <summary>
         /// Represents the backup settings for the Credential Manager application.

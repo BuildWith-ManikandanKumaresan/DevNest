@@ -1,5 +1,6 @@
 ﻿#region using directives
 using DevNest.Common.Base.DTOs.Contracts;
+using DevNest.Infrastructure.DTOs.Credential.Request;
 #endregion using directives
 
 namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
@@ -9,36 +10,10 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
     /// </summary>
     public class AddCredentialRequest : BaseDTO
     {
-
         /// <summary>
         /// Gets or sets the title or name of the credential.
         /// </summary>
         public string? Title { get; set; }
-
-        /// <summary>
-        /// Gets or sets the domain associated with the credential.
-        /// </summary>
-        public string? Domain { get; set; }
-
-        /// <summary>
-        /// Gets or sets the host or machine address.
-        /// </summary>
-        public string? Host { get; set; }
-
-        /// <summary>
-        /// Gets or sets the username for login.
-        /// </summary>
-        public string? Username { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password for login.
-        /// </summary>
-        public string? Password { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the credential (e.g., SSH, RDP, Azure).
-        /// </summary>
-        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the associated workspace name or ID.
@@ -61,49 +36,24 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
         public string? Notes { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the credential is valid.
-        /// </summary>
-        public bool? IsValid { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether the password is masked.
         /// </summary>
         public bool? IsPasswordMasked { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether encryption is enabled.
+        /// Gets or sets the details for the credential.
         /// </summary>
-        public bool? IsEncrypted { get; set; }
+        public CredentialDetailsRequest? Details { get; set; }
 
         /// <summary>
-        /// Gets or sets the encryption algorithm used (e.g., AES, RSA).
+        /// Gets or sets the security details for the credential.
         /// </summary>
-        public string? EncryptionAlgorithm { get; set; }
+        public SecurityDetailsRequest? Security { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to display passwords in encrypted form.
+        /// Gets or sets the validity information for the credential.
         /// </summary>
-        public bool? ShowPasswordAsEncrypted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the credential expiration date.
-        /// </summary>
-        public DateTime? ExpirationDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password rotation policy in days.
-        /// </summary>
-        public int? RotationPolicyInDays { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the credential is disabled.
-        /// </summary>
-        public bool? IsDisabled { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password strength (e.g., Strong, Weak).
-        /// </summary>
-        public string? PasswordStrength { get; set; }
+        public ValidityDetailsRequest? Validatity { get; set; }
 
         /// <summary>
         /// Gets or sets the associated groups.

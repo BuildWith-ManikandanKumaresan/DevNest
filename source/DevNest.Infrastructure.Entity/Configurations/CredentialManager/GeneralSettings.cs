@@ -18,7 +18,7 @@
         /// <summary>
         /// Placeholder text to use when masking passwords in the UI.
         /// </summary>
-        public string? MaskingPlaceHolder { get; set; }
+        public char? MaskingPlaceHolder { get; set; }
 
         /// <summary>
         /// Default category to use when creating new credentials.

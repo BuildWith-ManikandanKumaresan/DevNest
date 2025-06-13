@@ -16,14 +16,14 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// Handler method interface for get credentials.
         /// </summary>
         /// <returns></returns>
-        Task<AppResponse<IEnumerable<CredentialsResponseDTO>>> Get();
+        Task<AppResponse<IEnumerable<CredentialResponseDTO>>> Get();
 
         /// <summary>
         /// Handler method interface for get credentials by id.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<AppResponse<CredentialsResponseDTO>> GetById(Guid id);
+        Task<AppResponse<CredentialResponseDTO>> GetById(Guid id);
 
         /// <summary>
         /// Handler method interface for delete credentials.
@@ -43,14 +43,14 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<AppResponse<CredentialsResponseDTO>> Add(AddCredentialRequest? request);
+        Task<AppResponse<CredentialResponseDTO>> Add(AddCredentialRequest? request);
 
         /// <summary>
         /// Handler method interface for update credentials.
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<AppResponse<CredentialsResponseDTO>> Update(UpdateCredentialRequest? request);
+        Task<AppResponse<CredentialResponseDTO>> Update(UpdateCredentialRequest? request);
 
         /// <summary>
         /// Handler method interface for archiving a credential by its ID.

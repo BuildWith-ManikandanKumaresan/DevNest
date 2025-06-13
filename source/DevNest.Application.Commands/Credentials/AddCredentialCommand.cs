@@ -11,7 +11,7 @@ namespace DevNest.Application.Commands.Credentials
     /// <summary>
     /// Represents the class instance for Add credential command.
     /// </summary>
-    public class AddCredentialCommand : ICommand<AppResponse<CredentialsResponseDTO>>
+    public class AddCredentialCommand : ICommand<AppResponse<CredentialResponseDTO>>
     {
         /// <summary>
         /// Initialize the new instance for <see cref="AddCredentialCommand">class.</see>/>

@@ -1,4 +1,6 @@
-﻿using DevNest.Common.Base.Entity.Contracts;
+﻿#region using directives
+using DevNest.Common.Base.Entity.Contracts;
+#endregion using directives
 
 namespace DevNest.Infrastructure.Entity.Credentials
 {
@@ -18,31 +20,6 @@ namespace DevNest.Infrastructure.Entity.Credentials
         public string? Title { get; set; }
 
         /// <summary>
-        /// Gets or sets the domain associated with the credential.
-        /// </summary>
-        public string? Domain { get; set; }
-
-        /// <summary>
-        /// Gets or sets the host or machine address.
-        /// </summary>
-        public string? Host { get; set; }
-
-        /// <summary>
-        /// Gets or sets the username for login.
-        /// </summary>
-        public string? Username { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password for login.
-        /// </summary>
-        public string? Password { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the credential (e.g., SSH, RDP, Azure).
-        /// </summary>
-        public string? Type { get; set; }
-
-        /// <summary>
         /// Gets or sets the associated workspace name or ID.
         /// </summary>
         public string? Workspace { get; set; }
@@ -55,7 +32,7 @@ namespace DevNest.Infrastructure.Entity.Credentials
         /// <summary>
         /// Gets or sets the list of tag identifiers.
         /// </summary>
-        public Guid[]? Tags { get; set; }
+        public Guid[]? Tags { get; set; }      
 
         /// <summary>
         /// Gets or sets additional notes related to the credential.
@@ -63,54 +40,34 @@ namespace DevNest.Infrastructure.Entity.Credentials
         public string? Notes { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the credential is valid.
-        /// </summary>
-        public bool? IsValid { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether the password is masked.
         /// </summary>
         public bool? IsPasswordMasked { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether encryption is enabled.
-        /// </summary>
-        public bool? IsEncrypted { get; set; }
-
-        /// <summary>
-        /// Gets or sets the encryption algorithm used (e.g., AES, RSA).
-        /// </summary>
-        public string? EncryptionAlgorithm { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether to display passwords in encrypted form.
-        /// </summary>
-        public bool? ShowPasswordAsEncrypted { get; set; }
-
+                
         /// <summary>
         /// Gets or sets the number of times the credential was used.
         /// </summary>
         public int? UsageCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the credential expiration date.
+        /// Gets or sets the details for the credential.
         /// </summary>
-        public DateTime? ExpirationDate { get; set; }
+        public CredentialDetailsEntityModel? Details { get; set; }
 
         /// <summary>
-        /// Gets or sets the password rotation policy in days.
+        /// Gets or sets the password health information for the credential.
         /// </summary>
-        public int? RotationPolicyInDays { get; set; }
+        public PasswordHealthEntityModel? PasswordHealth { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the credential is disabled.
+        /// Gets or sets the security details for the credential.
         /// </summary>
-        public bool? IsDisabled { get; set; }
+        public SecurityEntityModel? Security { get; set; }
 
         /// <summary>
-        /// Gets or sets the password strength (e.g., Strong, Weak).
+        /// Gets or sets the validity information for the credential.
         /// </summary>
-        public string? PasswordStrength { get; set; }
+        public ValidityEntityModel? Validatity { get; set; }
 
         /// <summary>
         /// Gets or sets the associated groups.

@@ -15,7 +15,7 @@ namespace DevNest.Application.Commands.Credentials
     /// Initialize the new instance for <see cref="UpdateCredentialCommand">class.</see>
     /// </remarks>
     /// <param name="request"></param>
-    public class UpdateCredentialCommand(Guid credentialId, UpdateCredentialRequest request) : ICommand<AppResponse<CredentialsResponseDTO>>
+    public class UpdateCredentialCommand(Guid credentialId, UpdateCredentialRequest request) : ICommand<AppResponse<CredentialResponseDTO>>
     {
         /// <summary>
         /// Gets or sets the unique identifier of the credential to be updated.

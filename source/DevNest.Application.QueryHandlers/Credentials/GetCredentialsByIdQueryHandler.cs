@@ -16,7 +16,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
     /// <summary>
     /// Represents the handler for the GetCredentialsByIdQuery class.
     /// </summary>
-    public class GetCredentialsByIdQueryHandler : IQueryHandler<GetCredentialsByIdQuery, AppResponse<CredentialsResponseDTO>>
+    public class GetCredentialsByIdQueryHandler : IQueryHandler<GetCredentialsByIdQuery, AppResponse<CredentialResponseDTO>>
     {
         private readonly IAppLogger<GetCredentialsQueryHandler> _logger;
         private readonly ICredentialDomainService _domainService;
@@ -45,7 +45,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialsResponseDTO>> Handle(GetCredentialsByIdQuery request, CancellationToken cancellationToken)
+        public async Task<AppResponse<CredentialResponseDTO>> Handle(GetCredentialsByIdQuery request, CancellationToken cancellationToken)
         {
             return await _domainService.GetById(request.CredentialId);
         }

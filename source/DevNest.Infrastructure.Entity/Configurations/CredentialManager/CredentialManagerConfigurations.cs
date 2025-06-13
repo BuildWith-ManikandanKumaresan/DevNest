@@ -13,7 +13,7 @@
         /// <summary>
         /// Represents the security settings for the Credential Manager application.
         /// </summary>
-        public SecuritySettings? SecutirySettings { get; set; }
+        public SecuritySettings? SecuritySettings { get; set; }
 
         /// <summary>
         /// Represents the storage and encryption providers for the Credential Manager application.

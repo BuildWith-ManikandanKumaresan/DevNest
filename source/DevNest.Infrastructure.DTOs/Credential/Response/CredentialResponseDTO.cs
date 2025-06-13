@@ -1,17 +1,20 @@
 ﻿#region using directives
 using DevNest.Common.Base.DTOs.Contracts;
-using DevNest.Infrastructure.DTOs.Credential.Request;
+using DevNest.Infrastructure.DTOs.Credential.Response;
 #endregion using directives
 
-namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
+namespace DevNest.Infrastructure.DTOs.CredentialManager.Response
 {
-    public class UpdateCredentialRequest : BaseDTO
+    /// <summary>
+    /// Represents the DTO class instance for credentials.
+    /// </summary>
+    public class CredentialResponseDTO : BaseDTO
     {
         /// <summary>
         /// Gets or sets the unique identifier of the credential.
         /// </summary>
         public Guid Id { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the title or name of the credential.
         /// </summary>
@@ -43,19 +46,29 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
         public bool? IsPasswordMasked { get; set; }
 
         /// <summary>
+        /// Gets or sets the number of times the credential was used.
+        /// </summary>
+        public int? UsageCount { get; set; }
+
+        /// <summary>
         /// Gets or sets the details for the credential.
         /// </summary>
-        public CredentialDetailsRequest? Details { get; set; }
+        public CredentialDetailsResponseDTO? Details { get; set; }
+
+        /// <summary>
+        /// Gets or sets the password health information for the credential.
+        /// </summary>
+        public PasswordHealthResponseDTO? PasswordHealth { get; set; }
 
         /// <summary>
         /// Gets or sets the security details for the credential.
         /// </summary>
-        public SecurityDetailsRequest? Security { get; set; }
+        public SecurityResponseDTO? Security { get; set; }
 
         /// <summary>
         /// Gets or sets the validity information for the credential.
         /// </summary>
-        public ValidityDetailsRequest? Validatity { get; set; }
+        public ValidityResponseDTO? Validatity { get; set; }
 
         /// <summary>
         /// Gets or sets the associated groups.

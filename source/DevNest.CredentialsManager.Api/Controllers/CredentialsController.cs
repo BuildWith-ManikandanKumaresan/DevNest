@@ -41,7 +41,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet()]
-        [ProducesResponseType(typeof(AppResponse<IEnumerable<CredentialsResponseDTO>>), 200)]
+        [ProducesResponseType(typeof(AppResponse<IEnumerable<CredentialResponseDTO>>), 200)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
@@ -77,7 +77,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{credentialId}")]
-        [ProducesResponseType(typeof(AppResponse<CredentialsResponseDTO>), 200)]
+        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
@@ -176,7 +176,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost()]
-        [ProducesResponseType(typeof(AppResponse<CredentialsResponseDTO>), 200)]
+        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
@@ -211,7 +211,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut("{credentialId}")]
-        [ProducesResponseType(typeof(AppResponse<CredentialsResponseDTO>), 200)]
+        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]
@@ -241,7 +241,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// <param name="credentialId"></param>
         /// <returns></returns>
         [HttpPut("{credentialId}/archive")]
-        [ProducesResponseType(typeof(AppResponse<CredentialsResponseDTO>), 200)]
+        [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 400)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 404)]
         [ProducesResponseType(typeof(IEnumerable<AppErrors>), 500)]

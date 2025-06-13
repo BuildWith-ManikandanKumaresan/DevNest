@@ -16,6 +16,9 @@
         public const string CredentialsDeletedByIdSuccessfully = "DEV-CM-202";
         public const string CredentialsUpdatedSuccessfully = "DEV-CM-203";
         public const string CredentialsArchivedSuccessfully = "DEV-CM-204";
+        public const string CredentialsRetreivedSuccessfully = "DEV-CM-205";
+        public const string CredentialsByIdRetreivedSuccessfully = "DEV-CM-206";
+
 
         // Logger Manager
     }

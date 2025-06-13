@@ -16,7 +16,7 @@ namespace DevNest.Application.CommandHandlers.Credentials
     /// <summary>
     /// Represents the class instance for add credentials command handler.
     /// </summary>
-    public class AddCredentialCommandHandler : ICommandHandler<AddCredentialCommand, AppResponse<CredentialsResponseDTO>>
+    public class AddCredentialCommandHandler : ICommandHandler<AddCredentialCommand, AppResponse<CredentialResponseDTO>>
     {
         private readonly IAppLogger<AddCredentialCommandHandler> _logger;
         private readonly ICredentialDomainService _domainService;
@@ -45,7 +45,7 @@ namespace DevNest.Application.CommandHandlers.Credentials
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialsResponseDTO>> Handle(AddCredentialCommand request, CancellationToken cancellationToken)
+        public async Task<AppResponse<CredentialResponseDTO>> Handle(AddCredentialCommand request, CancellationToken cancellationToken)
         {
             return await _domainService.Add(request: request.AddCredentialRequest);
         }

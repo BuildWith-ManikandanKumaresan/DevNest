@@ -42,14 +42,14 @@ namespace DevNest.Infrastructure.Routers.Credentials
 
             var context = _pluginManager.GetStorageContext<CredentialEntityModel>(primaryConfig ?? []);
 
-            if (entity.IsEncrypted == true)
+            if (entity.Security.IsEncrypted == true)
             {
-                var connectionParam = GetEncryptionParams(entity.EncryptionAlgorithm);
+                var connectionParam = GetEncryptionParams(entity.Security.EncryptionAlgorithm);
                 var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
 
                 if (encryptionContext != null)
                 {
-                    entity.Password = encryptionContext.Encrypt(entity.Password ?? string.Empty);
+                    entity.Details.Password = encryptionContext.Encrypt(entity.Details.Password ?? string.Empty);
                 }
             }
 
@@ -165,14 +165,14 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <param name="credential"></param>
         private async Task DecryptCredential(CredentialEntityModel? credential)
         {
-            if (credential?.IsEncrypted == true)
+            if (credential.Security?.IsEncrypted == true)
             {
-                var connectionParam = GetEncryptionParams(credential.EncryptionAlgorithm);
+                var connectionParam = GetEncryptionParams(credential.Security.EncryptionAlgorithm);
                 var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
 
                 if (encryptionContext != null)
                 {
-                    credential.Password = encryptionContext.Decrypt(credential.Password ?? string.Empty);
+                    credential.Details.Password = encryptionContext.Decrypt(credential.Details.Password ?? string.Empty);
                 }
             }
         }

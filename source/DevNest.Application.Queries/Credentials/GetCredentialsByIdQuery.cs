@@ -14,7 +14,7 @@ namespace DevNest.Application.Queries.Credentials
     /// Initialize the new instance for GetCredentialsByIdQuery class.
     /// </remarks>
     /// <param name="Id"></param>
-    public class GetCredentialsByIdQuery(Guid Id) : IQuery<AppResponse<CredentialsResponseDTO>>
+    public class GetCredentialsByIdQuery(Guid Id) : IQuery<AppResponse<CredentialResponseDTO>>
     {
         /// <summary>
         /// Gets or sets the unique identifier for the credential.

@@ -21,6 +21,8 @@
         public const string CreateCredentialsFailed = "DEV-CM-105";
         public const string ArchiveCredentialsFailed = "DEV-CM-106";
 
+        public const string CredentialTitleAlreadyExist = "DEV-CM-110";
+
         // Logger Manager error codes.
         public const string LoggerConfigurationMissing = "DEV-LOG-100";
     }

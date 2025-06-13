@@ -59,7 +59,7 @@ namespace DevNest.Plugin.Json
             var entity = data.FirstOrDefault(a => a.Id == id);
             if (entity == null) return false;
 
-            entity.IsDisabled = true;
+            entity.Validatity.IsDisabled = true;
 
             _JsonHandler.Write([.. data.Cast<T>()]);
 
@@ -152,23 +152,19 @@ namespace DevNest.Plugin.Json
             if (existingEntity != null && input != null)
             {
                 if (input.Title != null) existingEntity.Title = input.Title;
-                if (input.Domain != null) existingEntity.Domain = input.Domain;
-                if (input.Host != null) existingEntity.Host = input.Host;
-                if (input.Username != null) existingEntity.Username = input.Username;
-                if (input.Password != null) existingEntity.Password = input.Password;
-                if (input.Type != null) existingEntity.Type = input.Type;
+                if (input.Details.Domain != null) existingEntity.Details.Domain = input.Details.Domain;
+                if (input.Details.Host != null) existingEntity.Details.Host = input.Details.Host;
+                if (input.Details.Username != null) existingEntity.Details.Username = input.Details.Username;
+                if (input.Details.Password != null) existingEntity.Details.Password = input.Details.Password;
+                if (input.Details.Type != null) existingEntity.Details.Type = input.Details.Type;
                 if (input.Workspace != null) existingEntity.Workspace = input.Workspace;
                 if (input.Environment != null) existingEntity.Environment = input.Environment;
                 if (input.Tags != null) existingEntity.Tags = input.Tags;
                 if (input.Notes != null) existingEntity.Notes = input.Notes;
-                if (input.IsValid != null) existingEntity.IsValid = input.IsValid;
                 if (input.IsPasswordMasked != null) existingEntity.IsPasswordMasked = input.IsPasswordMasked;
-                if (input.IsEncrypted != null) existingEntity.IsEncrypted = input.IsEncrypted;
-                if (input.EncryptionAlgorithm != null) existingEntity.EncryptionAlgorithm = input.EncryptionAlgorithm;
-                if (input.ShowPasswordAsEncrypted != null) existingEntity.ShowPasswordAsEncrypted = input.ShowPasswordAsEncrypted;
-                if (input.ExpirationDate != null) existingEntity.ExpirationDate = input.ExpirationDate;
-                if (input.RotationPolicyInDays != null) existingEntity.RotationPolicyInDays = input.RotationPolicyInDays;
-                if (input.IsDisabled != null) existingEntity.IsDisabled = input.IsDisabled;
+                if (input.Security.IsEncrypted != null) existingEntity.Security.IsEncrypted = input.Security.IsEncrypted;
+                if (input.Security.EncryptionAlgorithm != null) existingEntity.Security.EncryptionAlgorithm = input.Security.EncryptionAlgorithm;
+                if (input.Security.ShowPasswordAsEncrypted != null) existingEntity.Security.ShowPasswordAsEncrypted = input.Security.ShowPasswordAsEncrypted;
                 if (input.AssociatedGroups != null) existingEntity.AssociatedGroups = input.AssociatedGroups;
 
                 _JsonHandler.Write(data as List<T> ?? []);

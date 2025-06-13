@@ -14,7 +14,7 @@ namespace DevNest.Application.CommandHandlers.Credentials
     /// <summary>
     /// Represents the class instance for Update credential command.
     /// </summary>
-    public class UpdateCredentialCommandHandler : ICommandHandler<UpdateCredentialCommand, AppResponse<CredentialsResponseDTO>>
+    public class UpdateCredentialCommandHandler : ICommandHandler<UpdateCredentialCommand, AppResponse<CredentialResponseDTO>>
     {
         private readonly IAppLogger<UpdateCredentialCommandHandler> _logger;
         private readonly ICredentialDomainService _domainService;
@@ -43,7 +43,7 @@ namespace DevNest.Application.CommandHandlers.Credentials
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialsResponseDTO>> Handle(UpdateCredentialCommand request, CancellationToken cancellationToken)
+        public async Task<AppResponse<CredentialResponseDTO>> Handle(UpdateCredentialCommand request, CancellationToken cancellationToken)
         {
             return await _domainService.Update(request.UpdateCredentialRequest);
         }

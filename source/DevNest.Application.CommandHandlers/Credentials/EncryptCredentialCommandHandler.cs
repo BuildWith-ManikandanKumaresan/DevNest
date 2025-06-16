@@ -7,6 +7,7 @@ using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
+using MediatR;
 #endregion using directives
 
 namespace DevNest.Application.CommandHandlers.Credentials
@@ -45,7 +46,21 @@ namespace DevNest.Application.CommandHandlers.Credentials
         /// <exception cref="NotImplementedException"></exception>
         public async Task<AppResponse<CredentialResponseDTO>> Handle(EncryptCredentialCommand command, CancellationToken cancellationToken = default)
         {
-            return await _domainService.Encrypt(command.CredentialId);
+            _logger.LogDebug($"{nameof(EncryptCredentialCommandHandler)} => {nameof(Handle)} method called.");
+
+            // Validate the query
+            IList<AppErrors> errors = command.Validate();
+
+            if (errors.Any())
+            {
+                _logger.LogError($"{nameof(EncryptCredentialCommandHandler)} => Validation errors occurred: ", errors: errors);
+
+                return new AppResponse<CredentialResponseDTO>(errors.ToList());
+            }
+
+            _logger.LogDebug($"{nameof(EncryptCredentialCommandHandler)} => {nameof(Handle)} method completed.", request: command);
+
+            return await _domainService.Encrypt(command.CredentialId, command.Workspace);
         }
     }
 }

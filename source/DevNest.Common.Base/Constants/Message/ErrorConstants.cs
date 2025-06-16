@@ -23,7 +23,16 @@
         public const string CredentialEncryptionFailed = "DEV-CM-107";
         public const string CredentialDecryptionFailed = "DEV-CM-108";
 
+        // Credential manager validation error codes.
         public const string CredentialTitleAlreadyExist = "DEV-CM-110";
+
+        public const string CredentialIdCannotBeEmpty = "DEV-CM-111";
+        public const string CredentialTypeCannotBeEmpty = "DEV-CM-112";
+        public const string CredentialDomainCannotBeEmpty = "DEV-CM-113";
+        public const string CredentialPasswordStrengthCannotBeEmpty = "DEV-CM-114";
+        public const string CredentialWorkspaceCannotBeEmpty = "DEV-CM-115";
+        public const string CredentialEnvironmentCannotBeEmpty = "DEV-CM-116";
+        public const string CredentialGroupsCannotBeEmpty = "DEV-CM-117";
 
         // Logger Manager error codes.
         public const string LoggerConfigurationMissing = "DEV-LOG-100";

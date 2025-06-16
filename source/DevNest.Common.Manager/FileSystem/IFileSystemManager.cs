@@ -28,7 +28,7 @@
         /// <summary>
         /// Get the directory path that contains the data's.
         /// </summary>
-        string? DataDirectrory { get; }
+        string? CredentialDataDirectrory { get; }
 
         /// <summary>
         /// Get the directory path that contains the assets.
@@ -49,5 +49,12 @@
         /// Get the directory path that contains the success codes.
         /// </summary>
         string? SuccessCodesDirectory { get; }
+
+        /// <summary>
+        /// Get the directory path that contains the workspace.
+        /// </summary>
+        /// <param name="workspaceName"></param>
+        /// <returns></returns>
+        string? GetWorkSpaceDirectory(string workspaceName);
     }
 }

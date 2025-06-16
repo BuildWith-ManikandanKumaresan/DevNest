@@ -56,7 +56,7 @@ namespace DevNest.Plugin.Rsa
             }
             catch (Exception)
             {
-                _logger.LogError($"{nameof(RsaEncryptionContext<T>)} => Decryption failed.", new { CipherText = cipherText });
+                _logger.LogError($"{nameof(RsaEncryptionContext<T>)} => Decryption failed.", request: new { CipherText = cipherText });
             }
             return string.Empty as T;
         }

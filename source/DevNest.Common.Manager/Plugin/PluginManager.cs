@@ -22,16 +22,30 @@ namespace DevNest.Common.Manager.Plugin
     /// </remarks>
     /// <param name="fileSystemManager"></param>
     /// <param name="logger"></param>
-    public class PluginManager(
-        IFileSystemManager fileSystemManager,
-        IAppLogger<PluginManager> logger,
-        IServiceProvider serviceProvider) : IPluginManager
+    public class PluginManager : IPluginManager
     {
-        private readonly IFileSystemManager _fileSystemManager = fileSystemManager;
-        private readonly IAppLogger<PluginManager> _logger = logger;
-        private readonly IList<IStoragePlugin>? _pluginStorageInstance = [];
-        private readonly IList<IEncryptionPlugin>? _pluginEncryptionInstance = [];
-        private readonly IServiceProvider _serviceProvider = serviceProvider;
+        private readonly IFileSystemManager _fileSystemManager;
+        private readonly IAppLogger<PluginManager> _logger;
+        private readonly IList<IStoragePlugin>? _pluginStorageInstance;
+        private readonly IList<IEncryptionPlugin>? _pluginEncryptionInstance;
+        private readonly IServiceProvider _serviceProvider;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PluginManager"/> class with the specified file system manager, logger, and service provider.
+        /// </summary>
+        /// <param name="fileSystemManager"></param>
+        /// <param name="logger"></param>
+        /// <param name="serviceProvider"></param>
+        public PluginManager(IFileSystemManager fileSystemManager, IAppLogger<PluginManager> logger, IServiceProvider serviceProvider)
+        {
+            this._fileSystemManager = fileSystemManager;
+            this._logger = logger;
+            this._serviceProvider = serviceProvider;
+            _pluginStorageInstance = new List<IStoragePlugin>();
+            _pluginEncryptionInstance = new List<IEncryptionPlugin>();
+            LoadStoragePlugins();
+            LoadEncryptionPlugins();
+        }
 
         /// <summary>
         /// Loads the plugins from the specified directory and initializes the plugin instance.
@@ -57,7 +71,7 @@ namespace DevNest.Common.Manager.Plugin
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"{nameof(PluginManager)} => {ErrorConstants.NoStoragePluginFound}{ex.Message}", ex);
             }
@@ -88,7 +102,7 @@ namespace DevNest.Common.Manager.Plugin
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"{nameof(PluginManager)} => {ErrorConstants.NoEncryptionPluginFound}{ex.Message}", ex);
             }
@@ -107,7 +121,7 @@ namespace DevNest.Common.Manager.Plugin
                 _pluginStorageInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
             if (activePlugin == null)
             {
-                _logger.LogError($"{nameof(PluginManager)} => No active primary storage plugin found.", new { connectionParams });
+                _logger.LogError($"{nameof(PluginManager)} => No active primary storage plugin found.", request: new { connectionParams });
                 return null;
             }
             return activePlugin?.GetStorageContext<T>(connectionParams);
@@ -126,7 +140,7 @@ namespace DevNest.Common.Manager.Plugin
                 _pluginEncryptionInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
             if (activePlugin == null)
             {
-                _logger.LogError($"{nameof(PluginManager)} => No active primary encryption plugin found.", new { connectionParams });
+                _logger.LogError($"{nameof(PluginManager)} => No active primary encryption plugin found.", request: new { connectionParams });
                 return null;
             }
             return activePlugin?.GetEncryptionContext<T>(connectionParams);

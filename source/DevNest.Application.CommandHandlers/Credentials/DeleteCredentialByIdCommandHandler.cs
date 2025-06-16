@@ -5,6 +5,7 @@ using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
+using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using MediatR;
@@ -41,12 +42,26 @@ namespace DevNest.Application.CommandHandlers.Credentials
         /// <summary>
         /// Handle the command query for deleting credentials using id.
         /// </summary>
-        /// <param name="request">The request containing the command parameters.</param>
+        /// <param name="command">The request containing the command parameters.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A response indicating the success or failure of the operation.</returns>
-        public async Task<AppResponse<bool>> Handle(DeleteCredentialByIdCommand request, CancellationToken cancellationToken)
+        public async Task<AppResponse<bool>> Handle(DeleteCredentialByIdCommand command, CancellationToken cancellationToken)
         {
-            return await _domainService.DeleteById(id: request.CredentialId);
+            _logger.LogDebug($"{nameof(DeleteCredentialByIdCommandHandler)} => {nameof(Handle)} method called.");
+
+            // Validate the query
+            IList<AppErrors> errors = command.Validate();
+
+            if (errors.Any())
+            {
+                _logger.LogError($"{nameof(DeleteCredentialByIdCommandHandler)} => Validation errors occurred: ", errors: errors);
+
+                return new AppResponse<bool>(errors.ToList());
+            }
+
+            _logger.LogDebug($"{nameof(DeleteCredentialByIdCommandHandler)} => {nameof(Handle)} method completed.", request: command);
+
+            return await _domainService.DeleteById(id: command.CredentialId, command.Workspace);
         }
     }
 }

@@ -14,6 +14,6 @@
         public const string ErrorCodesDirectoryName = "Errors";
         public const string WarningCodesDirectoryName = "Warnings";
         public const string SuccessCodesDirectoryName = "Success";
-
+        public const string CredentialManagerDataDirectory = "Credential-Manager";
     }
 }

@@ -1,4 +1,5 @@
 ﻿#region user directives
+using DevNest.Common.Base.Response;
 #endregion user directives
 
 namespace DevNest.Common.Logger
@@ -15,7 +16,11 @@ namespace DevNest.Common.Logger
         /// <param name="request"></param>
         /// <param name="response"></param>
         /// <param name="apiCall"></param>
-        void LogDebug(string message, object? request = null, object? response = null, object? apiCall = null);
+        void LogDebug(
+            string message, 
+            object? request = null, 
+            object? response = null, 
+            object? apiCall = null);
 
         /// <summary>
         /// Handler method for logging info logs.
@@ -24,7 +29,11 @@ namespace DevNest.Common.Logger
         /// <param name="request"></param>
         /// <param name="response"></param>
         /// <param name="apiCall"></param>
-        void LogInfo(string message, object? request = null, object? response = null, object? apiCall = null);
+        void LogInfo(
+            string message, 
+            object? request = null, 
+            object? response = null, 
+            object? apiCall = null);
 
         /// <summary>
         /// Handler method for logging warning logs.
@@ -32,33 +41,25 @@ namespace DevNest.Common.Logger
         /// <param name="message"></param>
         /// <param name="warnings"></param>
         /// <param name="apiCall"></param>
-        void LogWarning(string message, object? warnings = null, object? apiCall = null);
+        void LogWarning(
+            string message, 
+            object? request = null,
+            object? response = null, 
+            IList<AppWarnings>? warnings = null, 
+            object? apiCall = null);
 
         /// <summary>
-        /// Handler method for logging error logs.
+        /// Handler method for logging error logs with additional errors information.
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="apiCall"></param>
-        void LogError(string message, object? apiCall = null);
-
-        /// <summary>
-        /// Handler method for logging error logs.
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="request"></param>
-        /// <param name="response"></param>
-        /// <param name="apiCall"></param>
-        void LogError(string message, object? request = null, object? response = null, object? apiCall = null);
-
-        /// <summary>
-        /// Handler method for logging error logs.
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="exception"></param>
-        /// <param name="request"></param>
-        /// <param name="response"></param>
-        /// <param name="apiCall"></param>
-        void LogError(string message, Exception exception, object? request = null, object? response = null, object? apiCall = null);
+        /// <param name="errors"></param>
+        void LogError(
+            string message, 
+            Exception? exception = null, 
+            object? request = null, 
+            object? response = null, 
+            IList<AppErrors>? errors = null, 
+            object? apiCall = null);
 
         /// <summary>
         /// Handler method for logging fatal logs.
@@ -67,6 +68,10 @@ namespace DevNest.Common.Logger
         /// <param name="request"></param>
         /// <param name="response"></param>
         /// <param name="apiCall"></param>
-        void LogFatal(string message, object? request = null, object? response = null, object? apiCall = null);
+        void LogFatal(
+            string message, 
+            object? request = null, 
+            object? response = null, 
+            object? apiCall = null);
     }
 }

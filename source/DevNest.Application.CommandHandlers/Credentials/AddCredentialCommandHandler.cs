@@ -41,13 +41,27 @@ namespace DevNest.Application.CommandHandlers.Credentials
         /// <summary>
         /// Handler method to execute the <see cref="AddCredentialCommandHandler">class.</see>/>
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="command"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialResponseDTO>> Handle(AddCredentialCommand request, CancellationToken cancellationToken)
+        public async Task<AppResponse<CredentialResponseDTO>> Handle(AddCredentialCommand command, CancellationToken cancellationToken)
         {
-            return await _domainService.Add(request: request.AddCredentialRequest);
+            _logger.LogDebug($"{nameof(AddCredentialCommandHandler)} => {nameof(Handle)} method called.");
+
+            // Validate the query
+            IList<AppErrors> errors = command.Validate();
+
+            if (errors.Any())
+            {
+                _logger.LogError($"{nameof(AddCredentialCommandHandler)} => Validation errors occurred: ", errors: errors);
+
+                return new AppResponse<CredentialResponseDTO>(errors.ToList());
+            }
+
+            _logger.LogDebug($"{nameof(AddCredentialCommandHandler)} => {nameof(Handle)} method completed.", request: command);
+
+            return await _domainService.Add(request: command.AddCredentialRequest, command.Workspace);
         }
     }
 }

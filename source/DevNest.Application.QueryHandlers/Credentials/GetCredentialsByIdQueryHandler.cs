@@ -41,13 +41,27 @@ namespace DevNest.Application.QueryHandlers.Credentials
         /// <summary>
         /// Handler method to Get the credentials by Id query as input and CredentialsDTO as response.
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="query"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialResponseDTO>> Handle(GetCredentialsByIdQuery request, CancellationToken cancellationToken)
+        public async Task<AppResponse<CredentialResponseDTO>> Handle(GetCredentialsByIdQuery query, CancellationToken cancellationToken)
         {
-            return await _domainService.GetById(request.CredentialId);
+            _logger.LogDebug($"{nameof(GetCredentialsByIdQueryHandler)} => {nameof(Handle)} method called.");
+
+            // Validate the query
+            IList<AppErrors> errors = query.Validate();
+
+            if (errors.Any())
+            {
+                _logger.LogError($"{nameof(GetCredentialsByIdQueryHandler)} => Validation errors occurred: ", errors: errors);
+
+                return new AppResponse<CredentialResponseDTO>(errors.ToList());
+            }
+
+            _logger.LogDebug($"{nameof(GetCredentialsByIdQueryHandler)} => {nameof(Handle)} method completed.", request: query);
+
+            return await _domainService.GetById(query.CredentialId, query.WorkSpace);
         }
     }
 }

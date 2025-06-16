@@ -29,9 +29,6 @@ RegisterServices.RegisterInfrastructure();
 
 var app = builder.Build();
 
-// Register the plugin manager and plugins.
-app.RegisterPlugins();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -4,7 +4,6 @@ using DevNest.Common.Base.DTOs;
 using DevNest.Common.Base.Entity;
 using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.Credential.Response;
-using DevNest.Infrastructure.DTOs.CredentialManager.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Credentials;
 #endregion using directives

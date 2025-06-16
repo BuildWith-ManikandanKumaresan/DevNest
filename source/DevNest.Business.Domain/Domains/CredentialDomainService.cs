@@ -6,7 +6,7 @@ using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
-using DevNest.Infrastructure.DTOs.CredentialManager.Request;
+using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Infrastructure.Entity.Credentials;
@@ -39,13 +39,23 @@ namespace DevNest.Business.Domain.Domains
         /// Handler method for get credentials as DTO response.
         /// </summary>
         /// <returns></returns>
-        public async Task<AppResponse<IList<CredentialResponseDTO>>> Get()
+        public async Task<AppResponse<IList<CredentialResponseDTO>>> Get(
+            string? environment,
+            string? type,
+            string? domain,
+            string? passwordStrength,
+            bool? isEncrypted,
+            bool? isValid,
+            bool? isDisabled,
+            bool? isExpired,
+            string[]? groups,
+            string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Get)} method called.");
 
-                var data = (await _router.GetAsync())?.ToList();
+                var data = (await _router.GetAsync(workspace))?.ToList();
                 if (data == null)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Get)} method returned null data.");
@@ -93,12 +103,12 @@ namespace DevNest.Business.Domain.Domains
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialResponseDTO>> GetById(Guid id)
+        public async Task<AppResponse<CredentialResponseDTO>> GetById(Guid id, string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetById)} method called with ID: {id}.");
-                var entity = await _router.GetByIdAsync(id);
+                var entity = await _router.GetByIdAsync(id, workspace);
                 if (entity == null)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetById)} method returned null for ID: {id}.");
@@ -133,12 +143,12 @@ namespace DevNest.Business.Domain.Domains
         /// Handler method for delete all credentials and returns DTO response.
         /// </summary>
         /// <returns></returns>
-        public async Task<AppResponse<bool>> Delete()
+        public async Task<AppResponse<bool>> Delete(string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Delete)} method called to delete all credentials.");
-                var result = await _router.DeleteAsync();
+                var result = await _router.DeleteAsync(workspace);
                 if (result == false)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Delete)} method failed to delete all credentials.");
@@ -161,12 +171,12 @@ namespace DevNest.Business.Domain.Domains
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<AppResponse<bool>> DeleteById(Guid id)
+        public async Task<AppResponse<bool>> DeleteById(Guid id, string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(DeleteById)} method called with ID: {id}.");
-                var result = await _router.DeleteByIdAsync(id);
+                var result = await _router.DeleteByIdAsync(id, workspace);
                 if (result == false)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(DeleteById)} method failed to delete credential with ID: {id}.");
@@ -191,7 +201,7 @@ namespace DevNest.Business.Domain.Domains
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<AppResponse<CredentialResponseDTO>> Add(AddCredentialRequest? request)
+        public async Task<AppResponse<CredentialResponseDTO>> Add(AddCredentialRequest? request, string workspace)
         {
             try
             {
@@ -204,7 +214,7 @@ namespace DevNest.Business.Domain.Domains
 
                 if (!_applicationConfigService?.Value?.GeneralSettings?.AllowDuplicateTitles ?? true)
                 {
-                    var existingResult = await _router.GetAsync();
+                    var existingResult = await _router.GetAsync(workspace);
                     if (existingResult?.Any(a => a.Title?.Equals(entity.Title) ?? false) ?? false)
                         return new AppResponse<CredentialResponseDTO>(error: Messages.GetError(ErrorConstants.CredentialTitleAlreadyExist));
                 }
@@ -215,7 +225,7 @@ namespace DevNest.Business.Domain.Domains
 
                 await SetPasswordHealthCheck(entity);
 
-                var result = await _router.AddAsync(entity);
+                var result = await _router.AddAsync(entity, workspace);
                 if (result == null)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Add)} method failed to create credentials.");
@@ -242,7 +252,7 @@ namespace DevNest.Business.Domain.Domains
         /// <param name="request"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<AppResponse<CredentialResponseDTO>> Update(UpdateCredentialRequest? request)
+        public async Task<AppResponse<CredentialResponseDTO>> Update(UpdateCredentialRequest? request, string workspace)
         {
             try
             {
@@ -258,7 +268,7 @@ namespace DevNest.Business.Domain.Domains
 
                 await SetPasswordHealthCheck(entity);
 
-                var result = await _router.UpdateAsync(entity);
+                var result = await _router.UpdateAsync(entity,workspace);
 
                 if (result == null)
                 {
@@ -289,12 +299,12 @@ namespace DevNest.Business.Domain.Domains
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<AppResponse<bool>> Archive(Guid id)
+        public async Task<AppResponse<bool>> Archive(Guid id, string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Archive)} method called with ID: {id}.");
-                var result = await _router.ArchiveByIdAsync(id);
+                var result = await _router.ArchiveByIdAsync(id, workspace);
                 if (result == false)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Archive)} method failed to archive credential with ID: {id}.");
@@ -324,12 +334,12 @@ namespace DevNest.Business.Domain.Domains
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<AppResponse<CredentialResponseDTO>> Encrypt(Guid id)
+        public async Task<AppResponse<CredentialResponseDTO>> Encrypt(Guid id, string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Encrypt)} method called with ID: {id}.");
-                var entity = await _router.EncryptByIdAsync(id);
+                var entity = await _router.EncryptByIdAsync(id, workspace);
                 if (entity == null)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Encrypt)} method returned null for ID: {id}.");
@@ -364,12 +374,12 @@ namespace DevNest.Business.Domain.Domains
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<AppResponse<CredentialResponseDTO>> Decrypt(Guid id)
+        public async Task<AppResponse<CredentialResponseDTO>> Decrypt(Guid id, string workspace)
         {
             try
             {
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Decrypt)} method called with ID: {id}.");
-                var entity = await _router.DecryptByIdAsync(id);
+                var entity = await _router.DecryptByIdAsync(id, workspace);
                 if (entity == null)
                 {
                     _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Decrypt)} method returned null for ID: {id}.");

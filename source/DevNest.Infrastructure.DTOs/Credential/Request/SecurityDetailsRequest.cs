@@ -1,4 +1,8 @@
-﻿namespace DevNest.Infrastructure.DTOs.Credential.Request
+﻿#region using directives
+using System.ComponentModel.DataAnnotations;
+#endregion using directives
+
+namespace DevNest.Infrastructure.DTOs.Credential.Request
 {
     /// <summary>
     /// Represents the request DTO for Security-related properties of credentials.
@@ -8,6 +12,7 @@
         /// <summary>
         /// Gets or sets a value indicating whether encryption is enabled.
         /// </summary>
+        [Required(ErrorMessage = "Encryption status is required.")]
         public bool? IsEncrypted { get; set; }
 
         /// <summary>

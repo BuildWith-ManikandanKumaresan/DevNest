@@ -5,8 +5,8 @@
     /// </summary>
     public partial class ServiceConstants
     {
-        public const string ServiceName_CredentialManager = "CredentialManager";
-        public const string ServiceName_PluginManager = "PluginManager";
-        public const string ServiceName_FileSystemManager = "FileSystemManager";
+        public const string ServiceName_CredentialManager = "Credential-Manager";
+        public const string ServiceName_PluginManager = "Plugin-Manager";
+        public const string ServiceName_FileSystemManager = "FileSystem-Manager";
     }
 }

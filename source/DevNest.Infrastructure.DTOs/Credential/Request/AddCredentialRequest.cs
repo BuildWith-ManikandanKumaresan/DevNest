@@ -1,9 +1,9 @@
 ﻿#region using directives
 using DevNest.Common.Base.DTOs.Contracts;
-using DevNest.Infrastructure.DTOs.Credential.Request;
+using System.ComponentModel.DataAnnotations;
 #endregion using directives
 
-namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
+namespace DevNest.Infrastructure.DTOs.Credential.Request
 {
     /// <summary>
     /// Represents the class instance for add credentials request.
@@ -13,16 +13,13 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
         /// <summary>
         /// Gets or sets the title or name of the credential.
         /// </summary>
+        [Required(ErrorMessage = "Title is required.")]
         public string? Title { get; set; }
-
-        /// <summary>
-        /// Gets or sets the associated workspace name or ID.
-        /// </summary>
-        public string? Workspace { get; set; }
 
         /// <summary>
         /// Gets or sets the environment (e.g., Dev, QA, Prod).
         /// </summary>
+        [Required(ErrorMessage = "Environment is required.")]
         public string? Environment { get; set; }
 
         /// <summary>
@@ -58,6 +55,7 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Request
         /// <summary>
         /// Gets or sets the associated groups.
         /// </summary>
+        [Required(ErrorMessage = "Associated groups are required.")]
         public string[]? AssociatedGroups { get; set; }
     }
 }

@@ -1,16 +1,18 @@
 #region using directives
 using DevNest.Application.Commands.Credentials;
 using DevNest.Application.Queries.Credentials;
+using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
-using DevNest.Infrastructure.DTOs.CredentialManager.Request;
+using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 #endregion using directives
 
 
@@ -45,11 +47,32 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> GetCredentials()
+        public async Task<IActionResult> GetCredentials(
+            [FromQuery] string? environment,
+            [FromQuery] string? type,
+            [FromQuery] string? domain,
+            [FromQuery] string? passwordStrength,
+            [FromQuery] bool? isEncrypted,
+            [FromQuery] bool? isValid,
+            [FromQuery] bool? isDisabled,
+            [FromQuery] bool? isExpired,
+            [FromQuery] string[]? groups,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace
+            )
         {
             _logger.LogDebug($"Api => {nameof(GetCredentials)} called. ", apiCall: HttpContext.Request);
 
-            GetCredentialsQuery query = new();
+            GetCredentialsQuery query = new(
+                workSpace: workspace,
+                environment:environment,
+                type:type,domain:domain,
+                passwordStrength:passwordStrength,
+                isEncrypted:isEncrypted,
+                isValid:isValid,
+                isDisabled: isDisabled,
+                isExpired: isExpired,
+                groups: groups
+                );
 
             var response = await _mediator.SendQueryAsync(query);
 
@@ -81,11 +104,13 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> GetCredentialById([FromRoute] Guid credentialId)
+        public async Task<IActionResult> GetCredentialById(
+            [FromRoute] Guid credentialId,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(GetCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
-            GetCredentialsByIdQuery query = new(Id: credentialId);
+            GetCredentialsByIdQuery query = new(Id: credentialId, workSpace: workspace);
 
             var response = await _mediator.SendQueryAsync(query);
 
@@ -113,11 +138,11 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> DeleteCredentials()
+        public async Task<IActionResult> DeleteCredentials([FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentials)} called. ", apiCall: HttpContext.Request);
 
-            DeleteCredentialsCommand command = new();
+            DeleteCredentialsCommand command = new(workSpace: workspace);
 
             var response = await _mediator.SendCommandAsync(command);
 
@@ -146,11 +171,13 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> DeleteCredentialById([FromRoute] Guid credentialId)
+        public async Task<IActionResult> DeleteCredentialById(
+            [FromRoute] Guid credentialId,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
-            DeleteCredentialByIdCommand command = new(id: credentialId);
+            DeleteCredentialByIdCommand command = new(id: credentialId, workSpace:workspace);
 
             var response = await _mediator.SendCommandAsync(command);
 
@@ -180,12 +207,14 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> AddCredentials([FromBody] AddCredentialRequest request)
+        public async Task<IActionResult> AddCredentials(
+            [FromBody] AddCredentialRequest request,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
 
             _logger.LogDebug($"Api => {nameof(AddCredentials)} called. ", apiCall: HttpContext.Request, request: request);
 
-            AddCredentialCommand command = new(request: request);
+            AddCredentialCommand command = new(request: request,workspace:workspace);
 
             var response = await _mediator.SendCommandAsync(command);
 
@@ -215,10 +244,13 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> UpdateCredentials([FromRoute] Guid credentialId, [FromBody] UpdateCredentialRequest request)
+        public async Task<IActionResult> UpdateCredentials(
+            [FromRoute] Guid credentialId, 
+            [FromBody] UpdateCredentialRequest request,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(UpdateCredentials)} called. ", apiCall: HttpContext.Request, request: request);
-            UpdateCredentialCommand command = new(credentialId: credentialId, request: request);
+            UpdateCredentialCommand command = new(credentialId: credentialId, request: request,workspace:workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {
@@ -245,10 +277,12 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> ArchiveCredentials([FromRoute] Guid credentialId)
+        public async Task<IActionResult> ArchiveCredentials(
+            [FromRoute] Guid credentialId,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(ArchiveCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
-            ArchiveCredentialCommand command = new(id: credentialId);
+            ArchiveCredentialCommand command = new(id: credentialId, workspace: workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {
@@ -275,10 +309,12 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> EncryptCredentials([FromRoute] Guid credentialId)
+        public async Task<IActionResult> EncryptCredentials(
+            [FromRoute] Guid credentialId,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(EncryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
-            EncryptCredentialCommand command = new(credentialId: credentialId);
+            EncryptCredentialCommand command = new(credentialId: credentialId, workSpace:workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {
@@ -306,10 +342,12 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> DecryptCredentials([FromRoute] Guid credentialId)
+        public async Task<IActionResult> DecryptCredentials(
+            [FromRoute] Guid credentialId,
+            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DecryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
-            DecryptCredentialCommand command = new(credentialId: credentialId);
+            DecryptCredentialCommand command = new(credentialId: credentialId, workSpace:workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {

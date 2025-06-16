@@ -13,5 +13,7 @@
         public const string SuccessConstantFileSearchPattern = "*success.json";
         public const string ErrorConstantFileSearchPattern = "*errors.json";
         public const string WarningConstantFileSearchPattern = "*warnings.json";
+
+        public const string DefaultWorkspace = "Default";
     }
 }

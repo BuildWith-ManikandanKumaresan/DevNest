@@ -44,7 +44,21 @@ namespace DevNest.Application.CommandHandlers.Credentials
         /// <exception cref="NotImplementedException"></exception>
         public async Task<AppResponse<bool>> Handle(ArchiveCredentialCommand command, CancellationToken cancellationToken = default)
         {
-            return await _domainService.Archive(command.CredentialId);
+            _logger.LogDebug($"{nameof(ArchiveCredentialCommandHandler)} => {nameof(Handle)} method called.");
+
+            // Validate the query
+            IList<AppErrors> errors = command.Validate();
+
+            if (errors.Any())
+            {
+                _logger.LogError($"{nameof(ArchiveCredentialCommandHandler)} => Validation errors occurred: ", errors: errors);
+
+                return new AppResponse<bool>(errors.ToList());
+            }
+
+            _logger.LogDebug($"{nameof(ArchiveCredentialCommandHandler)} => {nameof(Handle)} method completed.", request: command);
+
+            return await _domainService.Archive(command.CredentialId, command.WorkSpace);
         }
     }
 }

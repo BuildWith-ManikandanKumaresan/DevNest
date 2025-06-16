@@ -91,8 +91,8 @@ namespace DevNest.CredentialsManager.Api
             services.AddScoped<IAppMedidator, AppMedidator>();
             services.AddAutoMapper(typeof(MappingProfile));
             // Register the FileSystemManager in DI container
-            services.AddSingleton<IFileSystemManager, FileSystemManager>();
-            services.AddSingleton<IPluginManager, PluginManager>();
+            services.AddScoped<IFileSystemManager, FileSystemManager>();
+            services.AddScoped<IPluginManager, PluginManager>();
 
             services.Scan(scan => scan
                 .FromAssemblies(referencedAssemblies)
@@ -119,17 +119,6 @@ namespace DevNest.CredentialsManager.Api
             Messages.InitErrorCodes(manager.ErrorCodesDirectory ?? string.Empty);
             Messages.InitWarningCodes(manager.WarningCodesDirectory ?? string.Empty);
             Messages.InitSuccessCodes(manager.SuccessCodesDirectory ?? string.Empty);
-        }
-
-        /// <summary>
-        /// Registers the plugins for the application.
-        /// </summary>
-        /// <param name="app"></param>
-        public static void RegisterPlugins(this WebApplication app)
-        {
-            var pluginManager = app.Services.GetRequiredService<IPluginManager>();
-            pluginManager.LoadStoragePlugins();
-            pluginManager.LoadEncryptionPlugins();
         }
     }
 }

@@ -9,6 +9,8 @@ using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Application.Queries.Credentials;
+using Microsoft.AspNetCore.Http;
+using DevNest.Business.Domain.Domains;
 #endregion using directives
 
 namespace DevNest.Application.QueryHandlers.Credentials
@@ -43,7 +45,32 @@ namespace DevNest.Application.QueryHandlers.Credentials
         /// <returns></returns>
         public async Task<AppResponse<IList<CredentialResponseDTO>>> Handle(GetCredentialsQuery query, CancellationToken cancellationToken = default)
         {
-            return await _domainService.Get();
+            _logger.LogDebug($"{nameof(GetCredentialsQueryHandler)} => {nameof(Handle)} method called.");
+
+            // Validate the query
+            IList<AppErrors> errors = query.Validate();
+
+            if (errors.Any())
+            {
+                _logger.LogError($"{nameof(GetCredentialsQueryHandler)} => Validation errors occurred: ",errors:errors);
+
+                return new AppResponse<IList<CredentialResponseDTO>>(errors.ToList());
+            }
+
+            _logger.LogDebug($"{nameof(GetCredentialsQueryHandler)} => {nameof(Handle)} method completed.",request: query);
+
+            return await _domainService.Get(
+                environment:query.Environment,
+                type:query.Type,
+                domain:query.Domain,
+                passwordStrength:query.PasswordStrength,
+                isEncrypted: query.IsEncrypted,
+                isValid:query.IsValid,
+                isDisabled: query.IsDisabled,
+                isExpired: query.IsExpired,
+                groups: query.Groups,
+                workspace: query.WorkSpace
+                );
         }
     }
 }

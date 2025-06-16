@@ -62,10 +62,63 @@ namespace DevNest.Business.Domain.Domains
                     return new AppResponse<IList<CredentialResponseDTO>>(Messages.GetError(ErrorConstants.NoCredentialsFound));
                 }
 
-                // Filter out archived credentials if the setting is enabled - showArchivedCredentials
-                if (!_applicationConfigService?.Value?.GeneralSettings?.ShowArchivedCredentials ?? false)
-                    data.RemoveAll(a => a.Validatity.IsDisabled ?? false);
+                // Filter out the credentials based on the environment.
 
+                if(!string.IsNullOrEmpty(environment))
+                    data = [.. data.Where(a => a.Environment?.Equals(environment, StringComparison.OrdinalIgnoreCase) ?? false)];
+
+                // Filter out the credentials based on the type.
+
+                if (!string.IsNullOrEmpty(type))
+                    data = [.. data.Where(a => a.Details?.Type?.Equals(type, StringComparison.OrdinalIgnoreCase) ?? false)];
+
+                // Filter out the credentials based on the domain.
+
+                if(!string.IsNullOrEmpty(domain))
+                    data = [.. data.Where(a => a.Details?.Domain?.Equals(domain, StringComparison.OrdinalIgnoreCase) ?? false)];
+
+                // Filter out the credentials based on the password strength.
+
+                if (!string.IsNullOrEmpty(passwordStrength))
+                    data = [.. data.Where(a => a.PasswordHealth?.PasswordStrength?.ToString() == passwordStrength)];
+
+                // Filter out the credentials based on the IsEncrypted status.
+
+                if(isEncrypted != null)
+                    data = [.. data.Where(a => a.Security?.IsEncrypted == isEncrypted)];
+
+                // Filter out the credentials based on the Isvalid status.
+
+                if (isValid != null)
+                    data = [.. data.Where(a => a.Validatity?.IsValid == isValid)];
+
+                // Filter out the credentials based on the IsExpired status.
+
+                if (isExpired != null)
+                    data = [.. data.Where(a => a.Validatity?.IsExpired == isExpired)];
+
+                // Filter out the credentials based on the associated groups.
+
+                if(groups  != null && groups.Length > 0)
+                {
+                    var groupedCredentials = new List<CredentialEntityModel>();
+                    groups.ToList().ForEach(group =>
+                    {
+                        // Filter out the credentials based on the group.
+                        groupedCredentials.AddRange([.. data.Where(a => a.AssociatedGroups?.Contains(group, StringComparer.OrdinalIgnoreCase) ?? false)]);
+                    });
+                    data = groupedCredentials;
+                }
+
+                // Filter out archived credentials if the setting is enabled - showArchivedCredentials
+
+                if (!_applicationConfigService?.Value?.GeneralSettings?.ShowArchivedCredentials ?? false)
+                    data = [.. data.Where(a => a.Validatity?.IsDisabled == true)];
+
+                // Filter out the credentials based on the IsExpired status.
+
+                if (isDisabled != null)
+                    data = [.. data.Where(a => a.Validatity?.IsDisabled == isDisabled)];
 
                 data.ForEach(async credential =>
                 {

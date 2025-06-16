@@ -57,7 +57,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
             [FromQuery] bool? isDisabled,
             [FromQuery] bool? isExpired,
             [FromQuery] string[]? groups,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace
             )
         {
             _logger.LogDebug($"Api => {nameof(GetCredentials)} called. ", apiCall: HttpContext.Request);
@@ -106,7 +106,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> GetCredentialById(
             [FromRoute] Guid credentialId,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(GetCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
@@ -138,7 +138,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
-        public async Task<IActionResult> DeleteCredentials([FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+        public async Task<IActionResult> DeleteCredentials([FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentials)} called. ", apiCall: HttpContext.Request);
 
@@ -173,7 +173,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> DeleteCredentialById(
             [FromRoute] Guid credentialId,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
@@ -209,7 +209,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> AddCredentials(
             [FromBody] AddCredentialRequest request,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
 
             _logger.LogDebug($"Api => {nameof(AddCredentials)} called. ", apiCall: HttpContext.Request, request: request);
@@ -247,7 +247,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         public async Task<IActionResult> UpdateCredentials(
             [FromRoute] Guid credentialId, 
             [FromBody] UpdateCredentialRequest request,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(UpdateCredentials)} called. ", apiCall: HttpContext.Request, request: request);
             UpdateCredentialCommand command = new(credentialId: credentialId, request: request,workspace:workspace);
@@ -279,7 +279,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> ArchiveCredentials(
             [FromRoute] Guid credentialId,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(ArchiveCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
             ArchiveCredentialCommand command = new(id: credentialId, workspace: workspace);
@@ -311,7 +311,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> EncryptCredentials(
             [FromRoute] Guid credentialId,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(EncryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
             EncryptCredentialCommand command = new(credentialId: credentialId, workSpace:workspace);
@@ -344,7 +344,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> DecryptCredentials(
             [FromRoute] Guid credentialId,
-            [FromQuery][Required] string workspace = CommonConstants.DefaultWorkspace)
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DecryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
             DecryptCredentialCommand command = new(credentialId: credentialId, workSpace:workspace);

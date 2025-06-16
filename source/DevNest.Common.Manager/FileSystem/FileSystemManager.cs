@@ -76,7 +76,7 @@ namespace DevNest.Common.Manager.FileSystem
         public string? GetWorkSpaceDirectory(string workspaceName)
         {
             if (string.IsNullOrEmpty(workspaceName))
-                workspaceName = CommonConstants.DefaultWorkspace;
+                workspaceName = FileSystemConstants.DefaultWorkspace;
             string workspaceDirectory = Path.GetFullPath(Path.Combine(GetCredentialDataDirectory() ?? string.Empty, workspaceName));
             if (!Directory.Exists(workspaceDirectory))
                 Directory.CreateDirectory(workspaceDirectory);
@@ -108,7 +108,10 @@ namespace DevNest.Common.Manager.FileSystem
         /// <returns></returns>
         private string? GetConfigurationDirectory()
         {
-            string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.FolderUp, FileSystemConstants.ConfigurationsDirectoryName));
+            string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
+                FileSystemConstants.FolderUp, 
+                FileSystemConstants.DevNestDirectory,
+                FileSystemConstants.PreferencesDirectoryName));
             if (!Directory.Exists(configDir))
                 Directory.CreateDirectory(configDir);
             return configDir;
@@ -144,7 +147,11 @@ namespace DevNest.Common.Manager.FileSystem
         /// <returns></returns>
         private string? GetCredentialDataDirectory()
         {
-            string credentialDataDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.FolderUp, FileSystemConstants.DatasDirectoryName, FileSystemConstants.CredentialManagerDataDirectory));
+            string credentialDataDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
+                FileSystemConstants.FolderUp,
+                FileSystemConstants.DevNestDirectory,
+                FileSystemConstants.SecureVaultDirectoryName, 
+                FileSystemConstants.CredentialStoreDirectory));
             if (!Directory.Exists(credentialDataDir))
                 Directory.CreateDirectory(credentialDataDir);
             return credentialDataDir;
@@ -156,7 +163,10 @@ namespace DevNest.Common.Manager.FileSystem
         /// <returns></returns>
         private string? GetAssetsDirectory()
         {
-            string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.FolderUp, FileSystemConstants.AssetsDirectoryName));
+            string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
+                FileSystemConstants.FolderUp, 
+                FileSystemConstants.DevNestDirectory, 
+                FileSystemConstants.ResourcesDirectoryName));
             if (!Directory.Exists(assetsDir))
                 Directory.CreateDirectory(assetsDir);
             return assetsDir;

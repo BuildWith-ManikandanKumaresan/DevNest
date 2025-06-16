@@ -46,7 +46,7 @@ namespace DevNest.Common.Base.Constants.Message
             {
                 if (_errors?.Count == 0)
                 {
-                    string[] errorFiles = Directory.GetFiles(errorCodesDirectory, CommonConstants.ErrorConstantFileSearchPattern);
+                    string[] errorFiles = Directory.GetFiles(errorCodesDirectory, FileSystemConstants.ErrorContentFileSearchPattern);
                     foreach (string errorFile in errorFiles)
                     {
                         if (File.Exists(errorFile))
@@ -80,7 +80,7 @@ namespace DevNest.Common.Base.Constants.Message
             {
                 if (_warnings?.Count == 0)
                 {
-                    string[] warningFiles = Directory.GetFiles(warningCodesDirectory, CommonConstants.WarningConstantFileSearchPattern);
+                    string[] warningFiles = Directory.GetFiles(warningCodesDirectory, FileSystemConstants.WarningContentFileSearchPattern);
                     foreach (string warningFile in warningFiles)
                     {
                         if (File.Exists(warningFile))
@@ -115,7 +115,7 @@ namespace DevNest.Common.Base.Constants.Message
             {
                 if (_success?.Count == 0)
                 {
-                    string[] successFiles = Directory.GetFiles(successCodesDirectory, CommonConstants.SuccessConstantFileSearchPattern);
+                    string[] successFiles = Directory.GetFiles(successCodesDirectory, FileSystemConstants.SuccessContentFileSearchPattern);
                     foreach (string successFile in successFiles)
                     {
                         if (File.Exists(successFile))

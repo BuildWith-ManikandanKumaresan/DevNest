@@ -7,13 +7,5 @@
     {
         public const string AssemblySearchPattern = "DevNest.";
         public const string Plugin_AssemblySearchPattern = "DevNest.*.dll";
-        public const string JsonFileSearchPattern = "*.json";
-        public const string JsonFileExtension = ".json";
-
-        public const string SuccessConstantFileSearchPattern = "*success.json";
-        public const string ErrorConstantFileSearchPattern = "*errors.json";
-        public const string WarningConstantFileSearchPattern = "*warnings.json";
-
-        public const string DefaultWorkspace = "Default";
     }
 }

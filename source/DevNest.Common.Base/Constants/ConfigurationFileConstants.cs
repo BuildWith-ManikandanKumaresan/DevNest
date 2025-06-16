@@ -5,7 +5,7 @@
     /// </summary>
     public partial class ConfigurationFileConstants
     {
-        public const string ConfigurationFileName_CredentialManager = "credential-manager-configurations.json";
-        public const string ConfigurationFileName_PluginManager = "plugin-manager-configurations.json";
+        public const string ConfigurationFileName_CredentialManager = "credential-manager-configurations.dncfg";
+        public const string ConfigurationFileName_PluginManager = "plugin-manager-configurations.dncfg";
     }
 }

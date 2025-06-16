@@ -36,7 +36,7 @@ namespace DevNest.Common.Logger
         {
             var config = _config ?? throw new InvalidOperationException(Messages.GetError(ErrorConstants.LoggerConfigurationMissing).Message);
             var logDir = Path.Combine(
-                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), FileSystemConstants.FolderUp)),
+                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), FileSystemConstants.FolderUp, FileSystemConstants.DevNestDirectory)),
                 config.Value.LoggerDirectory ?? LoggerConstants.DefaultLoggingDirectory,
                 serviceName.ToLower());
 

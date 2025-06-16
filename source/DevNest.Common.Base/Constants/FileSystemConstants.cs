@@ -6,14 +6,24 @@
     public partial class FileSystemConstants
     {
         public const string FolderUp = "..";
-        public const string ConfigurationsDirectoryName = "Configurations";
-        public const string StoragePluginsDirectoryName = "Plugin\\Storage";
-        public const string EncryptionPluginsDirectoryName = "Plugin\\Encryption";
-        public const string DatasDirectoryName = "Data";
-        public const string AssetsDirectoryName = "Assets";
+
+        public const string DevNestDirectory = "DataNest";
+        public const string PreferencesDirectoryName = "Preferences";
+        public const string SecureVaultDirectoryName = "SecureVault";
+        public const string CredentialStoreDirectory = "CredStore";
+        public const string ResourcesDirectoryName = "Resources";
         public const string ErrorCodesDirectoryName = "Errors";
         public const string WarningCodesDirectoryName = "Warnings";
         public const string SuccessCodesDirectoryName = "Success";
-        public const string CredentialManagerDataDirectory = "Credential-Manager";
+
+        public const string DevNestDataFileSearchPattern = "*.dndat";
+        public const string DevNestDataFileExtension = ".dndat";
+        public const string SuccessContentFileSearchPattern = "*success.dncont";
+        public const string ErrorContentFileSearchPattern = "*errors.dncont";
+        public const string WarningContentFileSearchPattern = "*warnings.dncont";
+
+        public const string DefaultWorkspace = "Default";
+        public const string StoragePluginsDirectoryName = "Plugin\\Storage";
+        public const string EncryptionPluginsDirectoryName = "Plugin\\Encryption";
     }
 }

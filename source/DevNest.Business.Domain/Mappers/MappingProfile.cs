@@ -5,7 +5,9 @@ using DevNest.Common.Base.Entity;
 using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.Credential.Response;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.DTOs.Tags;
 using DevNest.Infrastructure.Entity.Credentials;
+using DevNest.Infrastructure.Entity.Tags;
 #endregion using directives
 
 namespace DevNest.Business.Domain.Mappers
@@ -20,11 +22,11 @@ namespace DevNest.Business.Domain.Mappers
         /// </summary>
         public MappingProfile() 
         {
-            CreateMap<HistoryEntityModel,HistoryDTO>();
-            CreateMap<HistoryDTO,HistoryEntityModel>();
+            CreateMap<HistoryEntityModel,HistoryResponseDTO>();
+            CreateMap<HistoryResponseDTO,HistoryEntityModel>();
 
-            CreateMap<MetadataDTO,MetadataEntityModel>();
-            CreateMap<MetadataEntityModel, MetadataDTO>();
+            CreateMap<MetadataResponseDTO,MetadataEntityModel>();
+            CreateMap<MetadataEntityModel, MetadataResponseDTO>();
 
             CreateMap<CredentialResponseDTO, CredentialEntityModel>();
             CreateMap<CredentialEntityModel, CredentialResponseDTO>();
@@ -55,6 +57,12 @@ namespace DevNest.Business.Domain.Mappers
 
             CreateMap<UpdateCredentialRequest, CredentialEntityModel>();
             CreateMap<CredentialEntityModel, UpdateCredentialRequest>();
+
+            CreateMap<TagEntityModel, TagResponseDTO>();
+            CreateMap<TagResponseDTO, TagEntityModel>();
+
+            CreateMap<TagColorsEntityModel, TagColorsResponseDTO>();
+            CreateMap<TagColorsResponseDTO, TagColorsEntityModel>();
         }
     }
 }

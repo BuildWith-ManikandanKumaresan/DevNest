@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DevNest.Infrastructure.DTOs.Credential.Request
 {
-    public class UpdateCredentialRequest : BaseDTO
+    public class UpdateCredentialRequest : BaseResponseDTO
     {
         /// <summary>
         /// Gets or sets the unique identifier of the credential.

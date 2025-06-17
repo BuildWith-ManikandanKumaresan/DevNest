@@ -1,0 +1,5002 @@
+{
+	"1000": {
+		"colorId": 1000,
+		"backGroundColor": "#C00B66",
+		"textColor": "#FFFFFF"
+	},
+	"1001": {
+		"colorId": 1001,
+		"backGroundColor": "#B8754A",
+		"textColor": "#000000"
+	},
+	"1002": {
+		"colorId": 1002,
+		"backGroundColor": "#E772AB",
+		"textColor": "#000000"
+	},
+	"1003": {
+		"colorId": 1003,
+		"backGroundColor": "#9D9C0F",
+		"textColor": "#000000"
+	},
+	"1004": {
+		"colorId": 1004,
+		"backGroundColor": "#A22C2D",
+		"textColor": "#FFFFFF"
+	},
+	"1005": {
+		"colorId": 1005,
+		"backGroundColor": "#BECAE8",
+		"textColor": "#000000"
+	},
+	"1006": {
+		"colorId": 1006,
+		"backGroundColor": "#4ABB28",
+		"textColor": "#000000"
+	},
+	"1007": {
+		"colorId": 1007,
+		"backGroundColor": "#AFF351",
+		"textColor": "#000000"
+	},
+	"1008": {
+		"colorId": 1008,
+		"backGroundColor": "#D097B0",
+		"textColor": "#000000"
+	},
+	"1009": {
+		"colorId": 1009,
+		"backGroundColor": "#A29342",
+		"textColor": "#000000"
+	},
+	"1010": {
+		"colorId": 1010,
+		"backGroundColor": "#46E564",
+		"textColor": "#000000"
+	},
+	"1011": {
+		"colorId": 1011,
+		"backGroundColor": "#6D1F31",
+		"textColor": "#FFFFFF"
+	},
+	"1012": {
+		"colorId": 1012,
+		"backGroundColor": "#CC86AD",
+		"textColor": "#000000"
+	},
+	"1013": {
+		"colorId": 1013,
+		"backGroundColor": "#C20A1E",
+		"textColor": "#FFFFFF"
+	},
+	"1014": {
+		"colorId": 1014,
+		"backGroundColor": "#706E7D",
+		"textColor": "#FFFFFF"
+	},
+	"1015": {
+		"colorId": 1015,
+		"backGroundColor": "#3D6A0A",
+		"textColor": "#FFFFFF"
+	},
+	"1016": {
+		"colorId": 1016,
+		"backGroundColor": "#0FE742",
+		"textColor": "#000000"
+	},
+	"1017": {
+		"colorId": 1017,
+		"backGroundColor": "#4FB89F",
+		"textColor": "#000000"
+	},
+	"1018": {
+		"colorId": 1018,
+		"backGroundColor": "#1F4E36",
+		"textColor": "#FFFFFF"
+	},
+	"1019": {
+		"colorId": 1019,
+		"backGroundColor": "#4FBE38",
+		"textColor": "#000000"
+	},
+	"1020": {
+		"colorId": 1020,
+		"backGroundColor": "#FBC0EB",
+		"textColor": "#000000"
+	},
+	"1021": {
+		"colorId": 1021,
+		"backGroundColor": "#FAC52D",
+		"textColor": "#000000"
+	},
+	"1022": {
+		"colorId": 1022,
+		"backGroundColor": "#362EF4",
+		"textColor": "#FFFFFF"
+	},
+	"1023": {
+		"colorId": 1023,
+		"backGroundColor": "#D6F1DF",
+		"textColor": "#000000"
+	},
+	"1024": {
+		"colorId": 1024,
+		"backGroundColor": "#A0757F",
+		"textColor": "#000000"
+	},
+	"1025": {
+		"colorId": 1025,
+		"backGroundColor": "#2B7D05",
+		"textColor": "#FFFFFF"
+	},
+	"1026": {
+		"colorId": 1026,
+		"backGroundColor": "#9D2998",
+		"textColor": "#FFFFFF"
+	},
+	"1027": {
+		"colorId": 1027,
+		"backGroundColor": "#E5F1B1",
+		"textColor": "#000000"
+	},
+	"1028": {
+		"colorId": 1028,
+		"backGroundColor": "#82AC10",
+		"textColor": "#000000"
+	},
+	"1029": {
+		"colorId": 1029,
+		"backGroundColor": "#7403C0",
+		"textColor": "#FFFFFF"
+	},
+	"1030": {
+		"colorId": 1030,
+		"backGroundColor": "#42EF07",
+		"textColor": "#000000"
+	},
+	"1031": {
+		"colorId": 1031,
+		"backGroundColor": "#BA1077",
+		"textColor": "#FFFFFF"
+	},
+	"1032": {
+		"colorId": 1032,
+		"backGroundColor": "#30C60F",
+		"textColor": "#000000"
+	},
+	"1033": {
+		"colorId": 1033,
+		"backGroundColor": "#885372",
+		"textColor": "#FFFFFF"
+	},
+	"1034": {
+		"colorId": 1034,
+		"backGroundColor": "#071A73",
+		"textColor": "#FFFFFF"
+	},
+	"1035": {
+		"colorId": 1035,
+		"backGroundColor": "#272B57",
+		"textColor": "#FFFFFF"
+	},
+	"1036": {
+		"colorId": 1036,
+		"backGroundColor": "#A84C31",
+		"textColor": "#FFFFFF"
+	},
+	"1037": {
+		"colorId": 1037,
+		"backGroundColor": "#14F4DF",
+		"textColor": "#000000"
+	},
+	"1038": {
+		"colorId": 1038,
+		"backGroundColor": "#1FED00",
+		"textColor": "#000000"
+	},
+	"1039": {
+		"colorId": 1039,
+		"backGroundColor": "#393199",
+		"textColor": "#FFFFFF"
+	},
+	"1040": {
+		"colorId": 1040,
+		"backGroundColor": "#4B4B1A",
+		"textColor": "#FFFFFF"
+	},
+	"1041": {
+		"colorId": 1041,
+		"backGroundColor": "#B64273",
+		"textColor": "#FFFFFF"
+	},
+	"1042": {
+		"colorId": 1042,
+		"backGroundColor": "#E41FD5",
+		"textColor": "#FFFFFF"
+	},
+	"1043": {
+		"colorId": 1043,
+		"backGroundColor": "#463860",
+		"textColor": "#FFFFFF"
+	},
+	"1044": {
+		"colorId": 1044,
+		"backGroundColor": "#03BCD4",
+		"textColor": "#000000"
+	},
+	"1045": {
+		"colorId": 1045,
+		"backGroundColor": "#CCBB16",
+		"textColor": "#000000"
+	},
+	"1046": {
+		"colorId": 1046,
+		"backGroundColor": "#30B43A",
+		"textColor": "#FFFFFF"
+	},
+	"1047": {
+		"colorId": 1047,
+		"backGroundColor": "#EC88A4",
+		"textColor": "#000000"
+	},
+	"1048": {
+		"colorId": 1048,
+		"backGroundColor": "#EC9687",
+		"textColor": "#000000"
+	},
+	"1049": {
+		"colorId": 1049,
+		"backGroundColor": "#A77637",
+		"textColor": "#FFFFFF"
+	},
+	"1050": {
+		"colorId": 1050,
+		"backGroundColor": "#E95A6E",
+		"textColor": "#000000"
+	},
+	"1051": {
+		"colorId": 1051,
+		"backGroundColor": "#03C650",
+		"textColor": "#FFFFFF"
+	},
+	"1052": {
+		"colorId": 1052,
+		"backGroundColor": "#144ED2",
+		"textColor": "#FFFFFF"
+	},
+	"1053": {
+		"colorId": 1053,
+		"backGroundColor": "#0020F9",
+		"textColor": "#FFFFFF"
+	},
+	"1054": {
+		"colorId": 1054,
+		"backGroundColor": "#A003B3",
+		"textColor": "#FFFFFF"
+	},
+	"1055": {
+		"colorId": 1055,
+		"backGroundColor": "#1E83D2",
+		"textColor": "#FFFFFF"
+	},
+	"1056": {
+		"colorId": 1056,
+		"backGroundColor": "#29EE60",
+		"textColor": "#000000"
+	},
+	"1057": {
+		"colorId": 1057,
+		"backGroundColor": "#2F951E",
+		"textColor": "#FFFFFF"
+	},
+	"1058": {
+		"colorId": 1058,
+		"backGroundColor": "#8B9F16",
+		"textColor": "#000000"
+	},
+	"1059": {
+		"colorId": 1059,
+		"backGroundColor": "#D79F83",
+		"textColor": "#000000"
+	},
+	"1060": {
+		"colorId": 1060,
+		"backGroundColor": "#4861B1",
+		"textColor": "#FFFFFF"
+	},
+	"1061": {
+		"colorId": 1061,
+		"backGroundColor": "#A9F60D",
+		"textColor": "#000000"
+	},
+	"1062": {
+		"colorId": 1062,
+		"backGroundColor": "#4E6060",
+		"textColor": "#FFFFFF"
+	},
+	"1063": {
+		"colorId": 1063,
+		"backGroundColor": "#00011C",
+		"textColor": "#FFFFFF"
+	},
+	"1064": {
+		"colorId": 1064,
+		"backGroundColor": "#937B22",
+		"textColor": "#FFFFFF"
+	},
+	"1065": {
+		"colorId": 1065,
+		"backGroundColor": "#626F50",
+		"textColor": "#FFFFFF"
+	},
+	"1066": {
+		"colorId": 1066,
+		"backGroundColor": "#C3F9E1",
+		"textColor": "#000000"
+	},
+	"1067": {
+		"colorId": 1067,
+		"backGroundColor": "#B1B7BB",
+		"textColor": "#000000"
+	},
+	"1068": {
+		"colorId": 1068,
+		"backGroundColor": "#5F72A4",
+		"textColor": "#FFFFFF"
+	},
+	"1069": {
+		"colorId": 1069,
+		"backGroundColor": "#F5B4B1",
+		"textColor": "#000000"
+	},
+	"1070": {
+		"colorId": 1070,
+		"backGroundColor": "#9B5CF9",
+		"textColor": "#000000"
+	},
+	"1071": {
+		"colorId": 1071,
+		"backGroundColor": "#AD9446",
+		"textColor": "#000000"
+	},
+	"1072": {
+		"colorId": 1072,
+		"backGroundColor": "#0C883F",
+		"textColor": "#FFFFFF"
+	},
+	"1073": {
+		"colorId": 1073,
+		"backGroundColor": "#24CD14",
+		"textColor": "#000000"
+	},
+	"1074": {
+		"colorId": 1074,
+		"backGroundColor": "#C738FD",
+		"textColor": "#FFFFFF"
+	},
+	"1075": {
+		"colorId": 1075,
+		"backGroundColor": "#8CB23D",
+		"textColor": "#000000"
+	},
+	"1076": {
+		"colorId": 1076,
+		"backGroundColor": "#8B29E6",
+		"textColor": "#FFFFFF"
+	},
+	"1077": {
+		"colorId": 1077,
+		"backGroundColor": "#6B9639",
+		"textColor": "#FFFFFF"
+	},
+	"1078": {
+		"colorId": 1078,
+		"backGroundColor": "#A51CCB",
+		"textColor": "#FFFFFF"
+	},
+	"1079": {
+		"colorId": 1079,
+		"backGroundColor": "#313474",
+		"textColor": "#FFFFFF"
+	},
+	"1080": {
+		"colorId": 1080,
+		"backGroundColor": "#C226CA",
+		"textColor": "#FFFFFF"
+	},
+	"1081": {
+		"colorId": 1081,
+		"backGroundColor": "#D0DB77",
+		"textColor": "#000000"
+	},
+	"1082": {
+		"colorId": 1082,
+		"backGroundColor": "#8FF7AC",
+		"textColor": "#000000"
+	},
+	"1083": {
+		"colorId": 1083,
+		"backGroundColor": "#97C85F",
+		"textColor": "#000000"
+	},
+	"1084": {
+		"colorId": 1084,
+		"backGroundColor": "#7A4387",
+		"textColor": "#FFFFFF"
+	},
+	"1085": {
+		"colorId": 1085,
+		"backGroundColor": "#0F8CEB",
+		"textColor": "#FFFFFF"
+	},
+	"1086": {
+		"colorId": 1086,
+		"backGroundColor": "#30ED12",
+		"textColor": "#000000"
+	},
+	"1087": {
+		"colorId": 1087,
+		"backGroundColor": "#0E5B68",
+		"textColor": "#FFFFFF"
+	},
+	"1088": {
+		"colorId": 1088,
+		"backGroundColor": "#EBA2D9",
+		"textColor": "#000000"
+	},
+	"1089": {
+		"colorId": 1089,
+		"backGroundColor": "#A035CE",
+		"textColor": "#FFFFFF"
+	},
+	"1090": {
+		"colorId": 1090,
+		"backGroundColor": "#626C7B",
+		"textColor": "#FFFFFF"
+	},
+	"1091": {
+		"colorId": 1091,
+		"backGroundColor": "#333DA8",
+		"textColor": "#FFFFFF"
+	},
+	"1092": {
+		"colorId": 1092,
+		"backGroundColor": "#63274A",
+		"textColor": "#FFFFFF"
+	},
+	"1093": {
+		"colorId": 1093,
+		"backGroundColor": "#863871",
+		"textColor": "#FFFFFF"
+	},
+	"1094": {
+		"colorId": 1094,
+		"backGroundColor": "#9BB80C",
+		"textColor": "#000000"
+	},
+	"1095": {
+		"colorId": 1095,
+		"backGroundColor": "#B46C2B",
+		"textColor": "#FFFFFF"
+	},
+	"1096": {
+		"colorId": 1096,
+		"backGroundColor": "#C00FBE",
+		"textColor": "#FFFFFF"
+	},
+	"1097": {
+		"colorId": 1097,
+		"backGroundColor": "#C71E26",
+		"textColor": "#FFFFFF"
+	},
+	"1098": {
+		"colorId": 1098,
+		"backGroundColor": "#5F9189",
+		"textColor": "#000000"
+	},
+	"1099": {
+		"colorId": 1099,
+		"backGroundColor": "#AFFD4B",
+		"textColor": "#000000"
+	},
+	"1100": {
+		"colorId": 1100,
+		"backGroundColor": "#7137A3",
+		"textColor": "#FFFFFF"
+	},
+	"1101": {
+		"colorId": 1101,
+		"backGroundColor": "#4D580C",
+		"textColor": "#FFFFFF"
+	},
+	"1102": {
+		"colorId": 1102,
+		"backGroundColor": "#95122B",
+		"textColor": "#FFFFFF"
+	},
+	"1103": {
+		"colorId": 1103,
+		"backGroundColor": "#86F59B",
+		"textColor": "#000000"
+	},
+	"1104": {
+		"colorId": 1104,
+		"backGroundColor": "#F37B9A",
+		"textColor": "#000000"
+	},
+	"1105": {
+		"colorId": 1105,
+		"backGroundColor": "#C09276",
+		"textColor": "#000000"
+	},
+	"1106": {
+		"colorId": 1106,
+		"backGroundColor": "#5C1446",
+		"textColor": "#FFFFFF"
+	},
+	"1107": {
+		"colorId": 1107,
+		"backGroundColor": "#9D6A5C",
+		"textColor": "#FFFFFF"
+	},
+	"1108": {
+		"colorId": 1108,
+		"backGroundColor": "#2D8848",
+		"textColor": "#FFFFFF"
+	},
+	"1109": {
+		"colorId": 1109,
+		"backGroundColor": "#B9CB37",
+		"textColor": "#000000"
+	},
+	"1110": {
+		"colorId": 1110,
+		"backGroundColor": "#B68FBB",
+		"textColor": "#000000"
+	},
+	"1111": {
+		"colorId": 1111,
+		"backGroundColor": "#657F2B",
+		"textColor": "#FFFFFF"
+	},
+	"1112": {
+		"colorId": 1112,
+		"backGroundColor": "#C10106",
+		"textColor": "#FFFFFF"
+	},
+	"1113": {
+		"colorId": 1113,
+		"backGroundColor": "#D202E3",
+		"textColor": "#FFFFFF"
+	},
+	"1114": {
+		"colorId": 1114,
+		"backGroundColor": "#A0D88F",
+		"textColor": "#000000"
+	},
+	"1115": {
+		"colorId": 1115,
+		"backGroundColor": "#38691D",
+		"textColor": "#FFFFFF"
+	},
+	"1116": {
+		"colorId": 1116,
+		"backGroundColor": "#2FE44E",
+		"textColor": "#000000"
+	},
+	"1117": {
+		"colorId": 1117,
+		"backGroundColor": "#3908CD",
+		"textColor": "#FFFFFF"
+	},
+	"1118": {
+		"colorId": 1118,
+		"backGroundColor": "#A5889A",
+		"textColor": "#000000"
+	},
+	"1119": {
+		"colorId": 1119,
+		"backGroundColor": "#623A72",
+		"textColor": "#FFFFFF"
+	},
+	"1120": {
+		"colorId": 1120,
+		"backGroundColor": "#A54EC8",
+		"textColor": "#FFFFFF"
+	},
+	"1121": {
+		"colorId": 1121,
+		"backGroundColor": "#09956A",
+		"textColor": "#FFFFFF"
+	},
+	"1122": {
+		"colorId": 1122,
+		"backGroundColor": "#FF32F9",
+		"textColor": "#000000"
+	},
+	"1123": {
+		"colorId": 1123,
+		"backGroundColor": "#057AA7",
+		"textColor": "#FFFFFF"
+	},
+	"1124": {
+		"colorId": 1124,
+		"backGroundColor": "#830755",
+		"textColor": "#FFFFFF"
+	},
+	"1125": {
+		"colorId": 1125,
+		"backGroundColor": "#B4550C",
+		"textColor": "#FFFFFF"
+	},
+	"1126": {
+		"colorId": 1126,
+		"backGroundColor": "#9D9A2D",
+		"textColor": "#000000"
+	},
+	"1127": {
+		"colorId": 1127,
+		"backGroundColor": "#04817D",
+		"textColor": "#FFFFFF"
+	},
+	"1128": {
+		"colorId": 1128,
+		"backGroundColor": "#71E36D",
+		"textColor": "#000000"
+	},
+	"1129": {
+		"colorId": 1129,
+		"backGroundColor": "#9FC7C7",
+		"textColor": "#000000"
+	},
+	"1130": {
+		"colorId": 1130,
+		"backGroundColor": "#2C56DF",
+		"textColor": "#FFFFFF"
+	},
+	"1131": {
+		"colorId": 1131,
+		"backGroundColor": "#98211D",
+		"textColor": "#FFFFFF"
+	},
+	"1132": {
+		"colorId": 1132,
+		"backGroundColor": "#A46506",
+		"textColor": "#FFFFFF"
+	},
+	"1133": {
+		"colorId": 1133,
+		"backGroundColor": "#38B8C8",
+		"textColor": "#000000"
+	},
+	"1134": {
+		"colorId": 1134,
+		"backGroundColor": "#8CDDE8",
+		"textColor": "#000000"
+	},
+	"1135": {
+		"colorId": 1135,
+		"backGroundColor": "#995A04",
+		"textColor": "#FFFFFF"
+	},
+	"1136": {
+		"colorId": 1136,
+		"backGroundColor": "#DAF77D",
+		"textColor": "#000000"
+	},
+	"1137": {
+		"colorId": 1137,
+		"backGroundColor": "#539E13",
+		"textColor": "#FFFFFF"
+	},
+	"1138": {
+		"colorId": 1138,
+		"backGroundColor": "#E9F1EC",
+		"textColor": "#000000"
+	},
+	"1139": {
+		"colorId": 1139,
+		"backGroundColor": "#C4F5DC",
+		"textColor": "#000000"
+	},
+	"1140": {
+		"colorId": 1140,
+		"backGroundColor": "#85666B",
+		"textColor": "#FFFFFF"
+	},
+	"1141": {
+		"colorId": 1141,
+		"backGroundColor": "#E2A97B",
+		"textColor": "#000000"
+	},
+	"1142": {
+		"colorId": 1142,
+		"backGroundColor": "#079DA9",
+		"textColor": "#FFFFFF"
+	},
+	"1143": {
+		"colorId": 1143,
+		"backGroundColor": "#9FEF9B",
+		"textColor": "#000000"
+	},
+	"1144": {
+		"colorId": 1144,
+		"backGroundColor": "#F932DE",
+		"textColor": "#000000"
+	},
+	"1145": {
+		"colorId": 1145,
+		"backGroundColor": "#C91D58",
+		"textColor": "#FFFFFF"
+	},
+	"1146": {
+		"colorId": 1146,
+		"backGroundColor": "#5D6B93",
+		"textColor": "#FFFFFF"
+	},
+	"1147": {
+		"colorId": 1147,
+		"backGroundColor": "#DE31EB",
+		"textColor": "#FFFFFF"
+	},
+	"1148": {
+		"colorId": 1148,
+		"backGroundColor": "#3612D3",
+		"textColor": "#FFFFFF"
+	},
+	"1149": {
+		"colorId": 1149,
+		"backGroundColor": "#03715C",
+		"textColor": "#FFFFFF"
+	},
+	"1150": {
+		"colorId": 1150,
+		"backGroundColor": "#B46779",
+		"textColor": "#000000"
+	},
+	"1151": {
+		"colorId": 1151,
+		"backGroundColor": "#E97E84",
+		"textColor": "#000000"
+	},
+	"1152": {
+		"colorId": 1152,
+		"backGroundColor": "#4E74F1",
+		"textColor": "#FFFFFF"
+	},
+	"1153": {
+		"colorId": 1153,
+		"backGroundColor": "#8899D8",
+		"textColor": "#000000"
+	},
+	"1154": {
+		"colorId": 1154,
+		"backGroundColor": "#37DAE6",
+		"textColor": "#000000"
+	},
+	"1155": {
+		"colorId": 1155,
+		"backGroundColor": "#4A84BD",
+		"textColor": "#FFFFFF"
+	},
+	"1156": {
+		"colorId": 1156,
+		"backGroundColor": "#5CF92F",
+		"textColor": "#000000"
+	},
+	"1157": {
+		"colorId": 1157,
+		"backGroundColor": "#931539",
+		"textColor": "#FFFFFF"
+	},
+	"1158": {
+		"colorId": 1158,
+		"backGroundColor": "#D94AC4",
+		"textColor": "#000000"
+	},
+	"1159": {
+		"colorId": 1159,
+		"backGroundColor": "#76DA82",
+		"textColor": "#000000"
+	},
+	"1160": {
+		"colorId": 1160,
+		"backGroundColor": "#6CA1FB",
+		"textColor": "#000000"
+	},
+	"1161": {
+		"colorId": 1161,
+		"backGroundColor": "#AC0584",
+		"textColor": "#FFFFFF"
+	},
+	"1162": {
+		"colorId": 1162,
+		"backGroundColor": "#CED2C8",
+		"textColor": "#000000"
+	},
+	"1163": {
+		"colorId": 1163,
+		"backGroundColor": "#845635",
+		"textColor": "#FFFFFF"
+	},
+	"1164": {
+		"colorId": 1164,
+		"backGroundColor": "#CA3B1F",
+		"textColor": "#FFFFFF"
+	},
+	"1165": {
+		"colorId": 1165,
+		"backGroundColor": "#01275A",
+		"textColor": "#FFFFFF"
+	},
+	"1166": {
+		"colorId": 1166,
+		"backGroundColor": "#186815",
+		"textColor": "#FFFFFF"
+	},
+	"1167": {
+		"colorId": 1167,
+		"backGroundColor": "#C0A43C",
+		"textColor": "#000000"
+	},
+	"1168": {
+		"colorId": 1168,
+		"backGroundColor": "#7231A5",
+		"textColor": "#FFFFFF"
+	},
+	"1169": {
+		"colorId": 1169,
+		"backGroundColor": "#B00C4D",
+		"textColor": "#FFFFFF"
+	},
+	"1170": {
+		"colorId": 1170,
+		"backGroundColor": "#5745BB",
+		"textColor": "#FFFFFF"
+	},
+	"1171": {
+		"colorId": 1171,
+		"backGroundColor": "#FE7A55",
+		"textColor": "#000000"
+	},
+	"1172": {
+		"colorId": 1172,
+		"backGroundColor": "#445E5F",
+		"textColor": "#FFFFFF"
+	},
+	"1173": {
+		"colorId": 1173,
+		"backGroundColor": "#EB8CDC",
+		"textColor": "#000000"
+	},
+	"1174": {
+		"colorId": 1174,
+		"backGroundColor": "#D12AD0",
+		"textColor": "#FFFFFF"
+	},
+	"1175": {
+		"colorId": 1175,
+		"backGroundColor": "#D9A20E",
+		"textColor": "#000000"
+	},
+	"1176": {
+		"colorId": 1176,
+		"backGroundColor": "#0FCAE9",
+		"textColor": "#000000"
+	},
+	"1177": {
+		"colorId": 1177,
+		"backGroundColor": "#50C697",
+		"textColor": "#000000"
+	},
+	"1178": {
+		"colorId": 1178,
+		"backGroundColor": "#CF4CCE",
+		"textColor": "#000000"
+	},
+	"1179": {
+		"colorId": 1179,
+		"backGroundColor": "#90A689",
+		"textColor": "#000000"
+	},
+	"1180": {
+		"colorId": 1180,
+		"backGroundColor": "#1FAF79",
+		"textColor": "#FFFFFF"
+	},
+	"1181": {
+		"colorId": 1181,
+		"backGroundColor": "#8944E6",
+		"textColor": "#FFFFFF"
+	},
+	"1182": {
+		"colorId": 1182,
+		"backGroundColor": "#21470E",
+		"textColor": "#FFFFFF"
+	},
+	"1183": {
+		"colorId": 1183,
+		"backGroundColor": "#C1BEBF",
+		"textColor": "#000000"
+	},
+	"1184": {
+		"colorId": 1184,
+		"backGroundColor": "#0EC184",
+		"textColor": "#000000"
+	},
+	"1185": {
+		"colorId": 1185,
+		"backGroundColor": "#CD57C9",
+		"textColor": "#000000"
+	},
+	"1186": {
+		"colorId": 1186,
+		"backGroundColor": "#A1A9FF",
+		"textColor": "#000000"
+	},
+	"1187": {
+		"colorId": 1187,
+		"backGroundColor": "#2FC934",
+		"textColor": "#000000"
+	},
+	"1188": {
+		"colorId": 1188,
+		"backGroundColor": "#08A76A",
+		"textColor": "#FFFFFF"
+	},
+	"1189": {
+		"colorId": 1189,
+		"backGroundColor": "#64D258",
+		"textColor": "#000000"
+	},
+	"1190": {
+		"colorId": 1190,
+		"backGroundColor": "#A91C48",
+		"textColor": "#FFFFFF"
+	},
+	"1191": {
+		"colorId": 1191,
+		"backGroundColor": "#DF6F57",
+		"textColor": "#000000"
+	},
+	"1192": {
+		"colorId": 1192,
+		"backGroundColor": "#986579",
+		"textColor": "#FFFFFF"
+	},
+	"1193": {
+		"colorId": 1193,
+		"backGroundColor": "#77CC84",
+		"textColor": "#000000"
+	},
+	"1194": {
+		"colorId": 1194,
+		"backGroundColor": "#23DAC3",
+		"textColor": "#000000"
+	},
+	"1195": {
+		"colorId": 1195,
+		"backGroundColor": "#87CAF7",
+		"textColor": "#000000"
+	},
+	"1196": {
+		"colorId": 1196,
+		"backGroundColor": "#0B151A",
+		"textColor": "#FFFFFF"
+	},
+	"1197": {
+		"colorId": 1197,
+		"backGroundColor": "#E49DD4",
+		"textColor": "#000000"
+	},
+	"1198": {
+		"colorId": 1198,
+		"backGroundColor": "#AF1BD9",
+		"textColor": "#FFFFFF"
+	},
+	"1199": {
+		"colorId": 1199,
+		"backGroundColor": "#4954EE",
+		"textColor": "#FFFFFF"
+	},
+	"1200": {
+		"colorId": 1200,
+		"backGroundColor": "#463FA2",
+		"textColor": "#FFFFFF"
+	},
+	"1201": {
+		"colorId": 1201,
+		"backGroundColor": "#08E984",
+		"textColor": "#000000"
+	},
+	"1202": {
+		"colorId": 1202,
+		"backGroundColor": "#7FAEA7",
+		"textColor": "#000000"
+	},
+	"1203": {
+		"colorId": 1203,
+		"backGroundColor": "#C92F77",
+		"textColor": "#FFFFFF"
+	},
+	"1204": {
+		"colorId": 1204,
+		"backGroundColor": "#86C9A1",
+		"textColor": "#000000"
+	},
+	"1205": {
+		"colorId": 1205,
+		"backGroundColor": "#9EC797",
+		"textColor": "#000000"
+	},
+	"1206": {
+		"colorId": 1206,
+		"backGroundColor": "#4FEFED",
+		"textColor": "#000000"
+	},
+	"1207": {
+		"colorId": 1207,
+		"backGroundColor": "#522B43",
+		"textColor": "#FFFFFF"
+	},
+	"1208": {
+		"colorId": 1208,
+		"backGroundColor": "#60C5D7",
+		"textColor": "#000000"
+	},
+	"1209": {
+		"colorId": 1209,
+		"backGroundColor": "#7129C5",
+		"textColor": "#FFFFFF"
+	},
+	"1210": {
+		"colorId": 1210,
+		"backGroundColor": "#6B6BCF",
+		"textColor": "#FFFFFF"
+	},
+	"1211": {
+		"colorId": 1211,
+		"backGroundColor": "#244AF2",
+		"textColor": "#FFFFFF"
+	},
+	"1212": {
+		"colorId": 1212,
+		"backGroundColor": "#9321B2",
+		"textColor": "#FFFFFF"
+	},
+	"1213": {
+		"colorId": 1213,
+		"backGroundColor": "#655E5B",
+		"textColor": "#FFFFFF"
+	},
+	"1214": {
+		"colorId": 1214,
+		"backGroundColor": "#446451",
+		"textColor": "#FFFFFF"
+	},
+	"1215": {
+		"colorId": 1215,
+		"backGroundColor": "#AAB08C",
+		"textColor": "#000000"
+	},
+	"1216": {
+		"colorId": 1216,
+		"backGroundColor": "#3353C1",
+		"textColor": "#FFFFFF"
+	},
+	"1217": {
+		"colorId": 1217,
+		"backGroundColor": "#AAF45B",
+		"textColor": "#000000"
+	},
+	"1218": {
+		"colorId": 1218,
+		"backGroundColor": "#D4A7C8",
+		"textColor": "#000000"
+	},
+	"1219": {
+		"colorId": 1219,
+		"backGroundColor": "#FAB105",
+		"textColor": "#000000"
+	},
+	"1220": {
+		"colorId": 1220,
+		"backGroundColor": "#4304C5",
+		"textColor": "#FFFFFF"
+	},
+	"1221": {
+		"colorId": 1221,
+		"backGroundColor": "#5E2CEF",
+		"textColor": "#FFFFFF"
+	},
+	"1222": {
+		"colorId": 1222,
+		"backGroundColor": "#F76751",
+		"textColor": "#000000"
+	},
+	"1223": {
+		"colorId": 1223,
+		"backGroundColor": "#A2A8B7",
+		"textColor": "#000000"
+	},
+	"1224": {
+		"colorId": 1224,
+		"backGroundColor": "#927537",
+		"textColor": "#FFFFFF"
+	},
+	"1225": {
+		"colorId": 1225,
+		"backGroundColor": "#A0E40A",
+		"textColor": "#000000"
+	},
+	"1226": {
+		"colorId": 1226,
+		"backGroundColor": "#1AA0DA",
+		"textColor": "#FFFFFF"
+	},
+	"1227": {
+		"colorId": 1227,
+		"backGroundColor": "#6B9906",
+		"textColor": "#FFFFFF"
+	},
+	"1228": {
+		"colorId": 1228,
+		"backGroundColor": "#26587C",
+		"textColor": "#FFFFFF"
+	},
+	"1229": {
+		"colorId": 1229,
+		"backGroundColor": "#F31BC2",
+		"textColor": "#FFFFFF"
+	},
+	"1230": {
+		"colorId": 1230,
+		"backGroundColor": "#C8B0F3",
+		"textColor": "#000000"
+	},
+	"1231": {
+		"colorId": 1231,
+		"backGroundColor": "#2779EB",
+		"textColor": "#FFFFFF"
+	},
+	"1232": {
+		"colorId": 1232,
+		"backGroundColor": "#71D05F",
+		"textColor": "#000000"
+	},
+	"1233": {
+		"colorId": 1233,
+		"backGroundColor": "#6431CE",
+		"textColor": "#FFFFFF"
+	},
+	"1234": {
+		"colorId": 1234,
+		"backGroundColor": "#E5B80C",
+		"textColor": "#000000"
+	},
+	"1235": {
+		"colorId": 1235,
+		"backGroundColor": "#A58EE6",
+		"textColor": "#000000"
+	},
+	"1236": {
+		"colorId": 1236,
+		"backGroundColor": "#903624",
+		"textColor": "#FFFFFF"
+	},
+	"1237": {
+		"colorId": 1237,
+		"backGroundColor": "#D166DB",
+		"textColor": "#000000"
+	},
+	"1238": {
+		"colorId": 1238,
+		"backGroundColor": "#4137BD",
+		"textColor": "#FFFFFF"
+	},
+	"1239": {
+		"colorId": 1239,
+		"backGroundColor": "#F3E85A",
+		"textColor": "#000000"
+	},
+	"1240": {
+		"colorId": 1240,
+		"backGroundColor": "#DEFD4A",
+		"textColor": "#000000"
+	},
+	"1241": {
+		"colorId": 1241,
+		"backGroundColor": "#D84008",
+		"textColor": "#FFFFFF"
+	},
+	"1242": {
+		"colorId": 1242,
+		"backGroundColor": "#FC62C1",
+		"textColor": "#000000"
+	},
+	"1243": {
+		"colorId": 1243,
+		"backGroundColor": "#A720C9",
+		"textColor": "#FFFFFF"
+	},
+	"1244": {
+		"colorId": 1244,
+		"backGroundColor": "#01D588",
+		"textColor": "#000000"
+	},
+	"1245": {
+		"colorId": 1245,
+		"backGroundColor": "#3CF633",
+		"textColor": "#000000"
+	},
+	"1246": {
+		"colorId": 1246,
+		"backGroundColor": "#63C422",
+		"textColor": "#000000"
+	},
+	"1247": {
+		"colorId": 1247,
+		"backGroundColor": "#56EF22",
+		"textColor": "#000000"
+	},
+	"1248": {
+		"colorId": 1248,
+		"backGroundColor": "#3BFB0B",
+		"textColor": "#000000"
+	},
+	"1249": {
+		"colorId": 1249,
+		"backGroundColor": "#A85EF7",
+		"textColor": "#000000"
+	},
+	"1250": {
+		"colorId": 1250,
+		"backGroundColor": "#F7F5F7",
+		"textColor": "#000000"
+	},
+	"1251": {
+		"colorId": 1251,
+		"backGroundColor": "#7CA3BE",
+		"textColor": "#000000"
+	},
+	"1252": {
+		"colorId": 1252,
+		"backGroundColor": "#8A467F",
+		"textColor": "#FFFFFF"
+	},
+	"1253": {
+		"colorId": 1253,
+		"backGroundColor": "#FB61DB",
+		"textColor": "#000000"
+	},
+	"1254": {
+		"colorId": 1254,
+		"backGroundColor": "#F2CC55",
+		"textColor": "#000000"
+	},
+	"1255": {
+		"colorId": 1255,
+		"backGroundColor": "#3CE874",
+		"textColor": "#000000"
+	},
+	"1256": {
+		"colorId": 1256,
+		"backGroundColor": "#E4B935",
+		"textColor": "#000000"
+	},
+	"1257": {
+		"colorId": 1257,
+		"backGroundColor": "#9A2077",
+		"textColor": "#FFFFFF"
+	},
+	"1258": {
+		"colorId": 1258,
+		"backGroundColor": "#A2AE5E",
+		"textColor": "#000000"
+	},
+	"1259": {
+		"colorId": 1259,
+		"backGroundColor": "#636EC7",
+		"textColor": "#FFFFFF"
+	},
+	"1260": {
+		"colorId": 1260,
+		"backGroundColor": "#60B989",
+		"textColor": "#000000"
+	},
+	"1261": {
+		"colorId": 1261,
+		"backGroundColor": "#D9FBF5",
+		"textColor": "#000000"
+	},
+	"1262": {
+		"colorId": 1262,
+		"backGroundColor": "#9C8676",
+		"textColor": "#000000"
+	},
+	"1263": {
+		"colorId": 1263,
+		"backGroundColor": "#FA7D90",
+		"textColor": "#000000"
+	},
+	"1264": {
+		"colorId": 1264,
+		"backGroundColor": "#3A9D9B",
+		"textColor": "#FFFFFF"
+	},
+	"1265": {
+		"colorId": 1265,
+		"backGroundColor": "#33C8CC",
+		"textColor": "#000000"
+	},
+	"1266": {
+		"colorId": 1266,
+		"backGroundColor": "#D88A99",
+		"textColor": "#000000"
+	},
+	"1267": {
+		"colorId": 1267,
+		"backGroundColor": "#1DED19",
+		"textColor": "#000000"
+	},
+	"1268": {
+		"colorId": 1268,
+		"backGroundColor": "#A3880E",
+		"textColor": "#000000"
+	},
+	"1269": {
+		"colorId": 1269,
+		"backGroundColor": "#E5B9AB",
+		"textColor": "#000000"
+	},
+	"1270": {
+		"colorId": 1270,
+		"backGroundColor": "#87271A",
+		"textColor": "#FFFFFF"
+	},
+	"1271": {
+		"colorId": 1271,
+		"backGroundColor": "#58045A",
+		"textColor": "#FFFFFF"
+	},
+	"1272": {
+		"colorId": 1272,
+		"backGroundColor": "#781906",
+		"textColor": "#FFFFFF"
+	},
+	"1273": {
+		"colorId": 1273,
+		"backGroundColor": "#5DF2B2",
+		"textColor": "#000000"
+	},
+	"1274": {
+		"colorId": 1274,
+		"backGroundColor": "#127588",
+		"textColor": "#FFFFFF"
+	},
+	"1275": {
+		"colorId": 1275,
+		"backGroundColor": "#D778C0",
+		"textColor": "#000000"
+	},
+	"1276": {
+		"colorId": 1276,
+		"backGroundColor": "#5289BD",
+		"textColor": "#FFFFFF"
+	},
+	"1277": {
+		"colorId": 1277,
+		"backGroundColor": "#5A347A",
+		"textColor": "#FFFFFF"
+	},
+	"1278": {
+		"colorId": 1278,
+		"backGroundColor": "#934DDB",
+		"textColor": "#FFFFFF"
+	},
+	"1279": {
+		"colorId": 1279,
+		"backGroundColor": "#CC8344",
+		"textColor": "#000000"
+	},
+	"1280": {
+		"colorId": 1280,
+		"backGroundColor": "#FB1C96",
+		"textColor": "#FFFFFF"
+	},
+	"1281": {
+		"colorId": 1281,
+		"backGroundColor": "#4B15B4",
+		"textColor": "#FFFFFF"
+	},
+	"1282": {
+		"colorId": 1282,
+		"backGroundColor": "#66A461",
+		"textColor": "#000000"
+	},
+	"1283": {
+		"colorId": 1283,
+		"backGroundColor": "#2AA739",
+		"textColor": "#FFFFFF"
+	},
+	"1284": {
+		"colorId": 1284,
+		"backGroundColor": "#164E3D",
+		"textColor": "#FFFFFF"
+	},
+	"1285": {
+		"colorId": 1285,
+		"backGroundColor": "#7DC366",
+		"textColor": "#000000"
+	},
+	"1286": {
+		"colorId": 1286,
+		"backGroundColor": "#4352D6",
+		"textColor": "#FFFFFF"
+	},
+	"1287": {
+		"colorId": 1287,
+		"backGroundColor": "#2168E5",
+		"textColor": "#FFFFFF"
+	},
+	"1288": {
+		"colorId": 1288,
+		"backGroundColor": "#4AA7FD",
+		"textColor": "#000000"
+	},
+	"1289": {
+		"colorId": 1289,
+		"backGroundColor": "#8A2E69",
+		"textColor": "#FFFFFF"
+	},
+	"1290": {
+		"colorId": 1290,
+		"backGroundColor": "#C49270",
+		"textColor": "#000000"
+	},
+	"1291": {
+		"colorId": 1291,
+		"backGroundColor": "#6C50ED",
+		"textColor": "#FFFFFF"
+	},
+	"1292": {
+		"colorId": 1292,
+		"backGroundColor": "#9C11FC",
+		"textColor": "#FFFFFF"
+	},
+	"1293": {
+		"colorId": 1293,
+		"backGroundColor": "#293626",
+		"textColor": "#FFFFFF"
+	},
+	"1294": {
+		"colorId": 1294,
+		"backGroundColor": "#BC7C38",
+		"textColor": "#000000"
+	},
+	"1295": {
+		"colorId": 1295,
+		"backGroundColor": "#1DFEFC",
+		"textColor": "#000000"
+	},
+	"1296": {
+		"colorId": 1296,
+		"backGroundColor": "#016693",
+		"textColor": "#FFFFFF"
+	},
+	"1297": {
+		"colorId": 1297,
+		"backGroundColor": "#3546FD",
+		"textColor": "#FFFFFF"
+	},
+	"1298": {
+		"colorId": 1298,
+		"backGroundColor": "#8998AB",
+		"textColor": "#000000"
+	},
+	"1299": {
+		"colorId": 1299,
+		"backGroundColor": "#2A9BA6",
+		"textColor": "#FFFFFF"
+	},
+	"1300": {
+		"colorId": 1300,
+		"backGroundColor": "#4535DD",
+		"textColor": "#FFFFFF"
+	},
+	"1301": {
+		"colorId": 1301,
+		"backGroundColor": "#95E7AE",
+		"textColor": "#000000"
+	},
+	"1302": {
+		"colorId": 1302,
+		"backGroundColor": "#7BF6CC",
+		"textColor": "#000000"
+	},
+	"1303": {
+		"colorId": 1303,
+		"backGroundColor": "#C78252",
+		"textColor": "#000000"
+	},
+	"1304": {
+		"colorId": 1304,
+		"backGroundColor": "#1BF6A8",
+		"textColor": "#000000"
+	},
+	"1305": {
+		"colorId": 1305,
+		"backGroundColor": "#AEEE68",
+		"textColor": "#000000"
+	},
+	"1306": {
+		"colorId": 1306,
+		"backGroundColor": "#52FACC",
+		"textColor": "#000000"
+	},
+	"1307": {
+		"colorId": 1307,
+		"backGroundColor": "#2965DF",
+		"textColor": "#FFFFFF"
+	},
+	"1308": {
+		"colorId": 1308,
+		"backGroundColor": "#6F2D17",
+		"textColor": "#FFFFFF"
+	},
+	"1309": {
+		"colorId": 1309,
+		"backGroundColor": "#E60258",
+		"textColor": "#FFFFFF"
+	},
+	"1310": {
+		"colorId": 1310,
+		"backGroundColor": "#1B7685",
+		"textColor": "#FFFFFF"
+	},
+	"1311": {
+		"colorId": 1311,
+		"backGroundColor": "#682193",
+		"textColor": "#FFFFFF"
+	},
+	"1312": {
+		"colorId": 1312,
+		"backGroundColor": "#0E3354",
+		"textColor": "#FFFFFF"
+	},
+	"1313": {
+		"colorId": 1313,
+		"backGroundColor": "#53ABE6",
+		"textColor": "#000000"
+	},
+	"1314": {
+		"colorId": 1314,
+		"backGroundColor": "#7DA8BA",
+		"textColor": "#000000"
+	},
+	"1315": {
+		"colorId": 1315,
+		"backGroundColor": "#2F757C",
+		"textColor": "#FFFFFF"
+	},
+	"1316": {
+		"colorId": 1316,
+		"backGroundColor": "#3C5010",
+		"textColor": "#FFFFFF"
+	},
+	"1317": {
+		"colorId": 1317,
+		"backGroundColor": "#3BFE9C",
+		"textColor": "#000000"
+	},
+	"1318": {
+		"colorId": 1318,
+		"backGroundColor": "#44117C",
+		"textColor": "#FFFFFF"
+	},
+	"1319": {
+		"colorId": 1319,
+		"backGroundColor": "#F45817",
+		"textColor": "#FFFFFF"
+	},
+	"1320": {
+		"colorId": 1320,
+		"backGroundColor": "#C6CA89",
+		"textColor": "#000000"
+	},
+	"1321": {
+		"colorId": 1321,
+		"backGroundColor": "#F46336",
+		"textColor": "#000000"
+	},
+	"1322": {
+		"colorId": 1322,
+		"backGroundColor": "#0EC320",
+		"textColor": "#FFFFFF"
+	},
+	"1323": {
+		"colorId": 1323,
+		"backGroundColor": "#66B185",
+		"textColor": "#000000"
+	},
+	"1324": {
+		"colorId": 1324,
+		"backGroundColor": "#C710AB",
+		"textColor": "#FFFFFF"
+	},
+	"1325": {
+		"colorId": 1325,
+		"backGroundColor": "#CC8A8A",
+		"textColor": "#000000"
+	},
+	"1326": {
+		"colorId": 1326,
+		"backGroundColor": "#6C4D8D",
+		"textColor": "#FFFFFF"
+	},
+	"1327": {
+		"colorId": 1327,
+		"backGroundColor": "#63A1E4",
+		"textColor": "#000000"
+	},
+	"1328": {
+		"colorId": 1328,
+		"backGroundColor": "#62EDEA",
+		"textColor": "#000000"
+	},
+	"1329": {
+		"colorId": 1329,
+		"backGroundColor": "#4CFFEF",
+		"textColor": "#000000"
+	},
+	"1330": {
+		"colorId": 1330,
+		"backGroundColor": "#268088",
+		"textColor": "#FFFFFF"
+	},
+	"1331": {
+		"colorId": 1331,
+		"backGroundColor": "#E6C479",
+		"textColor": "#000000"
+	},
+	"1332": {
+		"colorId": 1332,
+		"backGroundColor": "#B44F78",
+		"textColor": "#FFFFFF"
+	},
+	"1333": {
+		"colorId": 1333,
+		"backGroundColor": "#A5B257",
+		"textColor": "#000000"
+	},
+	"1334": {
+		"colorId": 1334,
+		"backGroundColor": "#A465AF",
+		"textColor": "#000000"
+	},
+	"1335": {
+		"colorId": 1335,
+		"backGroundColor": "#331F74",
+		"textColor": "#FFFFFF"
+	},
+	"1336": {
+		"colorId": 1336,
+		"backGroundColor": "#4DF1F6",
+		"textColor": "#000000"
+	},
+	"1337": {
+		"colorId": 1337,
+		"backGroundColor": "#FF9EDA",
+		"textColor": "#000000"
+	},
+	"1338": {
+		"colorId": 1338,
+		"backGroundColor": "#7EB61A",
+		"textColor": "#000000"
+	},
+	"1339": {
+		"colorId": 1339,
+		"backGroundColor": "#B78231",
+		"textColor": "#000000"
+	},
+	"1340": {
+		"colorId": 1340,
+		"backGroundColor": "#199F51",
+		"textColor": "#FFFFFF"
+	},
+	"1341": {
+		"colorId": 1341,
+		"backGroundColor": "#E0F954",
+		"textColor": "#000000"
+	},
+	"1342": {
+		"colorId": 1342,
+		"backGroundColor": "#13D7D6",
+		"textColor": "#000000"
+	},
+	"1343": {
+		"colorId": 1343,
+		"backGroundColor": "#132041",
+		"textColor": "#FFFFFF"
+	},
+	"1344": {
+		"colorId": 1344,
+		"backGroundColor": "#B894E3",
+		"textColor": "#000000"
+	},
+	"1345": {
+		"colorId": 1345,
+		"backGroundColor": "#6717D1",
+		"textColor": "#FFFFFF"
+	},
+	"1346": {
+		"colorId": 1346,
+		"backGroundColor": "#585680",
+		"textColor": "#FFFFFF"
+	},
+	"1347": {
+		"colorId": 1347,
+		"backGroundColor": "#AD010C",
+		"textColor": "#FFFFFF"
+	},
+	"1348": {
+		"colorId": 1348,
+		"backGroundColor": "#3E1D26",
+		"textColor": "#FFFFFF"
+	},
+	"1349": {
+		"colorId": 1349,
+		"backGroundColor": "#3F90DA",
+		"textColor": "#000000"
+	},
+	"1350": {
+		"colorId": 1350,
+		"backGroundColor": "#FDF2D0",
+		"textColor": "#000000"
+	},
+	"1351": {
+		"colorId": 1351,
+		"backGroundColor": "#8602E1",
+		"textColor": "#FFFFFF"
+	},
+	"1352": {
+		"colorId": 1352,
+		"backGroundColor": "#2034C0",
+		"textColor": "#FFFFFF"
+	},
+	"1353": {
+		"colorId": 1353,
+		"backGroundColor": "#B24908",
+		"textColor": "#FFFFFF"
+	},
+	"1354": {
+		"colorId": 1354,
+		"backGroundColor": "#16F777",
+		"textColor": "#000000"
+	},
+	"1355": {
+		"colorId": 1355,
+		"backGroundColor": "#A95B49",
+		"textColor": "#FFFFFF"
+	},
+	"1356": {
+		"colorId": 1356,
+		"backGroundColor": "#687F5C",
+		"textColor": "#FFFFFF"
+	},
+	"1357": {
+		"colorId": 1357,
+		"backGroundColor": "#F2DEB3",
+		"textColor": "#000000"
+	},
+	"1358": {
+		"colorId": 1358,
+		"backGroundColor": "#07901D",
+		"textColor": "#FFFFFF"
+	},
+	"1359": {
+		"colorId": 1359,
+		"backGroundColor": "#F38B21",
+		"textColor": "#000000"
+	},
+	"1360": {
+		"colorId": 1360,
+		"backGroundColor": "#8A88BA",
+		"textColor": "#000000"
+	},
+	"1361": {
+		"colorId": 1361,
+		"backGroundColor": "#18ACB2",
+		"textColor": "#000000"
+	},
+	"1362": {
+		"colorId": 1362,
+		"backGroundColor": "#047CE0",
+		"textColor": "#FFFFFF"
+	},
+	"1363": {
+		"colorId": 1363,
+		"backGroundColor": "#A3E377",
+		"textColor": "#000000"
+	},
+	"1364": {
+		"colorId": 1364,
+		"backGroundColor": "#08568D",
+		"textColor": "#FFFFFF"
+	},
+	"1365": {
+		"colorId": 1365,
+		"backGroundColor": "#724D01",
+		"textColor": "#FFFFFF"
+	},
+	"1366": {
+		"colorId": 1366,
+		"backGroundColor": "#8188A8",
+		"textColor": "#000000"
+	},
+	"1367": {
+		"colorId": 1367,
+		"backGroundColor": "#1CD218",
+		"textColor": "#000000"
+	},
+	"1368": {
+		"colorId": 1368,
+		"backGroundColor": "#D5D973",
+		"textColor": "#000000"
+	},
+	"1369": {
+		"colorId": 1369,
+		"backGroundColor": "#88973D",
+		"textColor": "#000000"
+	},
+	"1370": {
+		"colorId": 1370,
+		"backGroundColor": "#550276",
+		"textColor": "#FFFFFF"
+	},
+	"1371": {
+		"colorId": 1371,
+		"backGroundColor": "#6D1CE1",
+		"textColor": "#FFFFFF"
+	},
+	"1372": {
+		"colorId": 1372,
+		"backGroundColor": "#EB3F30",
+		"textColor": "#FFFFFF"
+	},
+	"1373": {
+		"colorId": 1373,
+		"backGroundColor": "#230478",
+		"textColor": "#FFFFFF"
+	},
+	"1374": {
+		"colorId": 1374,
+		"backGroundColor": "#2DCF22",
+		"textColor": "#000000"
+	},
+	"1375": {
+		"colorId": 1375,
+		"backGroundColor": "#4F631F",
+		"textColor": "#FFFFFF"
+	},
+	"1376": {
+		"colorId": 1376,
+		"backGroundColor": "#34EE41",
+		"textColor": "#000000"
+	},
+	"1377": {
+		"colorId": 1377,
+		"backGroundColor": "#F738D6",
+		"textColor": "#000000"
+	},
+	"1378": {
+		"colorId": 1378,
+		"backGroundColor": "#41C0E7",
+		"textColor": "#000000"
+	},
+	"1379": {
+		"colorId": 1379,
+		"backGroundColor": "#327EDB",
+		"textColor": "#FFFFFF"
+	},
+	"1380": {
+		"colorId": 1380,
+		"backGroundColor": "#D7B957",
+		"textColor": "#000000"
+	},
+	"1381": {
+		"colorId": 1381,
+		"backGroundColor": "#C73A41",
+		"textColor": "#FFFFFF"
+	},
+	"1382": {
+		"colorId": 1382,
+		"backGroundColor": "#04067A",
+		"textColor": "#FFFFFF"
+	},
+	"1383": {
+		"colorId": 1383,
+		"backGroundColor": "#91BD37",
+		"textColor": "#000000"
+	},
+	"1384": {
+		"colorId": 1384,
+		"backGroundColor": "#DFA7A1",
+		"textColor": "#000000"
+	},
+	"1385": {
+		"colorId": 1385,
+		"backGroundColor": "#C290A3",
+		"textColor": "#000000"
+	},
+	"1386": {
+		"colorId": 1386,
+		"backGroundColor": "#1F83A2",
+		"textColor": "#FFFFFF"
+	},
+	"1387": {
+		"colorId": 1387,
+		"backGroundColor": "#E35CB0",
+		"textColor": "#000000"
+	},
+	"1388": {
+		"colorId": 1388,
+		"backGroundColor": "#DCF836",
+		"textColor": "#000000"
+	},
+	"1389": {
+		"colorId": 1389,
+		"backGroundColor": "#F97CA1",
+		"textColor": "#000000"
+	},
+	"1390": {
+		"colorId": 1390,
+		"backGroundColor": "#F6C6A9",
+		"textColor": "#000000"
+	},
+	"1391": {
+		"colorId": 1391,
+		"backGroundColor": "#0AABED",
+		"textColor": "#000000"
+	},
+	"1392": {
+		"colorId": 1392,
+		"backGroundColor": "#DFA276",
+		"textColor": "#000000"
+	},
+	"1393": {
+		"colorId": 1393,
+		"backGroundColor": "#450559",
+		"textColor": "#FFFFFF"
+	},
+	"1394": {
+		"colorId": 1394,
+		"backGroundColor": "#C8A963",
+		"textColor": "#000000"
+	},
+	"1395": {
+		"colorId": 1395,
+		"backGroundColor": "#B2AEF9",
+		"textColor": "#000000"
+	},
+	"1396": {
+		"colorId": 1396,
+		"backGroundColor": "#251038",
+		"textColor": "#FFFFFF"
+	},
+	"1397": {
+		"colorId": 1397,
+		"backGroundColor": "#E7A43D",
+		"textColor": "#000000"
+	},
+	"1398": {
+		"colorId": 1398,
+		"backGroundColor": "#AE68FD",
+		"textColor": "#000000"
+	},
+	"1399": {
+		"colorId": 1399,
+		"backGroundColor": "#A8C012",
+		"textColor": "#000000"
+	},
+	"1400": {
+		"colorId": 1400,
+		"backGroundColor": "#655AB4",
+		"textColor": "#FFFFFF"
+	},
+	"1401": {
+		"colorId": 1401,
+		"backGroundColor": "#24AEA5",
+		"textColor": "#000000"
+	},
+	"1402": {
+		"colorId": 1402,
+		"backGroundColor": "#50416D",
+		"textColor": "#FFFFFF"
+	},
+	"1403": {
+		"colorId": 1403,
+		"backGroundColor": "#FBFA0E",
+		"textColor": "#000000"
+	},
+	"1404": {
+		"colorId": 1404,
+		"backGroundColor": "#6ADC73",
+		"textColor": "#000000"
+	},
+	"1405": {
+		"colorId": 1405,
+		"backGroundColor": "#7788EC",
+		"textColor": "#000000"
+	},
+	"1406": {
+		"colorId": 1406,
+		"backGroundColor": "#71870A",
+		"textColor": "#FFFFFF"
+	},
+	"1407": {
+		"colorId": 1407,
+		"backGroundColor": "#5FB7F5",
+		"textColor": "#000000"
+	},
+	"1408": {
+		"colorId": 1408,
+		"backGroundColor": "#B55ADC",
+		"textColor": "#000000"
+	},
+	"1409": {
+		"colorId": 1409,
+		"backGroundColor": "#541B43",
+		"textColor": "#FFFFFF"
+	},
+	"1410": {
+		"colorId": 1410,
+		"backGroundColor": "#40E26C",
+		"textColor": "#000000"
+	},
+	"1411": {
+		"colorId": 1411,
+		"backGroundColor": "#8FDC1A",
+		"textColor": "#000000"
+	},
+	"1412": {
+		"colorId": 1412,
+		"backGroundColor": "#639C22",
+		"textColor": "#FFFFFF"
+	},
+	"1413": {
+		"colorId": 1413,
+		"backGroundColor": "#596A63",
+		"textColor": "#FFFFFF"
+	},
+	"1414": {
+		"colorId": 1414,
+		"backGroundColor": "#066DEE",
+		"textColor": "#FFFFFF"
+	},
+	"1415": {
+		"colorId": 1415,
+		"backGroundColor": "#A4A561",
+		"textColor": "#000000"
+	},
+	"1416": {
+		"colorId": 1416,
+		"backGroundColor": "#D61CED",
+		"textColor": "#FFFFFF"
+	},
+	"1417": {
+		"colorId": 1417,
+		"backGroundColor": "#E8BB5E",
+		"textColor": "#000000"
+	},
+	"1418": {
+		"colorId": 1418,
+		"backGroundColor": "#7FDF90",
+		"textColor": "#000000"
+	},
+	"1419": {
+		"colorId": 1419,
+		"backGroundColor": "#783A62",
+		"textColor": "#FFFFFF"
+	},
+	"1420": {
+		"colorId": 1420,
+		"backGroundColor": "#6B9BD1",
+		"textColor": "#000000"
+	},
+	"1421": {
+		"colorId": 1421,
+		"backGroundColor": "#2FCFB0",
+		"textColor": "#000000"
+	},
+	"1422": {
+		"colorId": 1422,
+		"backGroundColor": "#D294F0",
+		"textColor": "#000000"
+	},
+	"1423": {
+		"colorId": 1423,
+		"backGroundColor": "#32163F",
+		"textColor": "#FFFFFF"
+	},
+	"1424": {
+		"colorId": 1424,
+		"backGroundColor": "#51DB2F",
+		"textColor": "#000000"
+	},
+	"1425": {
+		"colorId": 1425,
+		"backGroundColor": "#AFC113",
+		"textColor": "#000000"
+	},
+	"1426": {
+		"colorId": 1426,
+		"backGroundColor": "#AB41C4",
+		"textColor": "#FFFFFF"
+	},
+	"1427": {
+		"colorId": 1427,
+		"backGroundColor": "#1EF966",
+		"textColor": "#000000"
+	},
+	"1428": {
+		"colorId": 1428,
+		"backGroundColor": "#943377",
+		"textColor": "#FFFFFF"
+	},
+	"1429": {
+		"colorId": 1429,
+		"backGroundColor": "#F40796",
+		"textColor": "#FFFFFF"
+	},
+	"1430": {
+		"colorId": 1430,
+		"backGroundColor": "#E00692",
+		"textColor": "#FFFFFF"
+	},
+	"1431": {
+		"colorId": 1431,
+		"backGroundColor": "#AE5DB2",
+		"textColor": "#FFFFFF"
+	},
+	"1432": {
+		"colorId": 1432,
+		"backGroundColor": "#A36256",
+		"textColor": "#FFFFFF"
+	},
+	"1433": {
+		"colorId": 1433,
+		"backGroundColor": "#0F7132",
+		"textColor": "#FFFFFF"
+	},
+	"1434": {
+		"colorId": 1434,
+		"backGroundColor": "#74C44A",
+		"textColor": "#000000"
+	},
+	"1435": {
+		"colorId": 1435,
+		"backGroundColor": "#D3F7BE",
+		"textColor": "#000000"
+	},
+	"1436": {
+		"colorId": 1436,
+		"backGroundColor": "#E55C4C",
+		"textColor": "#000000"
+	},
+	"1437": {
+		"colorId": 1437,
+		"backGroundColor": "#E7EAF8",
+		"textColor": "#000000"
+	},
+	"1438": {
+		"colorId": 1438,
+		"backGroundColor": "#FE6FE0",
+		"textColor": "#000000"
+	},
+	"1439": {
+		"colorId": 1439,
+		"backGroundColor": "#BFD6BE",
+		"textColor": "#000000"
+	},
+	"1440": {
+		"colorId": 1440,
+		"backGroundColor": "#55F1AD",
+		"textColor": "#000000"
+	},
+	"1441": {
+		"colorId": 1441,
+		"backGroundColor": "#058BBA",
+		"textColor": "#FFFFFF"
+	},
+	"1442": {
+		"colorId": 1442,
+		"backGroundColor": "#4CFFE3",
+		"textColor": "#000000"
+	},
+	"1443": {
+		"colorId": 1443,
+		"backGroundColor": "#A33477",
+		"textColor": "#FFFFFF"
+	},
+	"1444": {
+		"colorId": 1444,
+		"backGroundColor": "#49E4BA",
+		"textColor": "#000000"
+	},
+	"1445": {
+		"colorId": 1445,
+		"backGroundColor": "#353387",
+		"textColor": "#FFFFFF"
+	},
+	"1446": {
+		"colorId": 1446,
+		"backGroundColor": "#F22350",
+		"textColor": "#FFFFFF"
+	},
+	"1447": {
+		"colorId": 1447,
+		"backGroundColor": "#2FFBB8",
+		"textColor": "#000000"
+	},
+	"1448": {
+		"colorId": 1448,
+		"backGroundColor": "#F0CC18",
+		"textColor": "#000000"
+	},
+	"1449": {
+		"colorId": 1449,
+		"backGroundColor": "#8D3849",
+		"textColor": "#FFFFFF"
+	},
+	"1450": {
+		"colorId": 1450,
+		"backGroundColor": "#D9EF71",
+		"textColor": "#000000"
+	},
+	"1451": {
+		"colorId": 1451,
+		"backGroundColor": "#177792",
+		"textColor": "#FFFFFF"
+	},
+	"1452": {
+		"colorId": 1452,
+		"backGroundColor": "#A305D8",
+		"textColor": "#FFFFFF"
+	},
+	"1453": {
+		"colorId": 1453,
+		"backGroundColor": "#9874B8",
+		"textColor": "#000000"
+	},
+	"1454": {
+		"colorId": 1454,
+		"backGroundColor": "#21ACEA",
+		"textColor": "#000000"
+	},
+	"1455": {
+		"colorId": 1455,
+		"backGroundColor": "#C0B906",
+		"textColor": "#000000"
+	},
+	"1456": {
+		"colorId": 1456,
+		"backGroundColor": "#D17292",
+		"textColor": "#000000"
+	},
+	"1457": {
+		"colorId": 1457,
+		"backGroundColor": "#4CD1B5",
+		"textColor": "#000000"
+	},
+	"1458": {
+		"colorId": 1458,
+		"backGroundColor": "#D5D800",
+		"textColor": "#000000"
+	},
+	"1459": {
+		"colorId": 1459,
+		"backGroundColor": "#A9F9DB",
+		"textColor": "#000000"
+	},
+	"1460": {
+		"colorId": 1460,
+		"backGroundColor": "#E33375",
+		"textColor": "#FFFFFF"
+	},
+	"1461": {
+		"colorId": 1461,
+		"backGroundColor": "#7B4214",
+		"textColor": "#FFFFFF"
+	},
+	"1462": {
+		"colorId": 1462,
+		"backGroundColor": "#B2EC5F",
+		"textColor": "#000000"
+	},
+	"1463": {
+		"colorId": 1463,
+		"backGroundColor": "#E08485",
+		"textColor": "#000000"
+	},
+	"1464": {
+		"colorId": 1464,
+		"backGroundColor": "#21793B",
+		"textColor": "#FFFFFF"
+	},
+	"1465": {
+		"colorId": 1465,
+		"backGroundColor": "#005563",
+		"textColor": "#FFFFFF"
+	},
+	"1466": {
+		"colorId": 1466,
+		"backGroundColor": "#B023FE",
+		"textColor": "#FFFFFF"
+	},
+	"1467": {
+		"colorId": 1467,
+		"backGroundColor": "#7830C0",
+		"textColor": "#FFFFFF"
+	},
+	"1468": {
+		"colorId": 1468,
+		"backGroundColor": "#6C636E",
+		"textColor": "#FFFFFF"
+	},
+	"1469": {
+		"colorId": 1469,
+		"backGroundColor": "#FEE0B4",
+		"textColor": "#000000"
+	},
+	"1470": {
+		"colorId": 1470,
+		"backGroundColor": "#5CF2BF",
+		"textColor": "#000000"
+	},
+	"1471": {
+		"colorId": 1471,
+		"backGroundColor": "#05AE9F",
+		"textColor": "#FFFFFF"
+	},
+	"1472": {
+		"colorId": 1472,
+		"backGroundColor": "#50B252",
+		"textColor": "#000000"
+	},
+	"1473": {
+		"colorId": 1473,
+		"backGroundColor": "#598E02",
+		"textColor": "#FFFFFF"
+	},
+	"1474": {
+		"colorId": 1474,
+		"backGroundColor": "#09A6D4",
+		"textColor": "#FFFFFF"
+	},
+	"1475": {
+		"colorId": 1475,
+		"backGroundColor": "#90606B",
+		"textColor": "#FFFFFF"
+	},
+	"1476": {
+		"colorId": 1476,
+		"backGroundColor": "#EE3CAB",
+		"textColor": "#FFFFFF"
+	},
+	"1477": {
+		"colorId": 1477,
+		"backGroundColor": "#1CE10C",
+		"textColor": "#000000"
+	},
+	"1478": {
+		"colorId": 1478,
+		"backGroundColor": "#DB3E83",
+		"textColor": "#FFFFFF"
+	},
+	"1479": {
+		"colorId": 1479,
+		"backGroundColor": "#729B53",
+		"textColor": "#000000"
+	},
+	"1480": {
+		"colorId": 1480,
+		"backGroundColor": "#2CF376",
+		"textColor": "#000000"
+	},
+	"1481": {
+		"colorId": 1481,
+		"backGroundColor": "#1417A5",
+		"textColor": "#FFFFFF"
+	},
+	"1482": {
+		"colorId": 1482,
+		"backGroundColor": "#530023",
+		"textColor": "#FFFFFF"
+	},
+	"1483": {
+		"colorId": 1483,
+		"backGroundColor": "#E539D1",
+		"textColor": "#FFFFFF"
+	},
+	"1484": {
+		"colorId": 1484,
+		"backGroundColor": "#F36CC3",
+		"textColor": "#000000"
+	},
+	"1485": {
+		"colorId": 1485,
+		"backGroundColor": "#2A4818",
+		"textColor": "#FFFFFF"
+	},
+	"1486": {
+		"colorId": 1486,
+		"backGroundColor": "#CFB6DA",
+		"textColor": "#000000"
+	},
+	"1487": {
+		"colorId": 1487,
+		"backGroundColor": "#9674F2",
+		"textColor": "#000000"
+	},
+	"1488": {
+		"colorId": 1488,
+		"backGroundColor": "#9CFF87",
+		"textColor": "#000000"
+	},
+	"1489": {
+		"colorId": 1489,
+		"backGroundColor": "#8FF8BC",
+		"textColor": "#000000"
+	},
+	"1490": {
+		"colorId": 1490,
+		"backGroundColor": "#B74500",
+		"textColor": "#FFFFFF"
+	},
+	"1491": {
+		"colorId": 1491,
+		"backGroundColor": "#2C04E1",
+		"textColor": "#FFFFFF"
+	},
+	"1492": {
+		"colorId": 1492,
+		"backGroundColor": "#3386B3",
+		"textColor": "#FFFFFF"
+	},
+	"1493": {
+		"colorId": 1493,
+		"backGroundColor": "#7D74F4",
+		"textColor": "#000000"
+	},
+	"1494": {
+		"colorId": 1494,
+		"backGroundColor": "#642221",
+		"textColor": "#FFFFFF"
+	},
+	"1495": {
+		"colorId": 1495,
+		"backGroundColor": "#D71BE8",
+		"textColor": "#FFFFFF"
+	},
+	"1496": {
+		"colorId": 1496,
+		"backGroundColor": "#C842BC",
+		"textColor": "#FFFFFF"
+	},
+	"1497": {
+		"colorId": 1497,
+		"backGroundColor": "#08EF7F",
+		"textColor": "#000000"
+	},
+	"1498": {
+		"colorId": 1498,
+		"backGroundColor": "#7E10B2",
+		"textColor": "#FFFFFF"
+	},
+	"1499": {
+		"colorId": 1499,
+		"backGroundColor": "#93B802",
+		"textColor": "#000000"
+	},
+	"1500": {
+		"colorId": 1500,
+		"backGroundColor": "#73E112",
+		"textColor": "#000000"
+	},
+	"1501": {
+		"colorId": 1501,
+		"backGroundColor": "#A9C094",
+		"textColor": "#000000"
+	},
+	"1502": {
+		"colorId": 1502,
+		"backGroundColor": "#97937C",
+		"textColor": "#000000"
+	},
+	"1503": {
+		"colorId": 1503,
+		"backGroundColor": "#604A79",
+		"textColor": "#FFFFFF"
+	},
+	"1504": {
+		"colorId": 1504,
+		"backGroundColor": "#B03C65",
+		"textColor": "#FFFFFF"
+	},
+	"1505": {
+		"colorId": 1505,
+		"backGroundColor": "#812617",
+		"textColor": "#FFFFFF"
+	},
+	"1506": {
+		"colorId": 1506,
+		"backGroundColor": "#631700",
+		"textColor": "#FFFFFF"
+	},
+	"1507": {
+		"colorId": 1507,
+		"backGroundColor": "#6DA8CA",
+		"textColor": "#000000"
+	},
+	"1508": {
+		"colorId": 1508,
+		"backGroundColor": "#662EFD",
+		"textColor": "#FFFFFF"
+	},
+	"1509": {
+		"colorId": 1509,
+		"backGroundColor": "#BED937",
+		"textColor": "#000000"
+	},
+	"1510": {
+		"colorId": 1510,
+		"backGroundColor": "#6732E7",
+		"textColor": "#FFFFFF"
+	},
+	"1511": {
+		"colorId": 1511,
+		"backGroundColor": "#954083",
+		"textColor": "#FFFFFF"
+	},
+	"1512": {
+		"colorId": 1512,
+		"backGroundColor": "#F074BD",
+		"textColor": "#000000"
+	},
+	"1513": {
+		"colorId": 1513,
+		"backGroundColor": "#5A9F3A",
+		"textColor": "#FFFFFF"
+	},
+	"1514": {
+		"colorId": 1514,
+		"backGroundColor": "#034C87",
+		"textColor": "#FFFFFF"
+	},
+	"1515": {
+		"colorId": 1515,
+		"backGroundColor": "#F77BC1",
+		"textColor": "#000000"
+	},
+	"1516": {
+		"colorId": 1516,
+		"backGroundColor": "#4D933D",
+		"textColor": "#FFFFFF"
+	},
+	"1517": {
+		"colorId": 1517,
+		"backGroundColor": "#1F8434",
+		"textColor": "#FFFFFF"
+	},
+	"1518": {
+		"colorId": 1518,
+		"backGroundColor": "#3A65C1",
+		"textColor": "#FFFFFF"
+	},
+	"1519": {
+		"colorId": 1519,
+		"backGroundColor": "#35D4DB",
+		"textColor": "#000000"
+	},
+	"1520": {
+		"colorId": 1520,
+		"backGroundColor": "#132125",
+		"textColor": "#FFFFFF"
+	},
+	"1521": {
+		"colorId": 1521,
+		"backGroundColor": "#03C897",
+		"textColor": "#000000"
+	},
+	"1522": {
+		"colorId": 1522,
+		"backGroundColor": "#1B22E9",
+		"textColor": "#FFFFFF"
+	},
+	"1523": {
+		"colorId": 1523,
+		"backGroundColor": "#7446D3",
+		"textColor": "#FFFFFF"
+	},
+	"1524": {
+		"colorId": 1524,
+		"backGroundColor": "#41E2C9",
+		"textColor": "#000000"
+	},
+	"1525": {
+		"colorId": 1525,
+		"backGroundColor": "#AB932F",
+		"textColor": "#000000"
+	},
+	"1526": {
+		"colorId": 1526,
+		"backGroundColor": "#284300",
+		"textColor": "#FFFFFF"
+	},
+	"1527": {
+		"colorId": 1527,
+		"backGroundColor": "#261017",
+		"textColor": "#FFFFFF"
+	},
+	"1528": {
+		"colorId": 1528,
+		"backGroundColor": "#54DE7D",
+		"textColor": "#000000"
+	},
+	"1529": {
+		"colorId": 1529,
+		"backGroundColor": "#3062D9",
+		"textColor": "#FFFFFF"
+	},
+	"1530": {
+		"colorId": 1530,
+		"backGroundColor": "#EA035A",
+		"textColor": "#FFFFFF"
+	},
+	"1531": {
+		"colorId": 1531,
+		"backGroundColor": "#D3DC98",
+		"textColor": "#000000"
+	},
+	"1532": {
+		"colorId": 1532,
+		"backGroundColor": "#BCC852",
+		"textColor": "#000000"
+	},
+	"1533": {
+		"colorId": 1533,
+		"backGroundColor": "#BF7E8A",
+		"textColor": "#000000"
+	},
+	"1534": {
+		"colorId": 1534,
+		"backGroundColor": "#7BC21C",
+		"textColor": "#000000"
+	},
+	"1535": {
+		"colorId": 1535,
+		"backGroundColor": "#5A008F",
+		"textColor": "#FFFFFF"
+	},
+	"1536": {
+		"colorId": 1536,
+		"backGroundColor": "#65B4ED",
+		"textColor": "#000000"
+	},
+	"1537": {
+		"colorId": 1537,
+		"backGroundColor": "#AC38E2",
+		"textColor": "#FFFFFF"
+	},
+	"1538": {
+		"colorId": 1538,
+		"backGroundColor": "#1462F3",
+		"textColor": "#FFFFFF"
+	},
+	"1539": {
+		"colorId": 1539,
+		"backGroundColor": "#841888",
+		"textColor": "#FFFFFF"
+	},
+	"1540": {
+		"colorId": 1540,
+		"backGroundColor": "#2A3459",
+		"textColor": "#FFFFFF"
+	},
+	"1541": {
+		"colorId": 1541,
+		"backGroundColor": "#D8E9E0",
+		"textColor": "#000000"
+	},
+	"1542": {
+		"colorId": 1542,
+		"backGroundColor": "#3FE40C",
+		"textColor": "#000000"
+	},
+	"1543": {
+		"colorId": 1543,
+		"backGroundColor": "#CE4B52",
+		"textColor": "#FFFFFF"
+	},
+	"1544": {
+		"colorId": 1544,
+		"backGroundColor": "#DDDDEB",
+		"textColor": "#000000"
+	},
+	"1545": {
+		"colorId": 1545,
+		"backGroundColor": "#6AB26D",
+		"textColor": "#000000"
+	},
+	"1546": {
+		"colorId": 1546,
+		"backGroundColor": "#1D34C5",
+		"textColor": "#FFFFFF"
+	},
+	"1547": {
+		"colorId": 1547,
+		"backGroundColor": "#F06D8B",
+		"textColor": "#000000"
+	},
+	"1548": {
+		"colorId": 1548,
+		"backGroundColor": "#32B1CA",
+		"textColor": "#000000"
+	},
+	"1549": {
+		"colorId": 1549,
+		"backGroundColor": "#7CBC5F",
+		"textColor": "#000000"
+	},
+	"1550": {
+		"colorId": 1550,
+		"backGroundColor": "#2A1A4F",
+		"textColor": "#FFFFFF"
+	},
+	"1551": {
+		"colorId": 1551,
+		"backGroundColor": "#BDAE1E",
+		"textColor": "#000000"
+	},
+	"1552": {
+		"colorId": 1552,
+		"backGroundColor": "#FD9CCD",
+		"textColor": "#000000"
+	},
+	"1553": {
+		"colorId": 1553,
+		"backGroundColor": "#3DE7EA",
+		"textColor": "#000000"
+	},
+	"1554": {
+		"colorId": 1554,
+		"backGroundColor": "#9E46D9",
+		"textColor": "#FFFFFF"
+	},
+	"1555": {
+		"colorId": 1555,
+		"backGroundColor": "#501E38",
+		"textColor": "#FFFFFF"
+	},
+	"1556": {
+		"colorId": 1556,
+		"backGroundColor": "#936B0F",
+		"textColor": "#FFFFFF"
+	},
+	"1557": {
+		"colorId": 1557,
+		"backGroundColor": "#3CAB2E",
+		"textColor": "#FFFFFF"
+	},
+	"1558": {
+		"colorId": 1558,
+		"backGroundColor": "#571FAB",
+		"textColor": "#FFFFFF"
+	},
+	"1559": {
+		"colorId": 1559,
+		"backGroundColor": "#F71D3E",
+		"textColor": "#FFFFFF"
+	},
+	"1560": {
+		"colorId": 1560,
+		"backGroundColor": "#F38C6F",
+		"textColor": "#000000"
+	},
+	"1561": {
+		"colorId": 1561,
+		"backGroundColor": "#E4EB82",
+		"textColor": "#000000"
+	},
+	"1562": {
+		"colorId": 1562,
+		"backGroundColor": "#752699",
+		"textColor": "#FFFFFF"
+	},
+	"1563": {
+		"colorId": 1563,
+		"backGroundColor": "#178F4B",
+		"textColor": "#FFFFFF"
+	},
+	"1564": {
+		"colorId": 1564,
+		"backGroundColor": "#A126FE",
+		"textColor": "#FFFFFF"
+	},
+	"1565": {
+		"colorId": 1565,
+		"backGroundColor": "#2016B4",
+		"textColor": "#FFFFFF"
+	},
+	"1566": {
+		"colorId": 1566,
+		"backGroundColor": "#940374",
+		"textColor": "#FFFFFF"
+	},
+	"1567": {
+		"colorId": 1567,
+		"backGroundColor": "#E5BB62",
+		"textColor": "#000000"
+	},
+	"1568": {
+		"colorId": 1568,
+		"backGroundColor": "#39E21B",
+		"textColor": "#000000"
+	},
+	"1569": {
+		"colorId": 1569,
+		"backGroundColor": "#D53A84",
+		"textColor": "#FFFFFF"
+	},
+	"1570": {
+		"colorId": 1570,
+		"backGroundColor": "#CE5B1D",
+		"textColor": "#FFFFFF"
+	},
+	"1571": {
+		"colorId": 1571,
+		"backGroundColor": "#696C4B",
+		"textColor": "#FFFFFF"
+	},
+	"1572": {
+		"colorId": 1572,
+		"backGroundColor": "#A0F328",
+		"textColor": "#000000"
+	},
+	"1573": {
+		"colorId": 1573,
+		"backGroundColor": "#0CD182",
+		"textColor": "#000000"
+	},
+	"1574": {
+		"colorId": 1574,
+		"backGroundColor": "#413606",
+		"textColor": "#FFFFFF"
+	},
+	"1575": {
+		"colorId": 1575,
+		"backGroundColor": "#6FD8E9",
+		"textColor": "#000000"
+	},
+	"1576": {
+		"colorId": 1576,
+		"backGroundColor": "#D3864A",
+		"textColor": "#000000"
+	},
+	"1577": {
+		"colorId": 1577,
+		"backGroundColor": "#5A8803",
+		"textColor": "#FFFFFF"
+	},
+	"1578": {
+		"colorId": 1578,
+		"backGroundColor": "#D71318",
+		"textColor": "#FFFFFF"
+	},
+	"1579": {
+		"colorId": 1579,
+		"backGroundColor": "#CE90F2",
+		"textColor": "#000000"
+	},
+	"1580": {
+		"colorId": 1580,
+		"backGroundColor": "#AA4303",
+		"textColor": "#FFFFFF"
+	},
+	"1581": {
+		"colorId": 1581,
+		"backGroundColor": "#5AAEAD",
+		"textColor": "#000000"
+	},
+	"1582": {
+		"colorId": 1582,
+		"backGroundColor": "#5B8862",
+		"textColor": "#FFFFFF"
+	},
+	"1583": {
+		"colorId": 1583,
+		"backGroundColor": "#058AC4",
+		"textColor": "#FFFFFF"
+	},
+	"1584": {
+		"colorId": 1584,
+		"backGroundColor": "#551901",
+		"textColor": "#FFFFFF"
+	},
+	"1585": {
+		"colorId": 1585,
+		"backGroundColor": "#3D3732",
+		"textColor": "#FFFFFF"
+	},
+	"1586": {
+		"colorId": 1586,
+		"backGroundColor": "#4C8B7A",
+		"textColor": "#FFFFFF"
+	},
+	"1587": {
+		"colorId": 1587,
+		"backGroundColor": "#52D483",
+		"textColor": "#000000"
+	},
+	"1588": {
+		"colorId": 1588,
+		"backGroundColor": "#123A8D",
+		"textColor": "#FFFFFF"
+	},
+	"1589": {
+		"colorId": 1589,
+		"backGroundColor": "#7F6306",
+		"textColor": "#FFFFFF"
+	},
+	"1590": {
+		"colorId": 1590,
+		"backGroundColor": "#2D378C",
+		"textColor": "#FFFFFF"
+	},
+	"1591": {
+		"colorId": 1591,
+		"backGroundColor": "#36271F",
+		"textColor": "#FFFFFF"
+	},
+	"1592": {
+		"colorId": 1592,
+		"backGroundColor": "#90DF29",
+		"textColor": "#000000"
+	},
+	"1593": {
+		"colorId": 1593,
+		"backGroundColor": "#15E191",
+		"textColor": "#000000"
+	},
+	"1594": {
+		"colorId": 1594,
+		"backGroundColor": "#289275",
+		"textColor": "#FFFFFF"
+	},
+	"1595": {
+		"colorId": 1595,
+		"backGroundColor": "#6D78FB",
+		"textColor": "#000000"
+	},
+	"1596": {
+		"colorId": 1596,
+		"backGroundColor": "#E69842",
+		"textColor": "#000000"
+	},
+	"1597": {
+		"colorId": 1597,
+		"backGroundColor": "#C1082B",
+		"textColor": "#FFFFFF"
+	},
+	"1598": {
+		"colorId": 1598,
+		"backGroundColor": "#34AE49",
+		"textColor": "#FFFFFF"
+	},
+	"1599": {
+		"colorId": 1599,
+		"backGroundColor": "#B275A1",
+		"textColor": "#000000"
+	},
+	"1600": {
+		"colorId": 1600,
+		"backGroundColor": "#D84067",
+		"textColor": "#FFFFFF"
+	},
+	"1601": {
+		"colorId": 1601,
+		"backGroundColor": "#C7BC12",
+		"textColor": "#000000"
+	},
+	"1602": {
+		"colorId": 1602,
+		"backGroundColor": "#D99B65",
+		"textColor": "#000000"
+	},
+	"1603": {
+		"colorId": 1603,
+		"backGroundColor": "#C3907D",
+		"textColor": "#000000"
+	},
+	"1604": {
+		"colorId": 1604,
+		"backGroundColor": "#A22EF3",
+		"textColor": "#FFFFFF"
+	},
+	"1605": {
+		"colorId": 1605,
+		"backGroundColor": "#5B6FAD",
+		"textColor": "#FFFFFF"
+	},
+	"1606": {
+		"colorId": 1606,
+		"backGroundColor": "#963A6E",
+		"textColor": "#FFFFFF"
+	},
+	"1607": {
+		"colorId": 1607,
+		"backGroundColor": "#605B90",
+		"textColor": "#FFFFFF"
+	},
+	"1608": {
+		"colorId": 1608,
+		"backGroundColor": "#A8E3F9",
+		"textColor": "#000000"
+	},
+	"1609": {
+		"colorId": 1609,
+		"backGroundColor": "#A33D90",
+		"textColor": "#FFFFFF"
+	},
+	"1610": {
+		"colorId": 1610,
+		"backGroundColor": "#1D6937",
+		"textColor": "#FFFFFF"
+	},
+	"1611": {
+		"colorId": 1611,
+		"backGroundColor": "#431920",
+		"textColor": "#FFFFFF"
+	},
+	"1612": {
+		"colorId": 1612,
+		"backGroundColor": "#D47B12",
+		"textColor": "#000000"
+	},
+	"1613": {
+		"colorId": 1613,
+		"backGroundColor": "#803CB0",
+		"textColor": "#FFFFFF"
+	},
+	"1614": {
+		"colorId": 1614,
+		"backGroundColor": "#DBDEEE",
+		"textColor": "#000000"
+	},
+	"1615": {
+		"colorId": 1615,
+		"backGroundColor": "#CC53F2",
+		"textColor": "#000000"
+	},
+	"1616": {
+		"colorId": 1616,
+		"backGroundColor": "#9A8C01",
+		"textColor": "#000000"
+	},
+	"1617": {
+		"colorId": 1617,
+		"backGroundColor": "#E509E9",
+		"textColor": "#FFFFFF"
+	},
+	"1618": {
+		"colorId": 1618,
+		"backGroundColor": "#7C61A1",
+		"textColor": "#FFFFFF"
+	},
+	"1619": {
+		"colorId": 1619,
+		"backGroundColor": "#31EEB9",
+		"textColor": "#000000"
+	},
+	"1620": {
+		"colorId": 1620,
+		"backGroundColor": "#0C5889",
+		"textColor": "#FFFFFF"
+	},
+	"1621": {
+		"colorId": 1621,
+		"backGroundColor": "#2391AD",
+		"textColor": "#FFFFFF"
+	},
+	"1622": {
+		"colorId": 1622,
+		"backGroundColor": "#EC13FE",
+		"textColor": "#FFFFFF"
+	},
+	"1623": {
+		"colorId": 1623,
+		"backGroundColor": "#84091D",
+		"textColor": "#FFFFFF"
+	},
+	"1624": {
+		"colorId": 1624,
+		"backGroundColor": "#1F06AB",
+		"textColor": "#FFFFFF"
+	},
+	"1625": {
+		"colorId": 1625,
+		"backGroundColor": "#D4054C",
+		"textColor": "#FFFFFF"
+	},
+	"1626": {
+		"colorId": 1626,
+		"backGroundColor": "#6C86C9",
+		"textColor": "#000000"
+	},
+	"1627": {
+		"colorId": 1627,
+		"backGroundColor": "#41A5E0",
+		"textColor": "#000000"
+	},
+	"1628": {
+		"colorId": 1628,
+		"backGroundColor": "#9BA2EF",
+		"textColor": "#000000"
+	},
+	"1629": {
+		"colorId": 1629,
+		"backGroundColor": "#9E87E8",
+		"textColor": "#000000"
+	},
+	"1630": {
+		"colorId": 1630,
+		"backGroundColor": "#E08C15",
+		"textColor": "#000000"
+	},
+	"1631": {
+		"colorId": 1631,
+		"backGroundColor": "#B827E9",
+		"textColor": "#FFFFFF"
+	},
+	"1632": {
+		"colorId": 1632,
+		"backGroundColor": "#9CEA0F",
+		"textColor": "#000000"
+	},
+	"1633": {
+		"colorId": 1633,
+		"backGroundColor": "#DAFEE7",
+		"textColor": "#000000"
+	},
+	"1634": {
+		"colorId": 1634,
+		"backGroundColor": "#F74D8D",
+		"textColor": "#000000"
+	},
+	"1635": {
+		"colorId": 1635,
+		"backGroundColor": "#32B9A6",
+		"textColor": "#000000"
+	},
+	"1636": {
+		"colorId": 1636,
+		"backGroundColor": "#B30D14",
+		"textColor": "#FFFFFF"
+	},
+	"1637": {
+		"colorId": 1637,
+		"backGroundColor": "#70EDE2",
+		"textColor": "#000000"
+	},
+	"1638": {
+		"colorId": 1638,
+		"backGroundColor": "#148679",
+		"textColor": "#FFFFFF"
+	},
+	"1639": {
+		"colorId": 1639,
+		"backGroundColor": "#9F3B99",
+		"textColor": "#FFFFFF"
+	},
+	"1640": {
+		"colorId": 1640,
+		"backGroundColor": "#9926F8",
+		"textColor": "#FFFFFF"
+	},
+	"1641": {
+		"colorId": 1641,
+		"backGroundColor": "#E133F3",
+		"textColor": "#FFFFFF"
+	},
+	"1642": {
+		"colorId": 1642,
+		"backGroundColor": "#B62795",
+		"textColor": "#FFFFFF"
+	},
+	"1643": {
+		"colorId": 1643,
+		"backGroundColor": "#1F3994",
+		"textColor": "#FFFFFF"
+	},
+	"1644": {
+		"colorId": 1644,
+		"backGroundColor": "#732C8A",
+		"textColor": "#FFFFFF"
+	},
+	"1645": {
+		"colorId": 1645,
+		"backGroundColor": "#40B1F1",
+		"textColor": "#000000"
+	},
+	"1646": {
+		"colorId": 1646,
+		"backGroundColor": "#AEFE55",
+		"textColor": "#000000"
+	},
+	"1647": {
+		"colorId": 1647,
+		"backGroundColor": "#003F24",
+		"textColor": "#FFFFFF"
+	},
+	"1648": {
+		"colorId": 1648,
+		"backGroundColor": "#E7CB98",
+		"textColor": "#000000"
+	},
+	"1649": {
+		"colorId": 1649,
+		"backGroundColor": "#CAA2B8",
+		"textColor": "#000000"
+	},
+	"1650": {
+		"colorId": 1650,
+		"backGroundColor": "#F1247F",
+		"textColor": "#FFFFFF"
+	},
+	"1651": {
+		"colorId": 1651,
+		"backGroundColor": "#BDA43E",
+		"textColor": "#000000"
+	},
+	"1652": {
+		"colorId": 1652,
+		"backGroundColor": "#B68228",
+		"textColor": "#000000"
+	},
+	"1653": {
+		"colorId": 1653,
+		"backGroundColor": "#91B50D",
+		"textColor": "#000000"
+	},
+	"1654": {
+		"colorId": 1654,
+		"backGroundColor": "#589BE7",
+		"textColor": "#000000"
+	},
+	"1655": {
+		"colorId": 1655,
+		"backGroundColor": "#93601F",
+		"textColor": "#FFFFFF"
+	},
+	"1656": {
+		"colorId": 1656,
+		"backGroundColor": "#23C9A8",
+		"textColor": "#000000"
+	},
+	"1657": {
+		"colorId": 1657,
+		"backGroundColor": "#53890D",
+		"textColor": "#FFFFFF"
+	},
+	"1658": {
+		"colorId": 1658,
+		"backGroundColor": "#D6E187",
+		"textColor": "#000000"
+	},
+	"1659": {
+		"colorId": 1659,
+		"backGroundColor": "#9650F5",
+		"textColor": "#FFFFFF"
+	},
+	"1660": {
+		"colorId": 1660,
+		"backGroundColor": "#61234A",
+		"textColor": "#FFFFFF"
+	},
+	"1661": {
+		"colorId": 1661,
+		"backGroundColor": "#A37D43",
+		"textColor": "#000000"
+	},
+	"1662": {
+		"colorId": 1662,
+		"backGroundColor": "#A30E5E",
+		"textColor": "#FFFFFF"
+	},
+	"1663": {
+		"colorId": 1663,
+		"backGroundColor": "#C1001A",
+		"textColor": "#FFFFFF"
+	},
+	"1664": {
+		"colorId": 1664,
+		"backGroundColor": "#8E8B1E",
+		"textColor": "#FFFFFF"
+	},
+	"1665": {
+		"colorId": 1665,
+		"backGroundColor": "#4FDA85",
+		"textColor": "#000000"
+	},
+	"1666": {
+		"colorId": 1666,
+		"backGroundColor": "#29956E",
+		"textColor": "#FFFFFF"
+	},
+	"1667": {
+		"colorId": 1667,
+		"backGroundColor": "#A36B9C",
+		"textColor": "#000000"
+	},
+	"1668": {
+		"colorId": 1668,
+		"backGroundColor": "#E9402D",
+		"textColor": "#FFFFFF"
+	},
+	"1669": {
+		"colorId": 1669,
+		"backGroundColor": "#A14ED4",
+		"textColor": "#FFFFFF"
+	},
+	"1670": {
+		"colorId": 1670,
+		"backGroundColor": "#6CE0C5",
+		"textColor": "#000000"
+	},
+	"1671": {
+		"colorId": 1671,
+		"backGroundColor": "#6EA3C7",
+		"textColor": "#000000"
+	},
+	"1672": {
+		"colorId": 1672,
+		"backGroundColor": "#8D14E8",
+		"textColor": "#FFFFFF"
+	},
+	"1673": {
+		"colorId": 1673,
+		"backGroundColor": "#6843C9",
+		"textColor": "#FFFFFF"
+	},
+	"1674": {
+		"colorId": 1674,
+		"backGroundColor": "#006326",
+		"textColor": "#FFFFFF"
+	},
+	"1675": {
+		"colorId": 1675,
+		"backGroundColor": "#04779E",
+		"textColor": "#FFFFFF"
+	},
+	"1676": {
+		"colorId": 1676,
+		"backGroundColor": "#6113DB",
+		"textColor": "#FFFFFF"
+	},
+	"1677": {
+		"colorId": 1677,
+		"backGroundColor": "#0CAA11",
+		"textColor": "#FFFFFF"
+	},
+	"1678": {
+		"colorId": 1678,
+		"backGroundColor": "#A27B9A",
+		"textColor": "#000000"
+	},
+	"1679": {
+		"colorId": 1679,
+		"backGroundColor": "#5C5C14",
+		"textColor": "#FFFFFF"
+	},
+	"1680": {
+		"colorId": 1680,
+		"backGroundColor": "#1BF853",
+		"textColor": "#000000"
+	},
+	"1681": {
+		"colorId": 1681,
+		"backGroundColor": "#3905EC",
+		"textColor": "#FFFFFF"
+	},
+	"1682": {
+		"colorId": 1682,
+		"backGroundColor": "#2BCF45",
+		"textColor": "#000000"
+	},
+	"1683": {
+		"colorId": 1683,
+		"backGroundColor": "#7C9F05",
+		"textColor": "#000000"
+	},
+	"1684": {
+		"colorId": 1684,
+		"backGroundColor": "#FCC8F8",
+		"textColor": "#000000"
+	},
+	"1685": {
+		"colorId": 1685,
+		"backGroundColor": "#BDF68E",
+		"textColor": "#000000"
+	},
+	"1686": {
+		"colorId": 1686,
+		"backGroundColor": "#7F0822",
+		"textColor": "#FFFFFF"
+	},
+	"1687": {
+		"colorId": 1687,
+		"backGroundColor": "#D6A4FB",
+		"textColor": "#000000"
+	},
+	"1688": {
+		"colorId": 1688,
+		"backGroundColor": "#321AD8",
+		"textColor": "#FFFFFF"
+	},
+	"1689": {
+		"colorId": 1689,
+		"backGroundColor": "#EC1E89",
+		"textColor": "#FFFFFF"
+	},
+	"1690": {
+		"colorId": 1690,
+		"backGroundColor": "#9F7038",
+		"textColor": "#FFFFFF"
+	},
+	"1691": {
+		"colorId": 1691,
+		"backGroundColor": "#7132FF",
+		"textColor": "#FFFFFF"
+	},
+	"1692": {
+		"colorId": 1692,
+		"backGroundColor": "#C5BD3A",
+		"textColor": "#000000"
+	},
+	"1693": {
+		"colorId": 1693,
+		"backGroundColor": "#C1FFCE",
+		"textColor": "#000000"
+	},
+	"1694": {
+		"colorId": 1694,
+		"backGroundColor": "#9B5BBE",
+		"textColor": "#FFFFFF"
+	},
+	"1695": {
+		"colorId": 1695,
+		"backGroundColor": "#B5D7F2",
+		"textColor": "#000000"
+	},
+	"1696": {
+		"colorId": 1696,
+		"backGroundColor": "#584114",
+		"textColor": "#FFFFFF"
+	},
+	"1697": {
+		"colorId": 1697,
+		"backGroundColor": "#3E10D0",
+		"textColor": "#FFFFFF"
+	},
+	"1698": {
+		"colorId": 1698,
+		"backGroundColor": "#DA85F0",
+		"textColor": "#000000"
+	},
+	"1699": {
+		"colorId": 1699,
+		"backGroundColor": "#CD936F",
+		"textColor": "#000000"
+	},
+	"1700": {
+		"colorId": 1700,
+		"backGroundColor": "#779A3C",
+		"textColor": "#000000"
+	},
+	"1701": {
+		"colorId": 1701,
+		"backGroundColor": "#944D3D",
+		"textColor": "#FFFFFF"
+	},
+	"1702": {
+		"colorId": 1702,
+		"backGroundColor": "#D653C1",
+		"textColor": "#000000"
+	},
+	"1703": {
+		"colorId": 1703,
+		"backGroundColor": "#260898",
+		"textColor": "#FFFFFF"
+	},
+	"1704": {
+		"colorId": 1704,
+		"backGroundColor": "#FD2669",
+		"textColor": "#FFFFFF"
+	},
+	"1705": {
+		"colorId": 1705,
+		"backGroundColor": "#0500BF",
+		"textColor": "#FFFFFF"
+	},
+	"1706": {
+		"colorId": 1706,
+		"backGroundColor": "#4A4B46",
+		"textColor": "#FFFFFF"
+	},
+	"1707": {
+		"colorId": 1707,
+		"backGroundColor": "#5AF5C8",
+		"textColor": "#000000"
+	},
+	"1708": {
+		"colorId": 1708,
+		"backGroundColor": "#C09632",
+		"textColor": "#000000"
+	},
+	"1709": {
+		"colorId": 1709,
+		"backGroundColor": "#F5C157",
+		"textColor": "#000000"
+	},
+	"1710": {
+		"colorId": 1710,
+		"backGroundColor": "#FEF15F",
+		"textColor": "#000000"
+	},
+	"1711": {
+		"colorId": 1711,
+		"backGroundColor": "#CC0C3C",
+		"textColor": "#FFFFFF"
+	},
+	"1712": {
+		"colorId": 1712,
+		"backGroundColor": "#E51920",
+		"textColor": "#FFFFFF"
+	},
+	"1713": {
+		"colorId": 1713,
+		"backGroundColor": "#9714D7",
+		"textColor": "#FFFFFF"
+	},
+	"1714": {
+		"colorId": 1714,
+		"backGroundColor": "#6D84AC",
+		"textColor": "#000000"
+	},
+	"1715": {
+		"colorId": 1715,
+		"backGroundColor": "#7FDDF7",
+		"textColor": "#000000"
+	},
+	"1716": {
+		"colorId": 1716,
+		"backGroundColor": "#B996CB",
+		"textColor": "#000000"
+	},
+	"1717": {
+		"colorId": 1717,
+		"backGroundColor": "#CCE0FD",
+		"textColor": "#000000"
+	},
+	"1718": {
+		"colorId": 1718,
+		"backGroundColor": "#BB8674",
+		"textColor": "#000000"
+	},
+	"1719": {
+		"colorId": 1719,
+		"backGroundColor": "#25A44F",
+		"textColor": "#FFFFFF"
+	},
+	"1720": {
+		"colorId": 1720,
+		"backGroundColor": "#DB392B",
+		"textColor": "#FFFFFF"
+	},
+	"1721": {
+		"colorId": 1721,
+		"backGroundColor": "#CC9795",
+		"textColor": "#000000"
+	},
+	"1722": {
+		"colorId": 1722,
+		"backGroundColor": "#0B2988",
+		"textColor": "#FFFFFF"
+	},
+	"1723": {
+		"colorId": 1723,
+		"backGroundColor": "#2A6446",
+		"textColor": "#FFFFFF"
+	},
+	"1724": {
+		"colorId": 1724,
+		"backGroundColor": "#053A48",
+		"textColor": "#FFFFFF"
+	},
+	"1725": {
+		"colorId": 1725,
+		"backGroundColor": "#2425FD",
+		"textColor": "#FFFFFF"
+	},
+	"1726": {
+		"colorId": 1726,
+		"backGroundColor": "#07E7A2",
+		"textColor": "#000000"
+	},
+	"1727": {
+		"colorId": 1727,
+		"backGroundColor": "#D6F3A7",
+		"textColor": "#000000"
+	},
+	"1728": {
+		"colorId": 1728,
+		"backGroundColor": "#66057F",
+		"textColor": "#FFFFFF"
+	},
+	"1729": {
+		"colorId": 1729,
+		"backGroundColor": "#D4C8D6",
+		"textColor": "#000000"
+	},
+	"1730": {
+		"colorId": 1730,
+		"backGroundColor": "#040C9D",
+		"textColor": "#FFFFFF"
+	},
+	"1731": {
+		"colorId": 1731,
+		"backGroundColor": "#1B73E1",
+		"textColor": "#FFFFFF"
+	},
+	"1732": {
+		"colorId": 1732,
+		"backGroundColor": "#C6F290",
+		"textColor": "#000000"
+	},
+	"1733": {
+		"colorId": 1733,
+		"backGroundColor": "#8877DF",
+		"textColor": "#000000"
+	},
+	"1734": {
+		"colorId": 1734,
+		"backGroundColor": "#1C1BF3",
+		"textColor": "#FFFFFF"
+	},
+	"1735": {
+		"colorId": 1735,
+		"backGroundColor": "#425975",
+		"textColor": "#FFFFFF"
+	},
+	"1736": {
+		"colorId": 1736,
+		"backGroundColor": "#B0C5FB",
+		"textColor": "#000000"
+	},
+	"1737": {
+		"colorId": 1737,
+		"backGroundColor": "#759BC9",
+		"textColor": "#000000"
+	},
+	"1738": {
+		"colorId": 1738,
+		"backGroundColor": "#B6E463",
+		"textColor": "#000000"
+	},
+	"1739": {
+		"colorId": 1739,
+		"backGroundColor": "#0A706F",
+		"textColor": "#FFFFFF"
+	},
+	"1740": {
+		"colorId": 1740,
+		"backGroundColor": "#1F317C",
+		"textColor": "#FFFFFF"
+	},
+	"1741": {
+		"colorId": 1741,
+		"backGroundColor": "#836E81",
+		"textColor": "#FFFFFF"
+	},
+	"1742": {
+		"colorId": 1742,
+		"backGroundColor": "#80E237",
+		"textColor": "#000000"
+	},
+	"1743": {
+		"colorId": 1743,
+		"backGroundColor": "#8C9676",
+		"textColor": "#000000"
+	},
+	"1744": {
+		"colorId": 1744,
+		"backGroundColor": "#5A4510",
+		"textColor": "#FFFFFF"
+	},
+	"1745": {
+		"colorId": 1745,
+		"backGroundColor": "#FB2EA0",
+		"textColor": "#FFFFFF"
+	},
+	"1746": {
+		"colorId": 1746,
+		"backGroundColor": "#D139F3",
+		"textColor": "#FFFFFF"
+	},
+	"1747": {
+		"colorId": 1747,
+		"backGroundColor": "#7F67E8",
+		"textColor": "#FFFFFF"
+	},
+	"1748": {
+		"colorId": 1748,
+		"backGroundColor": "#2A1EEC",
+		"textColor": "#FFFFFF"
+	},
+	"1749": {
+		"colorId": 1749,
+		"backGroundColor": "#22C328",
+		"textColor": "#000000"
+	},
+	"1750": {
+		"colorId": 1750,
+		"backGroundColor": "#AD8D8B",
+		"textColor": "#000000"
+	},
+	"1751": {
+		"colorId": 1751,
+		"backGroundColor": "#560C5D",
+		"textColor": "#FFFFFF"
+	},
+	"1752": {
+		"colorId": 1752,
+		"backGroundColor": "#CD6F0D",
+		"textColor": "#FFFFFF"
+	},
+	"1753": {
+		"colorId": 1753,
+		"backGroundColor": "#D3F7CC",
+		"textColor": "#000000"
+	},
+	"1754": {
+		"colorId": 1754,
+		"backGroundColor": "#EDD344",
+		"textColor": "#000000"
+	},
+	"1755": {
+		"colorId": 1755,
+		"backGroundColor": "#186396",
+		"textColor": "#FFFFFF"
+	},
+	"1756": {
+		"colorId": 1756,
+		"backGroundColor": "#BF1C6C",
+		"textColor": "#FFFFFF"
+	},
+	"1757": {
+		"colorId": 1757,
+		"backGroundColor": "#D8F0E1",
+		"textColor": "#000000"
+	},
+	"1758": {
+		"colorId": 1758,
+		"backGroundColor": "#8CC98C",
+		"textColor": "#000000"
+	},
+	"1759": {
+		"colorId": 1759,
+		"backGroundColor": "#9DA1B1",
+		"textColor": "#000000"
+	},
+	"1760": {
+		"colorId": 1760,
+		"backGroundColor": "#DAF00C",
+		"textColor": "#000000"
+	},
+	"1761": {
+		"colorId": 1761,
+		"backGroundColor": "#F8102E",
+		"textColor": "#FFFFFF"
+	},
+	"1762": {
+		"colorId": 1762,
+		"backGroundColor": "#CCC863",
+		"textColor": "#000000"
+	},
+	"1763": {
+		"colorId": 1763,
+		"backGroundColor": "#D127FD",
+		"textColor": "#FFFFFF"
+	},
+	"1764": {
+		"colorId": 1764,
+		"backGroundColor": "#F3CED5",
+		"textColor": "#000000"
+	},
+	"1765": {
+		"colorId": 1765,
+		"backGroundColor": "#24D555",
+		"textColor": "#000000"
+	},
+	"1766": {
+		"colorId": 1766,
+		"backGroundColor": "#E89A2D",
+		"textColor": "#000000"
+	},
+	"1767": {
+		"colorId": 1767,
+		"backGroundColor": "#9110DE",
+		"textColor": "#FFFFFF"
+	},
+	"1768": {
+		"colorId": 1768,
+		"backGroundColor": "#8CDBBE",
+		"textColor": "#000000"
+	},
+	"1769": {
+		"colorId": 1769,
+		"backGroundColor": "#1A7F40",
+		"textColor": "#FFFFFF"
+	},
+	"1770": {
+		"colorId": 1770,
+		"backGroundColor": "#9C8616",
+		"textColor": "#FFFFFF"
+	},
+	"1771": {
+		"colorId": 1771,
+		"backGroundColor": "#1088FF",
+		"textColor": "#FFFFFF"
+	},
+	"1772": {
+		"colorId": 1772,
+		"backGroundColor": "#1D0F1A",
+		"textColor": "#FFFFFF"
+	},
+	"1773": {
+		"colorId": 1773,
+		"backGroundColor": "#9BC933",
+		"textColor": "#000000"
+	},
+	"1774": {
+		"colorId": 1774,
+		"backGroundColor": "#3BB451",
+		"textColor": "#000000"
+	},
+	"1775": {
+		"colorId": 1775,
+		"backGroundColor": "#1E0E74",
+		"textColor": "#FFFFFF"
+	},
+	"1776": {
+		"colorId": 1776,
+		"backGroundColor": "#819CB9",
+		"textColor": "#000000"
+	},
+	"1777": {
+		"colorId": 1777,
+		"backGroundColor": "#0F7A26",
+		"textColor": "#FFFFFF"
+	},
+	"1778": {
+		"colorId": 1778,
+		"backGroundColor": "#F4B94C",
+		"textColor": "#000000"
+	},
+	"1779": {
+		"colorId": 1779,
+		"backGroundColor": "#77C0BC",
+		"textColor": "#000000"
+	},
+	"1780": {
+		"colorId": 1780,
+		"backGroundColor": "#B48590",
+		"textColor": "#000000"
+	},
+	"1781": {
+		"colorId": 1781,
+		"backGroundColor": "#D4F71B",
+		"textColor": "#000000"
+	},
+	"1782": {
+		"colorId": 1782,
+		"backGroundColor": "#96A978",
+		"textColor": "#000000"
+	},
+	"1783": {
+		"colorId": 1783,
+		"backGroundColor": "#964DA3",
+		"textColor": "#FFFFFF"
+	},
+	"1784": {
+		"colorId": 1784,
+		"backGroundColor": "#D142F6",
+		"textColor": "#000000"
+	},
+	"1785": {
+		"colorId": 1785,
+		"backGroundColor": "#0696D9",
+		"textColor": "#FFFFFF"
+	},
+	"1786": {
+		"colorId": 1786,
+		"backGroundColor": "#21CF70",
+		"textColor": "#000000"
+	},
+	"1787": {
+		"colorId": 1787,
+		"backGroundColor": "#87832F",
+		"textColor": "#FFFFFF"
+	},
+	"1788": {
+		"colorId": 1788,
+		"backGroundColor": "#F58007",
+		"textColor": "#000000"
+	},
+	"1789": {
+		"colorId": 1789,
+		"backGroundColor": "#F04F43",
+		"textColor": "#FFFFFF"
+	},
+	"1790": {
+		"colorId": 1790,
+		"backGroundColor": "#04406D",
+		"textColor": "#FFFFFF"
+	},
+	"1791": {
+		"colorId": 1791,
+		"backGroundColor": "#F475FD",
+		"textColor": "#000000"
+	},
+	"1792": {
+		"colorId": 1792,
+		"backGroundColor": "#814E74",
+		"textColor": "#FFFFFF"
+	},
+	"1793": {
+		"colorId": 1793,
+		"backGroundColor": "#13B488",
+		"textColor": "#FFFFFF"
+	},
+	"1794": {
+		"colorId": 1794,
+		"backGroundColor": "#0FA6E6",
+		"textColor": "#000000"
+	},
+	"1795": {
+		"colorId": 1795,
+		"backGroundColor": "#F37584",
+		"textColor": "#000000"
+	},
+	"1796": {
+		"colorId": 1796,
+		"backGroundColor": "#763C59",
+		"textColor": "#FFFFFF"
+	},
+	"1797": {
+		"colorId": 1797,
+		"backGroundColor": "#ECB003",
+		"textColor": "#000000"
+	},
+	"1798": {
+		"colorId": 1798,
+		"backGroundColor": "#E493AE",
+		"textColor": "#000000"
+	},
+	"1799": {
+		"colorId": 1799,
+		"backGroundColor": "#CAC4A5",
+		"textColor": "#000000"
+	},
+	"1800": {
+		"colorId": 1800,
+		"backGroundColor": "#472B3B",
+		"textColor": "#FFFFFF"
+	},
+	"1801": {
+		"colorId": 1801,
+		"backGroundColor": "#968C58",
+		"textColor": "#000000"
+	},
+	"1802": {
+		"colorId": 1802,
+		"backGroundColor": "#509B3C",
+		"textColor": "#FFFFFF"
+	},
+	"1803": {
+		"colorId": 1803,
+		"backGroundColor": "#F44408",
+		"textColor": "#FFFFFF"
+	},
+	"1804": {
+		"colorId": 1804,
+		"backGroundColor": "#AF22CE",
+		"textColor": "#FFFFFF"
+	},
+	"1805": {
+		"colorId": 1805,
+		"backGroundColor": "#4FD339",
+		"textColor": "#000000"
+	},
+	"1806": {
+		"colorId": 1806,
+		"backGroundColor": "#8CB7C9",
+		"textColor": "#000000"
+	},
+	"1807": {
+		"colorId": 1807,
+		"backGroundColor": "#E70186",
+		"textColor": "#FFFFFF"
+	},
+	"1808": {
+		"colorId": 1808,
+		"backGroundColor": "#EF920C",
+		"textColor": "#000000"
+	},
+	"1809": {
+		"colorId": 1809,
+		"backGroundColor": "#E5A5E1",
+		"textColor": "#000000"
+	},
+	"1810": {
+		"colorId": 1810,
+		"backGroundColor": "#32CE22",
+		"textColor": "#000000"
+	},
+	"1811": {
+		"colorId": 1811,
+		"backGroundColor": "#F9D91D",
+		"textColor": "#000000"
+	},
+	"1812": {
+		"colorId": 1812,
+		"backGroundColor": "#D47D0E",
+		"textColor": "#000000"
+	},
+	"1813": {
+		"colorId": 1813,
+		"backGroundColor": "#C6DA85",
+		"textColor": "#000000"
+	},
+	"1814": {
+		"colorId": 1814,
+		"backGroundColor": "#899441",
+		"textColor": "#000000"
+	},
+	"1815": {
+		"colorId": 1815,
+		"backGroundColor": "#EE5430",
+		"textColor": "#FFFFFF"
+	},
+	"1816": {
+		"colorId": 1816,
+		"backGroundColor": "#F5FDFF",
+		"textColor": "#000000"
+	},
+	"1817": {
+		"colorId": 1817,
+		"backGroundColor": "#895DEB",
+		"textColor": "#FFFFFF"
+	},
+	"1818": {
+		"colorId": 1818,
+		"backGroundColor": "#8A3F47",
+		"textColor": "#FFFFFF"
+	},
+	"1819": {
+		"colorId": 1819,
+		"backGroundColor": "#62EF85",
+		"textColor": "#000000"
+	},
+	"1820": {
+		"colorId": 1820,
+		"backGroundColor": "#3ED094",
+		"textColor": "#000000"
+	},
+	"1821": {
+		"colorId": 1821,
+		"backGroundColor": "#E2F3E9",
+		"textColor": "#000000"
+	},
+	"1822": {
+		"colorId": 1822,
+		"backGroundColor": "#A1F66C",
+		"textColor": "#000000"
+	},
+	"1823": {
+		"colorId": 1823,
+		"backGroundColor": "#DB3695",
+		"textColor": "#FFFFFF"
+	},
+	"1824": {
+		"colorId": 1824,
+		"backGroundColor": "#BB9D92",
+		"textColor": "#000000"
+	},
+	"1825": {
+		"colorId": 1825,
+		"backGroundColor": "#5B6DB7",
+		"textColor": "#FFFFFF"
+	},
+	"1826": {
+		"colorId": 1826,
+		"backGroundColor": "#17DBEC",
+		"textColor": "#000000"
+	},
+	"1827": {
+		"colorId": 1827,
+		"backGroundColor": "#0171B6",
+		"textColor": "#FFFFFF"
+	},
+	"1828": {
+		"colorId": 1828,
+		"backGroundColor": "#A552CB",
+		"textColor": "#FFFFFF"
+	},
+	"1829": {
+		"colorId": 1829,
+		"backGroundColor": "#713E01",
+		"textColor": "#FFFFFF"
+	},
+	"1830": {
+		"colorId": 1830,
+		"backGroundColor": "#32C556",
+		"textColor": "#000000"
+	},
+	"1831": {
+		"colorId": 1831,
+		"backGroundColor": "#074930",
+		"textColor": "#FFFFFF"
+	},
+	"1832": {
+		"colorId": 1832,
+		"backGroundColor": "#FC4CBE",
+		"textColor": "#000000"
+	},
+	"1833": {
+		"colorId": 1833,
+		"backGroundColor": "#56D0C6",
+		"textColor": "#000000"
+	},
+	"1834": {
+		"colorId": 1834,
+		"backGroundColor": "#EB4DCD",
+		"textColor": "#000000"
+	},
+	"1835": {
+		"colorId": 1835,
+		"backGroundColor": "#9F14A1",
+		"textColor": "#FFFFFF"
+	},
+	"1836": {
+		"colorId": 1836,
+		"backGroundColor": "#008376",
+		"textColor": "#FFFFFF"
+	},
+	"1837": {
+		"colorId": 1837,
+		"backGroundColor": "#499085",
+		"textColor": "#FFFFFF"
+	},
+	"1838": {
+		"colorId": 1838,
+		"backGroundColor": "#F185E8",
+		"textColor": "#000000"
+	},
+	"1839": {
+		"colorId": 1839,
+		"backGroundColor": "#8440EB",
+		"textColor": "#FFFFFF"
+	},
+	"1840": {
+		"colorId": 1840,
+		"backGroundColor": "#C2CB78",
+		"textColor": "#000000"
+	},
+	"1841": {
+		"colorId": 1841,
+		"backGroundColor": "#D62237",
+		"textColor": "#FFFFFF"
+	},
+	"1842": {
+		"colorId": 1842,
+		"backGroundColor": "#1BE21E",
+		"textColor": "#000000"
+	},
+	"1843": {
+		"colorId": 1843,
+		"backGroundColor": "#8F6BCA",
+		"textColor": "#000000"
+	},
+	"1844": {
+		"colorId": 1844,
+		"backGroundColor": "#C320D9",
+		"textColor": "#FFFFFF"
+	},
+	"1845": {
+		"colorId": 1845,
+		"backGroundColor": "#842F01",
+		"textColor": "#FFFFFF"
+	},
+	"1846": {
+		"colorId": 1846,
+		"backGroundColor": "#A6B94F",
+		"textColor": "#000000"
+	},
+	"1847": {
+		"colorId": 1847,
+		"backGroundColor": "#A6CAF1",
+		"textColor": "#000000"
+	},
+	"1848": {
+		"colorId": 1848,
+		"backGroundColor": "#09125B",
+		"textColor": "#FFFFFF"
+	},
+	"1849": {
+		"colorId": 1849,
+		"backGroundColor": "#E0D442",
+		"textColor": "#000000"
+	},
+	"1850": {
+		"colorId": 1850,
+		"backGroundColor": "#BFCA83",
+		"textColor": "#000000"
+	},
+	"1851": {
+		"colorId": 1851,
+		"backGroundColor": "#CF00A1",
+		"textColor": "#FFFFFF"
+	},
+	"1852": {
+		"colorId": 1852,
+		"backGroundColor": "#0F480C",
+		"textColor": "#FFFFFF"
+	},
+	"1853": {
+		"colorId": 1853,
+		"backGroundColor": "#6EB027",
+		"textColor": "#000000"
+	},
+	"1854": {
+		"colorId": 1854,
+		"backGroundColor": "#BBB761",
+		"textColor": "#000000"
+	},
+	"1855": {
+		"colorId": 1855,
+		"backGroundColor": "#E21469",
+		"textColor": "#FFFFFF"
+	},
+	"1856": {
+		"colorId": 1856,
+		"backGroundColor": "#EF47E3",
+		"textColor": "#000000"
+	},
+	"1857": {
+		"colorId": 1857,
+		"backGroundColor": "#52AAD8",
+		"textColor": "#000000"
+	},
+	"1858": {
+		"colorId": 1858,
+		"backGroundColor": "#F2942E",
+		"textColor": "#000000"
+	},
+	"1859": {
+		"colorId": 1859,
+		"backGroundColor": "#A9B70B",
+		"textColor": "#000000"
+	},
+	"1860": {
+		"colorId": 1860,
+		"backGroundColor": "#5F3484",
+		"textColor": "#FFFFFF"
+	},
+	"1861": {
+		"colorId": 1861,
+		"backGroundColor": "#0538D4",
+		"textColor": "#FFFFFF"
+	},
+	"1862": {
+		"colorId": 1862,
+		"backGroundColor": "#8B52B7",
+		"textColor": "#FFFFFF"
+	},
+	"1863": {
+		"colorId": 1863,
+		"backGroundColor": "#29F95A",
+		"textColor": "#000000"
+	},
+	"1864": {
+		"colorId": 1864,
+		"backGroundColor": "#087435",
+		"textColor": "#FFFFFF"
+	},
+	"1865": {
+		"colorId": 1865,
+		"backGroundColor": "#20F62E",
+		"textColor": "#000000"
+	},
+	"1866": {
+		"colorId": 1866,
+		"backGroundColor": "#2130F0",
+		"textColor": "#FFFFFF"
+	},
+	"1867": {
+		"colorId": 1867,
+		"backGroundColor": "#346782",
+		"textColor": "#FFFFFF"
+	},
+	"1868": {
+		"colorId": 1868,
+		"backGroundColor": "#BF2763",
+		"textColor": "#FFFFFF"
+	},
+	"1869": {
+		"colorId": 1869,
+		"backGroundColor": "#6D8A28",
+		"textColor": "#FFFFFF"
+	},
+	"1870": {
+		"colorId": 1870,
+		"backGroundColor": "#095CD5",
+		"textColor": "#FFFFFF"
+	},
+	"1871": {
+		"colorId": 1871,
+		"backGroundColor": "#8BBBA0",
+		"textColor": "#000000"
+	},
+	"1872": {
+		"colorId": 1872,
+		"backGroundColor": "#076069",
+		"textColor": "#FFFFFF"
+	},
+	"1873": {
+		"colorId": 1873,
+		"backGroundColor": "#B57543",
+		"textColor": "#000000"
+	},
+	"1874": {
+		"colorId": 1874,
+		"backGroundColor": "#37A057",
+		"textColor": "#FFFFFF"
+	},
+	"1875": {
+		"colorId": 1875,
+		"backGroundColor": "#6D575D",
+		"textColor": "#FFFFFF"
+	},
+	"1876": {
+		"colorId": 1876,
+		"backGroundColor": "#36FEAD",
+		"textColor": "#000000"
+	},
+	"1877": {
+		"colorId": 1877,
+		"backGroundColor": "#6021CE",
+		"textColor": "#FFFFFF"
+	},
+	"1878": {
+		"colorId": 1878,
+		"backGroundColor": "#810625",
+		"textColor": "#FFFFFF"
+	},
+	"1879": {
+		"colorId": 1879,
+		"backGroundColor": "#6F43EC",
+		"textColor": "#FFFFFF"
+	},
+	"1880": {
+		"colorId": 1880,
+		"backGroundColor": "#393D64",
+		"textColor": "#FFFFFF"
+	},
+	"1881": {
+		"colorId": 1881,
+		"backGroundColor": "#BFD50E",
+		"textColor": "#000000"
+	},
+	"1882": {
+		"colorId": 1882,
+		"backGroundColor": "#B07434",
+		"textColor": "#FFFFFF"
+	},
+	"1883": {
+		"colorId": 1883,
+		"backGroundColor": "#C44D27",
+		"textColor": "#FFFFFF"
+	},
+	"1884": {
+		"colorId": 1884,
+		"backGroundColor": "#FAD672",
+		"textColor": "#000000"
+	},
+	"1885": {
+		"colorId": 1885,
+		"backGroundColor": "#A4D89E",
+		"textColor": "#000000"
+	},
+	"1886": {
+		"colorId": 1886,
+		"backGroundColor": "#3B3C3B",
+		"textColor": "#FFFFFF"
+	},
+	"1887": {
+		"colorId": 1887,
+		"backGroundColor": "#A63A3E",
+		"textColor": "#FFFFFF"
+	},
+	"1888": {
+		"colorId": 1888,
+		"backGroundColor": "#24F0C9",
+		"textColor": "#000000"
+	},
+	"1889": {
+		"colorId": 1889,
+		"backGroundColor": "#026273",
+		"textColor": "#FFFFFF"
+	},
+	"1890": {
+		"colorId": 1890,
+		"backGroundColor": "#7F40E0",
+		"textColor": "#FFFFFF"
+	},
+	"1891": {
+		"colorId": 1891,
+		"backGroundColor": "#0849D6",
+		"textColor": "#FFFFFF"
+	},
+	"1892": {
+		"colorId": 1892,
+		"backGroundColor": "#C66126",
+		"textColor": "#FFFFFF"
+	},
+	"1893": {
+		"colorId": 1893,
+		"backGroundColor": "#97B9C6",
+		"textColor": "#000000"
+	},
+	"1894": {
+		"colorId": 1894,
+		"backGroundColor": "#4C9117",
+		"textColor": "#FFFFFF"
+	},
+	"1895": {
+		"colorId": 1895,
+		"backGroundColor": "#98B68E",
+		"textColor": "#000000"
+	},
+	"1896": {
+		"colorId": 1896,
+		"backGroundColor": "#42159E",
+		"textColor": "#FFFFFF"
+	},
+	"1897": {
+		"colorId": 1897,
+		"backGroundColor": "#CCCBBB",
+		"textColor": "#000000"
+	},
+	"1898": {
+		"colorId": 1898,
+		"backGroundColor": "#C456F7",
+		"textColor": "#000000"
+	},
+	"1899": {
+		"colorId": 1899,
+		"backGroundColor": "#6277EB",
+		"textColor": "#FFFFFF"
+	},
+	"1900": {
+		"colorId": 1900,
+		"backGroundColor": "#40C0A0",
+		"textColor": "#000000"
+	},
+	"1901": {
+		"colorId": 1901,
+		"backGroundColor": "#5B0ECA",
+		"textColor": "#FFFFFF"
+	},
+	"1902": {
+		"colorId": 1902,
+		"backGroundColor": "#F88494",
+		"textColor": "#000000"
+	},
+	"1903": {
+		"colorId": 1903,
+		"backGroundColor": "#C6FFF8",
+		"textColor": "#000000"
+	},
+	"1904": {
+		"colorId": 1904,
+		"backGroundColor": "#C5C456",
+		"textColor": "#000000"
+	},
+	"1905": {
+		"colorId": 1905,
+		"backGroundColor": "#AE145E",
+		"textColor": "#FFFFFF"
+	},
+	"1906": {
+		"colorId": 1906,
+		"backGroundColor": "#FDE058",
+		"textColor": "#000000"
+	},
+	"1907": {
+		"colorId": 1907,
+		"backGroundColor": "#B33B13",
+		"textColor": "#FFFFFF"
+	},
+	"1908": {
+		"colorId": 1908,
+		"backGroundColor": "#1FAFAF",
+		"textColor": "#000000"
+	},
+	"1909": {
+		"colorId": 1909,
+		"backGroundColor": "#DAA0E3",
+		"textColor": "#000000"
+	},
+	"1910": {
+		"colorId": 1910,
+		"backGroundColor": "#50ECD6",
+		"textColor": "#000000"
+	},
+	"1911": {
+		"colorId": 1911,
+		"backGroundColor": "#274018",
+		"textColor": "#FFFFFF"
+	},
+	"1912": {
+		"colorId": 1912,
+		"backGroundColor": "#D09F07",
+		"textColor": "#000000"
+	},
+	"1913": {
+		"colorId": 1913,
+		"backGroundColor": "#1EFC01",
+		"textColor": "#000000"
+	},
+	"1914": {
+		"colorId": 1914,
+		"backGroundColor": "#E495D5",
+		"textColor": "#000000"
+	},
+	"1915": {
+		"colorId": 1915,
+		"backGroundColor": "#0E9D8A",
+		"textColor": "#FFFFFF"
+	},
+	"1916": {
+		"colorId": 1916,
+		"backGroundColor": "#D05B28",
+		"textColor": "#FFFFFF"
+	},
+	"1917": {
+		"colorId": 1917,
+		"backGroundColor": "#BC1AD1",
+		"textColor": "#FFFFFF"
+	},
+	"1918": {
+		"colorId": 1918,
+		"backGroundColor": "#DA0BF8",
+		"textColor": "#FFFFFF"
+	},
+	"1919": {
+		"colorId": 1919,
+		"backGroundColor": "#26302D",
+		"textColor": "#FFFFFF"
+	},
+	"1920": {
+		"colorId": 1920,
+		"backGroundColor": "#CC3850",
+		"textColor": "#FFFFFF"
+	},
+	"1921": {
+		"colorId": 1921,
+		"backGroundColor": "#C14024",
+		"textColor": "#FFFFFF"
+	},
+	"1922": {
+		"colorId": 1922,
+		"backGroundColor": "#96CCB5",
+		"textColor": "#000000"
+	},
+	"1923": {
+		"colorId": 1923,
+		"backGroundColor": "#BDF5D5",
+		"textColor": "#000000"
+	},
+	"1924": {
+		"colorId": 1924,
+		"backGroundColor": "#5EE722",
+		"textColor": "#000000"
+	},
+	"1925": {
+		"colorId": 1925,
+		"backGroundColor": "#6A810E",
+		"textColor": "#FFFFFF"
+	},
+	"1926": {
+		"colorId": 1926,
+		"backGroundColor": "#21EC2E",
+		"textColor": "#000000"
+	},
+	"1927": {
+		"colorId": 1927,
+		"backGroundColor": "#1F5912",
+		"textColor": "#FFFFFF"
+	},
+	"1928": {
+		"colorId": 1928,
+		"backGroundColor": "#6D78E3",
+		"textColor": "#000000"
+	},
+	"1929": {
+		"colorId": 1929,
+		"backGroundColor": "#D76354",
+		"textColor": "#000000"
+	},
+	"1930": {
+		"colorId": 1930,
+		"backGroundColor": "#273DDB",
+		"textColor": "#FFFFFF"
+	},
+	"1931": {
+		"colorId": 1931,
+		"backGroundColor": "#293C56",
+		"textColor": "#FFFFFF"
+	},
+	"1932": {
+		"colorId": 1932,
+		"backGroundColor": "#0C1225",
+		"textColor": "#FFFFFF"
+	},
+	"1933": {
+		"colorId": 1933,
+		"backGroundColor": "#DB6C6E",
+		"textColor": "#000000"
+	},
+	"1934": {
+		"colorId": 1934,
+		"backGroundColor": "#AD4E99",
+		"textColor": "#FFFFFF"
+	},
+	"1935": {
+		"colorId": 1935,
+		"backGroundColor": "#243C85",
+		"textColor": "#FFFFFF"
+	},
+	"1936": {
+		"colorId": 1936,
+		"backGroundColor": "#31908B",
+		"textColor": "#FFFFFF"
+	},
+	"1937": {
+		"colorId": 1937,
+		"backGroundColor": "#BD73D3",
+		"textColor": "#000000"
+	},
+	"1938": {
+		"colorId": 1938,
+		"backGroundColor": "#13C656",
+		"textColor": "#000000"
+	},
+	"1939": {
+		"colorId": 1939,
+		"backGroundColor": "#081B69",
+		"textColor": "#FFFFFF"
+	},
+	"1940": {
+		"colorId": 1940,
+		"backGroundColor": "#C3467A",
+		"textColor": "#FFFFFF"
+	},
+	"1941": {
+		"colorId": 1941,
+		"backGroundColor": "#EC6238",
+		"textColor": "#000000"
+	},
+	"1942": {
+		"colorId": 1942,
+		"backGroundColor": "#F0EE92",
+		"textColor": "#000000"
+	},
+	"1943": {
+		"colorId": 1943,
+		"backGroundColor": "#1D1DDD",
+		"textColor": "#FFFFFF"
+	},
+	"1944": {
+		"colorId": 1944,
+		"backGroundColor": "#BE67AD",
+		"textColor": "#000000"
+	},
+	"1945": {
+		"colorId": 1945,
+		"backGroundColor": "#4F1031",
+		"textColor": "#FFFFFF"
+	},
+	"1946": {
+		"colorId": 1946,
+		"backGroundColor": "#3DE884",
+		"textColor": "#000000"
+	},
+	"1947": {
+		"colorId": 1947,
+		"backGroundColor": "#8C6857",
+		"textColor": "#FFFFFF"
+	},
+	"1948": {
+		"colorId": 1948,
+		"backGroundColor": "#F0C92F",
+		"textColor": "#000000"
+	},
+	"1949": {
+		"colorId": 1949,
+		"backGroundColor": "#33E851",
+		"textColor": "#000000"
+	},
+	"1950": {
+		"colorId": 1950,
+		"backGroundColor": "#7BF435",
+		"textColor": "#000000"
+	},
+	"1951": {
+		"colorId": 1951,
+		"backGroundColor": "#F10D2E",
+		"textColor": "#FFFFFF"
+	},
+	"1952": {
+		"colorId": 1952,
+		"backGroundColor": "#5F87DC",
+		"textColor": "#000000"
+	},
+	"1953": {
+		"colorId": 1953,
+		"backGroundColor": "#9A25F4",
+		"textColor": "#FFFFFF"
+	},
+	"1954": {
+		"colorId": 1954,
+		"backGroundColor": "#F76E57",
+		"textColor": "#000000"
+	},
+	"1955": {
+		"colorId": 1955,
+		"backGroundColor": "#D12267",
+		"textColor": "#FFFFFF"
+	},
+	"1956": {
+		"colorId": 1956,
+		"backGroundColor": "#4136A6",
+		"textColor": "#FFFFFF"
+	},
+	"1957": {
+		"colorId": 1957,
+		"backGroundColor": "#7AD913",
+		"textColor": "#000000"
+	},
+	"1958": {
+		"colorId": 1958,
+		"backGroundColor": "#71AB01",
+		"textColor": "#000000"
+	},
+	"1959": {
+		"colorId": 1959,
+		"backGroundColor": "#903074",
+		"textColor": "#FFFFFF"
+	},
+	"1960": {
+		"colorId": 1960,
+		"backGroundColor": "#F02163",
+		"textColor": "#FFFFFF"
+	},
+	"1961": {
+		"colorId": 1961,
+		"backGroundColor": "#807865",
+		"textColor": "#FFFFFF"
+	},
+	"1962": {
+		"colorId": 1962,
+		"backGroundColor": "#02DB06",
+		"textColor": "#000000"
+	},
+	"1963": {
+		"colorId": 1963,
+		"backGroundColor": "#2F3AF8",
+		"textColor": "#FFFFFF"
+	},
+	"1964": {
+		"colorId": 1964,
+		"backGroundColor": "#8A9CDC",
+		"textColor": "#000000"
+	},
+	"1965": {
+		"colorId": 1965,
+		"backGroundColor": "#C19B56",
+		"textColor": "#000000"
+	},
+	"1966": {
+		"colorId": 1966,
+		"backGroundColor": "#D6EC87",
+		"textColor": "#000000"
+	},
+	"1967": {
+		"colorId": 1967,
+		"backGroundColor": "#3898D4",
+		"textColor": "#000000"
+	},
+	"1968": {
+		"colorId": 1968,
+		"backGroundColor": "#4557D2",
+		"textColor": "#FFFFFF"
+	},
+	"1969": {
+		"colorId": 1969,
+		"backGroundColor": "#2E592A",
+		"textColor": "#FFFFFF"
+	},
+	"1970": {
+		"colorId": 1970,
+		"backGroundColor": "#6AD0F3",
+		"textColor": "#000000"
+	},
+	"1971": {
+		"colorId": 1971,
+		"backGroundColor": "#F3DCD2",
+		"textColor": "#000000"
+	},
+	"1972": {
+		"colorId": 1972,
+		"backGroundColor": "#212088",
+		"textColor": "#FFFFFF"
+	},
+	"1973": {
+		"colorId": 1973,
+		"backGroundColor": "#0F719A",
+		"textColor": "#FFFFFF"
+	},
+	"1974": {
+		"colorId": 1974,
+		"backGroundColor": "#5CC8C9",
+		"textColor": "#000000"
+	},
+	"1975": {
+		"colorId": 1975,
+		"backGroundColor": "#1820B4",
+		"textColor": "#FFFFFF"
+	},
+	"1976": {
+		"colorId": 1976,
+		"backGroundColor": "#66BA22",
+		"textColor": "#000000"
+	},
+	"1977": {
+		"colorId": 1977,
+		"backGroundColor": "#D3500F",
+		"textColor": "#FFFFFF"
+	},
+	"1978": {
+		"colorId": 1978,
+		"backGroundColor": "#09D8A5",
+		"textColor": "#000000"
+	},
+	"1979": {
+		"colorId": 1979,
+		"backGroundColor": "#29789D",
+		"textColor": "#FFFFFF"
+	},
+	"1980": {
+		"colorId": 1980,
+		"backGroundColor": "#2F6F48",
+		"textColor": "#FFFFFF"
+	},
+	"1981": {
+		"colorId": 1981,
+		"backGroundColor": "#860C92",
+		"textColor": "#FFFFFF"
+	},
+	"1982": {
+		"colorId": 1982,
+		"backGroundColor": "#8C2FE1",
+		"textColor": "#FFFFFF"
+	},
+	"1983": {
+		"colorId": 1983,
+		"backGroundColor": "#865A76",
+		"textColor": "#FFFFFF"
+	},
+	"1984": {
+		"colorId": 1984,
+		"backGroundColor": "#1D56A8",
+		"textColor": "#FFFFFF"
+	},
+	"1985": {
+		"colorId": 1985,
+		"backGroundColor": "#D822CB",
+		"textColor": "#FFFFFF"
+	},
+	"1986": {
+		"colorId": 1986,
+		"backGroundColor": "#62FC0D",
+		"textColor": "#000000"
+	},
+	"1987": {
+		"colorId": 1987,
+		"backGroundColor": "#E3DB94",
+		"textColor": "#000000"
+	},
+	"1988": {
+		"colorId": 1988,
+		"backGroundColor": "#18A758",
+		"textColor": "#FFFFFF"
+	},
+	"1989": {
+		"colorId": 1989,
+		"backGroundColor": "#58F9A0",
+		"textColor": "#000000"
+	},
+	"1990": {
+		"colorId": 1990,
+		"backGroundColor": "#36CB06",
+		"textColor": "#000000"
+	},
+	"1991": {
+		"colorId": 1991,
+		"backGroundColor": "#5F4987",
+		"textColor": "#FFFFFF"
+	},
+	"1992": {
+		"colorId": 1992,
+		"backGroundColor": "#125F01",
+		"textColor": "#FFFFFF"
+	},
+	"1993": {
+		"colorId": 1993,
+		"backGroundColor": "#F98A76",
+		"textColor": "#000000"
+	},
+	"1994": {
+		"colorId": 1994,
+		"backGroundColor": "#E2DEF8",
+		"textColor": "#000000"
+	},
+	"1995": {
+		"colorId": 1995,
+		"backGroundColor": "#797A2C",
+		"textColor": "#FFFFFF"
+	},
+	"1996": {
+		"colorId": 1996,
+		"backGroundColor": "#244CF5",
+		"textColor": "#FFFFFF"
+	},
+	"1997": {
+		"colorId": 1997,
+		"backGroundColor": "#A8B7C8",
+		"textColor": "#000000"
+	},
+	"1998": {
+		"colorId": 1998,
+		"backGroundColor": "#A68211",
+		"textColor": "#FFFFFF"
+	},
+	"1999": {
+		"colorId": 1999,
+		"backGroundColor": "#BFB40B",
+		"textColor": "#000000"
+	}
+}

@@ -109,7 +109,7 @@ namespace DevNest.Common.Manager.FileSystem
         private string? GetConfigurationDirectory()
         {
             string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
-                FileSystemConstants.FolderUp, 
+                FileSystemConstants.DirectoryUp, 
                 FileSystemConstants.DevNestDirectory,
                 FileSystemConstants.PreferencesDirectoryName));
             if (!Directory.Exists(configDir))
@@ -148,7 +148,7 @@ namespace DevNest.Common.Manager.FileSystem
         private string? GetCredentialDataDirectory()
         {
             string credentialDataDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
-                FileSystemConstants.FolderUp,
+                FileSystemConstants.DirectoryUp,
                 FileSystemConstants.DevNestDirectory,
                 FileSystemConstants.SecureVaultDirectoryName, 
                 FileSystemConstants.CredentialStoreDirectory));
@@ -164,7 +164,7 @@ namespace DevNest.Common.Manager.FileSystem
         private string? GetAssetsDirectory()
         {
             string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
-                FileSystemConstants.FolderUp, 
+                FileSystemConstants.DirectoryUp, 
                 FileSystemConstants.DevNestDirectory, 
                 FileSystemConstants.ResourcesDirectoryName));
             if (!Directory.Exists(assetsDir))

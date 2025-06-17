@@ -17,10 +17,6 @@
         public const string LogLevel_Fatal = "fatal";
         public const string LogLevel_Verbose = "verbose";
 
-        public const string DefaultLoggingDirectory = "DataNest\\Logger\\";
-        public const string LogFileNameWithExtension = $".log";
-
-        public const string Default_LoggerDirectory = "DataNest/Logger/";
         public const string Default_FileRollingInterval = "Day";
         public const long Default_FileSizeLimits = 5242880;
         public const string Default_OutputTemplate = "|{Timestamp:yyyy-MM-dd HH:mm:ss.fff}|{Level:u3}|> {NewLine}{Message:lj}{NewLine}{Exception}";

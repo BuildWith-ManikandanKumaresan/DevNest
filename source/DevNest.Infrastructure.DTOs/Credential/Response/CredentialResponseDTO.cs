@@ -8,7 +8,7 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Response
     /// <summary>
     /// Represents the DTO class instance for credentials.
     /// </summary>
-    public class CredentialResponseDTO : BaseDTO
+    public class CredentialResponseDTO : BaseResponseDTO
     {
         /// <summary>
         /// Gets or sets the unique identifier of the credential.

@@ -58,7 +58,7 @@ namespace DevNest.Common.Manager.Plugin
                 string[] pluginDirectories = Directory.GetDirectories(_fileSystemManager.PluginStorageDirectory ?? string.Empty) ?? [];
                 foreach (string pluginDirectory in pluginDirectories)
                 {
-                    var pluginFiles = Directory.GetFiles(pluginDirectory, CommonConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoStoragePluginFound).Message);
+                    var pluginFiles = Directory.GetFiles(pluginDirectory, FileSystemConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoStoragePluginFound).Message);
                     foreach (var pluginFile in pluginFiles)
                     {
                         Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));
@@ -88,7 +88,7 @@ namespace DevNest.Common.Manager.Plugin
                 string[] pluginDirectories = Directory.GetDirectories(_fileSystemManager.EncryptionPluginStorageDirectory ?? string.Empty) ?? [];
                 foreach (string pluginDirectory in pluginDirectories)
                 {
-                    var pluginFiles = Directory.GetFiles(pluginDirectory, CommonConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoEncryptionPluginFound).Message);
+                    var pluginFiles = Directory.GetFiles(pluginDirectory, FileSystemConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoEncryptionPluginFound).Message);
                     foreach (var pluginFile in pluginFiles)
                     {
                         Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));

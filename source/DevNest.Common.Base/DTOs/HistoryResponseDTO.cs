@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the class instance for entity history.
     /// </summary>
-    public class HistoryDTO
+    public class HistoryResponseDTO
     {
 
         /// <summary>

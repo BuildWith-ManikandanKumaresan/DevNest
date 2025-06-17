@@ -17,7 +17,7 @@ namespace DevNest.Common.Base.Entity
         /// Gets or set the logger base directory.
         /// Default value is 'logs/'
         /// </summary>
-        public string LoggerDirectory { get; set; } = LoggerConstants.Default_LoggerDirectory;
+        public string LoggerDirectory { get; set; } = FileSystemConstants.Default_LoggerDirectory;
 
         /// <summary>
         /// Gets or sets the value for file rolling interval.

@@ -8,7 +8,7 @@ namespace DevNest.Infrastructure.DTOs.Credential.Request
     /// <summary>
     /// Represents the class instance for add credentials request.
     /// </summary>
-    public class AddCredentialRequest : BaseDTO
+    public class AddCredentialRequest : BaseResponseDTO
     {
         /// <summary>
         /// Gets or sets the title or name of the credential.

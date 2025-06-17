@@ -41,7 +41,7 @@ namespace DevNest.Plugin.Json.Handler
 
             if (!Directory.Exists(_DataDirectory)) return result;
 
-            var files = Directory.GetFiles(_DataDirectory, FileSystemConstants.DevNestDataFileSearchPattern);
+            var files = Directory.GetFiles(_DataDirectory, FileSystemExtensionConstants.DevNestDataFileSearchPattern);
 
             foreach (var file in files)
             {
@@ -65,7 +65,7 @@ namespace DevNest.Plugin.Json.Handler
             if (!Directory.Exists(_DataDirectory))
                 Directory.CreateDirectory(_DataDirectory);
 
-            var existingFiles = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}{FileSystemConstants.DevNestDataFileSearchPattern}")
+            var existingFiles = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}{FileSystemExtensionConstants.Extension_Data}")
                                          .OrderByDescending(File.GetCreationTime)
                                          .ToList();
 
@@ -74,7 +74,7 @@ namespace DevNest.Plugin.Json.Handler
             if (currentFilePath == null || new FileInfo(currentFilePath).Length >= _DefaultMaxFileSizeBytes)
             {
                 var timestamp = DateTime.Now.ToString(ConnectionParamConstants.JsonDateFileFormat);
-                currentFilePath = Path.Combine(_DataDirectory, $"{_BaseFileName}_{timestamp}{FileSystemConstants.DevNestDataFileExtension}");
+                currentFilePath = Path.Combine(_DataDirectory, $"{_BaseFileName}_{timestamp}{FileSystemExtensionConstants.Extension_Data}");
             }
 
             var json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);

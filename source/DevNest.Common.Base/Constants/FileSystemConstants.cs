@@ -5,8 +5,8 @@
     /// </summary>
     public partial class FileSystemConstants
     {
-        public const string FolderUp = "..";
-
+        // Directory constants.
+        public const string DirectoryUp = "..";
         public const string DevNestDirectory = "DataNest";
         public const string PreferencesDirectoryName = "Preferences";
         public const string SecureVaultDirectoryName = "SecureVault";
@@ -15,15 +15,16 @@
         public const string ErrorCodesDirectoryName = "Errors";
         public const string WarningCodesDirectoryName = "Warnings";
         public const string SuccessCodesDirectoryName = "Success";
-
-        public const string DevNestDataFileSearchPattern = "*.dndat";
-        public const string DevNestDataFileExtension = ".dndat";
-        public const string SuccessContentFileSearchPattern = "*success.dncont";
-        public const string ErrorContentFileSearchPattern = "*errors.dncont";
-        public const string WarningContentFileSearchPattern = "*warnings.dncont";
-
-        public const string DefaultWorkspace = "Default";
         public const string StoragePluginsDirectoryName = "Plugin\\Storage";
         public const string EncryptionPluginsDirectoryName = "Plugin\\Encryption";
+        public const string DefaultLoggingDirectory = "DataNest\\Logger\\";
+        public const string Default_LoggerDirectory = "DataNest/Logger/";
+
+        // Default directory constants.
+        public const string DefaultWorkspace = "Default";
+
+        // File search patterns.
+        public const string AssemblySearchPattern = "DevNest.";
+        public const string Plugin_AssemblySearchPattern = "DevNest.*.dll";
     }
 }

@@ -36,14 +36,14 @@ namespace DevNest.Common.Logger
         {
             var config = _config ?? throw new InvalidOperationException(Messages.GetError(ErrorConstants.LoggerConfigurationMissing).Message);
             var logDir = Path.Combine(
-                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), FileSystemConstants.FolderUp, FileSystemConstants.DevNestDirectory)),
-                config.Value.LoggerDirectory ?? LoggerConstants.DefaultLoggingDirectory,
+                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), FileSystemConstants.DirectoryUp, FileSystemConstants.DevNestDirectory)),
+                config.Value.LoggerDirectory ?? FileSystemConstants.DefaultLoggingDirectory,
                 serviceName.ToLower());
 
             Directory.CreateDirectory(logDir); // Ensure log directory exists
 
             string logPath = Path.Combine(logDir, 
-                $"{serviceName.ToLower()}-services-{LoggerConstants.LogFileNameWithExtension}");
+                $"{serviceName.ToLower()}-services-{FileSystemExtensionConstants.LogFileNameWithExtension}");
 
             var loggerConfig = new LoggerConfiguration()
                 .WriteTo.Console()

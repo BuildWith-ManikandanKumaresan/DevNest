@@ -3,11 +3,11 @@
     /// <summary>
     /// Gets or sets the interface instance for entity history.
     /// </summary>
-    public interface IHistoryDTO
+    public interface IHistoryResponseDTO
     {
         /// <summary>
         /// Gets or sets the history informations of entity.
         /// </summary>
-        HistoryDTO? HistoryInformation { get; set; }
+        HistoryResponseDTO? HistoryInformation { get; set; }
     }
 }

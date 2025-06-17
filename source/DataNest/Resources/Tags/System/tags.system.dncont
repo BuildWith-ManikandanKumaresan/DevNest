@@ -1,0 +1,4873 @@
+[{
+        "tagId": "tag-b46271a9",
+        "name": "2Fa",
+        "slug": "2fa",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#C00B66",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d19e5518",
+        "name": "Access Control",
+        "slug": "access-control",
+        "categories": [
+            "security",
+            "authorization"
+        ],
+        "color": "#B8754A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3e4b409f",
+        "name": "Access Token",
+        "slug": "access-token",
+        "categories": [
+            "authentication",
+            "security",
+            "token"
+        ],
+        "color": "#E772AB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-276c07ef",
+        "name": "Account",
+        "slug": "account",
+        "categories": [
+            "authentication",
+            "user-management"
+        ],
+        "color": "#9D9C0F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-dd54a7cc",
+        "name": "Account Registration",
+        "slug": "account-registration",
+        "categories": [
+            "authentication",
+            "user-management"
+        ],
+        "color": "#A22C2D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-54e552a4",
+        "name": "Activedirectory Kerberos",
+        "slug": "activedirectory-kerberos",
+        "categories": [
+            "authentication",
+            "directory-services"
+        ],
+        "color": "#BECAE8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ab217c1d",
+        "name": "Admin Login",
+        "slug": "admin-login",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#4ABB28",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5b0782a7",
+        "name": "Admin Credentials",
+        "slug": "admin-credentials",
+        "categories": [
+            "security",
+            "credentials"
+        ],
+        "color": "#AFF351",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b9170a2d",
+        "name": "Ajio",
+        "slug": "ajio",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#D097B0",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-91b21c84",
+        "name": "Aliexpress",
+        "slug": "aliexpress",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#A29342",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c274f50d",
+        "name": "Amazon",
+        "slug": "amazon",
+        "categories": [
+            "ecommerce",
+            "cloud"
+        ],
+        "color": "#46E564",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f19901e3",
+        "name": "Angellist",
+        "slug": "angellist",
+        "categories": [
+            "social-media",
+            "professional"
+        ],
+        "color": "#6D1F31",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7a12394c",
+        "name": "Ansible",
+        "slug": "ansible",
+        "categories": [
+            "devops",
+            "automation"
+        ],
+        "color": "#CC86AD",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3bdd4aeb",
+        "name": "Api Access",
+        "slug": "api-access",
+        "categories": [
+            "api",
+            "security"
+        ],
+        "color": "#C20A1E",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-354c863d",
+        "name": "Api Authentication",
+        "slug": "api-authentication",
+        "categories": [
+            "api",
+            "authentication"
+        ],
+        "color": "#706E7D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-dcbeb6a0",
+        "name": "Api Endpoints",
+        "slug": "api-endpoints",
+        "categories": [
+            "api",
+            "development"
+        ],
+        "color": "#3D6A0A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-212d99d3",
+        "name": "Api Key",
+        "slug": "api-key",
+        "categories": [
+            "api",
+            "security",
+            "credentials"
+        ],
+        "color": "#0FE742",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0a4dd9bc",
+        "name": "Api Keys",
+        "slug": "api-keys",
+        "categories": [
+            "api",
+            "security",
+            "credentials"
+        ],
+        "color": "#4FB89F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5bed4a40",
+        "name": "Api Security",
+        "slug": "api-security",
+        "categories": [
+            "api",
+            "security"
+        ],
+        "color": "#1F4E36",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f0e4ca4d",
+        "name": "Audit Logging",
+        "slug": "audit-logging",
+        "categories": [
+            "security",
+            "monitoring"
+        ],
+        "color": "#4FBE38",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-01b23d0f",
+        "name": "Auth",
+        "slug": "auth",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#FBC0EB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-80f5b92e",
+        "name": "Authentication",
+        "slug": "authentication",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#FAC52D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-80726daa",
+        "name": "Authorization",
+        "slug": "authorization",
+        "categories": [
+            "security",
+            "access-control"
+        ],
+        "color": "#362EF4",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-da960794",
+        "name": "Authorized Keys",
+        "slug": "authorized-keys",
+        "categories": [
+            "security",
+            "ssh"
+        ],
+        "color": "#D6F1DF",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9efc0c49",
+        "name": "Aws",
+        "slug": "aws",
+        "categories": [
+            "cloud",
+            "aws"
+        ],
+        "color": "#A0757F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a237d0b1",
+        "name": "Aws Kms",
+        "slug": "aws-kms",
+        "categories": [
+            "security",
+            "cloud",
+            "aws"
+        ],
+        "color": "#2B7D05",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-12648ad2",
+        "name": "Aws Rds",
+        "slug": "aws-rds",
+        "categories": [
+            "cloud",
+            "database",
+            "aws"
+        ],
+        "color": "#9D2998",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-311f77de",
+        "name": "Aws Secrets Manager",
+        "slug": "aws-secrets-manager",
+        "categories": [
+            "cloud",
+            "secrets",
+            "aws"
+        ],
+        "color": "#E5F1B1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-befd600c",
+        "name": "Azure",
+        "slug": "azure",
+        "categories": [
+            "cloud",
+            "azure"
+        ],
+        "color": "#82AC10",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-59e2ed30",
+        "name": "Azure Key Vault",
+        "slug": "azure-key-vault",
+        "categories": [
+            "security",
+            "cloud",
+            "azure"
+        ],
+        "color": "#7403C0",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-390f94ff",
+        "name": "Azure Sql",
+        "slug": "azure-sql",
+        "categories": [
+            "cloud",
+            "database",
+            "azure"
+        ],
+        "color": "#42EF07",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-724b67d7",
+        "name": "Azure Vm",
+        "slug": "azure-vm",
+        "categories": [
+            "cloud",
+            "infrastructure",
+            "azure"
+        ],
+        "color": "#BA1077",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1769b38b",
+        "name": "Bash",
+        "slug": "bash",
+        "categories": [
+            "scripting",
+            "shell",
+            "linux"
+        ],
+        "color": "#30C60F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-73954bde",
+        "name": "Basic Auth",
+        "slug": "basic-auth",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#885372",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-aa1c2cba",
+        "name": "Basic Authentication",
+        "slug": "basic-authentication",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#071A73",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ed1546ee",
+        "name": "Bastion Host",
+        "slug": "bastion-host",
+        "categories": [
+            "security",
+            "network"
+        ],
+        "color": "#272B57",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fa9f17e8",
+        "name": "Bearer Token",
+        "slug": "bearer-token",
+        "categories": [
+            "security",
+            "authentication",
+            "api"
+        ],
+        "color": "#A84C31",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-57626498",
+        "name": "Behance",
+        "slug": "behance",
+        "categories": [
+            "social-media",
+            "creative"
+        ],
+        "color": "#14F4DF",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1eedb167",
+        "name": "Bigbasket",
+        "slug": "bigbasket",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#1FED00",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-67cedf5a",
+        "name": "Bilibili",
+        "slug": "bilibili",
+        "categories": [
+            "social-media",
+            "video"
+        ],
+        "color": "#393199",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-68a8f220",
+        "name": "Billing Information",
+        "slug": "billing-information",
+        "categories": [
+            "ecommerce",
+            "security",
+            "personal-data"
+        ],
+        "color": "#4B4B1A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-16308c6a",
+        "name": "Bing",
+        "slug": "bing",
+        "categories": [
+            "search-engine"
+        ],
+        "color": "#B64273",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-303097b2",
+        "name": "Biometric",
+        "slug": "biometric",
+        "categories": [
+            "authentication",
+            "biometrics"
+        ],
+        "color": "#E41FD5",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-eb85651e",
+        "name": "Brave Search",
+        "slug": "brave-search",
+        "categories": [
+            "search-engine",
+            "privacy"
+        ],
+        "color": "#463860",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7ab94adf",
+        "name": "Ca Certificate",
+        "slug": "ca-certificate",
+        "categories": [
+            "security",
+            "ssl"
+        ],
+        "color": "#03BCD4",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0acc9bb6",
+        "name": "Captcha",
+        "slug": "captcha",
+        "categories": [
+            "security",
+            "web",
+            "bot-protection"
+        ],
+        "color": "#CCBB16",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fa227207",
+        "name": "Cassandra",
+        "slug": "cassandra",
+        "categories": [
+            "database",
+            "nosql"
+        ],
+        "color": "#30B43A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0ea5da95",
+        "name": "Cassandra Authentication",
+        "slug": "cassandra-authentication",
+        "categories": [
+            "database",
+            "nosql",
+            "authentication"
+        ],
+        "color": "#EC88A4",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7bd6ba95",
+        "name": "Cassandra Ssl",
+        "slug": "cassandra-ssl",
+        "categories": [
+            "security",
+            "ssl",
+            "database"
+        ],
+        "color": "#EC9687",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6bef4f3f",
+        "name": "Centos",
+        "slug": "centos",
+        "categories": [
+            "os",
+            "linux"
+        ],
+        "color": "#A77637",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-287e88d1",
+        "name": "Certificate",
+        "slug": "certificate",
+        "categories": [
+            "security",
+            "ssl",
+            "encryption"
+        ],
+        "color": "#E95A6E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-202f9a70",
+        "name": "Certificate Authentication",
+        "slug": "certificate-authentication",
+        "categories": [
+            "authentication",
+            "ssl",
+            "security"
+        ],
+        "color": "#03C650",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3a3d5438",
+        "name": "Certificate Authority",
+        "slug": "certificate-authority",
+        "categories": [
+            "security",
+            "ssl",
+            "infrastructure"
+        ],
+        "color": "#144ED2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8ea89863",
+        "name": "Checkout Authentication",
+        "slug": "checkout-authentication",
+        "categories": [
+            "ecommerce",
+            "security"
+        ],
+        "color": "#0020F9",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ea36f9d8",
+        "name": "Ci Cd Secrets",
+        "slug": "ci-cd-secrets",
+        "categories": [
+            "devops",
+            "secrets",
+            "pipeline"
+        ],
+        "color": "#A003B3",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8b3c4eca",
+        "name": "Cipher Suites",
+        "slug": "cipher-suites",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#1E83D2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3bb1c41b",
+        "name": "Client Id",
+        "slug": "client-id",
+        "categories": [
+            "security",
+            "authentication",
+            "oauth"
+        ],
+        "color": "#29EE60",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-446cdd31",
+        "name": "Client Secret",
+        "slug": "client-secret",
+        "categories": [
+            "security",
+            "authentication",
+            "oauth"
+        ],
+        "color": "#2F951E",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e34a4675",
+        "name": "Client Side Validation",
+        "slug": "client-side-validation",
+        "categories": [
+            "web",
+            "forms",
+            "security"
+        ],
+        "color": "#8B9F16",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e177b356",
+        "name": "Cloud Access",
+        "slug": "cloud-access",
+        "categories": [
+            "cloud",
+            "security"
+        ],
+        "color": "#D79F83",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-497a11f4",
+        "name": "Cloud Credentials",
+        "slug": "cloud-credentials",
+        "categories": [
+            "cloud",
+            "security",
+            "authentication"
+        ],
+        "color": "#4861B1",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-53cd75a5",
+        "name": "Cloud Database",
+        "slug": "cloud-database",
+        "categories": [
+            "cloud",
+            "database"
+        ],
+        "color": "#A9F60D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cf8fc192",
+        "name": "Cloud Database Security",
+        "slug": "cloud-database-security",
+        "categories": [
+            "cloud",
+            "database",
+            "security"
+        ],
+        "color": "#4E6060",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9f8fa9cb",
+        "name": "Cloud Init",
+        "slug": "cloud-init",
+        "categories": [
+            "cloud",
+            "devops"
+        ],
+        "color": "#00011C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-99b3a2cc",
+        "name": "Clubhouse",
+        "slug": "clubhouse",
+        "categories": [
+            "social-media",
+            "audio"
+        ],
+        "color": "#937B22",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-81dfb852",
+        "name": "Community Account",
+        "slug": "community-account",
+        "categories": [
+            "authentication",
+            "community"
+        ],
+        "color": "#626F50",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c43e0c6f",
+        "name": "Config Secrets",
+        "slug": "config-secrets",
+        "categories": [
+            "configuration",
+            "secrets"
+        ],
+        "color": "#C3F9E1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ba47f460",
+        "name": "Connection String",
+        "slug": "connection-string",
+        "categories": [
+            "database",
+            "configuration"
+        ],
+        "color": "#B1B7BB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d6255e9c",
+        "name": "Cors",
+        "slug": "cors",
+        "categories": [
+            "web",
+            "security",
+            "api"
+        ],
+        "color": "#5F72A4",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d9bab11f",
+        "name": "Cosmos Db",
+        "slug": "cosmos-db",
+        "categories": [
+            "cloud",
+            "database",
+            "azure"
+        ],
+        "color": "#F5B4B1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-86cb358a",
+        "name": "Cosmosdb Authentication",
+        "slug": "cosmosdb-authentication",
+        "categories": [
+            "cloud",
+            "database",
+            "security"
+        ],
+        "color": "#9B5CF9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9241f662",
+        "name": "Cosmosdb Firewall",
+        "slug": "cosmosdb-firewall",
+        "categories": [
+            "cloud",
+            "security",
+            "network"
+        ],
+        "color": "#AD9446",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-278c9242",
+        "name": "Cosmosdb Keys",
+        "slug": "cosmosdb-keys",
+        "categories": [
+            "cloud",
+            "secrets",
+            "azure"
+        ],
+        "color": "#0C883F",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-bf097c32",
+        "name": "Cosmosdb Rbac",
+        "slug": "cosmosdb-rbac",
+        "categories": [
+            "security",
+            "cloud",
+            "rbac"
+        ],
+        "color": "#24CD14",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f4ec8fbb",
+        "name": "Couchbase Security",
+        "slug": "couchbase-security",
+        "categories": [
+            "security",
+            "database",
+            "nosql"
+        ],
+        "color": "#C738FD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b3aa8e34",
+        "name": "Couchdb",
+        "slug": "couchdb",
+        "categories": [
+            "database",
+            "nosql"
+        ],
+        "color": "#8CB23D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d75bdaaa",
+        "name": "Couchdb Authentication",
+        "slug": "couchdb-authentication",
+        "categories": [
+            "database",
+            "security",
+            "authentication"
+        ],
+        "color": "#8B29E6",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f9ec903d",
+        "name": "Credential Management",
+        "slug": "credential-management",
+        "categories": [
+            "security",
+            "authentication"
+        ],
+        "color": "#6B9639",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-209a86d1",
+        "name": "Credential Rotation",
+        "slug": "credential-rotation",
+        "categories": [
+            "security",
+            "authentication",
+            "compliance"
+        ],
+        "color": "#A51CCB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b6bb1deb",
+        "name": "Credential Storage",
+        "slug": "credential-storage",
+        "categories": [
+            "security",
+            "secrets"
+        ],
+        "color": "#313474",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ccc12970",
+        "name": "Credential Store",
+        "slug": "credential-store",
+        "categories": [
+            "security",
+            "secrets"
+        ],
+        "color": "#C226CA",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-81c8b3e2",
+        "name": "Credentials",
+        "slug": "credentials",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#D0DB77",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-bcc54bb8",
+        "name": "Credentials Provider",
+        "slug": "credentials-provider",
+        "categories": [
+            "authentication",
+            "security",
+            "library"
+        ],
+        "color": "#8FF7AC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4d921be3",
+        "name": "Crl Certificate Revocation List",
+        "slug": "crl-certificate-revocation-list",
+        "categories": [
+            "security",
+            "ssl",
+            "certificates"
+        ],
+        "color": "#97C85F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d8689fbb",
+        "name": "Crypto",
+        "slug": "crypto",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#7A4387",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8156ec6d",
+        "name": "Csrf Token",
+        "slug": "csrf-token",
+        "categories": [
+            "security",
+            "web",
+            "forms"
+        ],
+        "color": "#0F8CEB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-73dc1190",
+        "name": "Customer Login",
+        "slug": "customer-login",
+        "categories": [
+            "authentication",
+            "ecommerce"
+        ],
+        "color": "#30ED12",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1925f6c9",
+        "name": "Cybersecurity",
+        "slug": "cybersecurity",
+        "categories": [
+            "security"
+        ],
+        "color": "#0E5B68",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8872511a",
+        "name": "Dailymotion",
+        "slug": "dailymotion",
+        "categories": [
+            "social-media",
+            "video"
+        ],
+        "color": "#EBA2D9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ff6ee03b",
+        "name": "Dapper",
+        "slug": "dapper",
+        "categories": [
+            "orm",
+            "dotnet",
+            "database"
+        ],
+        "color": "#A035CE",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f8b8fab6",
+        "name": "Dashboard Access",
+        "slug": "dashboard-access",
+        "categories": [
+            "authentication",
+            "ui",
+            "authorization"
+        ],
+        "color": "#626C7B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5475c191",
+        "name": "Data Encryption",
+        "slug": "data-encryption",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#333DA8",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-df06b107",
+        "name": "Database Credentials",
+        "slug": "database-credentials",
+        "categories": [
+            "security",
+            "database"
+        ],
+        "color": "#63274A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c88f6931",
+        "name": "Database Users",
+        "slug": "database-users",
+        "categories": [
+            "security",
+            "database"
+        ],
+        "color": "#863871",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8ed1d910",
+        "name": "Debian",
+        "slug": "debian",
+        "categories": [
+            "os",
+            "linux"
+        ],
+        "color": "#9BB80C",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-29d9dcfe",
+        "name": "Decryption",
+        "slug": "decryption",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#B46C2B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-20d3a98a",
+        "name": "Discord",
+        "slug": "discord",
+        "categories": [
+            "social-media",
+            "communication"
+        ],
+        "color": "#C00FBE",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5beb425a",
+        "name": "Dribbble",
+        "slug": "dribbble",
+        "categories": [
+            "social-media",
+            "creative"
+        ],
+        "color": "#C71E26",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3227a2f2",
+        "name": "Duckduckgo",
+        "slug": "duckduckgo",
+        "categories": [
+            "search-engine",
+            "privacy"
+        ],
+        "color": "#5F9189",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-90c5b864",
+        "name": "Dynamodb",
+        "slug": "dynamodb",
+        "categories": [
+            "database",
+            "nosql",
+            "cloud"
+        ],
+        "color": "#AFFD4B",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-22f5a866",
+        "name": "Dynamodb Encryption",
+        "slug": "dynamodb-encryption",
+        "categories": [
+            "database",
+            "nosql",
+            "security"
+        ],
+        "color": "#7137A3",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6f431baf",
+        "name": "Dynamodb Iam",
+        "slug": "dynamodb-iam",
+        "categories": [
+            "cloud",
+            "security",
+            "iam"
+        ],
+        "color": "#4D580C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a934df4f",
+        "name": "Ebay",
+        "slug": "ebay",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#95122B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ed0eac7f",
+        "name": "Ec2",
+        "slug": "ec2",
+        "categories": [
+            "cloud",
+            "infrastructure",
+            "aws"
+        ],
+        "color": "#86F59B",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-03a0dba2",
+        "name": "Ed25519 Key",
+        "slug": "ed25519-key",
+        "categories": [
+            "security",
+            "encryption",
+            "ssh"
+        ],
+        "color": "#F37B9A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-94cac412",
+        "name": "Elastic Api Keys",
+        "slug": "elastic-api-keys",
+        "categories": [
+            "security",
+            "api",
+            "elasticsearch"
+        ],
+        "color": "#C09276",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d923706b",
+        "name": "Elasticsearch",
+        "slug": "elasticsearch",
+        "categories": [
+            "database",
+            "search",
+            "analytics"
+        ],
+        "color": "#5C1446",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8e5b6978",
+        "name": "Elasticsearch Auth",
+        "slug": "elasticsearch-auth",
+        "categories": [
+            "security",
+            "authentication"
+        ],
+        "color": "#9D6A5C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-99a13006",
+        "name": "Elasticsearch Authentication",
+        "slug": "elasticsearch-authentication",
+        "categories": [
+            "security",
+            "authentication"
+        ],
+        "color": "#2D8848",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-35eb0ad4",
+        "name": "Elasticsearch Security",
+        "slug": "elasticsearch-security",
+        "categories": [
+            "security"
+        ],
+        "color": "#B9CB37",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-655633eb",
+        "name": "Elasticsearch Ssl",
+        "slug": "elasticsearch-ssl",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#B68FBB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-01011878",
+        "name": "Email Credentials",
+        "slug": "email-credentials",
+        "categories": [
+            "security",
+            "authentication",
+            "email"
+        ],
+        "color": "#657F2B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6c37ebe2",
+        "name": "Encrypted",
+        "slug": "encrypted",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#C10106",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-32130318",
+        "name": "Encrypted Credentials",
+        "slug": "encrypted-credentials",
+        "categories": [
+            "security",
+            "authentication"
+        ],
+        "color": "#D202E3",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d93fca91",
+        "name": "Encryption",
+        "slug": "encryption",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#A0D88F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-76a3c4da",
+        "name": "Encryption At Rest",
+        "slug": "encryption-at-rest",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#38691D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e9d0fc40",
+        "name": "Encryption In Transit",
+        "slug": "encryption-in-transit",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#2FE44E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b27c22c0",
+        "name": "Entity Framework",
+        "slug": "entity-framework",
+        "categories": [
+            "orm",
+            "dotnet",
+            "database"
+        ],
+        "color": "#3908CD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-98b4eed1",
+        "name": "Env Variables",
+        "slug": "env-variables",
+        "categories": [
+            "configuration",
+            "secrets"
+        ],
+        "color": "#A5889A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8aa3976e",
+        "name": "Environment Variables",
+        "slug": "environment-variables",
+        "categories": [
+            "configuration",
+            "secrets"
+        ],
+        "color": "#623A72",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-958a5691",
+        "name": "Etsy",
+        "slug": "etsy",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#A54EC8",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c8670870",
+        "name": "Facebook",
+        "slug": "facebook",
+        "categories": [
+            "social-media"
+        ],
+        "color": "#09956A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9d2b1b20",
+        "name": "Facebook Login",
+        "slug": "facebook-login",
+        "categories": [
+            "social-media",
+            "authentication"
+        ],
+        "color": "#FF32F9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5aa8f129",
+        "name": "Faunadb",
+        "slug": "faunadb",
+        "categories": [
+            "database",
+            "nosql",
+            "cloud"
+        ],
+        "color": "#057AA7",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-acaf1533",
+        "name": "Firestore",
+        "slug": "firestore",
+        "categories": [
+            "database",
+            "nosql",
+            "cloud"
+        ],
+        "color": "#830755",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-52801262",
+        "name": "Firewall Rules",
+        "slug": "firewall-rules",
+        "categories": [
+            "security",
+            "network"
+        ],
+        "color": "#B4550C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-65064cbb",
+        "name": "Flipkart",
+        "slug": "flipkart",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#9D9A2D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2a6d99ff",
+        "name": "Forgot Password",
+        "slug": "forgot-password",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#04817D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9d707b78",
+        "name": "Form Security",
+        "slug": "form-security",
+        "categories": [
+            "web",
+            "forms",
+            "security"
+        ],
+        "color": "#71E36D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-750f53c8",
+        "name": "Form Submission Api",
+        "slug": "form-submission-api",
+        "categories": [
+            "web",
+            "forms",
+            "api"
+        ],
+        "color": "#9FC7C7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-368c5bf0",
+        "name": "Form Validation",
+        "slug": "form-validation",
+        "categories": [
+            "web",
+            "forms"
+        ],
+        "color": "#2C56DF",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1fa48352",
+        "name": "Formspree",
+        "slug": "formspree",
+        "categories": [
+            "web",
+            "forms",
+            "tools"
+        ],
+        "color": "#98211D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fa3a0f10",
+        "name": "Forum Login",
+        "slug": "forum-login",
+        "categories": [
+            "authentication",
+            "community"
+        ],
+        "color": "#A46506",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5d9eae9c",
+        "name": "Gcp",
+        "slug": "gcp",
+        "categories": [
+            "cloud",
+            "gcp"
+        ],
+        "color": "#38B8C8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e9e9bf0f",
+        "name": "Gcp Secret Manager",
+        "slug": "gcp-secret-manager",
+        "categories": [
+            "cloud",
+            "secrets",
+            "gcp"
+        ],
+        "color": "#8CDDE8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b5ff3263",
+        "name": "Gcp Secrets Manager",
+        "slug": "gcp-secrets-manager",
+        "categories": [
+            "cloud",
+            "secrets",
+            "gcp"
+        ],
+        "color": "#995A04",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d409c320",
+        "name": "Git Over Ssh",
+        "slug": "git-over-ssh",
+        "categories": [
+            "security",
+            "git",
+            "ssh"
+        ],
+        "color": "#DAF77D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4f11f02e",
+        "name": "Github",
+        "slug": "github",
+        "categories": [
+            "development",
+            "version-control"
+        ],
+        "color": "#539E13",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b6645350",
+        "name": "Google",
+        "slug": "google",
+        "categories": [
+            "search-engine",
+            "social-media"
+        ],
+        "color": "#E9F1EC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e17d4dd5",
+        "name": "Google Sign In",
+        "slug": "google-sign-in",
+        "categories": [
+            "authentication",
+            "social-login"
+        ],
+        "color": "#C4F5DC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-06db33ad",
+        "name": "Graphql",
+        "slug": "graphql",
+        "categories": [
+            "api",
+            "development"
+        ],
+        "color": "#85666B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-488fce1c",
+        "name": "Graphql Security",
+        "slug": "graphql-security",
+        "categories": [
+            "security",
+            "api"
+        ],
+        "color": "#E2A97B",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ea35eeef",
+        "name": "Grofers Blinkit",
+        "slug": "grofers-blinkit",
+        "categories": [
+            "ecommerce",
+            "groceries"
+        ],
+        "color": "#079DA9",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a6734649",
+        "name": "Gssapi",
+        "slug": "gssapi",
+        "categories": [
+            "security",
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#9FEF9B",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-07e6ab28",
+        "name": "Guest Login",
+        "slug": "guest-login",
+        "categories": [
+            "authentication"
+        ],
+        "color": "#F932DE",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d01179b9",
+        "name": "Hashed",
+        "slug": "hashed",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#C91D58",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-08a2261f",
+        "name": "Hashing",
+        "slug": "hashing",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#5D6B93",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-dbe04077",
+        "name": "Hibernate",
+        "slug": "hibernate",
+        "categories": [
+            "orm",
+            "java",
+            "database"
+        ],
+        "color": "#DE31EB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5174d812",
+        "name": "Hive Social",
+        "slug": "hive-social",
+        "categories": [
+            "social-media"
+        ],
+        "color": "#3612D3",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8e3a735c",
+        "name": "Https",
+        "slug": "https",
+        "categories": [
+            "security",
+            "web"
+        ],
+        "color": "#03715C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7ab6b719",
+        "name": "Hyper V",
+        "slug": "hyper-v",
+        "categories": [
+            "virtualization",
+            "windows"
+        ],
+        "color": "#B46779",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3add3ffc",
+        "name": "Iam Policies",
+        "slug": "iam-policies",
+        "categories": [
+            "security",
+            "iam",
+            "cloud"
+        ],
+        "color": "#E97E84",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2bdd8ee5",
+        "name": "Iam Roles",
+        "slug": "iam-roles",
+        "categories": [
+            "security",
+            "iam",
+            "cloud"
+        ],
+        "color": "#4E74F1",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-68cdc547",
+        "name": "Id Token",
+        "slug": "id-token",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#8899D8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ad6369be",
+        "name": "Identity",
+        "slug": "identity",
+        "categories": [
+            "authentication",
+            "identity"
+        ],
+        "color": "#37DAE6",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f361e996",
+        "name": "Identity Management",
+        "slug": "identity-management",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#4A84BD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-75c025de",
+        "name": "Identity Provider",
+        "slug": "identity-provider",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#5CF92F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ac54f913",
+        "name": "Input Fields",
+        "slug": "input-fields",
+        "categories": [
+            "web",
+            "forms"
+        ],
+        "color": "#931539",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c0878d2e",
+        "name": "Input Masking",
+        "slug": "input-masking",
+        "categories": [
+            "web",
+            "forms",
+            "security"
+        ],
+        "color": "#D94AC4",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2b5f39f6",
+        "name": "Instagram",
+        "slug": "instagram",
+        "categories": [
+            "social-media"
+        ],
+        "color": "#76DA82",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cc6fc5d3",
+        "name": "Jamstack Auth",
+        "slug": "jamstack-auth",
+        "categories": [
+            "authentication",
+            "jamstack"
+        ],
+        "color": "#6CA1FB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2f32ff34",
+        "name": "Jdbc Url",
+        "slug": "jdbc-url",
+        "categories": [
+            "database",
+            "connectivity"
+        ],
+        "color": "#AC0584",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a9156036",
+        "name": "Jiomart",
+        "slug": "jiomart",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#CED2C8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0c161484",
+        "name": "Jump Host",
+        "slug": "jump-host",
+        "categories": [
+            "security",
+            "network",
+            "ssh"
+        ],
+        "color": "#845635",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b22966de",
+        "name": "Jwt",
+        "slug": "jwt",
+        "categories": [
+            "authentication",
+            "token",
+            "security"
+        ],
+        "color": "#CA3B1F",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-817915b0",
+        "name": "Jwt Authentication",
+        "slug": "jwt-authentication",
+        "categories": [
+            "authentication",
+            "token"
+        ],
+        "color": "#01275A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e2b4645f",
+        "name": "Kdc Key Distribution Center",
+        "slug": "kdc-key-distribution-center",
+        "categories": [
+            "security",
+            "kerberos"
+        ],
+        "color": "#186815",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-99837e11",
+        "name": "Kerberos",
+        "slug": "kerberos",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#C0A43C",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0de08ebe",
+        "name": "Kerberos Authentication",
+        "slug": "kerberos-authentication",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#7231A5",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-10e81797",
+        "name": "Kerberos Authenticator",
+        "slug": "kerberos-authenticator",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#B00C4D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a9d1c6f3",
+        "name": "Kerberos Cache",
+        "slug": "kerberos-cache",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#5745BB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-dc03d581",
+        "name": "Kerberos Config",
+        "slug": "kerberos-config",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#FE7A55",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-778e9906",
+        "name": "Kerberos Credentials",
+        "slug": "kerberos-credentials",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#445E5F",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f7ab1ecd",
+        "name": "Kerberos Delegation",
+        "slug": "kerberos-delegation",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#EB8CDC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-aaff6196",
+        "name": "Kerberos Encryption",
+        "slug": "kerberos-encryption",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#D12AD0",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-254bb10a",
+        "name": "Kerberos Forwarding",
+        "slug": "kerberos-forwarding",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#D9A20E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-76308117",
+        "name": "Kerberos Login",
+        "slug": "kerberos-login",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#0FCAE9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5c87b47c",
+        "name": "Kerberos Protocol",
+        "slug": "kerberos-protocol",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#50C697",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e3c6fc66",
+        "name": "Kerberos Ticket",
+        "slug": "kerberos-ticket",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#CF4CCE",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-62439b18",
+        "name": "Kerberos Token",
+        "slug": "kerberos-token",
+        "categories": [
+            "authentication",
+            "kerberos"
+        ],
+        "color": "#90A689",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3ebff609",
+        "name": "Key Based Authentication",
+        "slug": "key-based-authentication",
+        "categories": [
+            "authentication",
+            "ssh"
+        ],
+        "color": "#1FAF79",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7b531f84",
+        "name": "Key Encryption",
+        "slug": "key-encryption",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#8944E6",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0717cd24",
+        "name": "Key Management",
+        "slug": "key-management",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#21470E",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ab5647b4",
+        "name": "Key Rotation",
+        "slug": "key-rotation",
+        "categories": [
+            "security",
+            "encryption"
+        ],
+        "color": "#C1BEBF",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7c6c2150",
+        "name": "Key Vault",
+        "slug": "key-vault",
+        "categories": [
+            "security",
+            "secrets",
+            "cloud"
+        ],
+        "color": "#0EC184",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3873b935",
+        "name": "Known Hosts",
+        "slug": "known-hosts",
+        "categories": [
+            "security",
+            "ssh"
+        ],
+        "color": "#CD57C9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6f561467",
+        "name": "Krb5 Conf",
+        "slug": "krb5-conf",
+        "categories": [
+            "security",
+            "kerberos"
+        ],
+        "color": "#A1A9FF",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4db8fee4",
+        "name": "Kubernetes Secrets",
+        "slug": "kubernetes-secrets",
+        "categories": [
+            "cloud",
+            "kubernetes",
+            "secrets"
+        ],
+        "color": "#2FC934",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-11d43d0d",
+        "name": "Least Privilege",
+        "slug": "least-privilege",
+        "categories": [
+            "security",
+            "access-control"
+        ],
+        "color": "#08A76A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f6ab2c43",
+        "name": "Lemmy",
+        "slug": "lemmy",
+        "categories": [
+            "social-media",
+            "community"
+        ],
+        "color": "#64D258",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-234edae3",
+        "name": "Line",
+        "slug": "line",
+        "categories": [
+            "social-media",
+            "messaging"
+        ],
+        "color": "#A91C48",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-583640b9",
+        "name": "Linkedin",
+        "slug": "linkedin",
+        "categories": [
+            "social-media",
+            "professional"
+        ],
+        "color": "#DF6F57",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6cf820c6",
+        "name": "Linux",
+        "slug": "linux",
+        "categories": [
+            "os",
+            "platform"
+        ],
+        "color": "#986579",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f83fdd3e",
+        "name": "Login",
+        "slug": "login",
+        "categories": [
+            "authentication"
+        ],
+        "color": "#77CC84",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4914f3ca",
+        "name": "Machine Credentials",
+        "slug": "machine-credentials",
+        "categories": [
+            "security",
+            "automation"
+        ],
+        "color": "#23DAC3",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-51b7540a",
+        "name": "Managed Identities",
+        "slug": "managed-identities",
+        "categories": [
+            "cloud",
+            "iam",
+            "security"
+        ],
+        "color": "#87CAF7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e7cdb884",
+        "name": "Mastodon",
+        "slug": "mastodon",
+        "categories": [
+            "social-media",
+            "federated"
+        ],
+        "color": "#0B151A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5d64a6e2",
+        "name": "Meesho",
+        "slug": "meesho",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#E49DD4",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-91ac344c",
+        "name": "Member Authentication",
+        "slug": "member-authentication",
+        "categories": [
+            "authentication",
+            "community"
+        ],
+        "color": "#AF1BD9",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-03fef437",
+        "name": "Messenger",
+        "slug": "messenger",
+        "categories": [
+            "communication",
+            "social-media"
+        ],
+        "color": "#4954EE",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a20eaa44",
+        "name": "Mewe",
+        "slug": "mewe",
+        "categories": [
+            "social-media",
+            "privacy"
+        ],
+        "color": "#463FA2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b69ca7da",
+        "name": "Mfa",
+        "slug": "mfa",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#08E984",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-31592c23",
+        "name": "Mit Kerberos",
+        "slug": "mit-kerberos",
+        "categories": [
+            "authentication",
+            "kerberos",
+            "identity"
+        ],
+        "color": "#7FAEA7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f5e364f7",
+        "name": "Moderator Login",
+        "slug": "moderator-login",
+        "categories": [
+            "authentication",
+            "authorization",
+            "admin"
+        ],
+        "color": "#C92F77",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4bdc6ac6",
+        "name": "Mojeek",
+        "slug": "mojeek",
+        "categories": [
+            "search-engine",
+            "privacy"
+        ],
+        "color": "#86C9A1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-00922323",
+        "name": "Mongodb",
+        "slug": "mongodb",
+        "categories": [
+            "database",
+            "nosql"
+        ],
+        "color": "#9EC797",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c17d35cb",
+        "name": "Mongodb Atlas",
+        "slug": "mongodb-atlas",
+        "categories": [
+            "cloud",
+            "database",
+            "nosql"
+        ],
+        "color": "#4FEFED",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7665fefe",
+        "name": "Mongodb Auth",
+        "slug": "mongodb-auth",
+        "categories": [
+            "authentication",
+            "database",
+            "nosql"
+        ],
+        "color": "#522B43",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4b10bd43",
+        "name": "Mongodb Authentication",
+        "slug": "mongodb-authentication",
+        "categories": [
+            "authentication",
+            "database",
+            "nosql"
+        ],
+        "color": "#60C5D7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7f8515af",
+        "name": "Mongodb Connection",
+        "slug": "mongodb-connection",
+        "categories": [
+            "database",
+            "nosql",
+            "configuration"
+        ],
+        "color": "#7129C5",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-11b4d73b",
+        "name": "Mongodb Encryption",
+        "slug": "mongodb-encryption",
+        "categories": [
+            "security",
+            "encryption",
+            "database"
+        ],
+        "color": "#6B6BCF",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-565eeaee",
+        "name": "Mongodb Roles",
+        "slug": "mongodb-roles",
+        "categories": [
+            "database",
+            "nosql",
+            "authorization"
+        ],
+        "color": "#244AF2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-eaa0c9a8",
+        "name": "Mongodb Ssl",
+        "slug": "mongodb-ssl",
+        "categories": [
+            "security",
+            "ssl",
+            "database"
+        ],
+        "color": "#9321B2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fa413751",
+        "name": "Mongodb X509",
+        "slug": "mongodb-x509",
+        "categories": [
+            "security",
+            "authentication",
+            "ssl"
+        ],
+        "color": "#655E5B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-778bfb34",
+        "name": "Mssql",
+        "slug": "mssql",
+        "categories": [
+            "database",
+            "rdbms"
+        ],
+        "color": "#446451",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0c0c8fc4",
+        "name": "Multi Factor Authentication",
+        "slug": "multi-factor-authentication",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#AAB08C",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-be52f7e8",
+        "name": "Mutual Tls",
+        "slug": "mutual-tls",
+        "categories": [
+            "security",
+            "authentication",
+            "ssl"
+        ],
+        "color": "#3353C1",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1734e0ae",
+        "name": "Myntra",
+        "slug": "myntra",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#AAF45B",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-66166ff6",
+        "name": "Mysql",
+        "slug": "mysql",
+        "categories": [
+            "database",
+            "rdbms"
+        ],
+        "color": "#D4A7C8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b4a26530",
+        "name": "Mysql Authentication",
+        "slug": "mysql-authentication",
+        "categories": [
+            "authentication",
+            "database"
+        ],
+        "color": "#FAB105",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-721054d6",
+        "name": "Mysql Connection",
+        "slug": "mysql-connection",
+        "categories": [
+            "database",
+            "configuration"
+        ],
+        "color": "#4304C5",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-07b580d4",
+        "name": "Mysql Credentials",
+        "slug": "mysql-credentials",
+        "categories": [
+            "security",
+            "database",
+            "credentials"
+        ],
+        "color": "#5E2CEF",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-097f1eaa",
+        "name": "Mysql Permissions",
+        "slug": "mysql-permissions",
+        "categories": [
+            "security",
+            "database",
+            "authorization"
+        ],
+        "color": "#F76751",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cddba325",
+        "name": "Mysql Root User",
+        "slug": "mysql-root-user",
+        "categories": [
+            "security",
+            "database",
+            "admin"
+        ],
+        "color": "#A2A8B7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-34fbc2ba",
+        "name": "Mysql Ssl",
+        "slug": "mysql-ssl",
+        "categories": [
+            "security",
+            "ssl",
+            "database"
+        ],
+        "color": "#927537",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-25259367",
+        "name": "Mysql User Roles",
+        "slug": "mysql-user-roles",
+        "categories": [
+            "authorization",
+            "database"
+        ],
+        "color": "#A0E40A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2802e8d7",
+        "name": "Netlify Forms",
+        "slug": "netlify-forms",
+        "categories": [
+            "web",
+            "forms",
+            "hosting"
+        ],
+        "color": "#1AA0DA",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e0880236",
+        "name": "Newegg",
+        "slug": "newegg",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#6B9906",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e4f55b18",
+        "name": "No Backend",
+        "slug": "no-backend",
+        "categories": [
+            "frontend",
+            "architecture"
+        ],
+        "color": "#26587C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f8b334aa",
+        "name": "Nosql",
+        "slug": "nosql",
+        "categories": [
+            "database",
+            "nosql"
+        ],
+        "color": "#F31BC2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-62242de6",
+        "name": "Nosql Credentials",
+        "slug": "nosql-credentials",
+        "categories": [
+            "security",
+            "nosql",
+            "credentials"
+        ],
+        "color": "#C8B0F3",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-63065f16",
+        "name": "Ntlm",
+        "slug": "ntlm",
+        "categories": [
+            "authentication",
+            "protocol"
+        ],
+        "color": "#2779EB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0dbb9eaa",
+        "name": "Nykaa",
+        "slug": "nykaa",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#71D05F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-69af5925",
+        "name": "Oauth",
+        "slug": "oauth",
+        "categories": [
+            "authentication",
+            "authorization",
+            "protocol"
+        ],
+        "color": "#6431CE",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-17ceefd8",
+        "name": "Oauth2",
+        "slug": "oauth2",
+        "categories": [
+            "authentication",
+            "authorization",
+            "protocol"
+        ],
+        "color": "#E5B80C",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-24f444c9",
+        "name": "Ocsp",
+        "slug": "ocsp",
+        "categories": [
+            "security",
+            "ssl",
+            "certificates"
+        ],
+        "color": "#A58EE6",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5ca43aff",
+        "name": "Odata",
+        "slug": "odata",
+        "categories": [
+            "api",
+            "web",
+            "data-access"
+        ],
+        "color": "#903624",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-688ab5da",
+        "name": "Odata Authentication",
+        "slug": "odata-authentication",
+        "categories": [
+            "authentication",
+            "api",
+            "odata"
+        ],
+        "color": "#D166DB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8fd5bcd9",
+        "name": "Odbc",
+        "slug": "odbc",
+        "categories": [
+            "database",
+            "connectivity"
+        ],
+        "color": "#4137BD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-38dc544f",
+        "name": "Oidc",
+        "slug": "oidc",
+        "categories": [
+            "authentication",
+            "protocol",
+            "openid-connect"
+        ],
+        "color": "#F3E85A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-067749fb",
+        "name": "Openid Connect",
+        "slug": "openid-connect",
+        "categories": [
+            "authentication",
+            "protocol"
+        ],
+        "color": "#DEFD4A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3f1030a8",
+        "name": "Opensearch",
+        "slug": "opensearch",
+        "categories": [
+            "search",
+            "database",
+            "analytics"
+        ],
+        "color": "#D84008",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fe3b08c0",
+        "name": "Openssh",
+        "slug": "openssh",
+        "categories": [
+            "security",
+            "ssh",
+            "protocol"
+        ],
+        "color": "#FC62C1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2f345dc8",
+        "name": "Openssl",
+        "slug": "openssl",
+        "categories": [
+            "security",
+            "ssl",
+            "encryption"
+        ],
+        "color": "#A720C9",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-36051825",
+        "name": "Oracle Db",
+        "slug": "oracle-db",
+        "categories": [
+            "database",
+            "rdbms"
+        ],
+        "color": "#01D588",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6bb70fbb",
+        "name": "Packer",
+        "slug": "packer",
+        "categories": [
+            "devops",
+            "infrastructure",
+            "automation"
+        ],
+        "color": "#3CF633",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8321fc66",
+        "name": "Pam Authentication",
+        "slug": "pam-authentication",
+        "categories": [
+            "authentication",
+            "linux",
+            "security"
+        ],
+        "color": "#63C422",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-35408306",
+        "name": "Passphrase",
+        "slug": "passphrase",
+        "categories": [
+            "security",
+            "authentication"
+        ],
+        "color": "#56EF22",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-92c0ddb6",
+        "name": "Password",
+        "slug": "password",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#3BFB0B",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3c69edea",
+        "name": "Password Hashing",
+        "slug": "password-hashing",
+        "categories": [
+            "authentication",
+            "security",
+            "encryption"
+        ],
+        "color": "#A85EF7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f560ae4c",
+        "name": "Password Authentication",
+        "slug": "password-authentication",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#F7F5F7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6b7f5b8e",
+        "name": "Password Policy",
+        "slug": "password-policy",
+        "categories": [
+            "authentication",
+            "security",
+            "compliance"
+        ],
+        "color": "#8A467F",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ed9142b9",
+        "name": "Passwordless Login",
+        "slug": "passwordless-login",
+        "categories": [
+            "authentication",
+            "security",
+            "modern-auth"
+        ],
+        "color": "#FB61DB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-39cbfcfa",
+        "name": "Payment Credentials",
+        "slug": "payment-credentials",
+        "categories": [
+            "security",
+            "ecommerce",
+            "credentials"
+        ],
+        "color": "#F2CC55",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f56cc991",
+        "name": "Paytm Mall",
+        "slug": "paytm-mall",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#3CE874",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7d958d14",
+        "name": "Pci Compliance",
+        "slug": "pci-compliance",
+        "categories": [
+            "security",
+            "compliance",
+            "ecommerce"
+        ],
+        "color": "#E4B935",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6ac9ba24",
+        "name": "Pem",
+        "slug": "pem",
+        "categories": [
+            "security",
+            "ssl",
+            "certificates"
+        ],
+        "color": "#9A2077",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-340d78bd",
+        "name": "Pg Hba Conf",
+        "slug": "pg-hba-conf",
+        "categories": [
+            "database",
+            "postgresql",
+            "configuration"
+        ],
+        "color": "#A2AE5E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5f11611f",
+        "name": "Pin",
+        "slug": "pin",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#636EC7",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a3c1061e",
+        "name": "Pinterest",
+        "slug": "pinterest",
+        "categories": [
+            "social-media",
+            "creative"
+        ],
+        "color": "#60B989",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-86f9ab3f",
+        "name": "Pkcs12",
+        "slug": "pkcs12",
+        "categories": [
+            "security",
+            "ssl",
+            "certificates"
+        ],
+        "color": "#D9FBF5",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-14bc6d33",
+        "name": "Portal Authentication",
+        "slug": "portal-authentication",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#9C8676",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c34b9123",
+        "name": "Post Permissions",
+        "slug": "post-permissions",
+        "categories": [
+            "authorization",
+            "cms",
+            "social-media"
+        ],
+        "color": "#FA7D90",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cf50f228",
+        "name": "Postgres Connection",
+        "slug": "postgres-connection",
+        "categories": [
+            "database",
+            "configuration",
+            "postgresql"
+        ],
+        "color": "#3A9D9B",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-eb4199e0",
+        "name": "Postgresql",
+        "slug": "postgresql",
+        "categories": [
+            "database",
+            "rdbms"
+        ],
+        "color": "#33C8CC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5fe09400",
+        "name": "Postgresql Authentication",
+        "slug": "postgresql-authentication",
+        "categories": [
+            "authentication",
+            "database"
+        ],
+        "color": "#D88A99",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2fcd2535",
+        "name": "Postgresql Credentials",
+        "slug": "postgresql-credentials",
+        "categories": [
+            "security",
+            "database",
+            "credentials"
+        ],
+        "color": "#1DED19",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1c0a7051",
+        "name": "Postgresql Permissions",
+        "slug": "postgresql-permissions",
+        "categories": [
+            "authorization",
+            "database"
+        ],
+        "color": "#A3880E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5a41a0dd",
+        "name": "Postgresql Roles",
+        "slug": "postgresql-roles",
+        "categories": [
+            "authorization",
+            "database"
+        ],
+        "color": "#E5B9AB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9cac6fa4",
+        "name": "Postgresql Ssl",
+        "slug": "postgresql-ssl",
+        "categories": [
+            "security",
+            "ssl",
+            "database"
+        ],
+        "color": "#87271A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-86bc7395",
+        "name": "Powershell",
+        "slug": "powershell",
+        "categories": [
+            "scripting",
+            "windows",
+            "devops"
+        ],
+        "color": "#58045A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-705a0b18",
+        "name": "Prisma",
+        "slug": "prisma",
+        "categories": [
+            "orm",
+            "database",
+            "typescript"
+        ],
+        "color": "#781906",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f103e96b",
+        "name": "Private Messaging",
+        "slug": "private-messaging",
+        "categories": [
+            "communication",
+            "security",
+            "privacy"
+        ],
+        "color": "#5DF2B2",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d7777bad",
+        "name": "Private Key",
+        "slug": "private-key",
+        "categories": [
+            "security",
+            "encryption",
+            "keys"
+        ],
+        "color": "#127588",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f37bd3f6",
+        "name": "Privileged Access",
+        "slug": "privileged-access",
+        "categories": [
+            "security",
+            "authorization"
+        ],
+        "color": "#D778C0",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cfc40137",
+        "name": "Profile Access",
+        "slug": "profile-access",
+        "categories": [
+            "authorization",
+            "user-management"
+        ],
+        "color": "#5289BD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-69ca40a8",
+        "name": "Profile Setup",
+        "slug": "profile-setup",
+        "categories": [
+            "user-management",
+            "ui"
+        ],
+        "color": "#5A347A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-364c86a5",
+        "name": "Public Key",
+        "slug": "public-key",
+        "categories": [
+            "security",
+            "encryption",
+            "keys"
+        ],
+        "color": "#934DDB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-18e4dcbe",
+        "name": "Public Key Cryptography",
+        "slug": "public-key-cryptography",
+        "categories": [
+            "security",
+            "encryption",
+            "crypto"
+        ],
+        "color": "#CC8344",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-61eac1e2",
+        "name": "Putty",
+        "slug": "putty",
+        "categories": [
+            "ssh",
+            "tools",
+            "security"
+        ],
+        "color": "#FB1C96",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a059e403",
+        "name": "Quora",
+        "slug": "quora",
+        "categories": [
+            "social-media",
+            "knowledge-sharing"
+        ],
+        "color": "#4B15B4",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-85eb00e6",
+        "name": "Qwant",
+        "slug": "qwant",
+        "categories": [
+            "search-engine",
+            "privacy"
+        ],
+        "color": "#66A461",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f5d7e1ee",
+        "name": "Rakuten",
+        "slug": "rakuten",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#2AA739",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5671bffa",
+        "name": "Rate Limiting",
+        "slug": "rate-limiting",
+        "categories": [
+            "api",
+            "security",
+            "performance"
+        ],
+        "color": "#164E3D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-18157a88",
+        "name": "Rdbms",
+        "slug": "rdbms",
+        "categories": [
+            "database",
+            "relational"
+        ],
+        "color": "#7DC366",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8973bcf9",
+        "name": "Reddit",
+        "slug": "reddit",
+        "categories": [
+            "social-media",
+            "community"
+        ],
+        "color": "#4352D6",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-09ac4d04",
+        "name": "Redhat",
+        "slug": "redhat",
+        "categories": [
+            "os",
+            "linux"
+        ],
+        "color": "#2168E5",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-16d389ef",
+        "name": "Redis",
+        "slug": "redis",
+        "categories": [
+            "database",
+            "in-memory",
+            "nosql"
+        ],
+        "color": "#4AA7FD",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e5fb442f",
+        "name": "Redis Acl",
+        "slug": "redis-acl",
+        "categories": [
+            "authorization",
+            "database",
+            "security"
+        ],
+        "color": "#8A2E69",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-79a448f7",
+        "name": "Redis Authentication",
+        "slug": "redis-authentication",
+        "categories": [
+            "authentication",
+            "database",
+            "security"
+        ],
+        "color": "#C49270",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b898b364",
+        "name": "Redis Password",
+        "slug": "redis-password",
+        "categories": [
+            "security",
+            "database",
+            "credentials"
+        ],
+        "color": "#6C50ED",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5af4d649",
+        "name": "Relational Database",
+        "slug": "relational-database",
+        "categories": [
+            "database",
+            "rdbms"
+        ],
+        "color": "#9C11FC",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-368de3d9",
+        "name": "Remember Me",
+        "slug": "remember-me",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#293626",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-96e73581",
+        "name": "Remote Login",
+        "slug": "remote-login",
+        "categories": [
+            "authentication",
+            "security",
+            "network"
+        ],
+        "color": "#BC7C38",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-386d2c0f",
+        "name": "Remote Server Access",
+        "slug": "remote-server-access",
+        "categories": [
+            "network",
+            "authentication",
+            "security"
+        ],
+        "color": "#1DFEFC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e6639bab",
+        "name": "Rest Api",
+        "slug": "rest-api",
+        "categories": [
+            "api",
+            "web",
+            "development"
+        ],
+        "color": "#016693",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-398a0384",
+        "name": "Rest Api Security",
+        "slug": "rest-api-security",
+        "categories": [
+            "api",
+            "security",
+            "web"
+        ],
+        "color": "#3546FD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-09ff06a4",
+        "name": "Revocation",
+        "slug": "revocation",
+        "categories": [
+            "security",
+            "certificates",
+            "authentication"
+        ],
+        "color": "#8998AB",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b661a8f0",
+        "name": "Role Based Access",
+        "slug": "role-based-access",
+        "categories": [
+            "authorization",
+            "security"
+        ],
+        "color": "#2A9BA6",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ffb8cce7",
+        "name": "Role Based Access Control",
+        "slug": "role-based-access-control",
+        "categories": [
+            "authorization",
+            "security"
+        ],
+        "color": "#4535DD",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f0ca8b1d",
+        "name": "Rotation",
+        "slug": "rotation",
+        "categories": [
+            "security",
+            "key-management"
+        ],
+        "color": "#95E7AE",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0c606a3a",
+        "name": "Rsa Key",
+        "slug": "rsa-key",
+        "categories": [
+            "security",
+            "encryption",
+            "crypto"
+        ],
+        "color": "#7BF6CC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7544ca2a",
+        "name": "Rumble",
+        "slug": "rumble",
+        "categories": [
+            "social-media"
+        ],
+        "color": "#C78252",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3d4a3141",
+        "name": "Salt",
+        "slug": "salt",
+        "categories": [
+            "security",
+            "passwords",
+            "hashing"
+        ],
+        "color": "#1BF6A8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a90b62fe",
+        "name": "Salted",
+        "slug": "salted",
+        "categories": [
+            "security",
+            "passwords",
+            "hashing"
+        ],
+        "color": "#AEEE68",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-55c0af08",
+        "name": "Saml",
+        "slug": "saml",
+        "categories": [
+            "authentication",
+            "protocol",
+            "identity"
+        ],
+        "color": "#52FACC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-79eb5ad7",
+        "name": "Sasl Kerberos",
+        "slug": "sasl-kerberos",
+        "categories": [
+            "authentication",
+            "kerberos",
+            "protocol"
+        ],
+        "color": "#2965DF",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-95b2ec73",
+        "name": "Saved Addresses",
+        "slug": "saved-addresses",
+        "categories": [
+            "user-data",
+            "privacy",
+            "ecommerce"
+        ],
+        "color": "#6F2D17",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7791668a",
+        "name": "Scp",
+        "slug": "scp",
+        "categories": [
+            "security",
+            "ssh",
+            "file-transfer"
+        ],
+        "color": "#E60258",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-999934d6",
+        "name": "Secret",
+        "slug": "secret",
+        "categories": [
+            "security",
+            "credentials"
+        ],
+        "color": "#1B7685",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-18377fac",
+        "name": "Secrets Management",
+        "slug": "secrets-management",
+        "categories": [
+            "security",
+            "devops",
+            "cloud"
+        ],
+        "color": "#682193",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-461382c2",
+        "name": "Secure Checkout",
+        "slug": "secure-checkout",
+        "categories": [
+            "security",
+            "ecommerce"
+        ],
+        "color": "#0E3354",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-60b667d4",
+        "name": "Secure Form",
+        "slug": "secure-form",
+        "categories": [
+            "security",
+            "web",
+            "forms"
+        ],
+        "color": "#53ABE6",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7629c593",
+        "name": "Secure Connections",
+        "slug": "secure-connections",
+        "categories": [
+            "security",
+            "network",
+            "ssl"
+        ],
+        "color": "#7DA8BA",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9b1e4dac",
+        "name": "Secure Shell",
+        "slug": "secure-shell",
+        "categories": [
+            "security",
+            "ssh"
+        ],
+        "color": "#2F757C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-38a07936",
+        "name": "Secure Storage",
+        "slug": "secure-storage",
+        "categories": [
+            "security",
+            "data-protection"
+        ],
+        "color": "#3C5010",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d9e6c285",
+        "name": "Security",
+        "slug": "security",
+        "categories": [
+            "security"
+        ],
+        "color": "#3BFE9C",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cf3311e8",
+        "name": "Self Signed Certificate",
+        "slug": "self-signed-certificate",
+        "categories": [
+            "security",
+            "ssl",
+            "certificates"
+        ],
+        "color": "#44117C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c330eb09",
+        "name": "Sequelize",
+        "slug": "sequelize",
+        "categories": [
+            "orm",
+            "database",
+            "nodejs"
+        ],
+        "color": "#F45817",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-03936ee7",
+        "name": "Service Account",
+        "slug": "service-account",
+        "categories": [
+            "cloud",
+            "identity",
+            "authentication"
+        ],
+        "color": "#C6CA89",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-dda4251d",
+        "name": "Service Accounts",
+        "slug": "service-accounts",
+        "categories": [
+            "cloud",
+            "identity",
+            "authentication"
+        ],
+        "color": "#F46336",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6be10c75",
+        "name": "Session",
+        "slug": "session",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#0EC320",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cb76e90c",
+        "name": "Session Management",
+        "slug": "session-management",
+        "categories": [
+            "authentication",
+            "security",
+            "web"
+        ],
+        "color": "#66B185",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-45e654d7",
+        "name": "Sftp",
+        "slug": "sftp",
+        "categories": [
+            "security",
+            "file-transfer",
+            "ssh"
+        ],
+        "color": "#CC8A8A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4091ad68",
+        "name": "Shopclues",
+        "slug": "shopclues",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#6C4D8D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4788c3ba",
+        "name": "Shopify",
+        "slug": "shopify",
+        "categories": [
+            "ecommerce",
+            "platform"
+        ],
+        "color": "#63A1E4",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3b7743dd",
+        "name": "Signal",
+        "slug": "signal",
+        "categories": [
+            "communication",
+            "messaging",
+            "privacy"
+        ],
+        "color": "#62EDEA",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f5b65db2",
+        "name": "Signin",
+        "slug": "signin",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#4CFFEF",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c0968b85",
+        "name": "Signup",
+        "slug": "signup",
+        "categories": [
+            "authentication",
+            "web"
+        ],
+        "color": "#268088",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c77966f2",
+        "name": "Snapchat",
+        "slug": "snapchat",
+        "categories": [
+            "social-media"
+        ],
+        "color": "#E6C479",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-382e9c04",
+        "name": "Snapdeal",
+        "slug": "snapdeal",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#B44F78",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9d122cc8",
+        "name": "Social Login",
+        "slug": "social-login",
+        "categories": [
+            "authentication",
+            "social-media",
+            "oauth"
+        ],
+        "color": "#A5B257",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f00731d9",
+        "name": "Solr",
+        "slug": "solr",
+        "categories": [
+            "search",
+            "database",
+            "analytics"
+        ],
+        "color": "#A465AF",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-010c0de0",
+        "name": "Spn Service Principal Name",
+        "slug": "spn-service-principal-name",
+        "categories": [
+            "authentication",
+            "kerberos",
+            "identity"
+        ],
+        "color": "#331F74",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cca1e4de",
+        "name": "Sql",
+        "slug": "sql",
+        "categories": [
+            "database",
+            "rdbms"
+        ],
+        "color": "#4DF1F6",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-26af98b2",
+        "name": "Sql Authentication",
+        "slug": "sql-authentication",
+        "categories": [
+            "authentication",
+            "database"
+        ],
+        "color": "#FF9EDA",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-3c282171",
+        "name": "Sql Injection",
+        "slug": "sql-injection",
+        "categories": [
+            "security",
+            "vulnerability"
+        ],
+        "color": "#7EB61A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-bd1d356f",
+        "name": "Sql Permissions",
+        "slug": "sql-permissions",
+        "categories": [
+            "authorization",
+            "database"
+        ],
+        "color": "#B78231",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fa4560e5",
+        "name": "Sql Security",
+        "slug": "sql-security",
+        "categories": [
+            "security",
+            "database"
+        ],
+        "color": "#199F51",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0eee760c",
+        "name": "Sql Server",
+        "slug": "sql-server",
+        "categories": [
+            "database",
+            "rdbms",
+            "microsoft"
+        ],
+        "color": "#E0F954",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7cb4601c",
+        "name": "Sqlite",
+        "slug": "sqlite",
+        "categories": [
+            "database",
+            "embedded"
+        ],
+        "color": "#13D7D6",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b8883777",
+        "name": "Ssh Add",
+        "slug": "ssh-add",
+        "categories": [
+            "ssh",
+            "security",
+            "tools"
+        ],
+        "color": "#132041",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-975df753",
+        "name": "Ssh Agent",
+        "slug": "ssh-agent",
+        "categories": [
+            "ssh",
+            "security"
+        ],
+        "color": "#B894E3",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4dbb6b67",
+        "name": "Ssh Audit",
+        "slug": "ssh-audit",
+        "categories": [
+            "security",
+            "monitoring",
+            "ssh"
+        ],
+        "color": "#6717D1",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b6d35200",
+        "name": "Ssh Authentication",
+        "slug": "ssh-authentication",
+        "categories": [
+            "authentication",
+            "ssh",
+            "security"
+        ],
+        "color": "#585680",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-5a1b4c52",
+        "name": "Ssh Config",
+        "slug": "ssh-config",
+        "categories": [
+            "ssh",
+            "configuration",
+            "security"
+        ],
+        "color": "#AD010C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2c080377",
+        "name": "Ssh Credentials",
+        "slug": "ssh-credentials",
+        "categories": [
+            "ssh",
+            "security",
+            "credentials"
+        ],
+        "color": "#3E1D26",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9dda493e",
+        "name": "Ssh Hardening",
+        "slug": "ssh-hardening",
+        "categories": [
+            "security",
+            "ssh",
+            "best-practices"
+        ],
+        "color": "#3F90DA",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-51e4b2cc",
+        "name": "Ssh Keygen",
+        "slug": "ssh-keygen",
+        "categories": [
+            "ssh",
+            "tools",
+            "security"
+        ],
+        "color": "#FDF2D0",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a572c9e5",
+        "name": "Ssh Keys",
+        "slug": "ssh-keys",
+        "categories": [
+            "ssh",
+            "security",
+            "encryption"
+        ],
+        "color": "#8602E1",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e9f6d857",
+        "name": "Ssh Logging",
+        "slug": "ssh-logging",
+        "categories": [
+            "monitoring",
+            "ssh",
+            "security"
+        ],
+        "color": "#2034C0",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a200a94f",
+        "name": "Ssh Monitoring",
+        "slug": "ssh-monitoring",
+        "categories": [
+            "monitoring",
+            "ssh",
+            "security"
+        ],
+        "color": "#B24908",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-711a0c6e",
+        "name": "Ssh Passphrase",
+        "slug": "ssh-passphrase",
+        "categories": [
+            "ssh",
+            "security",
+            "encryption"
+        ],
+        "color": "#16F777",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-fee69bb8",
+        "name": "Ssh Port",
+        "slug": "ssh-port",
+        "categories": [
+            "ssh",
+            "configuration",
+            "network"
+        ],
+        "color": "#A95B49",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7652f283",
+        "name": "Ssh Proxy",
+        "slug": "ssh-proxy",
+        "categories": [
+            "ssh",
+            "network",
+            "security"
+        ],
+        "color": "#687F5C",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1f267144",
+        "name": "Ssh Tunneling",
+        "slug": "ssh-tunneling",
+        "categories": [
+            "ssh",
+            "network",
+            "security"
+        ],
+        "color": "#F2DEB3",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0eec0c6c",
+        "name": "Ssl",
+        "slug": "ssl",
+        "categories": [
+            "security",
+            "encryption",
+            "network"
+        ],
+        "color": "#07901D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-bd9e31fa",
+        "name": "Ssl Certificate",
+        "slug": "ssl-certificate",
+        "categories": [
+            "security",
+            "ssl",
+            "certificates"
+        ],
+        "color": "#F38B21",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b5e97bb2",
+        "name": "Ssl Config",
+        "slug": "ssl-config",
+        "categories": [
+            "ssl",
+            "configuration",
+            "security"
+        ],
+        "color": "#8A88BA",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b06811f8",
+        "name": "Ssl Context",
+        "slug": "ssl-context",
+        "categories": [
+            "ssl",
+            "configuration",
+            "security"
+        ],
+        "color": "#18ACB2",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d35e5c1f",
+        "name": "Ssl Encryption",
+        "slug": "ssl-encryption",
+        "categories": [
+            "ssl",
+            "security",
+            "encryption"
+        ],
+        "color": "#047CE0",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-eb9f8f71",
+        "name": "Ssl Error",
+        "slug": "ssl-error",
+        "categories": [
+            "ssl",
+            "debugging",
+            "security"
+        ],
+        "color": "#A3E377",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e7eb9266",
+        "name": "Ssl Handshake",
+        "slug": "ssl-handshake",
+        "categories": [
+            "ssl",
+            "security",
+            "protocol"
+        ],
+        "color": "#08568D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-646b70f9",
+        "name": "Ssl Pinning",
+        "slug": "ssl-pinning",
+        "categories": [
+            "security",
+            "ssl",
+            "web"
+        ],
+        "color": "#724D01",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-40a80195",
+        "name": "Ssl Protocol Version",
+        "slug": "ssl-protocol-version",
+        "categories": [
+            "ssl",
+            "configuration",
+            "security"
+        ],
+        "color": "#8188A8",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2e586d03",
+        "name": "Ssl Session",
+        "slug": "ssl-session",
+        "categories": [
+            "ssl",
+            "protocol",
+            "security"
+        ],
+        "color": "#1CD218",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4f5106ea",
+        "name": "Ssl Termination",
+        "slug": "ssl-termination",
+        "categories": [
+            "ssl",
+            "load-balancing",
+            "security"
+        ],
+        "color": "#D5D973",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-771671c1",
+        "name": "Ssl Validation",
+        "slug": "ssl-validation",
+        "categories": [
+            "ssl",
+            "certificates",
+            "security"
+        ],
+        "color": "#88973D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e66d978c",
+        "name": "Sso",
+        "slug": "sso",
+        "categories": [
+            "authentication",
+            "identity",
+            "saml",
+            "oauth"
+        ],
+        "color": "#550276",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e541a45c",
+        "name": "Sspi",
+        "slug": "sspi",
+        "categories": [
+            "authentication",
+            "windows",
+            "kerberos"
+        ],
+        "color": "#6D1CE1",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a6baf3e0",
+        "name": "Static Form",
+        "slug": "static-form",
+        "categories": [
+            "web",
+            "forms"
+        ],
+        "color": "#EB3F30",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-93af48b4",
+        "name": "Swisscows",
+        "slug": "swisscows",
+        "categories": [
+            "search-engine",
+            "privacy"
+        ],
+        "color": "#230478",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a6ce9a68",
+        "name": "System Credentials",
+        "slug": "system-credentials",
+        "categories": [
+            "security",
+            "credentials",
+            "os"
+        ],
+        "color": "#2DCF22",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7528d8a1",
+        "name": "Tata Cliq",
+        "slug": "tata-cliq",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#4F631F",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-41078c34",
+        "name": "Telegram",
+        "slug": "telegram",
+        "categories": [
+            "communication",
+            "messaging"
+        ],
+        "color": "#34EE41",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-27e7befd",
+        "name": "Terraform",
+        "slug": "terraform",
+        "categories": [
+            "devops",
+            "infrastructure",
+            "iac"
+        ],
+        "color": "#F738D6",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-67e61ca5",
+        "name": "Tgs Ticket Granting Service",
+        "slug": "tgs-ticket-granting-service",
+        "categories": [
+            "authentication",
+            "kerberos",
+            "identity"
+        ],
+        "color": "#41C0E7",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a307c452",
+        "name": "Tgt Ticket Granting Ticket",
+        "slug": "tgt-ticket-granting-ticket",
+        "categories": [
+            "authentication",
+            "kerberos",
+            "identity"
+        ],
+        "color": "#327EDB",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e4c84485",
+        "name": "Threads",
+        "slug": "threads",
+        "categories": [
+            "social-media",
+            "meta"
+        ],
+        "color": "#D7B957",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8c02b6a4",
+        "name": "Tiktok",
+        "slug": "tiktok",
+        "categories": [
+            "social-media",
+            "video"
+        ],
+        "color": "#C73A41",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-bf0c422b",
+        "name": "Tls",
+        "slug": "tls",
+        "categories": [
+            "security",
+            "encryption",
+            "protocol"
+        ],
+        "color": "#04067A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-4b8728ac",
+        "name": "Tls Handshake",
+        "slug": "tls-handshake",
+        "categories": [
+            "tls",
+            "security",
+            "protocol"
+        ],
+        "color": "#91BD37",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8250b5c1",
+        "name": "Token",
+        "slug": "token",
+        "categories": [
+            "authentication",
+            "authorization",
+            "security"
+        ],
+        "color": "#DFA7A1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-687bf1cb",
+        "name": "Token Expiry",
+        "slug": "token-expiry",
+        "categories": [
+            "authentication",
+            "session-management"
+        ],
+        "color": "#C290A3",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-eee292d2",
+        "name": "Tumblr",
+        "slug": "tumblr",
+        "categories": [
+            "social-media",
+            "blogging"
+        ],
+        "color": "#1F83A2",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e86b2425",
+        "name": "Twitch",
+        "slug": "twitch",
+        "categories": [
+            "social-media",
+            "streaming"
+        ],
+        "color": "#E35CB0",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ef3de1e6",
+        "name": "Twitter X",
+        "slug": "twitter-x",
+        "categories": [
+            "social-media",
+            "microblogging"
+        ],
+        "color": "#DCF836",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b8f3d05e",
+        "name": "Twitter Auth",
+        "slug": "twitter-auth",
+        "categories": [
+            "authentication",
+            "social-media",
+            "oauth"
+        ],
+        "color": "#F97CA1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-cbbbf3f8",
+        "name": "Two Factor Authentication",
+        "slug": "two-factor-authentication",
+        "categories": [
+            "authentication",
+            "security"
+        ],
+        "color": "#F6C6A9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-38fa4117",
+        "name": "Typeorm",
+        "slug": "typeorm",
+        "categories": [
+            "orm",
+            "database",
+            "typescript"
+        ],
+        "color": "#DFA276",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-993d32dc",
+        "name": "Ubuntu",
+        "slug": "ubuntu",
+        "categories": [
+            "os",
+            "linux",
+            "security"
+        ],
+        "color": "#450559",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9728144b",
+        "name": "User Consent",
+        "slug": "user-consent",
+        "categories": [
+            "privacy",
+            "authorization",
+            "compliance"
+        ],
+        "color": "#C8A963",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8272fcb1",
+        "name": "User Credentials",
+        "slug": "user-credentials",
+        "categories": [
+            "authentication",
+            "security",
+            "identity"
+        ],
+        "color": "#B2AEF9",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0f22673c",
+        "name": "User Portal",
+        "slug": "user-portal",
+        "categories": [
+            "ui",
+            "authentication",
+            "user-management"
+        ],
+        "color": "#251038",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-9d306d28",
+        "name": "User Profile",
+        "slug": "user-profile",
+        "categories": [
+            "user-management",
+            "identity"
+        ],
+        "color": "#E7A43D",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-28003c79",
+        "name": "User Registration",
+        "slug": "user-registration",
+        "categories": [
+            "authentication",
+            "user-management",
+            "web"
+        ],
+        "color": "#AE68FD",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7c19f47a",
+        "name": "User Roles",
+        "slug": "user-roles",
+        "categories": [
+            "authorization",
+            "user-management"
+        ],
+        "color": "#A8C012",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a976c0c4",
+        "name": "User Session",
+        "slug": "user-session",
+        "categories": [
+            "authentication",
+            "session-management"
+        ],
+        "color": "#655AB4",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b5363982",
+        "name": "User Access",
+        "slug": "user-access",
+        "categories": [
+            "authorization",
+            "security"
+        ],
+        "color": "#24AEA5",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c43df3b5",
+        "name": "User Auth",
+        "slug": "user-auth",
+        "categories": [
+            "authentication",
+            "user-management"
+        ],
+        "color": "#50416D",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-c8033b61",
+        "name": "User Credentials",
+        "slug": "user-credentials",
+        "categories": [
+            "authentication",
+            "security",
+            "identity"
+        ],
+        "color": "#FBFA0E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-265d0c42",
+        "name": "User Management",
+        "slug": "user-management",
+        "categories": [
+            "user-management",
+            "identity",
+            "admin"
+        ],
+        "color": "#6ADC73",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0f0e9eaf",
+        "name": "User Profile",
+        "slug": "user-profile",
+        "categories": [
+            "user-management",
+            "identity",
+            "ui"
+        ],
+        "color": "#7788EC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-16d921a3",
+        "name": "Username",
+        "slug": "username",
+        "categories": [
+            "authentication",
+            "identity"
+        ],
+        "color": "#71870A",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-f096d2cc",
+        "name": "Username Password",
+        "slug": "username-password",
+        "categories": [
+            "authentication",
+            "credentials",
+            "security"
+        ],
+        "color": "#5FB7F5",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8dce455e",
+        "name": "Vault",
+        "slug": "vault",
+        "categories": [
+            "secrets-management",
+            "security",
+            "hashicorp"
+        ],
+        "color": "#B55ADC",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-e22c3803",
+        "name": "Vault Secrets",
+        "slug": "vault-secrets",
+        "categories": [
+            "secrets-management",
+            "hashicorp",
+            "security"
+        ],
+        "color": "#541B43",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-d018d477",
+        "name": "Verification",
+        "slug": "verification",
+        "categories": [
+            "authentication",
+            "security",
+            "user-validation"
+        ],
+        "color": "#40E26C",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-6da89f2b",
+        "name": "Vimeo",
+        "slug": "vimeo",
+        "categories": [
+            "social-media",
+            "video"
+        ],
+        "color": "#8FDC1A",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-76de6fe7",
+        "name": "Virtual Machines",
+        "slug": "virtual-machines",
+        "categories": [
+            "infrastructure",
+            "cloud",
+            "virtualization"
+        ],
+        "color": "#639C22",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b3f130ad",
+        "name": "Virtualbox",
+        "slug": "virtualbox",
+        "categories": [
+            "virtualization",
+            "infrastructure",
+            "os"
+        ],
+        "color": "#596A63",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-950e1fb7",
+        "name": "Vk",
+        "slug": "vk",
+        "categories": [
+            "social-media"
+        ],
+        "color": "#066DEE",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-7f7b8263",
+        "name": "Vmware",
+        "slug": "vmware",
+        "categories": [
+            "virtualization",
+            "infrastructure",
+            "enterprise"
+        ],
+        "color": "#A4A561",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-a7d5189e",
+        "name": "Walmart",
+        "slug": "walmart",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#D61CED",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-8ce16e1f",
+        "name": "Wechat",
+        "slug": "wechat",
+        "categories": [
+            "communication",
+            "messaging"
+        ],
+        "color": "#E8BB5E",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-2f7c6f50",
+        "name": "Whatsapp",
+        "slug": "whatsapp",
+        "categories": [
+            "communication",
+            "messaging"
+        ],
+        "color": "#7FDF90",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0a18bb13",
+        "name": "Windows Server",
+        "slug": "windows-server",
+        "categories": [
+            "os",
+            "microsoft",
+            "server"
+        ],
+        "color": "#783A62",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b462c062",
+        "name": "Winrm",
+        "slug": "winrm",
+        "categories": [
+            "remote-access",
+            "windows",
+            "administration"
+        ],
+        "color": "#6B9BD1",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-32261fdf",
+        "name": "Winscp",
+        "slug": "winscp",
+        "categories": [
+            "file-transfer",
+            "ssh",
+            "tools"
+        ],
+        "color": "#2FCFB0",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-bd599d87",
+        "name": "Wish",
+        "slug": "wish",
+        "categories": [
+            "ecommerce"
+        ],
+        "color": "#D294F0",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-1e56aa70",
+        "name": "X 509 Certificates",
+        "slug": "x-509-certificates",
+        "categories": [
+            "ssl",
+            "certificates",
+            "security"
+        ],
+        "color": "#32163F",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-008dd452",
+        "name": "Xing",
+        "slug": "xing",
+        "categories": [
+            "social-media",
+            "professional-network"
+        ],
+        "color": "#51DB2F",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-78cb7141",
+        "name": "Xpack Security",
+        "slug": "xpack-security",
+        "categories": [
+            "elasticsearch",
+            "security",
+            "enterprise"
+        ],
+        "color": "#AFC113",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-ab9576dc",
+        "name": "Yahoo",
+        "slug": "yahoo",
+        "categories": [
+            "social-media",
+            "email",
+            "identity"
+        ],
+        "color": "#AB41C4",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-dd2907f2",
+        "name": "Youtube",
+        "slug": "youtube",
+        "categories": [
+            "social-media",
+            "video"
+        ],
+        "color": "#1EF966",
+        "textColor": "#000000",
+        "isSystem": true
+    }, {
+        "tagId": "tag-b4f95c4e",
+        "name": "Zero Trust",
+        "slug": "zero-trust",
+        "categories": [
+            "security",
+            "network",
+            "architecture"
+        ],
+        "color": "#943377",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }, {
+        "tagId": "tag-0a2e88ce",
+        "name": "Ssh Config",
+        "slug": "ssh-config",
+        "categories": [
+            "ssh",
+            "configuration",
+            "security"
+        ],
+        "color": "#F40796",
+        "textColor": "#FFFFFF",
+        "isSystem": true
+    }
+]

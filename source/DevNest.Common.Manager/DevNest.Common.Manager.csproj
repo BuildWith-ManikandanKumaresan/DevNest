@@ -21,4 +21,11 @@
     <ProjectReference Include="..\DevNest.Plugin.Contracts\DevNest.Plugin.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Slugify.Core" Version="5.1.1" />
+  </ItemGroup>
+
 </Project>

@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the class instance for Metadata informations.
     /// </summary>
-    public class MetadataDTO
+    public class MetadataResponseDTO
     {
 
         /// <summary>

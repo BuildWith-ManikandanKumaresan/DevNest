@@ -6,82 +6,46 @@ using System.Reflection;
 namespace DevNest.Common.Manager.FileSystem
 {
     /// <summary>
-    /// Represents the class interface for File system manager.
+    /// Represents the class interface for managing file systems.
     /// </summary>
     public class FileSystemManager : IFileSystemManager
     {
-        private string? _rootDirectory = string.Empty;
-
         /// <summary>
-        /// Gets or sets the filesystem root directory.
+        /// Initializes a new instance of the <see cref="FileSystemManager"/> class.
         /// </summary>
-        public string? RootDirectory
+        public FileSystemManager()
         {
-            get
-            {
-                if(string.IsNullOrEmpty(_rootDirectory))
-                {
-                    _rootDirectory = GetRootDirectory() ?? string.Empty;
-                }
-                return _rootDirectory;
-            }
+            Plugin = new FileSystem(PluginDirectory ?? string.Empty, FileSearchPatternConstants.DevNest_Plugins);
+            Logger = new FileSystem(LoggerDirectory ?? string.Empty, FileSearchPatternConstants.DevNest_Logs);
+            Preferences = new FileSystem(PreferencesDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Preferences);
+            Resources = new FileSystem(ResourcesDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Resources);
+            SecureVault = new FileSystem(SecureVaultDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Data);
         }
 
         /// <summary>
-        /// Get configuration directory from the file systems.
+        /// Gets the root directory of the file system.
         /// </summary>
-        public string? ConfigurationDirectory => GetConfigurationDirectory();
+        public IFileSystem? Plugin { get; set; }
 
         /// <summary>
-        /// Get the directry path than contains the plugins.
+        /// Gets the directory that contains the logger files.
         /// </summary>
-        public string? PluginStorageDirectory => GetPluginStorageDirectory();
+        public IFileSystem? Logger { get; set; }
 
         /// <summary>
-        /// Get the directory path that contains the data's.
+        /// Gets the directory that contains the preferences files.
         /// </summary>
-        public string? CredentialDataDirectrory => GetCredentialDataDirectory();
+        public IFileSystem? Preferences { get; set; }
 
         /// <summary>
-        /// Get the directory path that contains the assets.
+        /// Gets the directory that contains the resources files.
         /// </summary>
-        public string? AssetsDirectory => GetAssetsDirectory();
+        public IFileSystem? Resources { get; set; }
 
         /// <summary>
-        /// Get the directory path that contains the error codes.
+        /// Gets the directory that contains the secure vault files for storing sensitive data.
         /// </summary>
-        public string? ErrorCodesDirectory => GetErrorCodesDirectory();
-
-        /// <summary>
-        /// Get the directory path that contains the warning codes.
-        /// </summary>
-        public string? WarningCodesDirectory => GetWarningCodesDirectory();
-
-        /// <summary>
-        /// Get the directory path that contains the success codes.
-        /// </summary>
-        public string? SuccessCodesDirectory => GetSuccessCodesDirectory();
-
-        /// <summary>
-        /// Get the directory path that contains the encryption plugin storage.
-        /// </summary>
-        public string? EncryptionPluginStorageDirectory => GetEncryptionPluginDirectory();
-
-        /// <summary>
-        /// Get the directory path that contains the workspace.
-        /// </summary>
-        /// <param name="workspaceName"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public string? GetWorkSpaceDirectory(string workspaceName)
-        {
-            if (string.IsNullOrEmpty(workspaceName))
-                workspaceName = FileSystemConstants.DefaultWorkspace;
-            string workspaceDirectory = Path.GetFullPath(Path.Combine(GetCredentialDataDirectory() ?? string.Empty, workspaceName));
-            if (!Directory.Exists(workspaceDirectory))
-                Directory.CreateDirectory(workspaceDirectory);
-            return workspaceDirectory;
-        }
+        public IFileSystem? SecureVault { get; set; }
 
         #region Private methods
 
@@ -89,16 +53,45 @@ namespace DevNest.Common.Manager.FileSystem
         /// Handler method to Get the root directory.
         /// </summary>
         /// <returns></returns>
-        private static string? GetRootDirectory()
+        private static string? RootDirectory
         {
-            try
+            get
             {
                 string executionPath = Path.GetFullPath(Directory.GetParent(Assembly.GetExecutingAssembly().Location)?.FullName ?? string.Empty);
                 return executionPath != null && Directory.Exists(executionPath) ? Path.GetFullPath(executionPath) : null;
             }
-            catch
+        }
+
+        /// <summary>
+        /// Handler method to get the directory path that contains the plugins.
+        /// </summary>
+        /// <returns></returns>
+        private static string? PluginDirectory
+        {
+            get
             {
-                return null;
+                string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.PluginDirectory));
+                if (!Directory.Exists(plugInDirectory))
+                    Directory.CreateDirectory(plugInDirectory);
+                return plugInDirectory;
+            }
+        }
+
+        /// <summary>
+        /// Handler method to get the directory path that contains the encryption plugins.
+        /// </summary>
+        /// <returns></returns>
+        private static string? LoggerDirectory
+        {
+            get
+            {
+                string loggerDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
+                    FileSystemConstants.DirectoryUp,
+                    FileSystemConstants.DevNestDirectory,
+                    FileSystemConstants.LoggerDirectory));
+                if (!Directory.Exists(loggerDir))
+                    Directory.CreateDirectory(loggerDir);
+                return loggerDir;
             }
         }
 
@@ -106,106 +99,54 @@ namespace DevNest.Common.Manager.FileSystem
         /// Handler method to get the directory that contains the configuration files.
         /// </summary>
         /// <returns></returns>
-        private string? GetConfigurationDirectory()
+        private static string? PreferencesDirectory
         {
-            string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
-                FileSystemConstants.DirectoryUp, 
-                FileSystemConstants.DevNestDirectory,
-                FileSystemConstants.PreferencesDirectoryName));
-            if (!Directory.Exists(configDir))
-                Directory.CreateDirectory(configDir);
-            return configDir;
+            get
+            {
+                string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
+                    FileSystemConstants.DirectoryUp,
+                    FileSystemConstants.DevNestDirectory,
+                    FileSystemConstants.PreferencesDirectory));
+                if (!Directory.Exists(configDir))
+                    Directory.CreateDirectory(configDir);
+                return configDir;
+            }
         }
 
         /// <summary>
-        /// Handler method to get the directory path that contains the plugins.
+        /// Handler method to get the directory path that contains the assets.
         /// </summary>
         /// <returns></returns>
-        private string? GetPluginStorageDirectory()
+        private static string? ResourcesDirectory
         {
-            string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.StoragePluginsDirectoryName));
-            if (!Directory.Exists(plugInDirectory))
-                Directory.CreateDirectory(plugInDirectory);
-            return plugInDirectory;
-        }
-
-        /// <summary>
-        /// Handler method to get the directory path that contains the encryption plugins.
-        /// </summary>
-        /// <returns></returns>
-        private string? GetEncryptionPluginDirectory()
-        {
-            string plugInDirectory = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, FileSystemConstants.EncryptionPluginsDirectoryName));
-            if (!Directory.Exists(plugInDirectory))
-                Directory.CreateDirectory(plugInDirectory);
-            return plugInDirectory;
+            get
+            {
+                string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
+                    FileSystemConstants.DirectoryUp,
+                    FileSystemConstants.DevNestDirectory,
+                    FileSystemConstants.ResourcesDirectory));
+                if (!Directory.Exists(assetsDir))
+                    Directory.CreateDirectory(assetsDir);
+                return assetsDir;
+            }
         }
 
         /// <summary>
         /// Handler method to get the directory path that contains the data.
         /// </summary>
         /// <returns></returns>
-        private string? GetCredentialDataDirectory()
+        private static string? SecureVaultDirectory
         {
-            string credentialDataDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
-                FileSystemConstants.DirectoryUp,
-                FileSystemConstants.DevNestDirectory,
-                FileSystemConstants.SecureVaultDirectoryName, 
-                FileSystemConstants.CredentialStoreDirectory));
-            if (!Directory.Exists(credentialDataDir))
-                Directory.CreateDirectory(credentialDataDir);
-            return credentialDataDir;
-        }
-
-        /// <summary>
-        /// Handler method to get the directory path that contains the assets.
-        /// </summary>
-        /// <returns></returns>
-        private string? GetAssetsDirectory()
-        {
-            string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty, 
-                FileSystemConstants.DirectoryUp, 
-                FileSystemConstants.DevNestDirectory, 
-                FileSystemConstants.ResourcesDirectoryName));
-            if (!Directory.Exists(assetsDir))
-                Directory.CreateDirectory(assetsDir);
-            return assetsDir;
-        }
-
-        /// <summary>
-        /// Handler method to get the directory path that contains the assets.
-        /// </summary>
-        /// <returns></returns>
-        private string? GetWarningCodesDirectory()
-        {
-            string warningCodesDir = Path.GetFullPath(Path.Combine(GetAssetsDirectory() ?? string.Empty, FileSystemConstants.WarningCodesDirectoryName));
-            if (!Directory.Exists(warningCodesDir))
-                Directory.CreateDirectory(warningCodesDir);
-            return warningCodesDir;
-        }
-
-        /// <summary>
-        /// Handler method to get the directory path that contains the error codes.
-        /// </summary>
-        /// <returns></returns>
-        private string? GetErrorCodesDirectory()
-        {
-            string errorCodesDir = Path.GetFullPath(Path.Combine(GetAssetsDirectory() ?? string.Empty, FileSystemConstants.ErrorCodesDirectoryName));
-            if (!Directory.Exists(errorCodesDir))
-                Directory.CreateDirectory(errorCodesDir);
-            return errorCodesDir;
-        }
-
-        /// <summary>
-        /// Handler method to get the directory path that contains the success codes.
-        /// </summary>
-        /// <returns></returns>
-        private string? GetSuccessCodesDirectory()
-        {
-            string successCodesDir = Path.GetFullPath(Path.Combine(GetAssetsDirectory() ?? string.Empty, FileSystemConstants.SuccessCodesDirectoryName));
-            if (!Directory.Exists(successCodesDir))
-                Directory.CreateDirectory(successCodesDir);
-            return successCodesDir;
+            get
+            {
+                string credentialDataDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
+                    FileSystemConstants.DirectoryUp,
+                    FileSystemConstants.DevNestDirectory,
+                    FileSystemConstants.SecureVaultDirectory));
+                if (!Directory.Exists(credentialDataDir))
+                    Directory.CreateDirectory(credentialDataDir);
+                return credentialDataDir;
+            }
         }
 
         #endregion Private methods

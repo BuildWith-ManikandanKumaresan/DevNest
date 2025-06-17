@@ -60,12 +60,12 @@ namespace DevNest.CredentialsManager.Api
         public static void RegisterConfigurations(this WebApplicationBuilder builder)
         {
             FileSystemManager manager = new();
-            string configDirectory = manager?.ConfigurationDirectory ?? string.Empty;
-
-            builder.Configuration.AddJsonFile(Path.Combine(configDirectory, ConfigurationFileConstants.ConfigurationFileName_CredentialManager), optional: true, reloadOnChange: true)
-                         .AddEnvironmentVariables();
-            builder.Services.Configure<CredentialManagerConfigurations>(
-                builder.Configuration);
+            List<string> configDirectory = manager?.Preferences?.GetFilesWithSearchPattern()?.ToList() ?? [];
+            configDirectory.ForEach(item =>
+            {
+                builder.Configuration.AddJsonFile(item, optional: true, reloadOnChange: true).AddEnvironmentVariables();
+            });
+            builder.Services.Configure<CredentialManagerConfigurations>(builder.Configuration);
 
 
         }
@@ -116,9 +116,12 @@ namespace DevNest.CredentialsManager.Api
         public static void RegisterInfrastructure()
         {
             FileSystemManager manager = new();
-            Messages.InitErrorCodes(manager.ErrorCodesDirectory ?? string.Empty);
-            Messages.InitWarningCodes(manager.WarningCodesDirectory ?? string.Empty);
-            Messages.InitSuccessCodes(manager.SuccessCodesDirectory ?? string.Empty);
+            IList<string>? errorCodesFiles = manager.Resources?.GetSubDirectory(FileSystemConstants.ErrorCodesDirectoy)?.GetFilesWithSearchPattern() ?? [];
+            IList<string>? warningCodesFiles = manager.Resources?.GetSubDirectory(FileSystemConstants.WarningCodesDirectory)?.GetFilesWithSearchPattern() ?? [];
+            IList<string>? successCodesFiles = manager.Resources?.GetSubDirectory(FileSystemConstants.SuccessCodesDirectory)?.GetFilesWithSearchPattern() ?? [];
+            Messages.InitErrorCodes(errorCodesFiles);
+            Messages.InitWarningCodes(warningCodesFiles);
+            Messages.InitSuccessCodes(successCodesFiles);
         }
     }
 }

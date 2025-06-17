@@ -8,23 +8,21 @@
         // Directory constants.
         public const string DirectoryUp = "..";
         public const string DevNestDirectory = "DataNest";
-        public const string PreferencesDirectoryName = "Preferences";
-        public const string SecureVaultDirectoryName = "SecureVault";
-        public const string CredentialStoreDirectory = "CredStore";
-        public const string ResourcesDirectoryName = "Resources";
-        public const string ErrorCodesDirectoryName = "Errors";
-        public const string WarningCodesDirectoryName = "Warnings";
-        public const string SuccessCodesDirectoryName = "Success";
-        public const string StoragePluginsDirectoryName = "Plugin\\Storage";
-        public const string EncryptionPluginsDirectoryName = "Plugin\\Encryption";
-        public const string DefaultLoggingDirectory = "DataNest\\Logger\\";
-        public const string Default_LoggerDirectory = "DataNest/Logger/";
+        public const string PreferencesDirectory = "Preferences";
+        public const string SecureVaultDirectory = "SecureVault";
+        public const string CredStoreDirectory = "CredStore";
+        public const string ResourcesDirectory = "Resources";
+        public const string ErrorCodesDirectoy = "Errors";
+        public const string WarningCodesDirectory = "Warnings";
+        public const string SuccessCodesDirectory = "Success";
+        public const string PluginDirectory = "Plugin";
+        public const string StoragePluginsDirectory = "Storage";
+        public const string EncryptionPluginsDirectory = "Encryption";
+        public const string DefaultLoggingDirectory = $"DataNest\\{LoggerDirectory}\\";
+        public const string Default_LoggerDirectory = $"DataNest/{LoggerDirectory}/";
+        public const string LoggerDirectory = "Logger";
 
         // Default directory constants.
         public const string DefaultWorkspace = "Default";
-
-        // File search patterns.
-        public const string AssemblySearchPattern = "DevNest.";
-        public const string Plugin_AssemblySearchPattern = "DevNest.*.dll";
     }
 }

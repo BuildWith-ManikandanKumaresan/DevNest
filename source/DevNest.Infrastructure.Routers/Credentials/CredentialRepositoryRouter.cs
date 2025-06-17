@@ -158,7 +158,10 @@ namespace DevNest.Infrastructure.Routers.Credentials
         private IStorageContext<CredentialEntityModel>? GetStorageContext(string workspace)
         {
             StorageProvider? provider = _configurations.Value?.StorageProviders?.FirstOrDefault();
-            provider.DataDirectory = new FileSystemManager().GetWorkSpaceDirectory(workspace);
+            FileSystemManager _fileSystemManager = new();
+            IFileSystem? credStoreDir = _fileSystemManager.SecureVault?.GetSubDirectory(FileSystemConstants.CredStoreDirectory);
+            if(provider != null)
+                provider.DataDirectory = credStoreDir?.GetWorkspace(workspace)?.Root ?? string.Empty;
             Dictionary<string, object>? primaryConfig = provider?.ParseConnectionParams();
             return _pluginManager.GetStorageContext<CredentialEntityModel>(primaryConfig ?? []);
         }

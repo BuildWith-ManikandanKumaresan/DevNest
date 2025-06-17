@@ -40,14 +40,13 @@ namespace DevNest.Common.Base.Constants.Message
         /// Initializes the error codes from the specified directory.
         /// </summary>
         /// <param name="errorCodesDirectory"></param>
-        public static void InitErrorCodes(string errorCodesDirectory)
+        public static void InitErrorCodes(IList<string>? errorFiles)
         {
             try
             {
                 if (_errors?.Count == 0)
                 {
-                    string[] errorFiles = Directory.GetFiles(errorCodesDirectory, FileSystemExtensionConstants.ErrorContentFileSearchPattern);
-                    foreach (string errorFile in errorFiles)
+                    foreach (string errorFile in errorFiles ?? [])
                     {
                         if (File.Exists(errorFile))
                         {
@@ -74,14 +73,13 @@ namespace DevNest.Common.Base.Constants.Message
         /// Initializes the warning codes from the specified directory.
         /// </summary>
         /// <param name="warningCodesDirectory"></param>
-        public static void InitWarningCodes(string warningCodesDirectory)
+        public static void InitWarningCodes(IList<string>? warningFiles)
         {
             try
             {
                 if (_warnings?.Count == 0)
                 {
-                    string[] warningFiles = Directory.GetFiles(warningCodesDirectory, FileSystemExtensionConstants.WarningContentFileSearchPattern);
-                    foreach (string warningFile in warningFiles)
+                    foreach (string warningFile in warningFiles ?? [])
                     {
                         if (File.Exists(warningFile))
                         {
@@ -109,14 +107,13 @@ namespace DevNest.Common.Base.Constants.Message
         /// Initializes the success codes from the specified directory.
         /// </summary>
         /// <param name="successCodesDirectory"></param>
-        public static void InitSuccessCodes(string successCodesDirectory)
+        public static void InitSuccessCodes(IList<string>? successFiles)
         {
             try
             {
                 if (_success?.Count == 0)
                 {
-                    string[] successFiles = Directory.GetFiles(successCodesDirectory, FileSystemExtensionConstants.SuccessContentFileSearchPattern);
-                    foreach (string successFile in successFiles)
+                    foreach (string successFile in successFiles ?? [])
                     {
                         if (File.Exists(successFile))
                         {

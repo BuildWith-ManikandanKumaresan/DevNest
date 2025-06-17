@@ -1,60 +1,33 @@
 ﻿namespace DevNest.Common.Manager.FileSystem
 {
     /// <summary>
-    /// Represents the class interface for File system manager.
+    /// Represents the interface for managing file systems.
     /// </summary>
     public interface IFileSystemManager
     {
         /// <summary>
-        /// Gets or sets the filesystem root directory.
+        /// Gets or sets the root directory of the file system.
         /// </summary>
-        string? RootDirectory { get; }
+        IFileSystem? Logger { get; set; }
 
         /// <summary>
-        /// Get configuration directory from the file systems.
+        /// Gets or sets the directory that contains the logger files.
         /// </summary>
-        string? ConfigurationDirectory { get; }
+        IFileSystem? Plugin { get; set; }
 
         /// <summary>
-        /// Get the directry path than contains the plugins.
+        /// Gets or sets the directory that contains the preferences files.
         /// </summary>
-        string? PluginStorageDirectory { get; }
+        IFileSystem? Preferences { get; set; }
 
         /// <summary>
-        /// Get the directory path that contains the encryption plugin storage.
+        /// Gets or sets the directory that contains the resources files.
         /// </summary>
-        string? EncryptionPluginStorageDirectory { get; }
+        IFileSystem? Resources { get; set; }
 
         /// <summary>
-        /// Get the directory path that contains the data's.
+        /// Gets or sets the directory that contains the secure vault files for storing sensitive data.
         /// </summary>
-        string? CredentialDataDirectrory { get; }
-
-        /// <summary>
-        /// Get the directory path that contains the assets.
-        /// </summary>
-        string? AssetsDirectory { get; }
-
-        /// <summary>
-        /// Get the directory path that contains the error codes.
-        /// </summary>
-        string? ErrorCodesDirectory { get; }
-
-        /// <summary>
-        /// Get the directory path that contains the warning codes.
-        /// </summary>
-        string? WarningCodesDirectory { get; }
-
-        /// <summary>
-        /// Get the directory path that contains the success codes.
-        /// </summary>
-        string? SuccessCodesDirectory { get; }
-
-        /// <summary>
-        /// Get the directory path that contains the workspace.
-        /// </summary>
-        /// <param name="workspaceName"></param>
-        /// <returns></returns>
-        string? GetWorkSpaceDirectory(string workspaceName);
+        IFileSystem? SecureVault { get; set; }
     }
 }

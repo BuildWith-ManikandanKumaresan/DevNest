@@ -28,7 +28,7 @@ namespace DevNest.Common.Base.Helpers
         /// <returns><c>true</c> if the assembly name matches the search pattern; otherwise, <c>false</c>.</returns>
         private static bool IsAssemblyAccepted(string? name)
         {
-            return name?.StartsWith(FileSystemConstants.AssemblySearchPattern) ?? false;
+            return name?.StartsWith(FileSearchPatternConstants.DevNestAssembly) ?? false;
         }
     }
 }

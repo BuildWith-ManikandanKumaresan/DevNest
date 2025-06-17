@@ -55,11 +55,11 @@ namespace DevNest.Common.Manager.Plugin
         {
             try
             {
-                string[] pluginDirectories = Directory.GetDirectories(_fileSystemManager.PluginStorageDirectory ?? string.Empty) ?? [];
-                foreach (string pluginDirectory in pluginDirectories)
+                IFileSystem? storagePluginDirectory = _fileSystemManager.Plugin?.GetSubDirectory(FileSystemConstants.StoragePluginsDirectory);
+
+                foreach (var pluginDirectory in storagePluginDirectory?.Directories ?? [])
                 {
-                    var pluginFiles = Directory.GetFiles(pluginDirectory, FileSystemConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoStoragePluginFound).Message);
-                    foreach (var pluginFile in pluginFiles)
+                    foreach (var pluginFile in pluginDirectory.GetFilesWithSearchPattern() ?? [])
                     {
                         Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));
                         var type = asm.GetTypes().FirstOrDefault(t => typeof(IStoragePlugin).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
@@ -85,11 +85,11 @@ namespace DevNest.Common.Manager.Plugin
         {
             try
             {
-                string[] pluginDirectories = Directory.GetDirectories(_fileSystemManager.EncryptionPluginStorageDirectory ?? string.Empty) ?? [];
-                foreach (string pluginDirectory in pluginDirectories)
+                IFileSystem? encryptionPluginDirectory = _fileSystemManager.Plugin?.GetSubDirectory(FileSystemConstants.EncryptionPluginsDirectory);
+
+                foreach (var pluginDirectory in encryptionPluginDirectory?.Directories ?? [])
                 {
-                    var pluginFiles = Directory.GetFiles(pluginDirectory, FileSystemConstants.Plugin_AssemblySearchPattern) ?? throw new FileNotFoundException(Messages.GetError(ErrorConstants.NoEncryptionPluginFound).Message);
-                    foreach (var pluginFile in pluginFiles)
+                    foreach (var pluginFile in pluginDirectory.GetFilesWithSearchPattern() ?? [])
                     {
                         Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));
                         var type = asm.GetTypes().FirstOrDefault(t => typeof(IEncryptionPlugin).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);

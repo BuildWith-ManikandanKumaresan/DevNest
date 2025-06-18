@@ -98,17 +98,89 @@ namespace DevNest.Common.Base.Helpers
         }
 
         /// <summary>
-        /// Validates the associated groups for credentials.
+        /// Validates the text search parameters for a query.
         /// </summary>
-        /// <param name="groups"></param>
+        /// <param name="fieldName"></param>
+        /// <param name="comparison"></param>
+        /// <param name="value"></param>
         /// <returns></returns>
-        //public static string ValidateAssociatedGroups(string[]? groups)
-        //{
-        //    if (groups is not null && groups.Length == 0)
-        //    {
-        //        return ErrorConstants.CredentialGroupsCannotBeEmpty;
-        //    }
-        //    return string.Empty;
-        //}
+        /// <exception cref="NotImplementedException"></exception>
+        public static string ValidateTextSearch(string? fieldName,string? comparison,string? value)
+        {
+            if (string.IsNullOrWhiteSpace(fieldName))
+            {
+                return ErrorConstants.SearchFieldRequired;
+            }
+            if (string.IsNullOrWhiteSpace(comparison))
+            {
+                return ErrorConstants.SearchComparisonRequired;
+            }
+
+            IList<string> comparisonTypes = 
+                [ 
+                TextSearchConstants.StartsWith.ToLower(), 
+                TextSearchConstants.EndsWith.ToLower(),
+                TextSearchConstants.Contains.ToLower(), 
+                TextSearchConstants.Equals.ToLower(), 
+                TextSearchConstants.NotEquals.ToLower()
+                ];
+
+            if (!comparisonTypes.Contains(comparison.ToLower()))
+            {
+                return ErrorConstants.SearchTextComparisonTypeInvalid;
+            }
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return ErrorConstants.SearchValuesRequired;
+            }
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Validates the date search parameters for a query.
+        /// </summary>
+        /// <param name="fieldName"></param>
+        /// <param name="comparison"></param>
+        /// <param name="fromValue"></param>
+        /// <param name="toValue"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string ValidateDateSearch(string? fieldName, string? comparison, DateTime? fromValue, DateTime? toValue)
+        {
+            if (string.IsNullOrWhiteSpace(fieldName))
+            {
+                return ErrorConstants.SearchFieldRequired;
+            }
+            if (string.IsNullOrWhiteSpace(comparison))
+            {
+                return ErrorConstants.SearchComparisonRequired;
+            }
+
+            IList<string> comparisonTypes =
+                [
+                DateSearchConstants.Exact.ToLower(),
+                DateSearchConstants.NotExact.ToLower(),
+                DateSearchConstants.Range.ToLower(),
+                DateSearchConstants.NotInRange.ToLower()
+                ];
+
+            if (!comparisonTypes.Contains(comparison.ToLower()))
+            {
+                return ErrorConstants.SearchDateComparisonTypeInvalid;
+            }
+            if (fromValue == null)
+            {
+                return ErrorConstants.SearchFromDateRequired;
+            }
+            if (toValue == null)
+            {
+                return ErrorConstants.SearchToDateRequired;
+            }
+            if(fromValue > DateTime.Now || toValue > DateTime.Now)
+            {
+                return ErrorConstants.SearchDateCannotBeFutureDate;
+            }
+            return string.Empty;
+        }
     }
 }

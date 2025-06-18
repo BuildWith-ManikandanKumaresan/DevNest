@@ -5,8 +5,10 @@ using DevNest.Common.Base.Entity;
 using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.Credential.Response;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.DTOs.Search;
 using DevNest.Infrastructure.DTOs.Tags;
 using DevNest.Infrastructure.Entity.Credentials;
+using DevNest.Infrastructure.Entity.Search;
 using DevNest.Infrastructure.Entity.Tags;
 #endregion using directives
 
@@ -63,6 +65,15 @@ namespace DevNest.Business.Domain.Mappers
 
             CreateMap<TagColorsEntityModel, TagColorsResponseDTO>();
             CreateMap<TagColorsResponseDTO, TagColorsEntityModel>();
+
+            CreateMap<DateSearchRequestDTO, DateSearchEntityModel>();
+            CreateMap<DateSearchEntityModel, DateSearchRequestDTO>();
+
+            CreateMap<TextSearchRequestDTO, TextSearchEntityModel>();
+            CreateMap<TextSearchEntityModel, TextSearchRequestDTO>();
+
+            CreateMap<SearchRequestDTO, SearchEntityModel>();
+            CreateMap<SearchEntityModel, SearchRequestDTO>();
         }
     }
 }

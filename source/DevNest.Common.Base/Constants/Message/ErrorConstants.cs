@@ -36,5 +36,17 @@
 
         // Logger Manager error codes.
         public const string LoggerConfigurationMissing = "DEV-LOG-100";
+
+        // Search filter error codes.
+        public const string SearchFieldRequired = "DEV-00-100";
+        public const string SearchComparisonRequired = "DEV-00-101";
+        public const string SearchValuesRequired = "DEV-00-102";
+
+        public const string SearchTextComparisonTypeInvalid = "DEV-00-103";
+        public const string SearchDateComparisonTypeInvalid = "DEV-00-105";
+
+        public const string SearchFromDateRequired = "DEV-00-106";
+        public const string SearchToDateRequired = "DEV-00-107";
+        public const string SearchDateCannotBeFutureDate = "DEV-00-108";
     }
 }

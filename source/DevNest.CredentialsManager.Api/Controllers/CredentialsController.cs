@@ -8,6 +8,7 @@ using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
 using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.DTOs.Search;
 using DevNest.Infrastructure.Entity;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using MediatR;
@@ -42,7 +43,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// Get all credentials.
         /// </summary>
         /// <returns></returns>
-        [HttpGet()]
+        [HttpPost()]
         [ProducesResponseType(typeof(AppResponse<IList<CredentialResponseDTO>>), 200)]
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
@@ -56,7 +57,8 @@ namespace DevNest.CredentialsManager.Api.Controllers
             [FromQuery] bool? isValid,
             [FromQuery] bool? isDisabled,
             [FromQuery] bool? isExpired,
-            [FromQuery] string[]? groups,
+            [FromQuery] IList<string>? groups,
+            [FromBody] SearchRequestDTO? searchFilter,
             [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace
             )
         {
@@ -71,7 +73,8 @@ namespace DevNest.CredentialsManager.Api.Controllers
                 isValid:isValid,
                 isDisabled: isDisabled,
                 isExpired: isExpired,
-                groups: groups
+                groups: groups,
+                searchFilter: searchFilter
                 );
 
             var response = await _mediator.SendQueryAsync(query);
@@ -202,7 +205,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost()]
+        [HttpPatch()]
         [ProducesResponseType(typeof(AppResponse<CredentialResponseDTO>), 200)]
         [ProducesResponseType(typeof(IList<AppErrors>), 400)]
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]

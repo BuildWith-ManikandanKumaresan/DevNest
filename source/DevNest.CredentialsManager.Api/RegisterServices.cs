@@ -22,6 +22,7 @@ using System.Windows.Input;
 using DevNest.Infrastructure.Routers.Credentials;
 using DevNest.Common.Manager.FileSystem;
 using DevNest.Common.Manager.Plugin;
+using DevNest.Common.Manager.Tag;
 #endregion using directives
 
 namespace DevNest.CredentialsManager.Api
@@ -90,9 +91,11 @@ namespace DevNest.CredentialsManager.Api
             services.AddScoped<IMediator, Mediator>();
             services.AddScoped<IAppMedidator, AppMedidator>();
             services.AddAutoMapper(typeof(MappingProfile));
-            // Register the FileSystemManager in DI container
+
+            // Register the managers in DI container
             services.AddScoped<IFileSystemManager, FileSystemManager>();
             services.AddScoped<IPluginManager, PluginManager>();
+            services.AddScoped<ITagManager, TagManager>();
 
             services.Scan(scan => scan
                 .FromAssemblies(referencedAssemblies)

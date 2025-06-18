@@ -56,6 +56,6 @@ namespace DevNest.Infrastructure.DTOs.Credential.Request
         /// Gets or sets the associated groups.
         /// </summary>
         [Required(ErrorMessage = "Associated groups are required.")]
-        public string[]? AssociatedGroups { get; set; }
+        public IList<string>? AssociatedGroups { get; set; }
     }
 }

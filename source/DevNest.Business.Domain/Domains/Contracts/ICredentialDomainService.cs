@@ -3,6 +3,7 @@ using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.Entity.Search;
 using System.ComponentModel.DataAnnotations;
 #endregion using directives
 
@@ -26,8 +27,9 @@ namespace DevNest.Business.Domain.Domains.Contracts
             bool? isValid,
             bool? isDisabled,
             bool? isExpired,
-            string[]? groups,
-            string workspace);
+            IList<string>? groups,
+            string workspace,
+            SearchEntityModel? searchFilter);
 
         /// <summary>
         /// Handler method interface for get credentials by id.

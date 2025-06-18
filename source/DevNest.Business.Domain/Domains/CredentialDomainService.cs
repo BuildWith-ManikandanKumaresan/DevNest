@@ -2,14 +2,17 @@
 using AutoMapper;
 using DevNest.Business.Domain.Domains.Contracts;
 using DevNest.Business.Domain.RouterContracts;
+using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Contracts;
+using DevNest.Common.Base.Entity;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
 using DevNest.Infrastructure.DTOs.Credential.Request;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Infrastructure.Entity.Credentials;
+using DevNest.Infrastructure.Entity.Search;
 using MediatR;
 using System.Linq.Expressions;
 using System.Net;
@@ -48,8 +51,9 @@ namespace DevNest.Business.Domain.Domains
             bool? isValid,
             bool? isDisabled,
             bool? isExpired,
-            string[]? groups,
-            string workspace)
+            IList<string>? groups,
+            string workspace,
+            SearchEntityModel? searchFilter)
         {
             try
             {
@@ -64,7 +68,7 @@ namespace DevNest.Business.Domain.Domains
 
                 // Filter out the credentials based on the environment.
 
-                if(!string.IsNullOrEmpty(environment))
+                if (!string.IsNullOrEmpty(environment))
                     data = [.. data.Where(a => a.Environment?.Equals(environment, StringComparison.OrdinalIgnoreCase) ?? false)];
 
                 // Filter out the credentials based on the type.
@@ -74,7 +78,7 @@ namespace DevNest.Business.Domain.Domains
 
                 // Filter out the credentials based on the domain.
 
-                if(!string.IsNullOrEmpty(domain))
+                if (!string.IsNullOrEmpty(domain))
                     data = [.. data.Where(a => a.Details?.Domain?.Equals(domain, StringComparison.OrdinalIgnoreCase) ?? false)];
 
                 // Filter out the credentials based on the password strength.
@@ -84,7 +88,7 @@ namespace DevNest.Business.Domain.Domains
 
                 // Filter out the credentials based on the IsEncrypted status.
 
-                if(isEncrypted != null)
+                if (isEncrypted != null)
                     data = [.. data.Where(a => a.Security?.IsEncrypted == isEncrypted)];
 
                 // Filter out the credentials based on the Isvalid status.
@@ -99,7 +103,7 @@ namespace DevNest.Business.Domain.Domains
 
                 // Filter out the credentials based on the associated groups.
 
-                if(groups  != null && groups.Length > 0)
+                if (groups != null && groups.Count > 0)
                 {
                     var groupedCredentials = new List<CredentialEntityModel>();
                     groups.ToList().ForEach(group =>
@@ -120,7 +124,11 @@ namespace DevNest.Business.Domain.Domains
                 if (isDisabled != null)
                     data = [.. data.Where(a => a.Validatity?.IsDisabled == isDisabled)];
 
-                data.ForEach(async credential =>
+                // Filter credentials based on the search filter if provided.
+
+                data = await FilterCredentials(data, searchFilter);
+
+                data?.ForEach(async credential =>
                 {
                     // Mask passwords if the setting is enabled - showPasswordAsMasked
                     await MaskingPasswords(credential, _applicationConfigService?.Value?.GeneralSettings?.ShowPasswordAsMasked);
@@ -321,7 +329,7 @@ namespace DevNest.Business.Domain.Domains
 
                 await SetPasswordHealthCheck(entity);
 
-                var result = await _router.UpdateAsync(entity,workspace);
+                var result = await _router.UpdateAsync(entity, workspace);
 
                 if (result == null)
                 {
@@ -445,11 +453,11 @@ namespace DevNest.Business.Domain.Domains
                 // Check expiration for credentials if the setting is enabled - EnableCredentialExpirationCheck
                 if (_applicationConfigService?.Value?.SecuritySettings?.EnableCredentialExpirationCheck ?? false)
                     await CheckExpirationForCredentials(entity);
-                
+
                 await SetPasswordHealthCheck(entity);
-                
+
                 _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Decrypt)} method returned credentials for ID: {id}.");
-                
+
                 return new AppResponse<CredentialResponseDTO>(_mapper.Map<CredentialResponseDTO>(entity))
                 {
                     Message = string.Format(Messages.GetSuccess(SuccessConstants.CredentialsDecryptedSuccessfully), id)
@@ -478,6 +486,7 @@ namespace DevNest.Business.Domain.Domains
                     : '*';
                 entity.Details.Password = new string(maskChar ?? '*', entity.Details.Password.Length);
             }
+            await Task.FromResult(Task.CompletedTask);
         }
 
         /// <summary>
@@ -515,7 +524,9 @@ namespace DevNest.Business.Domain.Domains
                 .MakeGenericMethod(typeof(CredentialEntityModel), property.Type)
                 .Invoke(null, [entity, lambda.Compile()]);
 
-            return ((IEnumerable<CredentialEntityModel>)result!).ToList();
+            var finalResult = ((IEnumerable<CredentialEntityModel>)result!).ToList();
+
+            return await Task.FromResult(finalResult);
         }
 
         /// <summary>
@@ -525,10 +536,14 @@ namespace DevNest.Business.Domain.Domains
         /// <returns></returns>
         private async Task SetDefaultExpirationDate(CredentialEntityModel entity)
         {
-            if (entity.Validatity.ExpirationDate == null || entity.Validatity.ExpirationDate < DateTime.Now)
+            if (entity.Validatity != null)
             {
-                entity.Validatity.ExpirationDate = DateTime.Now.AddDays(_applicationConfigService.Value?.SecuritySettings?.DefaultCredentialExpirationDays ?? 90);
+                if (entity.Validatity.ExpirationDate == null || entity.Validatity.ExpirationDate < DateTime.Now)
+                {
+                    entity.Validatity.ExpirationDate = DateTime.Now.AddDays(_applicationConfigService.Value?.SecuritySettings?.DefaultCredentialExpirationDays ?? 90);
+                }
             }
+            await Task.FromResult(Task.CompletedTask);
         }
 
         /// <summary>
@@ -538,13 +553,15 @@ namespace DevNest.Business.Domain.Domains
         /// <returns></returns>
         private async Task CheckExpirationForCredentials(CredentialEntityModel entity)
         {
-            if (entity.Validatity.ExpirationDate != null)
+            if (entity.Validatity?.ExpirationDate != null)
             {
                 entity.Validatity.IsExpired = entity.Validatity.ExpirationDate < DateTime.Now; // Mark as expired
                 entity.Validatity.RemainingDaysBeforeExpiration = entity.Validatity.ExpirationDate > DateTime.Now
                     ? (entity.Validatity.ExpirationDate.Value.Date - DateTime.Now.Date).Days
                     : 0; // Calculate remaining days before expiration
             }
+
+            await Task.FromResult(Task.CompletedTask);
         }
 
         /// <summary>
@@ -570,8 +587,207 @@ namespace DevNest.Business.Domain.Domains
             {
                 entity.PasswordHealth = new PasswordHealthEntityModel() { Score = 0 };
             }
+            await Task.FromResult(Task.CompletedTask);
         }
 
-        #endregion Private methods
+        /// <summary>
+        /// Method to filter credentials based on the search entity model.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="searchEntity"></param>
+        /// <returns></returns>
+        private async Task<List<CredentialEntityModel>?> FilterCredentials(List<CredentialEntityModel>? entity, SearchEntityModel? searchEntity)
+        {
+            if (entity == null)
+                return entity;
+            if (searchEntity == null)
+                return entity;
+
+            if (searchEntity.TextSearch != null)
+            {
+                PerformTextSearch(ref entity, searchEntity.TextSearch);
+            }
+
+            if (searchEntity.DateSearch != null)
+            {
+                PerformDateSearch(ref entity, searchEntity.DateSearch);
+            }
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Method to perform text search on the credentials based on the search entity model.
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="searchEntity"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="NotSupportedException"></exception>
+        private void PerformTextSearch(ref List<CredentialEntityModel>? entity, TextSearchEntityModel searchEntity)
+        {
+            if (searchEntity == null || entity == null)
+                return;
+
+            var fieldName = searchEntity.FieldName;
+            var comparison = searchEntity.Comparison?.ToLower();
+            var value = searchEntity.Values; // Assuming single-value text filter
+
+            if (string.IsNullOrWhiteSpace(fieldName))
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformTextSearch)}: Field name is null or empty.");
+                throw new ArgumentException("Text search filter requires a valid field name.");
+            }
+
+            if (string.IsNullOrWhiteSpace(comparison))
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformTextSearch)}: Comparison type is null or empty.");
+                throw new ArgumentException("Text search filter requires a valid comparison type.");
+            }
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformTextSearch)}: Comparison value is null or empty.");
+                throw new ArgumentException("Text search filter requires a non-empty value.");
+            }
+
+            // Ensure the field exists
+            var propertyInfo = typeof(CredentialEntityModel).GetProperty(fieldName);
+            if (propertyInfo == null || propertyInfo.PropertyType != typeof(string))
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformTextSearch)}: Invalid or unsupported field '{fieldName}' for text search.");
+                throw new Exception($"Invalid or unsupported text field: {fieldName}");
+            }
+
+            // Build expression
+            var parameter = Expression.Parameter(typeof(CredentialEntityModel), "c");
+            var property = Expression.Property(parameter, propertyInfo);
+
+            // null check: c.FieldName != null
+            var notNull = Expression.NotEqual(property, Expression.Constant(null, typeof(string)));
+            var constant = Expression.Constant(value, typeof(string));
+            Expression? body;
+
+            switch (comparison.ToLower())
+            {
+                case TextSearchConstants.Equals:
+                    body = Expression.Equal(property, constant);
+                    break;
+
+                case TextSearchConstants.NotEquals:
+                    body = Expression.NotEqual(property, constant);
+                    break;
+
+                case TextSearchConstants.StartsWith:
+                    body = Expression.Call(property, typeof(string).GetMethod("StartsWith", new[] { typeof(string) })!, constant);
+                    break;
+
+                case TextSearchConstants.Contains:
+                    body = Expression.Call(property, typeof(string).GetMethod("Contains", new[] { typeof(string) })!, constant);
+                    break;
+
+                case TextSearchConstants.EndsWith:
+                    body = Expression.Call(property, typeof(string).GetMethod("EndsWith", new[] { typeof(string) })!, constant);
+                    break;
+
+                default:
+                    _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformTextSearch)}: Unsupported comparison type '{comparison}'.");
+                    throw new NotSupportedException($"Unsupported comparison type: {comparison}");
+            }
+
+            // Combine null check and actual comparison
+            var finalExpression = Expression.AndAlso(notNull, body);
+
+            var predicate = Expression.Lambda<Func<CredentialEntityModel, bool>>(finalExpression, parameter);
+
+            entity = entity.Where(predicate.Compile()).ToList();
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="searchEntity"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="NotSupportedException"></exception>
+        private void PerformDateSearch(ref List<CredentialEntityModel>? entity, DateSearchEntityModel searchEntity)
+        {
+            if (searchEntity == null || entity == null)
+                return;
+
+            var fieldName = searchEntity.FieldName;
+            var comparison = searchEntity.Comparison?.ToLower();
+            var fromDate = searchEntity.From;
+            var toDate = searchEntity.To;
+
+            if (string.IsNullOrWhiteSpace(fieldName))
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformDateSearch)}: Field name is null or empty.");
+                throw new ArgumentException("Date filter requires a valid field name.");
+            }
+
+            // Ensure field exists in HistoryInformation
+            var historyProp = typeof(HistoryEntityModel).GetProperty(fieldName);
+            if (historyProp == null || historyProp.PropertyType != typeof(DateTime?))
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformDateSearch)}: Invalid or unsupported datetime field '{fieldName}'.");
+                throw new Exception($"Invalid or unsupported datetime field: {fieldName}");
+            }
+
+            // c => c.HistoryInformation != null && c.HistoryInformation.<Field> [comparison] ...
+            var parameter = Expression.Parameter(typeof(CredentialEntityModel), "c");
+
+            // Access: c.HistoryInformation
+            var historyAccess = Expression.PropertyOrField(parameter, nameof(CredentialEntityModel.HistoryInformation));
+
+            // Null check: c.HistoryInformation != null
+            var nullCheck = Expression.NotEqual(historyAccess, Expression.Constant(null));
+
+            // Access: c.HistoryInformation.<FieldName>
+            var dateProperty = Expression.Property(historyAccess, historyProp);
+
+            Expression body;
+
+            switch (comparison?.ToLower())
+            {
+                case DateSearchConstants.Exact:
+                    body = Expression.Equal(dateProperty, Expression.Constant(fromDate, typeof(DateTime?)));
+                    break;
+
+                case DateSearchConstants.NotExact:
+                    body = Expression.NotEqual(dateProperty, Expression.Constant(fromDate, typeof(DateTime?)));
+                    break;
+
+                case DateSearchConstants.Range:
+                    var lowerBound = Expression.GreaterThanOrEqual(dateProperty, Expression.Constant(fromDate, typeof(DateTime?)));
+                    var upperBound = Expression.LessThanOrEqual(dateProperty, Expression.Constant(toDate, typeof(DateTime?)));
+                    body = Expression.AndAlso(lowerBound, upperBound);
+                    break;
+
+                case DateSearchConstants.NotInRange:
+                    var outsideLower = Expression.LessThan(dateProperty, Expression.Constant(fromDate, typeof(DateTime?)));
+                    var outsideUpper = Expression.GreaterThan(dateProperty, Expression.Constant(toDate, typeof(DateTime?)));
+                    body = Expression.OrElse(outsideLower, outsideUpper);
+                    break;
+
+                default:
+                    _logger.LogError($"{nameof(CredentialDomainService)} => {nameof(PerformDateSearch)}: Unsupported date comparison type '{comparison}'.");
+                    throw new NotSupportedException($"Unsupported date comparison: {comparison}");
+            }
+
+            // Combine null check and comparison
+            var finalExpression = Expression.AndAlso(nullCheck, body);
+
+            var predicate = Expression.Lambda<Func<CredentialEntityModel, bool>>(finalExpression, parameter);
+
+            entity = entity.Where(predicate.Compile()).ToList();
+        }
+
     }
+
+    #endregion Private methods
 }

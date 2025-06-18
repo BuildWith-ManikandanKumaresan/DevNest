@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface for managing tags within the application.
     /// </summary>
-    public class ITagManager
+    public interface ITagManager
     {
     }
 }

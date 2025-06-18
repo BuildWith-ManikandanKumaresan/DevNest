@@ -1,6 +1,7 @@
 ﻿#region using directives
 using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Helpers;
+using DevNest.Common.Base.MediatR;
 using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Common.Base.Response;
 #endregion using directives

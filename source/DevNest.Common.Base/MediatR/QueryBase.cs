@@ -2,7 +2,7 @@
 using DevNest.Common.Base.Response;
 #endregion using directives
 
-namespace DevNest.Common.Base.MediatR.Contracts
+namespace DevNest.Common.Base.MediatR
 {
     /// <summary>
     /// Base class for queries that implements the IQuery interface.

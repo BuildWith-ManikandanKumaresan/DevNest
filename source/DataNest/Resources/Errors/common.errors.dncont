@@ -1,0 +1,34 @@
+{
+    "DEV-00-100": {
+        "Code": "DEV-00-100",
+        "Message": "At least one field name is required in the search filter to proceed."
+    },
+    "DEV-00-101": {
+        "Code": "DEV-00-101",
+        "Message": "A comparison type is required in the search filter to continue processing."
+    },
+    "DEV-00-102": {
+        "Code": "DEV-00-102",
+        "Message": "Comparison values are required in the search filter to continue processing."
+    },
+    "DEV-00-103": {
+        "Code": "DEV-00-103",
+        "Message": "The specified comparison type is invalid. Valid comparison types are: 'startsWith', 'contains', 'endsWith', 'equals', 'notEquals'."
+    },
+    "DEV-00-105": {
+        "Code": "DEV-00-105",
+        "Message": "The specified comparison type is invalid. Valid comparison types are: 'exact', 'notExact', 'range', 'notInRange'."
+    },
+    "DEV-00-106": {
+        "Code": "DEV-00-106",
+        "Message": "A 'from' date is required when using a datetime filter for validation."
+    },
+    "DEV-00-107": {
+        "Code": "DEV-00-107",
+        "Message": "A 'to' date is required when using a datetime filter for validation."
+    },
+    "DEV-00-108": {
+        "Code": "DEV-00-108",
+        "Message": "'From' and 'to' dates cannot be set in the future."
+    }
+}

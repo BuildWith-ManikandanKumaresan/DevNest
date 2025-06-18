@@ -73,6 +73,6 @@ namespace DevNest.Infrastructure.DTOs.CredentialManager.Response
         /// <summary>
         /// Gets or sets the associated groups.
         /// </summary>
-        public string[]? AssociatedGroups { get; set; }
+        public IList<string>? AssociatedGroups { get; set; }
     }
 }

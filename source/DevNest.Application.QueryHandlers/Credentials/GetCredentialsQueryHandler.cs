@@ -11,6 +11,8 @@ using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Application.Queries.Credentials;
 using Microsoft.AspNetCore.Http;
 using DevNest.Business.Domain.Domains;
+using AutoMapper;
+using DevNest.Infrastructure.Entity.Search;
 #endregion using directives
 
 namespace DevNest.Application.QueryHandlers.Credentials
@@ -23,6 +25,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
         private readonly IAppLogger<GetCredentialsQueryHandler> _logger;
         private readonly ICredentialDomainService _domainService;
         private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Initialize the new instance for Get Credentials query handler class.
@@ -30,8 +33,10 @@ namespace DevNest.Application.QueryHandlers.Credentials
         public GetCredentialsQueryHandler(
             IAppLogger<GetCredentialsQueryHandler> appLogger,
             IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
-            ICredentialDomainService domainService)
+            ICredentialDomainService domainService,
+            IMapper mapper)
         {
+            this._mapper = mapper;
             this._logger = appLogger;
             this._domainService = domainService;
             this._applicationConfigService = applicationConfigService;
@@ -52,24 +57,25 @@ namespace DevNest.Application.QueryHandlers.Credentials
 
             if (errors.Any())
             {
-                _logger.LogError($"{nameof(GetCredentialsQueryHandler)} => Validation errors occurred: ",errors:errors);
+                _logger.LogError($"{nameof(GetCredentialsQueryHandler)} => Validation errors occurred: ", errors: errors);
 
                 return new AppResponse<IList<CredentialResponseDTO>>(errors.ToList());
             }
 
-            _logger.LogDebug($"{nameof(GetCredentialsQueryHandler)} => {nameof(Handle)} method completed.",request: query);
+            _logger.LogDebug($"{nameof(GetCredentialsQueryHandler)} => {nameof(Handle)} method completed.", request: query);
 
             return await _domainService.Get(
-                environment:query.Environment,
-                type:query.Type,
-                domain:query.Domain,
-                passwordStrength:query.PasswordStrength,
+                environment: query.Environment,
+                type: query.Type,
+                domain: query.Domain,
+                passwordStrength: query.PasswordStrength,
                 isEncrypted: query.IsEncrypted,
-                isValid:query.IsValid,
+                isValid: query.IsValid,
                 isDisabled: query.IsDisabled,
                 isExpired: query.IsExpired,
                 groups: query.Groups,
-                workspace: query.WorkSpace
+                workspace: query.WorkSpace,
+                searchFilter: _mapper.Map<SearchEntityModel>(query.SearchFilter)
                 );
         }
     }

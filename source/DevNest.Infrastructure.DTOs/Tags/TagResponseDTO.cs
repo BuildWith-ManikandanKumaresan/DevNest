@@ -25,7 +25,7 @@ namespace DevNest.Infrastructure.DTOs.Tags
         /// <summary>
         /// Category of the tag, used for grouping or filtering tags.
         /// </summary>
-        public string[]? Categories { get; set; }
+        public IList<string>? Categories { get; set; }
 
         /// <summary>
         /// Color associated with the tag, represented as a hex string.

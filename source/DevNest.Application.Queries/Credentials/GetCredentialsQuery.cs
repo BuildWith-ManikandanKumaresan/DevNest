@@ -1,9 +1,11 @@
 ﻿#region using directives
 using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Helpers;
+using DevNest.Common.Base.MediatR;
 using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.DTOs.Search;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 #endregion using directives
@@ -27,7 +29,8 @@ namespace DevNest.Application.Queries.Credentials
         bool? isValid,
         bool? isDisabled,
         bool? isExpired,
-        string[]? groups) : QueryBase, IQuery<AppResponse<IList<CredentialResponseDTO>>>
+        IList<string>? groups,
+        SearchRequestDTO? searchFilter) : QueryBase, IQuery<AppResponse<IList<CredentialResponseDTO>>>
     {
 
         /// <summary>
@@ -78,7 +81,12 @@ namespace DevNest.Application.Queries.Credentials
         /// <summary>
         /// Gets or sets the list of groups to which the credentials belong.
         /// </summary>
-        public string[]? Groups { get; set; } = groups ?? [];
+        public IList<string>? Groups { get; set; } = groups ?? [];
+
+        /// <summary>
+        /// Gets or sets the search filter criteria for the credentials query.
+        /// </summary>
+        public SearchRequestDTO? SearchFilter { get; set; } = searchFilter;    
 
         /// <summary>
         /// Validates the query and returns a list of errors if any.
@@ -123,12 +131,35 @@ namespace DevNest.Application.Queries.Credentials
                 errors.Add(Messages.GetError(errId));
             }
 
-            //errId = QueryValidation.ValidateAssociatedGroups(this.Groups);
-            
-            //if (!string.IsNullOrEmpty(errId))
-            //{
-            //    errors.Add(Messages.GetError(errId));
-            //}
+            if(this.SearchFilter != null)
+            {
+                if(this.SearchFilter.DateSearch != null)
+                {
+                    errId = QueryValidation.ValidateDateSearch(
+                        fieldName: this.SearchFilter.DateSearch.FieldName,
+                        comparison: this.SearchFilter.DateSearch.Comparison,
+                        fromValue: this.SearchFilter.DateSearch.From,
+                        toValue: this.SearchFilter.DateSearch.To);
+
+                    if (!string.IsNullOrEmpty(errId))
+                    {
+                        errors.Add(Messages.GetError(errId));
+                    }
+                }
+
+                if (this.SearchFilter.TextSearch != null)
+                {
+                    errId = QueryValidation.ValidateTextSearch(
+                        fieldName: this.SearchFilter.TextSearch.FieldName,
+                        comparison: this.SearchFilter.TextSearch.Comparison,
+                        value: this.SearchFilter.TextSearch.Values);
+
+                    if (!string.IsNullOrEmpty(errId))
+                    {
+                        errors.Add(Messages.GetError(errId));
+                    }
+                }
+            }
 
             return errors;
         }

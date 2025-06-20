@@ -22,6 +22,7 @@ namespace DevNest.Application.Queries.Credentials
     public class GetCredentialsQuery(
         string workSpace,
         string? environment,
+        string? category,
         string? type,
         string? domain,
         string? passwordStrength,
@@ -42,6 +43,11 @@ namespace DevNest.Application.Queries.Credentials
         /// Gets or sets the environment (e.g., Dev, QA, Prod) for which to filter credentials.
         /// </summary>
         public string? Environment { get; set; } = environment;
+
+        /// <summary>
+        /// Gets or sets the category of the credential (e.g., Database, Server, API).
+        /// </summary>
+        public string? Category { get; set; } = category;
 
         /// <summary>
         /// Gets or sets the type of credential (e.g., API Key, Password, SSH Key).
@@ -86,7 +92,7 @@ namespace DevNest.Application.Queries.Credentials
         /// <summary>
         /// Gets or sets the search filter criteria for the credentials query.
         /// </summary>
-        public SearchRequestDTO? SearchFilter { get; set; } = searchFilter;    
+        public SearchRequestDTO? SearchFilter { get; set; } = searchFilter;
 
         /// <summary>
         /// Validates the query and returns a list of errors if any.
@@ -104,6 +110,13 @@ namespace DevNest.Application.Queries.Credentials
             }
 
             errId = QueryValidation.ValidateEnvironment(this.Environment);
+
+            if (!string.IsNullOrEmpty(errId))
+            {
+                errors.Add(Messages.GetError(errId));
+            }
+
+            errId = QueryValidation.ValidateCategory(this.Category);
 
             if (!string.IsNullOrEmpty(errId))
             {
@@ -131,9 +144,9 @@ namespace DevNest.Application.Queries.Credentials
                 errors.Add(Messages.GetError(errId));
             }
 
-            if(this.SearchFilter != null)
+            if (this.SearchFilter != null)
             {
-                if(this.SearchFilter.DateSearch != null)
+                if (this.SearchFilter.DateSearch != null)
                 {
                     errId = QueryValidation.ValidateDateSearch(
                         fieldName: this.SearchFilter.DateSearch.FieldName,

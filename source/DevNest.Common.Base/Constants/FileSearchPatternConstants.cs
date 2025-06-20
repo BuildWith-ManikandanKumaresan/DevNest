@@ -7,19 +7,19 @@
     {
         // File search patterns for various file types.
 
-        public const string Extension_Data = $"*{FileSystemExtensionConstants.Extension_Data}";
-        public const string Extension_Preferences = $"*{FileSystemExtensionConstants.Extension_Preferences}";
-        public const string Extension_Resources = $"*{FileSystemExtensionConstants.Extension_Resources}";
-        public const string Extension_Dashboard = $"*{FileSystemExtensionConstants.Extension_Dashboard}";
+        public const string Extension_Data = $"*.dndat";
+        public const string Extension_Preferences = $"*.dncfg";
+        public const string Extension_Resources = $"*.dncont";
+        public const string Extension_Dashboard = $"*.dndash";
 
-        public const string SuccessContent = $"*{FileSystemExtensionConstants.SuccessContent}";
-        public const string ErrorContent = $"*{FileSystemExtensionConstants.ErrorContent}";
-        public const string WarningContent = $"*{FileSystemExtensionConstants.WarningContent}";
+        public const string SuccessContent = $"*.success.dncont";
+        public const string ErrorContent = $"*.errors.dncont";
+        public const string WarningContent = $"*.warnings.dncont";
 
         // File search patterns.
         public const string DevNestAssembly = "DevNest.";
         public const string DevNest_Plugins = "DevNest.*.dll";
-        public const string DevNest_Logs = $"*{FileSystemExtensionConstants.LogFileNameWithExtension}";
+        public const string DevNest_Logs = $"*.log";
 
     }
 }

@@ -1,7 +1,10 @@
 ﻿#region using directives
 using DevNest.Common.Logger;
 using DevNest.Infrastructure.Entity;
+using DevNest.Infrastructure.Entity.Credentials;
+using DevNest.Infrastructure.Entity.Tags;
 using DevNest.Plugin.Contracts.Storage;
+using DevNest.Plugin.Json.Context;
 #endregion using directives
 
 namespace DevNest.Plugin.Json
@@ -56,17 +59,51 @@ namespace DevNest.Plugin.Json
         public Dictionary<string, object>? ConnectionParams { get; set; } = [];
 
         /// <summary>
+        /// Gets the credential store category context for the plugin with the specified connection parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="connectionParams"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public IStorageContext<T>? GetCredStoreCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel
+        {
+            if (_contexts.TryGetValue(typeof(T), out var context))
+                return (IStorageContext<T>)context;
+
+            var newContext = new JsonCredStoreCategoryContext<T>(connectionParams, _logger);
+            _contexts[typeof(T)] = newContext;
+            return newContext;
+        }
+
+
+        /// <summary>
         /// Gets the data context for the plugin with the specified connection parameters.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStorageContext<T>? GetStorageContext<T>(Dictionary<string, object>? connectionParams) where T : class
+        public IStorageContext<T>? GetCredStoreContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
                 return (IStorageContext<T>)context;
 
-            var newContext = new JsonStorageContext<T>(connectionParams,_logger);
+            var newContext = new JsonCredStoreContext<T>(connectionParams, _logger);
+            _contexts[typeof(T)] = newContext;
+            return newContext;
+        }
+
+        /// <summary>
+        /// Gets the tag store context for the plugin with the specified connection parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="connectionParams"></param>
+        /// <returns></returns>
+        public IStorageContext<T>? GetTagStoreContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel
+        {
+            if (_contexts.TryGetValue(typeof(T), out var context))
+                return (IStorageContext<T>)context;
+
+            var newContext = new JsonTagStoreContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

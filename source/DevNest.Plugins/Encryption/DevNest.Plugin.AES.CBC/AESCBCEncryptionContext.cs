@@ -57,9 +57,7 @@ namespace DevNest.Plugin.AES.CBC
         /// <param name="plainText"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-#pragma warning disable CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
         public T? Encrypt(T plainText)
-#pragma warning restore CS8766 // Nullability of reference types in return type doesn't match implicitly implemented member (possibly because of nullability attributes).
         {
             _logger.LogDebug($"{nameof(AescbcEncryptionContext<T>)} => Encrypting plain text.", new { PlainText = plainText });
             using var aes = Aes.Create();

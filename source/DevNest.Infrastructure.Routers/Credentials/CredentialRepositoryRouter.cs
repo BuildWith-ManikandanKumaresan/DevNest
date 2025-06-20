@@ -25,11 +25,13 @@ namespace DevNest.Infrastructure.Routers.Credentials
     public class CredentialRepositoryRouter(
         IAppLogger<CredentialRepositoryRouter> logger,
         IPluginManager pluginManager,
-        IAppConfigService<CredentialManagerConfigurations> configurations) : ICredentialRepositoryRouter
+        IAppConfigService<CredentialManagerConfigurations> configurations,
+        IFileSystemManager fileSystemManager) : ICredentialRepositoryRouter
     {
         private readonly IAppLogger<CredentialRepositoryRouter> _logger = logger;
         private readonly IPluginManager _pluginManager = pluginManager;
         private readonly IAppConfigService<CredentialManagerConfigurations> _configurations = configurations;
+        private readonly IFileSystemManager _fileSystemManager = fileSystemManager;
 
         /// <summary>
         /// Handler method to add the credentials using entity.
@@ -37,13 +39,13 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <param name="entity"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<CredentialEntityModel> AddAsync(CredentialEntityModel entity, string workspace)
+        public async Task<CredentialEntityModel?> AddAsync(CredentialEntityModel entity, string workspace)
         {
             var context = GetStorageContext(workspace);
 
-            var encryptedEntity  = EncryptCredential(entity).GetAwaiter().GetResult();
+            var encryptedEntity = EncryptCredential(entity).GetAwaiter().GetResult();
 
-            return context?.Add(encryptedEntity) ?? null;
+            return await Task.FromResult(context?.Add(encryptedEntity) ?? null);
         }
 
         /// <summary>
@@ -54,7 +56,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         public async Task<bool> ArchiveByIdAsync(Guid id, string workspace)
         {
             var context = GetStorageContext(workspace);
-            return context?.Archive(id) ?? false;
+            return await Task.FromResult(context?.Archive(id) ?? false);
         }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         public async Task<bool> DeleteAsync(string workspace)
         {
             var context = GetStorageContext(workspace);
-            return context?.DeleteAll() ?? false;
+            return await Task.FromResult(context?.DeleteAll() ?? false);
         }
 
         /// <summary>
@@ -75,7 +77,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         public async Task<bool> DeleteByIdAsync(Guid id, string workspace)
         {
             var context = GetStorageContext(workspace);
-            return context?.Delete(id) ?? false;
+            return await Task.FromResult(context?.Delete(id) ?? false);
         }
 
         /// <summary>
@@ -85,15 +87,16 @@ namespace DevNest.Infrastructure.Routers.Credentials
         public async Task<IList<CredentialEntityModel>?> GetAsync(string workspace)
         {
             var context = GetStorageContext(workspace);
-            var credentials = context?.Get().ToList();
-            var decryptedCredentials =  new List<CredentialEntityModel>();
+            var credentials = context?.Get()?.ToList();
+            var decryptedCredentials = new List<CredentialEntityModel>();
             credentials?.ForEach(cred =>
             {
                 var listItem = DecryptCredential(cred).GetAwaiter().GetResult();
-                decryptedCredentials.Add(listItem);
+                if (listItem != null)
+                    decryptedCredentials.Add(listItem);
             });
 
-            return decryptedCredentials;
+            return await Task.FromResult(decryptedCredentials);
         }
 
         /// <summary>
@@ -117,7 +120,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         public async Task<CredentialEntityModel?> UpdateAsync(CredentialEntityModel entity, string workspace)
         {
             var context = GetStorageContext(workspace);
-            return context?.Update(entity);
+            return await Task.FromResult(context?.Update(entity));
         }
 
         /// <summary>
@@ -125,14 +128,14 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<CredentialEntityModel> EncryptByIdAsync(Guid id, string workspace)
+        public async Task<CredentialEntityModel?> EncryptByIdAsync(Guid id, string workspace)
         {
             var context = GetStorageContext(workspace);
             var credential = context?.GetById(id);
-            if (credential != null)
+            if (credential != null && credential.Security != null)
                 credential.Security.IsEncrypted = true;
             var encryptedCredential = EncryptCredential(credential).GetAwaiter().GetResult();
-            return context?.Update(encryptedCredential);
+            return await Task.FromResult(context?.Update(encryptedCredential));
         }
 
         /// <summary>
@@ -140,13 +143,38 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<CredentialEntityModel> DecryptByIdAsync(Guid id, string workspace)
+        public async Task<CredentialEntityModel?> DecryptByIdAsync(Guid id, string workspace)
         {
             var context = GetStorageContext(workspace);
             var credential = context?.GetById(id);
-            if (credential != null)
+            if (credential != null && credential.Security != null)
                 credential.Security.IsEncrypted = true;
             return await DecryptCredential(credential);
+        }
+
+        /// <summary>
+        /// Handler method to get the categories of credentials in the specified workspace.
+        /// </summary>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        public async Task<IList<CategoryEntityModel>?> GetCategoriesAsync(string workspace)
+        {
+            var context = GetCategoryContext();
+            var credentials = context?.Get()?.ToList();
+            return await Task.FromResult(credentials);
+        }
+
+        /// <summary>
+        /// Handler method to get the types of categories for a specific category ID in the specified workspace.
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        public async Task<IList<TypesEntityModel>?> GetTypesAsync(Guid categoryId, string workspace)
+        {
+            var context = GetCategoryContext();
+            var credentials = context?.GetById(categoryId);
+            return await Task.FromResult(credentials?.Types);
         }
 
         #region Private methods
@@ -158,12 +186,27 @@ namespace DevNest.Infrastructure.Routers.Credentials
         private IStorageContext<CredentialEntityModel>? GetStorageContext(string workspace)
         {
             StorageProvider? provider = _configurations.Value?.StorageProviders?.FirstOrDefault();
-            FileSystemManager _fileSystemManager = new();
             IFileSystem? credStoreDir = _fileSystemManager.SecureVault?.GetSubDirectory(FileSystemConstants.CredStoreDirectory);
-            if(provider != null)
+            if (provider != null)
                 provider.DataDirectory = credStoreDir?.GetWorkspace(workspace)?.Root ?? string.Empty;
             Dictionary<string, object>? primaryConfig = provider?.ParseConnectionParams();
-            return _pluginManager.GetStorageContext<CredentialEntityModel>(primaryConfig ?? []);
+            return _pluginManager.GetCredStoreContext<CredentialEntityModel>(primaryConfig ?? []);
+        }
+
+        /// <summary>
+        /// Gets the category context for credential categories in the specified workspace.
+        /// </summary>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        public IStorageContext<CategoryEntityModel>? GetCategoryContext()
+        {
+            StorageProvider? provider = _configurations.Value?.StorageProviders?.FirstOrDefault();
+            IFileSystem? credStoreDir = _fileSystemManager.Resources?.GetSubDirectory(FileSystemConstants.CredStoreDirectory);
+            if (provider != null)
+                provider.DataDirectory = credStoreDir?.Root;
+            Dictionary<string, object>? primaryConfig = provider?.ParseConnectionParams();
+            return _pluginManager.GetCredStoreCategoryContext<CategoryEntityModel>(primaryConfig ?? []);
+
         }
 
         /// <summary>
@@ -187,7 +230,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// Decrypts the credential's password if it is encrypted.
         /// </summary>
         /// <param name="credential"></param>
-        private async Task<CredentialEntityModel> DecryptCredential(CredentialEntityModel? credential)
+        private async Task<CredentialEntityModel?> DecryptCredential(CredentialEntityModel? credential)
         {
             if (credential?.Security?.IsEncrypted == true)
             {
@@ -196,10 +239,11 @@ namespace DevNest.Infrastructure.Routers.Credentials
 
                 if (encryptionContext != null)
                 {
-                    credential.Details.Password = encryptionContext.Decrypt(credential.Details.Password ?? string.Empty);
+                    if (credential != null && credential.Details != null && credential.Details.Password != null)
+                        credential.Details.Password = encryptionContext.Decrypt(credential.Details.Password ?? string.Empty);
                 }
             }
-            return credential;
+            return await Task.FromResult(credential);
         }
 
         /// <summary>
@@ -207,7 +251,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// </summary>
         /// <param name="credential"></param>
         /// <returns></returns>
-        private async Task<CredentialEntityModel> EncryptCredential(CredentialEntityModel? credential)
+        private async Task<CredentialEntityModel?> EncryptCredential(CredentialEntityModel? credential)
         {
             if (credential != null && credential.Security?.IsEncrypted == true)
             {
@@ -215,10 +259,11 @@ namespace DevNest.Infrastructure.Routers.Credentials
                 var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
                 if (encryptionContext != null)
                 {
-                    credential.Details.Password = encryptionContext.Encrypt(credential.Details.Password ?? string.Empty);
+                    if (credential != null && credential.Details != null && credential.Details.Password != null)
+                        credential.Details.Password = encryptionContext.Encrypt(credential.Details.Password ?? string.Empty);
                 }
             }
-            return credential;
+            return await Task.FromResult(credential);
         }
 
         #endregion Private methods

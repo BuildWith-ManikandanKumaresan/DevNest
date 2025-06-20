@@ -27,22 +27,21 @@ namespace DevNest.Plugin.Json.Handler
         private readonly long _DefaultMaxFileSizeBytes = Parameters.TryGetValue(ConnectionParamConstants.MaxFileSizeBytes, out var maxFileSize) && maxFileSize is long size ? size : 10485760;
         private readonly Dictionary<string, object> _Parameters = Parameters ?? throw new ArgumentNullException(nameof(Parameters), "Parameters cannot be null.");
         private readonly string _BaseFileName = Parameters.TryGetValue(ConnectionParamConstants.BaseFileName, out var baseFileName) && baseFileName is string name ? name : "credential";
-        private readonly string _DataDirectory = Parameters.TryGetValue(ConnectionParamConstants.DataDirectory, out var dataDirectory) && dataDirectory is string dir ? dir : FileSystemConstants.CredStoreDirectory;
+        private readonly string _DataDirectory = Parameters.TryGetValue(ConnectionParamConstants.DataDirectory, out var dataDirectory) && dataDirectory is string dir ? dir : string.Empty;
 
         /// <summary>
         /// Reads a list of items of type T from a JSON file at the specified file path.
         /// </summary>
         /// <param name="directory"></param>
         /// <returns></returns>
-        public List<T> Read()
+        public List<T> Read(string fileExtension)
         {
             _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Reading JSON files from directory.", new { Directory = _DataDirectory });
             var result = new List<T>();
 
             if (!Directory.Exists(_DataDirectory)) return result;
 
-            var files = Directory.GetFiles(_DataDirectory, FileSearchPatternConstants.Extension_Data);
-
+            string[] files = Directory.GetFiles(_DataDirectory, fileExtension);
             foreach (var file in files)
             {
                 var json = File.ReadAllText(file);
@@ -50,6 +49,7 @@ namespace DevNest.Plugin.Json.Handler
                 if (items != null)
                     result.AddRange(items);
             }
+
             _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Json files read successfully.", new { Directory = _DataDirectory, FileCount = files.Length });
             return result;
         }
@@ -59,13 +59,13 @@ namespace DevNest.Plugin.Json.Handler
         /// </summary>
         /// <param name="filePath"></param>
         /// <param name="items"></param>
-        public void Write(List<T> items)
+        public void Write(List<T> items, string fileExtension)
         {
             _Logger.LogDebug($"{nameof(JsonDataHandler<T>)} => Writing items to JSON file.", new { _DataDirectory = _DataDirectory, ItemCount = items.Count });
             if (!Directory.Exists(_DataDirectory))
                 Directory.CreateDirectory(_DataDirectory);
 
-            var existingFiles = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}{FileSystemExtensionConstants.Extension_Data}")
+            var existingFiles = Directory.GetFiles(_DataDirectory, $"{_BaseFileName}{fileExtension}")
                                          .OrderByDescending(File.GetCreationTime)
                                          .ToList();
 
@@ -74,7 +74,7 @@ namespace DevNest.Plugin.Json.Handler
             if (currentFilePath == null || new FileInfo(currentFilePath).Length >= _DefaultMaxFileSizeBytes)
             {
                 var timestamp = DateTime.Now.ToString(ConnectionParamConstants.JsonDateFileFormat);
-                currentFilePath = Path.Combine(_DataDirectory, $"{_BaseFileName}_{timestamp}{FileSystemExtensionConstants.Extension_Data}");
+                currentFilePath = Path.Combine(_DataDirectory, $"{_BaseFileName}_{timestamp}{fileExtension}");
             }
 
             var json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);

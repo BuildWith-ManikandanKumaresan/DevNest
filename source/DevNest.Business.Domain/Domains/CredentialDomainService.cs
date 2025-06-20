@@ -9,6 +9,7 @@ using DevNest.Common.Base.Entity;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
 using DevNest.Infrastructure.DTOs.Credential.Request;
+using DevNest.Infrastructure.DTOs.Credential.Response;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Configurations.CredentialManager;
 using DevNest.Infrastructure.Entity.Credentials;
@@ -44,6 +45,7 @@ namespace DevNest.Business.Domain.Domains
         /// <returns></returns>
         public async Task<AppResponse<IList<CredentialResponseDTO>>> Get(
             string? environment,
+            string? category,
             string? type,
             string? domain,
             string? passwordStrength,
@@ -70,6 +72,11 @@ namespace DevNest.Business.Domain.Domains
 
                 if (!string.IsNullOrEmpty(environment))
                     data = [.. data.Where(a => a.Environment?.Equals(environment, StringComparison.OrdinalIgnoreCase) ?? false)];
+
+                // Filter out the credentials based on the category.
+
+                if (!string.IsNullOrEmpty(category))
+                    data = [.. data.Where(a => a.Category?.Equals(category, StringComparison.OrdinalIgnoreCase) ?? false)];
 
                 // Filter out the credentials based on the type.
 
@@ -143,7 +150,7 @@ namespace DevNest.Business.Domain.Domains
                 // Sort credentials based on the provided property and order - defaultSortingField, defaultSortingOrder
                 data = await SortCredentials(data);
 
-                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Get)} method returned {data.Count} credentials.");
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(Get)} method returned {data?.Count} credentials.");
 
                 return new AppResponse<IList<CredentialResponseDTO>>(
                     data: _mapper.Map<IList<CredentialResponseDTO>>(data))
@@ -470,6 +477,63 @@ namespace DevNest.Business.Domain.Domains
             }
         }
 
+        /// <summary>
+        /// Method to get credential categories based on the workspace.
+        /// </summary>
+        /// <param name="workSpace"></param>
+        /// <returns></returns>
+        public async Task<AppResponse<IList<CategoryResponseDTO>?>> GetCategories(string workspace)
+        {
+            try
+            {
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetCategories)} method called with workspace: {workspace}.");
+                var entity = await _router.GetCategoriesAsync(workspace);
+                if (entity == null)
+                {
+                    _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetCategories)} method returned null for workspace: {workspace}.");
+                    return new AppResponse<IList<CategoryResponseDTO>?>(Messages.GetError(ErrorConstants.CredentialsCategoriesNotFound));
+                }
+
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetCategories)} method returned categories for workspace: {workspace}.");
+
+                return new AppResponse<IList<CategoryResponseDTO>?>(_mapper.Map<IList<CategoryResponseDTO>>(entity));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {ex.Message}", ex);
+                return new AppResponse<IList<CategoryResponseDTO>?>(new AppErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Method to get credential category types based on the category ID and workspace.
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <param name="workSpace"></param>
+        /// <returns></returns>
+        public async Task<AppResponse<IList<TypesResponseDTO>?>> GetTypes(Guid categoryId, string workspace)
+        {
+            try
+            {
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetTypes)} method called with id: {categoryId}.");
+                var entity = await _router.GetTypesAsync(categoryId, workspace);
+                if (entity == null)
+                {
+                    _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetTypes)} method returned null for id: {categoryId}.");
+                    return new AppResponse<IList<TypesResponseDTO>?>(Messages.GetError(ErrorConstants.CredentialsCategoryTypesNotFound));
+                }
+
+                _logger.LogDebug($"{nameof(CredentialDomainService)} => {nameof(GetTypes)} method returned categories for id: {categoryId}.");
+
+                return new AppResponse<IList<TypesResponseDTO>?>(_mapper.Map<IList<TypesResponseDTO>?>(entity));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{nameof(CredentialDomainService)} => {ex.Message}", ex);
+                return new AppResponse<IList<TypesResponseDTO>?>(new AppErrors { Code = ErrorConstants.UndefinedErrorCode, Message = ex.Message });
+            }
+        }
+
         #region Private methods
 
         /// <summary>
@@ -479,7 +543,7 @@ namespace DevNest.Business.Domain.Domains
         /// <returns></returns>
         private async Task MaskingPasswords(CredentialEntityModel entity, bool? globalMaskingEnabled)
         {
-            if (!string.IsNullOrEmpty(entity.Details.Password) && (entity.IsPasswordMasked ?? globalMaskingEnabled ?? false))
+            if (!string.IsNullOrEmpty(entity?.Details?.Password) && (entity.IsPasswordMasked ?? globalMaskingEnabled ?? false))
             {
                 char? maskChar = _applicationConfigService.Value?.GeneralSettings?.MaskingPlaceHolder != null
                     ? _applicationConfigService.Value?.GeneralSettings?.MaskingPlaceHolder
@@ -571,7 +635,7 @@ namespace DevNest.Business.Domain.Domains
         /// <returns></returns>
         private async Task SetPasswordHealthCheck(CredentialEntityModel entity)
         {
-            if (!string.IsNullOrEmpty(entity.Details.Password))
+            if (!string.IsNullOrEmpty(entity?.Details?.Password))
             {
                 var result = Zxcvbn.Core.EvaluatePassword(entity.Details.Password);
                 entity.PasswordHealth = new PasswordHealthEntityModel()
@@ -585,7 +649,8 @@ namespace DevNest.Business.Domain.Domains
             }
             else
             {
-                entity.PasswordHealth = new PasswordHealthEntityModel() { Score = 0 };
+                if (entity != null)
+                    entity.PasswordHealth = new PasswordHealthEntityModel() { Score = 0 };
             }
             await Task.FromResult(Task.CompletedTask);
         }
@@ -613,7 +678,7 @@ namespace DevNest.Business.Domain.Domains
                 PerformDateSearch(ref entity, searchEntity.DateSearch);
             }
 
-            return entity;
+            return await Task.FromResult(entity);
         }
 
         /// <summary>
@@ -786,7 +851,6 @@ namespace DevNest.Business.Domain.Domains
 
             entity = entity.Where(predicate.Compile()).ToList();
         }
-
     }
 
     #endregion Private methods

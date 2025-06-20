@@ -66,6 +66,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
 
             return await _domainService.Get(
                 environment: query.Environment,
+                category: query.Category,
                 type: query.Type,
                 domain: query.Domain,
                 passwordStrength: query.PasswordStrength,

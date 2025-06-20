@@ -30,9 +30,14 @@ namespace DevNest.Infrastructure.Entity.Credentials
         public string? Environment { get; set; }
 
         /// <summary>
+        /// Gets or sets the category of the credential (e.g., Database, Server, API).
+        /// </summary>
+        public string? Category { get; set; }
+
+        /// <summary>
         /// Gets or sets the list of tag identifiers.
         /// </summary>
-        public Guid[]? Tags { get; set; }      
+        public string[]? Tags { get; set; }      
 
         /// <summary>
         /// Gets or sets additional notes related to the credential.

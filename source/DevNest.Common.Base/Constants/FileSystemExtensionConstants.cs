@@ -14,9 +14,11 @@ namespace DevNest.Common.Base.Constants
         public const string Extension_Resources = ".dncont";
         public const string Extension_Dashboard = ".dndash";
 
-        public const string SuccessContent = $".success{Extension_Resources}";
-        public const string ErrorContent = $".errors{Extension_Resources}";
-        public const string WarningContent = $".warnings{Extension_Resources}";
+        public const string SuccessContent = $".success.dncont";
+        public const string ErrorContent = $".errors.dncont";
+        public const string WarningContent = $".warnings.dncont";
+        public const string CredStoreCategoryContent = $"credstore.data.category.dncont";
+        public const string CredStoreCategoryTypesContent = $"credstore.data.types.dncont";
 
         // Log file constants.
 

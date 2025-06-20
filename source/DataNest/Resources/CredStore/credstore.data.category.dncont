@@ -1,0 +1,362 @@
+[
+	{
+		"categoryId": "413B3ABC-97B7-41DC-8B5E-579AA01022AF",
+		"category": "Remote",
+		"categoryName": "Remote Access",
+		"types": [
+			{
+				"typeId": "005661AA-F386-4236-8E7E-B74922B40F29",
+				"type": "SSH",
+				"typeName": "SSH"
+			},
+			{
+				"typeId": "131F28F7-5F68-4ED9-AF63-54113DE5CA2A",
+				"type": "RDP",
+				"typeName": "Remote Desktop (RDP)"
+			},
+			{
+				"typeId": "3F90E9A9-0B2F-4C55-A631-8CE91EF3CEAD",
+				"type": "Telnet",
+				"typeName": "Telnet"
+			},
+			{
+				"typeId": "7CF85757-86BA-4D49-B77E-F38149141987",
+				"type": "VNC",
+				"typeName": "VNC"
+			},
+			{
+				"typeId": "9B81C98A-93C9-410C-B32A-0000D5E5C1EA",
+				"type": "SFTP",
+				"typeName": "SFTP (Secure File Transfer)"
+			},
+			{
+				"typeId": "254B29FF-904A-48CB-BC52-FA327A644CDE",
+				"type": "Hyper-V",
+				"typeName": "Hyper-V"
+			},
+			{
+				"typeId": "D240DFDB-DAAB-4A73-A070-F554515A59CF",
+				"type": "VMware",
+				"typeName": "VMware / ESXi"
+			}
+		]
+	},
+	{
+		"categoryId": "B8910EEF-DF1A-4044-9249-B7E8C25DEAFA",
+		"category": "Databases",
+		"categoryName": "Databases",
+		"types": [
+			{
+				"typeId": "83D5A73E-BEF8-4CD0-A7B0-04E2251D2768",
+				"type": "MySQL",
+				"typeName": "MySQL"
+			},
+			{
+				"typeId": "EB9BB8C9-E3A5-46E1-AEE0-337826F77734",
+				"type": "SQL",
+				"typeName": "Microsoft SQL Server"
+			},
+			{
+				"typeId": "ECE34792-ED5D-46AC-8AE0-516021A66C49",
+				"type": "PostgreSQL",
+				"typeName": "PostgreSQL"
+			},
+			{
+				"typeId": "1BDE3FF0-1354-4CC8-B81A-FBF6CD702B4C",
+				"type": "Oracle",
+				"typeName": "OracleDB"
+			},
+			{
+				"typeId": "92C8BE4A-BA0B-4944-B749-7094903EDF79",
+				"type": "MongoDB",
+				"typeName": "MongoDB"
+			},
+			{
+				"typeId": "0F3B43EA-3C88-49AB-99A2-8B94403C0F6E",
+				"type": "Redis",
+				"typeName": "Redis"
+			},
+			{
+				"typeId": "2EC54FDE-3767-4758-ACEB-86B3152F290C",
+				"type": "SQLite",
+				"typeName": "SQLite"
+			},
+			{
+				"typeId": "77AD6C10-E3DA-46D0-B14D-F0276C34A385",
+				"type": "Cassandra",
+				"typeName": "Cassandra"
+			}
+		]
+	},
+	{
+		"categoryId": "0D23B8BE-BC8C-47A0-9413-B24ED842578E",
+		"category": "Cloud",
+		"categoryName": "Cloud Platforms",
+		"types": [
+			{
+				"typeId": "D05674BD-7F56-4056-AFE6-74F60A942D5D",
+				"type": "Azure",
+				"typeName": "Microsoft Azure"
+			},
+			{
+				"typeId": "9CDE80A4-FAE2-4B5D-8E25-735862948D6F",
+				"type": "AWS",
+				"typeName": "Amazon Web Services"
+			},
+			{
+				"typeId": "AEB62E6D-C3E5-4832-8D6C-73C3AC763FC2",
+				"type": "GCP",
+				"typeName": "Google Cloud Platform"
+			},
+			{
+				"typeId": "C8940E34-BA75-4800-A060-EB10C2E44D3F",
+				"type": "OpenAI",
+				"typeName": "OpenAI Platform"
+			},
+			{
+				"typeId": "2D55C179-75F9-4C09-9B82-3491428A1912",
+				"type": "IBM-Cloud",
+				"typeName": "IBM Cloud"
+			}
+		]
+	},
+	{
+		"categoryId": "EA7C4B93-271A-49B1-A8B7-A7B8DAA92B18",
+		"category": "DevOps",
+		"categoryName": "DevOps & CI/CD",
+		"types": [
+			{
+				"typeId": "0E2DA030-DC9C-40EB-B72C-36760B94DBBF",
+				"type": "Jenkins",
+				"typeName": "Jenkins API Token"
+			},
+			{
+				"typeId": "DE5401AD-B0E9-4BDE-BEDF-D57CC70BD278",
+				"type": "GitLab",
+				"typeName": "GitLab Token"
+			},
+			{
+				"typeId": "66137E39-B65D-4E44-976E-8FA46B22FDE4",
+				"type": "Docker",
+				"typeName": "Docker Hub"
+			},
+			{
+				"typeId": "34E05962-1E2C-4D7E-B821-A602A20DE79D",
+				"type": "Kubernetes",
+				"typeName": "Kubernetes Kubeconfig"
+			},
+			{
+				"typeId": "C4437AE5-4A96-4AED-980B-6730CBE28BB9",
+				"type": "GitHub",
+				"typeName": "GitHub Token"
+			},
+			{
+				"typeId": "11A0FC30-FD9D-44E3-91A7-6A1B831B1F2A",
+				"type": "Bitbucket",
+				"typeName": "Bitbucket Token"
+			}
+		]
+	},
+	{
+		"categoryId": "A00F1A8B-C9D3-4640-8651-C7DF555BC024",
+		"category": "Messaging",
+		"categoryName": "Messaging Services",
+		"types": [
+			{
+				"typeId": "85D2C3B3-DAEB-4344-AC80-F2C092A1A85A",
+				"type": "Slack",
+				"typeName": "Slack Bot Token"
+			},
+			{
+				"typeId": "CA9CC914-F3F6-44E7-9CC3-A5A8AF018C2A",
+				"type": "Discord",
+				"typeName": "Discord Bot Token"
+			},
+			{
+				"typeId": "1D9B9A4E-95F4-4371-8207-CD1067058D1A",
+				"type": "Microsoft-Teams",
+				"typeName": "Microsoft Teams Webhook"
+			},
+			{
+				"typeId": "2463B25E-7B16-47EE-B4A9-4A6DACDF420D",
+				"type": "WhatsApp-Business",
+				"typeName": "WhatsApp Business API"
+			},
+			{
+				"typeId": "B1C3C596-76E8-41AC-94AF-D7E0A4F8F5EC",
+				"type": "Telegram-Bot",
+				"typeName": "Telegram Bot Token"
+			}
+		]
+	},
+	{
+		"categoryId": "AC7E67B9-A24D-46A8-92FE-038D8C3F0EE1",
+		"category": "Mail",
+		"categoryName": "Mail Servers",
+		"types": [
+			{
+				"typeId": "A9E0345B-9437-4192-8E53-88471E97B9B0",
+				"type": "SMTP",
+				"typeName": "SMTP (Send Mail)"
+			},
+			{
+				"typeId": "141FBEB0-07EA-4F28-947C-507752DB204E",
+				"type": "IMAP",
+				"typeName": "IMAP (Receive Mail)"
+			},
+			{
+				"typeId": "06E53567-CCDD-430E-A66D-19BA3E6DD5B9",
+				"type": "POP3",
+				"typeName": "POP3 (Receive Mail)"
+			},
+			{
+				"typeId": "ABE1A7F0-077A-4385-8D77-50CB9F210F22",
+				"type": "ExchangeOnline",
+				"typeName": "Exchange Online"
+			}
+		]
+	},
+	{
+		"categoryId": "CEFDD3B0-A2CA-4614-ABC9-29F0F6F164D7",
+		"category": "Storage",
+		"categoryName": "File & Object Storage",
+		"types": [
+			{
+				"typeId": "72B9987A-1038-49D1-9DE6-2CEA6237C4B5",
+				"type": "S3",
+				"typeName": "Amazon S3"
+			},
+			{
+				"typeId": "806F7063-5962-4742-B120-E337D10D83C3",
+				"type": "AzureBlob",
+				"typeName": "Azure Blob Storage"
+			},
+			{
+				"typeId": "40D8598B-E782-4442-98CF-61B4E4FA3EC5",
+				"type": "FTP",
+				"typeName": "FTP"
+			},
+			{
+				"typeId": "2ACC9BC1-7144-474C-AFA0-E057B5B339EF",
+				"type": "SFTP",
+				"typeName": "SFTP"
+			},
+			{
+				"typeId": "9BAD8523-AD6E-41AA-BDD5-9CC83A27D29F",
+				"type": "GCS",
+				"typeName": "Google Cloud Storage"
+			},
+			{
+				"typeId": "AA1C35D0-E8EA-485C-93A7-DD1FB771315F",
+				"type": "SMB",
+				"typeName": "SMB (Windows Share)"
+			},
+			{
+				"typeId": "61358692-2063-42FD-BB97-9297CEC912B1",
+				"type": "CIFS",
+				"typeName": "CIFS (Windows File Share)"
+			}
+		]
+	},
+	{
+		"categoryId": "B66EAA9A-2C14-4169-996E-DADC65F4A331",
+		"category": "Authentication",
+		"categoryName": "Identity & Authentication",
+		"types": [
+			{
+				"typeId": "C3444B92-B1FF-4568-9DA3-4E85FC6F950A",
+				"type": "OAuth2",
+				"typeName": "OAuth2"
+			},
+			{
+				"typeId": "C83157D7-2A5C-45CE-A09A-232885A0CEC9",
+				"type": "JWT",
+				"typeName": "JWT"
+			},
+			{
+				"typeId": "17AAEFE7-3DAD-4FC7-9C45-2108294A9B92",
+				"type": "APIKey",
+				"typeName": "API Key"
+			},
+			{
+				"typeId": "C8478E16-707F-477D-81D9-C839FCD6FE2A",
+				"type": "LDAP",
+				"typeName": "LDAP"
+			},
+			{
+				"typeId": "29B8F247-983A-4752-845B-9CD3B156A84A",
+				"type": "BasicAuth",
+				"typeName": "Basic Authentication"
+			},
+			{
+				"typeId": "D31A2AB3-3E0E-4666-A1FA-2E191C725BC9",
+				"type": "BearerToken",
+				"typeName": "Bearer Token"
+			},
+			{
+				"typeId": "87F0232C-2AA6-4FBC-A4EF-612B99CFC34D",
+				"type": "WindowsAuth",
+				"typeName": "Windows Authentication"
+			},
+			{
+				"typeId": "1693043C-E8CF-425A-ACF8-D3137B7C034E",
+				"type": "ActiveDirectory",
+				"typeName": "Active Directory"
+			},
+			{
+				"typeId": "D0A64018-8205-4E1E-A87F-E855816518AE",
+				"type": "SAML",
+				"typeName": "SAML SSO"
+			},
+			{
+				"typeId": "B5FDD7B6-7DE6-4F85-B3F9-C7793294E225",
+				"type": "Okta",
+				"typeName": "Okta / Auth0"
+			}
+		]
+	},
+	{
+		"categoryId": "3D830390-78AF-431F-989E-C8F2BBC732C7",
+		"category": "VPN",
+		"categoryName": "VPN & Network Access",
+		"types": [
+			{
+				"typeId": "2498B837-F51F-47D1-934A-26B66D63C900",
+				"type": "OpenVPN",
+				"typeName": "OpenVPN"
+			},
+			{
+				"typeId": "7991C83D-E58D-44DD-A200-7B498BC1A353",
+				"type": "Cisco",
+				"typeName": "Cisco Device Login"
+			},
+			{
+				"typeId": "A21A4927-D3C5-45B0-A019-D2AAABA28165",
+				"type": "Firewall",
+				"typeName": "Firewall Admin Login"
+			},
+			{
+				"typeId": "12C496FA-330A-47EB-859B-C2A5E7369CAC",
+				"type": "LoadBalancer",
+				"typeName": "Load Balancer Console"
+			}
+		]
+	},
+	{
+		"categoryId": "F83C1F78-43FD-4E33-BB48-F908D7721F3B",
+		"category": "WebApp",
+		"categoryName": "Web Applications & APIs",
+		"types": [
+			{
+				"typeId": "71AC2F3D-F4B0-4D9C-9C99-2A6234C9C8C5",
+				"type": "WebsiteLogin",
+				"typeName": "Website Login Credentials"
+			},
+			{
+				"typeId": "E9D76919-9E67-4AA1-931C-AC08A0A8BC97",
+				"type": "Swagger",
+				"typeName": "Swagger UI Login"
+			}
+		]
+	}
+]

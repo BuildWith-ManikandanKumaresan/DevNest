@@ -21,7 +21,21 @@ namespace DevNest.Common.Base.Helpers
         {
             if (id == null || id == Guid.Empty)
             {
-                return ErrorConstants.CredentialIdCannotBeEmpty;
+                return ErrorConstants.CredentialCategoryIdCannotBeEmpty;
+            }
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Validates the credential category ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static string ValidateCategoryId(Guid? id)
+        {
+            if (id == null || id == Guid.Empty)
+            {
+                return ErrorConstants.CredentialCategoryIdCannotBeEmpty;
             }
             return string.Empty;
         }
@@ -38,6 +52,20 @@ namespace DevNest.Common.Base.Helpers
                 return ErrorConstants.CredentialEnvironmentCannotBeEmpty;
             }
 
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Validates the credential category.
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
+        public static string ValidateCategory(string? category)
+        {
+            if (category is not null && string.IsNullOrWhiteSpace(category))
+            {
+                return ErrorConstants.CredentialCategoryCannotBeEmpty;
+            }
             return string.Empty;
         }
 

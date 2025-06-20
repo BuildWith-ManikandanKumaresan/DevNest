@@ -74,6 +74,12 @@ namespace DevNest.Business.Domain.Mappers
 
             CreateMap<SearchRequestDTO, SearchEntityModel>();
             CreateMap<SearchEntityModel, SearchRequestDTO>();
+
+            CreateMap<TypesEntityModel, TypesResponseDTO>();
+            CreateMap<TypesResponseDTO, TypesEntityModel>();
+
+            CreateMap<CategoryEntityModel, CategoryResponseDTO>();
+            CreateMap<CategoryResponseDTO, CategoryEntityModel>();
         }
     }
 }

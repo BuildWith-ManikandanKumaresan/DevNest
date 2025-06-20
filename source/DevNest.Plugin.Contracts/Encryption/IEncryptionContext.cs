@@ -12,7 +12,7 @@
         /// <param name="plainText"></param>
         /// <param name="Key"></param>
         /// <returns></returns>
-        T Encrypt(T plainText);
+        T? Encrypt(T plainText);
 
         /// <summary>
         /// Decrypts the given cipher text using the specified key.
@@ -20,6 +20,6 @@
         /// <param name="cipherText"></param>
         /// <param name="Key"></param>
         /// <returns></returns>
-        T Decrypt(T cipherText);
+        T? Decrypt(T cipherText);
     }
 }

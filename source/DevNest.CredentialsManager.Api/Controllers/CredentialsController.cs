@@ -7,6 +7,7 @@ using DevNest.Common.Base.MediatR.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Common.Logger;
 using DevNest.Infrastructure.DTOs.Credential.Request;
+using DevNest.Infrastructure.DTOs.Credential.Response;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.DTOs.Search;
 using DevNest.Infrastructure.Entity;
@@ -41,6 +42,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Get all credentials.
+        /// Api pattern : https:localhost:port/api/credentials
         /// </summary>
         /// <returns></returns>
         [HttpPost()]
@@ -50,6 +52,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> GetCredentials(
             [FromQuery] string? environment,
+            [FromQuery] string? category,
             [FromQuery] string? type,
             [FromQuery] string? domain,
             [FromQuery] string? passwordStrength,
@@ -66,6 +69,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
             GetCredentialsQuery query = new(
                 workSpace: workspace,
+                category: category,
                 environment:environment,
                 type:type,domain:domain,
                 passwordStrength:passwordStrength,
@@ -99,6 +103,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Get credential by Id.
+        /// Api pattern : https:localhost:port/api/credentials/1234
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -134,6 +139,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Delete credentials.
+        /// Api pattern : https:localhost:port/api/credentials
         /// </summary>
         /// <returns></returns>
         [HttpDelete()]
@@ -166,6 +172,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Delete credentials by id.
+        /// Api pattern : https:localhost:port/api/credentials/1234
         /// </summary>
         /// <param name="credentialId"></param>
         /// <returns></returns>
@@ -202,6 +209,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Add credentials.
+        /// Api pattern : https:localhost:port/api/credentials
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -238,6 +246,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Update credentials by Id.
+        /// Api pattern : https:localhost:port/api/credentials/1234
         /// </summary>
         /// <param name="credentialId"></param>
         /// <param name="request"></param>
@@ -272,6 +281,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Archive credentials by Id.
+        /// Api pattern : https:localhost:port/api/credentials/1234/archive
         /// </summary>
         /// <param name="credentialId"></param>
         /// <returns></returns>
@@ -304,6 +314,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Encrypt credentials by Id.
+        /// Api pattern : https:localhost:port/api/credentials/1234/encrypt
         /// </summary>
         /// <param name="credentialId"></param>
         /// <returns></returns>
@@ -337,6 +348,7 @@ namespace DevNest.CredentialsManager.Api.Controllers
 
         /// <summary>
         /// Decrypt credentials by Id.
+        /// Api pattern : https:localhost:port/api/credentials/1234/decrypt
         /// </summary>
         /// <param name="credentialId"></param>
         /// <returns></returns>
@@ -363,6 +375,71 @@ namespace DevNest.CredentialsManager.Api.Controllers
             _logger.LogError($"Api => {nameof(DecryptCredentials)} encountered an error. ",
                 apiCall: HttpContext.Request,
                 request: command,
+                response: response);
+            return BadRequest(response.Errors);
+        }
+
+
+        /// <summary>
+        /// Get credential categories.
+        /// Api pattern : https:localhost:port/api/credentials/category
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("category")]
+        [ProducesResponseType(typeof(AppResponse<IList<CategoryResponseDTO>>), 200)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
+        public async Task<IActionResult> GetCategories([FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
+        {
+            _logger.LogDebug($"Api => {nameof(GetCategories)} called. ", apiCall: HttpContext.Request);
+            GetCategoriesQuery query = new(workSpace: workspace);
+            var response = await _mediator.SendQueryAsync(query);
+            if (response.IsSuccess)
+            {
+                _logger.LogDebug($"Api => {nameof(GetCategories)} completed. ",
+                    apiCall: HttpContext.Request,
+                    request: query,
+                    response: response);
+                return Ok(response);
+            }
+            _logger.LogError($"Api => {nameof(GetCategories)} encountered an error. ",
+                apiCall: HttpContext.Request,
+                request: query,
+                response: response);
+            return BadRequest(response.Errors);
+        }
+
+        /// <summary>
+        /// Get credential category types by category Id.
+        /// Api pattern : https:localhost:port/api/credentials/category/1234/types
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        [HttpGet("category/{categoryId}/types")]
+        [ProducesResponseType(typeof(AppResponse<IList<TypesResponseDTO>>), 200)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 400)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 404)]
+        [ProducesResponseType(typeof(IList<AppErrors>), 500)]
+        public async Task<IActionResult> GetCredentialTypes(
+            [FromRoute]  Guid categoryId,
+            [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
+        {
+            _logger.LogDebug($"Api => {nameof(GetCredentialTypes)} called. ", apiCall: HttpContext.Request, request: categoryId);
+            GetTypesQuery query = new(categoryId: categoryId, workSpace: workspace);
+            var response = await _mediator.SendQueryAsync(query);
+            if (response.IsSuccess)
+            {
+                _logger.LogDebug($"Api => {nameof(GetCredentialTypes)} completed. ",
+                    apiCall: HttpContext.Request,
+                    request: query,
+                    response: response);
+                return Ok(response);
+            }
+            _logger.LogError($"Api => {nameof(GetCredentialTypes)} encountered an error. ",
+                apiCall: HttpContext.Request,
+                request: query,
                 response: response);
             return BadRequest(response.Errors);
         }

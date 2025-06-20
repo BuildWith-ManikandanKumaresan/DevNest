@@ -2,6 +2,7 @@
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.Response;
 using DevNest.Infrastructure.DTOs.Credential.Request;
+using DevNest.Infrastructure.DTOs.Credential.Response;
 using DevNest.Infrastructure.DTOs.CredentialManager.Response;
 using DevNest.Infrastructure.Entity.Search;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,7 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// <returns></returns>
         Task<AppResponse<IList<CredentialResponseDTO>>> Get(
             string? environment,
+            string? category,
             string? type,
             string? domain,
             string? passwordStrength,
@@ -87,5 +89,20 @@ namespace DevNest.Business.Domain.Domains.Contracts
         /// <param name="id"></param>
         /// <returns></returns>
         Task<AppResponse<CredentialResponseDTO>> Decrypt(Guid id, string workspace);
+
+        /// <summary>
+        /// Handler method interface for getting credential category types without category ID.
+        /// </summary>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        Task<AppResponse<IList<CategoryResponseDTO>?>> GetCategories(string workspace);
+
+        /// <summary>
+        /// Handler method interface for getting credential category types.
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        Task<AppResponse<IList<TypesResponseDTO>?>> GetTypes(Guid categoryId, string workspace);
     }
 }

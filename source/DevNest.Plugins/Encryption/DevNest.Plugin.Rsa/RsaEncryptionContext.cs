@@ -43,16 +43,17 @@ namespace DevNest.Plugin.Rsa
         /// <param name="cipherText"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public T Decrypt(T cipherText)
+        public T? Decrypt(T cipherText)
         {
             try
             {
                 _logger.LogDebug($"{nameof(RsaEncryptionContext<T>)} => Decrypting cipher text.", new { CipherText = cipherText });
                 using var rsa = RSA.Create();
-                rsa.ImportRSAPrivateKey(Convert.FromBase64String(_privateKey), out _);
-                var decryptedBytes = rsa.Decrypt(Convert.FromBase64String(cipherText as string), RSAEncryptionPadding.OaepSHA256);
+                rsa.ImportRSAPrivateKey(Convert.FromBase64String(_privateKey ?? string.Empty), out _);
+                byte[] decryptedBytes = rsa.Decrypt(Convert.FromBase64String(cipherText as string ?? string.Empty), RSAEncryptionPadding.OaepSHA256);
                 _logger.LogDebug($"{nameof(RsaEncryptionContext<T>)} => Decryption successful.", new { CipherText = cipherText });
-                return Encoding.UTF8.GetString(decryptedBytes) as T;
+                string encodedString = Encoding.UTF8.GetString(decryptedBytes);
+                return encodedString as T;
             }
             catch (Exception)
             {
@@ -67,12 +68,12 @@ namespace DevNest.Plugin.Rsa
         /// <param name="plainText"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public T Encrypt(T plainText)
+        public T? Encrypt(T plainText)
         {
             _logger.LogDebug($"{nameof(RsaEncryptionContext<T>)} => Encrypting plain text.", new { PlainText = plainText });
             using var rsa = RSA.Create();
-            rsa.ImportRSAPublicKey(Convert.FromBase64String(_publicKey), out _);
-            var encryptedBytes = rsa.Encrypt(Encoding.UTF8.GetBytes(plainText as string), RSAEncryptionPadding.OaepSHA256);
+            rsa.ImportRSAPublicKey(Convert.FromBase64String(_publicKey ?? string.Empty), out _);
+            var encryptedBytes = rsa.Encrypt(Encoding.UTF8.GetBytes(plainText as string ?? string.Empty), RSAEncryptionPadding.OaepSHA256);
             _logger.LogDebug($"{nameof(RsaEncryptionContext<T>)} => Encryption successful.", new { PlainText = plainText });
             return Convert.ToBase64String(encryptedBytes) as T;
         }

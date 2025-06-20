@@ -79,7 +79,8 @@ namespace DevNest.CredentialsManager.Api
         {
             var currentAssembly = Assembly.GetAssembly(typeof(Program));
             var referencedAssemblies = AssemblyHelper.GetReferencedAssemblies(currentAssembly).ToList();
-            referencedAssemblies.Add(currentAssembly);
+            if(currentAssembly != null)
+                referencedAssemblies.Add(currentAssembly);
 
             services.AddMediatR(cfg =>
             {

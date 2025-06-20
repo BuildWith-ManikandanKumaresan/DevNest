@@ -41,14 +41,14 @@ namespace DevNest.Business.Domain.RouterContracts
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<CredentialEntityModel> AddAsync(CredentialEntityModel entity, string workspace);
+        Task<CredentialEntityModel?> AddAsync(CredentialEntityModel entity, string workspace);
 
         /// <summary>
         /// Handler method to update the credentials entity.
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<CredentialEntityModel> UpdateAsync(CredentialEntityModel entity, string workspace);
+        Task<CredentialEntityModel?> UpdateAsync(CredentialEntityModel entity, string workspace);
 
         /// <summary>
         /// Handler method to archive the credential by its unique identifier.
@@ -62,13 +62,27 @@ namespace DevNest.Business.Domain.RouterContracts
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<CredentialEntityModel> EncryptByIdAsync(Guid id, string workspace);
+        Task<CredentialEntityModel?> EncryptByIdAsync(Guid id, string workspace);
 
         /// <summary>
         /// Handler method to decrypt the credential by its unique identifier.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<CredentialEntityModel> DecryptByIdAsync(Guid id, string workspace);
+        Task<CredentialEntityModel?> DecryptByIdAsync(Guid id, string workspace);
+
+        /// <summary>
+        /// Handler method to get the credential categories for a specific workspace.
+        /// </summary>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        Task<IList<CategoryEntityModel>?> GetCategoriesAsync(string workspace);
+
+        /// <summary>
+        /// Handler method to get the credential category types for a specific workspace.
+        /// </summary>
+        /// <param name="workspace"></param>
+        /// <returns></returns>
+        Task<IList<TypesEntityModel>?> GetTypesAsync(Guid categoryId, string workspace);
     }
 }

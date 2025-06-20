@@ -22,6 +22,8 @@
         public const string ArchiveCredentialsFailed = "DEV-CM-106";
         public const string CredentialEncryptionFailed = "DEV-CM-107";
         public const string CredentialDecryptionFailed = "DEV-CM-108";
+        public const string CredentialsCategoriesNotFound = "DEV-CM-109";
+        public const string CredentialsCategoryTypesNotFound = "DEV-CM-120";
 
         // Credential manager validation error codes.
         public const string CredentialTitleAlreadyExist = "DEV-CM-110";
@@ -33,6 +35,8 @@
         public const string CredentialWorkspaceCannotBeEmpty = "DEV-CM-115";
         public const string CredentialEnvironmentCannotBeEmpty = "DEV-CM-116";
         public const string CredentialGroupsCannotBeEmpty = "DEV-CM-117";
+        public const string CredentialCategoryCannotBeEmpty = "DEV-CM-118";
+        public const string CredentialCategoryIdCannotBeEmpty = "DEV-CM-119";
 
         // Logger Manager error codes.
         public const string LoggerConfigurationMissing = "DEV-LOG-100";

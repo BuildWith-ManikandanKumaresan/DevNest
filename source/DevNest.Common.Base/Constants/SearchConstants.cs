@@ -8,7 +8,7 @@
         public const string StartsWith = "startswith";
         public const string Contains = "contains";
         public const string EndsWith = "endswith";
-        public const string Equals = "equals";
+        public new const string Equals = "equals";
         public const string NotEquals = "notequals";
     }
 

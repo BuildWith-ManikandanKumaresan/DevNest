@@ -31,7 +31,7 @@ namespace DevNest.Plugin.Aes.Gcm
         /// <param name="cipherText"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public T Decrypt(T cipherText)
+        public T? Decrypt(T cipherText)
         {
             _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Decrypt)} called with cipherText: {cipherText}");
             var data = Convert.FromBase64String(cipherText as string ?? string.Empty);
@@ -40,9 +40,13 @@ namespace DevNest.Plugin.Aes.Gcm
             var cipherBytes = data[12..^16];
             var plainBytes = new byte[cipherBytes.Length];
 
-            using var aesGcm = new AesGcm(SHA256.HashData(Encoding.UTF8.GetBytes(_key)));
-            aesGcm.Decrypt(nonce, cipherBytes, tag, plainBytes);
-            _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Decrypt)} completed successfully.");
+#pragma warning disable SYSLIB0053 // Type or member is obsolete
+            using (var aesGcm = new AesGcm(SHA256.HashData(Encoding.UTF8.GetBytes(_key))))
+            {
+                aesGcm.Decrypt(nonce, cipherBytes, tag, plainBytes);
+                _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Decrypt)} completed successfully.");
+            }
+#pragma warning restore SYSLIB0053 // Type or member is obsolete
             return Encoding.UTF8.GetString(plainBytes) as T;
         }
 
@@ -52,7 +56,7 @@ namespace DevNest.Plugin.Aes.Gcm
         /// <param name="plainText"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public T Encrypt(T plainText)
+        public T? Encrypt(T plainText)
         {
             _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Encrypt)} called with plainText: {plainText}");
             var keyBytes = SHA256.HashData(Encoding.UTF8.GetBytes(_key));
@@ -61,9 +65,13 @@ namespace DevNest.Plugin.Aes.Gcm
             var cipherBytes = new byte[plainBytes.Length];
             var tag = new byte[16];
 
-            using var aesGcm = new AesGcm(keyBytes);
-            aesGcm.Encrypt(nonce, plainBytes, cipherBytes, tag);
-            _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Encrypt)} completed successfully.");
+#pragma warning disable SYSLIB0053 // Type or member is obsolete
+            using (var aesGcm = new AesGcm(keyBytes))
+            {
+                aesGcm.Encrypt(nonce, plainBytes, cipherBytes, tag);
+                _logger.LogDebug($"{nameof(AesgcmEncryptionContext<T>)} => {nameof(Encrypt)} completed successfully.");
+            }
+#pragma warning restore SYSLIB0053 // Type or member is obsolete
             return Convert.ToBase64String(nonce.Concat(cipherBytes).Concat(tag).ToArray()) as T;
         }
     }

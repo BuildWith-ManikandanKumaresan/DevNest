@@ -14,7 +14,7 @@ namespace DevNest.Plugin.Json.Context
     /// <typeparam name="T"></typeparam>
     /// <param name="_connectionParams"></param>
     /// <param name="logger"></param>
-    public class JsonCredStoreCategoryContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStorageContext<T> where T : CategoryEntityModel
+    public class JsonCredentialCategoryContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStoreContext<T> where T : CategoryEntityModel
     {
         private readonly JsonDataHandler<T> _JsonHandler = new(_connectionParams ?? [], logger);
         private readonly IAppLogger<JsonStoragePlugin> _logger = logger;
@@ -73,9 +73,9 @@ namespace DevNest.Plugin.Json.Context
         /// <returns></returns>
         public IList<T>? Get()
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreCategoryContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
+            _logger.LogDebug($"{nameof(JsonCredentialCategoryContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Resources) as List<CategoryEntityModel>;
-            _logger.LogDebug($"{nameof(JsonCredStoreCategoryContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
+            _logger.LogDebug($"{nameof(JsonCredentialCategoryContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return data as IList<T>;
         }
 
@@ -86,10 +86,10 @@ namespace DevNest.Plugin.Json.Context
         /// <returns></returns>
         public T? GetById(Guid id)
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreCategoryContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
+            _logger.LogDebug($"{nameof(JsonCredentialCategoryContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Resources) as List<CategoryEntityModel>;
             var dataById = data?.FirstOrDefault(a => a.CategoryId == id);
-            _logger.LogDebug($"{nameof(JsonCredStoreCategoryContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
+            _logger.LogDebug($"{nameof(JsonCredentialCategoryContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return dataById as T;
         }
 

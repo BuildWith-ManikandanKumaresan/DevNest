@@ -16,27 +16,20 @@ namespace DevNest.Application.CommandHandlers.Credentials
     /// <summary>
     /// Represents the class instance for add credentials command handler.
     /// </summary>
-    public class AddCredentialCommandHandler : ICommandHandler<AddCredentialCommand, AppResponse<CredentialResponseDTO>>
+    /// <remarks>
+    /// Initialize the new instance for <see cref="AddCredentialCommandHandler">class.</see>/>
+    /// </remarks>
+    /// <param name="appLogger"></param>
+    /// <param name="applicationConfigService"></param>
+    /// <param name="domainService"></param>
+    public class AddCredentialCommandHandler(
+        IAppLogger<AddCredentialCommandHandler> appLogger,
+        IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
+        ICredentialDomainService domainService) : ICommandHandler<AddCredentialCommand, AppResponse<CredentialResponseDTO>>
     {
-        private readonly IAppLogger<AddCredentialCommandHandler> _logger;
-        private readonly ICredentialDomainService _domainService;
-        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService;
-
-        /// <summary>
-        /// Initialize the new instance for <see cref="AddCredentialCommandHandler">class.</see>/>
-        /// </summary>
-        /// <param name="appLogger"></param>
-        /// <param name="applicationConfigService"></param>
-        /// <param name="domainService"></param>
-        public AddCredentialCommandHandler(
-            IAppLogger<AddCredentialCommandHandler> appLogger,
-            IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
-            ICredentialDomainService domainService)
-        {
-            _logger = appLogger;
-            _domainService = domainService;
-            _applicationConfigService = applicationConfigService;
-        }
+        private readonly IAppLogger<AddCredentialCommandHandler> _logger = appLogger;
+        private readonly ICredentialDomainService _domainService = domainService;
+        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService = applicationConfigService;
 
         /// <summary>
         /// Handler method to execute the <see cref="AddCredentialCommandHandler">class.</see>/>

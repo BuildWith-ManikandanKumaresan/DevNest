@@ -4,7 +4,7 @@
     /// Represents the interface for data context operations.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IStorageContext<T> where T : class
+    public interface IStoreContext<T> where T : class
     {
         /// <summary>
         /// Gets the connection params for the data context.

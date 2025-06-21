@@ -13,7 +13,7 @@ namespace DevNest.Plugin.Json.Context
     /// <typeparam name="T"></typeparam>
     /// <param name="_connectionParams"></param>
     /// <param name="logger"></param>
-    public class JsonTagStoreContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStorageContext<T> where T : TagEntityModel
+    public class JsonTagContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStoreContext<T> where T : TagEntityModel
     {
         private readonly JsonDataHandler<T> _JsonHandler = new(_connectionParams ?? [], logger);
         private readonly IAppLogger<JsonStoragePlugin> _logger = logger;

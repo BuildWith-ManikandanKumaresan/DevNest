@@ -12,7 +12,7 @@ namespace DevNest.Plugin.Json
     /// <summary>
     /// Represents the class instance for JSON storage plugin.
     /// </summary>
-    public class JsonStoragePlugin : IStoragePlugin
+    public class JsonStoragePlugin : IStorePlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
         private readonly IAppLogger<JsonStoragePlugin> _logger;
@@ -65,12 +65,12 @@ namespace DevNest.Plugin.Json
         /// <param name="connectionParams"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public IStorageContext<T>? GetCredStoreCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel
+        public IStoreContext<T>? GetCredentialCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IStorageContext<T>)context;
+                return (IStoreContext<T>)context;
 
-            var newContext = new JsonCredStoreCategoryContext<T>(connectionParams, _logger);
+            var newContext = new JsonCredentialCategoryContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }
@@ -82,12 +82,12 @@ namespace DevNest.Plugin.Json
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStorageContext<T>? GetCredStoreContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel
+        public IStoreContext<T>? GetCredentialContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IStorageContext<T>)context;
+                return (IStoreContext<T>)context;
 
-            var newContext = new JsonCredStoreContext<T>(connectionParams, _logger);
+            var newContext = new JsonCredentialContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }
@@ -98,12 +98,12 @@ namespace DevNest.Plugin.Json
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStorageContext<T>? GetTagStoreContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel
+        public IStoreContext<T>? GetTagContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IStorageContext<T>)context;
+                return (IStoreContext<T>)context;
 
-            var newContext = new JsonTagStoreContext<T>(connectionParams, _logger);
+            var newContext = new JsonTagContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;
             return newContext;
         }

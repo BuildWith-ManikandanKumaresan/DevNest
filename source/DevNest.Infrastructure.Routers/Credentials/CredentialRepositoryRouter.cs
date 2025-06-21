@@ -41,7 +41,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <exception cref="NotImplementedException"></exception>
         public async Task<CredentialEntityModel?> AddAsync(CredentialEntityModel entity, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
 
             var encryptedEntity = EncryptCredential(entity).GetAwaiter().GetResult();
 
@@ -55,7 +55,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<bool> ArchiveByIdAsync(Guid id, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             return await Task.FromResult(context?.Archive(id) ?? false);
         }
 
@@ -65,7 +65,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<bool> DeleteAsync(string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             return await Task.FromResult(context?.DeleteAll() ?? false);
         }
 
@@ -76,7 +76,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<bool> DeleteByIdAsync(Guid id, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             return await Task.FromResult(context?.Delete(id) ?? false);
         }
 
@@ -86,7 +86,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<IList<CredentialEntityModel>?> GetAsync(string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             var credentials = context?.Get()?.ToList();
             var decryptedCredentials = new List<CredentialEntityModel>();
             credentials?.ForEach(cred =>
@@ -107,7 +107,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <exception cref="NotImplementedException"></exception>
         public async Task<CredentialEntityModel?> GetByIdAsync(Guid id, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             var credential = context?.GetById(id);
             return await DecryptCredential(credential);
         }
@@ -119,7 +119,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<CredentialEntityModel?> UpdateAsync(CredentialEntityModel entity, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             return await Task.FromResult(context?.Update(entity));
         }
 
@@ -130,7 +130,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<CredentialEntityModel?> EncryptByIdAsync(Guid id, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             var credential = context?.GetById(id);
             if (credential != null && credential.Security != null)
                 credential.Security.IsEncrypted = true;
@@ -145,7 +145,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// <returns></returns>
         public async Task<CredentialEntityModel?> DecryptByIdAsync(Guid id, string workspace)
         {
-            var context = GetStorageContext(workspace);
+            var context = GetCredentialContext(workspace);
             var credential = context?.GetById(id);
             if (credential != null && credential.Security != null)
                 credential.Security.IsEncrypted = true;
@@ -183,14 +183,14 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// Gets the storage context for credential entity operations.
         /// </summary>
         /// <returns></returns>
-        private IStorageContext<CredentialEntityModel>? GetStorageContext(string workspace)
+        private IStoreContext<CredentialEntityModel>? GetCredentialContext(string workspace)
         {
             StorageProvider? provider = _configurations.Value?.StorageProviders?.FirstOrDefault();
             IFileSystem? credStoreDir = _fileSystemManager.SecureVault?.GetSubDirectory(FileSystemConstants.CredStoreDirectory);
             if (provider != null)
                 provider.DataDirectory = credStoreDir?.GetWorkspace(workspace)?.Root ?? string.Empty;
             Dictionary<string, object>? primaryConfig = provider?.ParseConnectionParams();
-            return _pluginManager.GetCredStoreContext<CredentialEntityModel>(primaryConfig ?? []);
+            return _pluginManager.GetCredentialContext<CredentialEntityModel>(primaryConfig ?? []);
         }
 
         /// <summary>
@@ -198,14 +198,14 @@ namespace DevNest.Infrastructure.Routers.Credentials
         /// </summary>
         /// <param name="workspace"></param>
         /// <returns></returns>
-        public IStorageContext<CategoryEntityModel>? GetCategoryContext()
+        public IStoreContext<CategoryEntityModel>? GetCategoryContext()
         {
             StorageProvider? provider = _configurations.Value?.StorageProviders?.FirstOrDefault();
             IFileSystem? credStoreDir = _fileSystemManager.Resources?.GetSubDirectory(FileSystemConstants.CredStoreDirectory);
             if (provider != null)
                 provider.DataDirectory = credStoreDir?.Root;
             Dictionary<string, object>? primaryConfig = provider?.ParseConnectionParams();
-            return _pluginManager.GetCredStoreCategoryContext<CategoryEntityModel>(primaryConfig ?? []);
+            return _pluginManager.GetCredentialCategoryContext<CategoryEntityModel>(primaryConfig ?? []);
 
         }
 
@@ -235,7 +235,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
             if (credential?.Security?.IsEncrypted == true)
             {
                 var connectionParam = GetEncryptionParams(credential.Security.EncryptionAlgorithm);
-                var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
+                var encryptionContext = _pluginManager.GetCryptoContext<string>(connectionParam);
 
                 if (encryptionContext != null)
                 {
@@ -256,7 +256,7 @@ namespace DevNest.Infrastructure.Routers.Credentials
             if (credential != null && credential.Security?.IsEncrypted == true)
             {
                 var connectionParam = GetEncryptionParams(credential.Security.EncryptionAlgorithm);
-                var encryptionContext = _pluginManager.GetEncryptionContext<string>(connectionParam);
+                var encryptionContext = _pluginManager.GetCryptoContext<string>(connectionParam);
                 if (encryptionContext != null)
                 {
                     if (credential != null && credential.Details != null && credential.Details.Password != null)

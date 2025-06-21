@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿#region using directives
+using Newtonsoft.Json.Serialization;
+#endregion using directives
 
 namespace DevNest.Common.Base.Constants
 {

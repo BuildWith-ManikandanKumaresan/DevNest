@@ -16,27 +16,19 @@ namespace DevNest.Application.QueryHandlers.Credentials
     /// <summary>
     /// Represents the class instance for Get Credential Categories query handler class.
     /// </summary>
-    public class GetCategoriesQueryHandler : IQueryHandler<GetCategoriesQuery, AppResponse<IList<CategoryResponseDTO>>>
+    /// <remarks>
+    /// Initialize the new instance for Get Credentials query handler class.
+    /// </remarks>
+    public class GetCategoriesQueryHandler(
+        IAppLogger<GetCategoriesQueryHandler> appLogger,
+        IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
+        ICredentialDomainService domainService,
+        IMapper mapper) : IQueryHandler<GetCategoriesQuery, AppResponse<IList<CategoryResponseDTO>>>
     {
-        private readonly IAppLogger<GetCategoriesQueryHandler> _logger;
-        private readonly ICredentialDomainService _domainService;
-        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService;
-        private readonly IMapper _mapper;
-
-        /// <summary>
-        /// Initialize the new instance for Get Credentials query handler class.
-        /// </summary>
-        public GetCategoriesQueryHandler(
-            IAppLogger<GetCategoriesQueryHandler> appLogger,
-            IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
-            ICredentialDomainService domainService,
-            IMapper mapper)
-        {
-            this._mapper = mapper;
-            this._logger = appLogger;
-            this._domainService = domainService;
-            this._applicationConfigService = applicationConfigService;
-        }
+        private readonly IAppLogger<GetCategoriesQueryHandler> _logger = appLogger;
+        private readonly ICredentialDomainService _domainService = domainService;
+        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService = applicationConfigService;
+        private readonly IMapper _mapper = mapper;
 
         /// <summary>
         /// Handler method to Get the credential categories query as input and list of CredentialCategoryResponseDTO as response.
@@ -45,7 +37,9 @@ namespace DevNest.Application.QueryHandlers.Credentials
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
         public async Task<AppResponse<IList<CategoryResponseDTO>?>> Handle(GetCategoriesQuery query, CancellationToken cancellationToken = default)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
         {
             _logger.LogDebug($"{nameof(GetCategoriesQueryHandler)} => {nameof(Handle)} method called.");
             // Validate the query
@@ -53,7 +47,7 @@ namespace DevNest.Application.QueryHandlers.Credentials
             if (errors.Any())
             {
                 _logger.LogError($"{nameof(GetCategoriesQueryHandler)} => Validation errors occurred: ", errors: errors);
-                return await Task.FromResult(new AppResponse<IList<CategoryResponseDTO>>(errors.ToList()));
+                return await Task.FromResult(new AppResponse<IList<CategoryResponseDTO>?>(errors.ToList()));
             }
             // Fetch the credential categories from the domain service
             return await _domainService.GetCategories(query.WorkSpace);

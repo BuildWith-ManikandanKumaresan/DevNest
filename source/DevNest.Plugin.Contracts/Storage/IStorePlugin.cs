@@ -9,7 +9,7 @@ namespace DevNest.Plugin.Contracts.Storage
     /// Represents the interface instances of storage plugins must implement.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IStoragePlugin : IPlugin
+    public interface IStorePlugin : IPlugin
     {
         /// <summary>
         /// Gets the data context for the plugin with the specified connection parameters.
@@ -17,7 +17,7 @@ namespace DevNest.Plugin.Contracts.Storage
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageContext<T>? GetCredStoreContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel;
+        IStoreContext<T>? GetCredentialContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel;
 
         /// <summary>
         /// Gets the tag store context for the plugin with the specified connection parameters.
@@ -25,7 +25,7 @@ namespace DevNest.Plugin.Contracts.Storage
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageContext<T>? GetTagStoreContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel;
+        IStoreContext<T>? GetTagContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel;
 
         /// <summary>
         /// Gets the credential category store context for the plugin with the specified connection parameters.
@@ -33,6 +33,6 @@ namespace DevNest.Plugin.Contracts.Storage
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageContext<T>? GetCredStoreCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel;
+        IStoreContext<T>? GetCredentialCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel;
     }
 }

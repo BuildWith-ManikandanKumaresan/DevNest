@@ -8,7 +8,7 @@ namespace DevNest.Plugin.Aes.Gcm
     /// <summary>
     /// Represents the class instance for AES-GCM encryption plugin.
     /// </summary>
-    public class AesgcmEncryptionPlugin : IEncryptionPlugin
+    public class AesgcmEncryptionPlugin : ICryptoPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
         private readonly IAppLogger<AesgcmEncryptionPlugin> _logger;
@@ -63,10 +63,10 @@ namespace DevNest.Plugin.Aes.Gcm
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public ICryptoContext<T>? GetCryptoContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IEncryptionContext<T>)context;
+                return (ICryptoContext<T>)context;
 
             var newContext = new AesgcmEncryptionContext<T>(connectionParams,_logger);
             _contexts[typeof(T)] = newContext;

@@ -16,27 +16,20 @@ namespace DevNest.Application.QueryHandlers.Credentials
     /// <summary>
     /// Represents the handler for the GetCredentialsByIdQuery class.
     /// </summary>
-    public class GetCredentialsByIdQueryHandler : IQueryHandler<GetCredentialsByIdQuery, AppResponse<CredentialResponseDTO>>
+    /// <remarks>
+    /// Initialize the new instance for GetCredentialsByIdQueryHandler class.
+    /// </remarks>
+    /// <param name="appLogger"></param>
+    /// <param name="applicationConfigService"></param>
+    /// <param name="domainService"></param>
+    public class GetCredentialsByIdQueryHandler(
+        IAppLogger<GetCredentialsQueryHandler> appLogger,
+        IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
+        ICredentialDomainService domainService) : IQueryHandler<GetCredentialsByIdQuery, AppResponse<CredentialResponseDTO>>
     {
-        private readonly IAppLogger<GetCredentialsQueryHandler> _logger;
-        private readonly ICredentialDomainService _domainService;
-        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService;
-
-        /// <summary>
-        /// Initialize the new instance for GetCredentialsByIdQueryHandler class.
-        /// </summary>
-        /// <param name="appLogger"></param>
-        /// <param name="applicationConfigService"></param>
-        /// <param name="domainService"></param>
-        public GetCredentialsByIdQueryHandler(
-            IAppLogger<GetCredentialsQueryHandler> appLogger,
-            IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
-            ICredentialDomainService domainService)
-        {
-            _logger = appLogger;
-            _domainService = domainService;
-            _applicationConfigService = applicationConfigService;
-        }
+        private readonly IAppLogger<GetCredentialsQueryHandler> _logger = appLogger;
+        private readonly ICredentialDomainService _domainService = domainService;
+        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService = applicationConfigService;
 
         /// <summary>
         /// Handler method to Get the credentials by Id query as input and CredentialsDTO as response.

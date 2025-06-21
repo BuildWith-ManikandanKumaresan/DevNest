@@ -16,7 +16,7 @@ namespace DevNest.Plugin.AES.CBC
     /// Initializes a new instance of the <see cref="AescbcEncryptionContext{T}"/> class with the specified connection parameters.
     /// </remarks>
     /// <param name="_connectionParams"></param>
-    public class AescbcEncryptionContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<AescbcEncryptionPlugin> logger) : IEncryptionContext<T> where T : class
+    public class AescbcEncryptionContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<AescbcEncryptionPlugin> logger) : ICryptoContext<T> where T : class
     {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
         private readonly string _key = _connectionParams.TryGetValue(ConnectionParamConstants.EncryptionKey, out var key) && key is string keyString ? keyString : throw new ArgumentNullException(nameof(_connectionParams), "Encryption key is required.");

@@ -14,7 +14,7 @@ namespace DevNest.Plugin.Rsa
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="_connectionParams"></param>
-    public class RsaEncryptionContext<T> : IEncryptionContext<T> where T : class
+    public class RsaEncryptionContext<T> : ICryptoContext<T> where T : class
     {
         private readonly string? _privateKey;
         private readonly string? _publicKey;

@@ -8,7 +8,7 @@ namespace DevNest.Plugin.Rsa
     /// <summary>
     /// Represents the class instance for RSA encryption plugin.
     /// </summary>
-    public class RsaEncryptionPlugin : IEncryptionPlugin
+    public class RsaEncryptionPlugin : ICryptoPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
         private readonly IAppLogger<RsaEncryptionPlugin> _logger;
@@ -63,10 +63,10 @@ namespace DevNest.Plugin.Rsa
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public ICryptoContext<T>? GetCryptoContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IEncryptionContext<T>)context;
+                return (ICryptoContext<T>)context;
 
             var newContext = new RsaEncryptionContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;

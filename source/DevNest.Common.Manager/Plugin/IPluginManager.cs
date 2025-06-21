@@ -19,7 +19,7 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageContext<T>? GetCredStoreContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel;
+        IStoreContext<T>? GetCredentialContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel;
 
         /// <summary>
         /// Gets the credential store category context for the plugin with the specified connection parameters.
@@ -27,7 +27,7 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageContext<T>? GetCredStoreCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel;
+        IStoreContext<T>? GetCredentialCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel;
 
         /// <summary>
         /// Gets the tag store context for the plugin with the specified connection parameters.
@@ -35,7 +35,7 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IStorageContext<T>? GetTagStoreContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel;
+        IStoreContext<T>? GetTagContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel;
 
         /// <summary>
         /// Gets the encryption data context for the plugin with the specified connection parameters.
@@ -43,6 +43,6 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class;
+        ICryptoContext<T>? GetCryptoContext<T>(Dictionary<string, object> connectionParams) where T : class;
     }
 }

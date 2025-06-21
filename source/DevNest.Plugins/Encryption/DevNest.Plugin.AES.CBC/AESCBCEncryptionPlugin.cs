@@ -9,7 +9,7 @@ namespace DevNest.Plugin.AES.CBC
     /// <summary>
     /// Represents the class instance for AES-CBC encryption plugin.
     /// </summary>
-    public class AescbcEncryptionPlugin : IEncryptionPlugin
+    public class AescbcEncryptionPlugin : ICryptoPlugin
     {
         private readonly Dictionary<Type, object> _contexts = [];
         private readonly IAppLogger<AescbcEncryptionPlugin> _logger;
@@ -64,10 +64,10 @@ namespace DevNest.Plugin.AES.CBC
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IEncryptionContext<T>? GetEncryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public ICryptoContext<T>? GetCryptoContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             if (_contexts.TryGetValue(typeof(T), out var context))
-                return (IEncryptionContext<T>)context;
+                return (ICryptoContext<T>)context;
 
             var newContext = new AescbcEncryptionContext<T>(connectionParams, _logger);
             _contexts[typeof(T)] = newContext;

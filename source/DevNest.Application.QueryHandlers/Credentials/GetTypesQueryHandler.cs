@@ -13,27 +13,19 @@ using DevNest.Infrastructure.Entity.Credentials;
 
 namespace DevNest.Application.QueryHandlers.Credentials
 {
-    public class GetTypesQueryHandler : IQueryHandler<GetTypesQuery, AppResponse<IList<TypesResponseDTO>>>
+    /// <summary>
+    /// Initialize the new instance for Get Credentials query handler class.
+    /// </summary>
+    public class GetTypesQueryHandler(
+        IAppLogger<GetTypesQueryHandler> appLogger,
+        IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
+        ICredentialDomainService domainService,
+        IMapper mapper) : IQueryHandler<GetTypesQuery, AppResponse<IList<TypesResponseDTO>>>
     {
-        private readonly IAppLogger<GetTypesQueryHandler> _logger;
-        private readonly ICredentialDomainService _domainService;
-        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService;
-        private readonly IMapper _mapper;
-
-        /// <summary>
-        /// Initialize the new instance for Get Credentials query handler class.
-        /// </summary>
-        public GetTypesQueryHandler(
-            IAppLogger<GetTypesQueryHandler> appLogger,
-            IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
-            ICredentialDomainService domainService,
-            IMapper mapper)
-        {
-            this._mapper = mapper;
-            this._logger = appLogger;
-            this._domainService = domainService;
-            this._applicationConfigService = applicationConfigService;
-        }
+        private readonly IAppLogger<GetTypesQueryHandler> _logger = appLogger;
+        private readonly ICredentialDomainService _domainService = domainService;
+        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService = applicationConfigService;
+        private readonly IMapper _mapper = mapper;
 
         /// <summary>
         /// Handler method to Get the credential category types query as input and list of CredentialCategoryResponseDTO as response.
@@ -42,7 +34,9 @@ namespace DevNest.Application.QueryHandlers.Credentials
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
+#pragma warning disable CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
         public async Task<AppResponse<IList<TypesResponseDTO>?>> Handle(GetTypesQuery query, CancellationToken cancellationToken = default)
+#pragma warning restore CS8613 // Nullability of reference types in return type doesn't match implicitly implemented member.
         {
             _logger.LogDebug($"{nameof(GetTypesQueryHandler)} => {nameof(Handle)} method called.");
             // Validate the query

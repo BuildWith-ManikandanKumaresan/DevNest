@@ -20,27 +20,19 @@ namespace DevNest.Application.QueryHandlers.Credentials
     /// <summary>
     /// Represents the class instance for Get Credentials query handler class.
     /// </summary>
-    public class GetCredentialsQueryHandler : IQueryHandler<GetCredentialsQuery, AppResponse<IList<CredentialResponseDTO>>>
+    /// <remarks>
+    /// Initialize the new instance for Get Credentials query handler class.
+    /// </remarks>
+    public class GetCredentialsQueryHandler(
+        IAppLogger<GetCredentialsQueryHandler> appLogger,
+        IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
+        ICredentialDomainService domainService,
+        IMapper mapper) : IQueryHandler<GetCredentialsQuery, AppResponse<IList<CredentialResponseDTO>>>
     {
-        private readonly IAppLogger<GetCredentialsQueryHandler> _logger;
-        private readonly ICredentialDomainService _domainService;
-        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService;
-        private readonly IMapper _mapper;
-
-        /// <summary>
-        /// Initialize the new instance for Get Credentials query handler class.
-        /// </summary>
-        public GetCredentialsQueryHandler(
-            IAppLogger<GetCredentialsQueryHandler> appLogger,
-            IAppConfigService<CredentialManagerConfigurations> applicationConfigService,
-            ICredentialDomainService domainService,
-            IMapper mapper)
-        {
-            this._mapper = mapper;
-            this._logger = appLogger;
-            this._domainService = domainService;
-            this._applicationConfigService = applicationConfigService;
-        }
+        private readonly IAppLogger<GetCredentialsQueryHandler> _logger = appLogger;
+        private readonly ICredentialDomainService _domainService = domainService;
+        private readonly IAppConfigService<CredentialManagerConfigurations> _applicationConfigService = applicationConfigService;
+        private readonly IMapper _mapper = mapper;
 
         /// <summary>
         /// Handler method to Get the credentials query as input and string as response.

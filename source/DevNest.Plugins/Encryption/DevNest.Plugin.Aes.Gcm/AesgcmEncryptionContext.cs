@@ -13,7 +13,7 @@ namespace DevNest.Plugin.Aes.Gcm
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="_connectionParams"></param>
-    public class AesgcmEncryptionContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<AesgcmEncryptionPlugin> logger) : IEncryptionContext<T> where T : class
+    public class AesgcmEncryptionContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<AesgcmEncryptionPlugin> logger) : ICryptoContext<T> where T : class
     {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
         private readonly string _key = _connectionParams.TryGetValue(ConnectionParamConstants.EncryptionKey, out var key) && key is string keyString ? keyString : throw new ArgumentNullException(nameof(_connectionParams), "Encryption key is required.");

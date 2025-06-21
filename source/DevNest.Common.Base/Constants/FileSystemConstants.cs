@@ -30,8 +30,8 @@
         public const string SystemTagsDirectory = "System tags";
         public const string SystemColorCodesDirectory = "System color codes";
 
-        public const string DefaultLoggingDirectory = $"DataNest\\{LoggerDirectory}\\";
-        public const string Default_LoggerDirectory = $"DataNest/{LoggerDirectory}/";
+        public const string DefaultLoggingDirectory = $"DataNest\\Logger\\";
+        public const string Default_LoggerDirectory = $"DataNest/Logger/";
 
         // Default directory constants.
         public const string DefaultWorkspace = "Default";

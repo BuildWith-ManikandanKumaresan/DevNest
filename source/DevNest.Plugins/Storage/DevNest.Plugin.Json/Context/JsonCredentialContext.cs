@@ -13,10 +13,10 @@ namespace DevNest.Plugin.Json.Context
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <remarks>
-    /// Initializes a new instance of the <see cref="JsonCredStoreContext{T}"/> class with the specified connection parameters.
+    /// Initializes a new instance of the <see cref="JsonCredentialContext{T}"/> class with the specified connection parameters.
     /// </remarks>
     /// <param name="_connectionParams"></param>
-    public class JsonCredStoreContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStorageContext<T> where T : CredentialEntityModel
+    public class JsonCredentialContext<T>(Dictionary<string, object>? _connectionParams, IAppLogger<JsonStoragePlugin> logger) : IStoreContext<T> where T : CredentialEntityModel
     {
         private readonly JsonDataHandler<T> _JsonHandler = new(_connectionParams ?? [], logger);
         private readonly IAppLogger<JsonStoragePlugin> _logger = logger;
@@ -33,7 +33,7 @@ namespace DevNest.Plugin.Json.Context
         /// <exception cref="NotImplementedException"></exception>
         public T? Add(T? entity)
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Adding entity to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Adding entity to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             if (entity == null)
                 return entity as T;
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
@@ -42,7 +42,7 @@ namespace DevNest.Plugin.Json.Context
                 data?.Add(entity as CredentialEntityModel ?? new());
                 _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
             }
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Entity added successfully to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Entity added successfully to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             return entity;
         }
 
@@ -54,7 +54,7 @@ namespace DevNest.Plugin.Json.Context
         /// <exception cref="NotImplementedException"></exception>
         public bool Archive(Guid id)
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Archiving entity in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Archiving entity in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
             if (_JsonHandler.Read(FileSearchPatternConstants.Extension_Data) is not List<CredentialEntityModel> data) return false;
 
             var entity = data.FirstOrDefault(a => a.Id == id);
@@ -66,7 +66,7 @@ namespace DevNest.Plugin.Json.Context
 
             _JsonHandler.Write([.. data.Cast<T>()], FileSearchPatternConstants.Extension_Data);
 
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Entity archived successfully in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Entity archived successfully in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
 
             return true;
         }
@@ -79,16 +79,16 @@ namespace DevNest.Plugin.Json.Context
         /// <exception cref="NotImplementedException"></exception>
         public bool Delete(Guid id)
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Deleting entity from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Deleting entity from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             int res = data?.RemoveAll(x => x.Id == id) ?? 0;
             if (res > 0)
             {
                 _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
-                _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Entity deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+                _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Entity deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
                 return true;
             }
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Entity deletion failed in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Entity deletion failed in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
             return false;
         }
 
@@ -98,16 +98,16 @@ namespace DevNest.Plugin.Json.Context
         /// <exception cref="NotImplementedException"></exception>
         public bool DeleteAll()
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Deleting all entities from JSON storage context.", new { EntityType = typeof(T).Name });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Deleting all entities from JSON storage context.", new { EntityType = typeof(T).Name });
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             int res = data?.RemoveAll(a => a.Id == a.Id) ?? 0;
             if (res > 0)
             {
                 _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
-                _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => All entities deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Count = res });
+                _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => All entities deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Count = res });
                 return true;
             }
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => All entities deletion failed in JSON storage context.", new { EntityType = typeof(T).Name });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => All entities deletion failed in JSON storage context.", new { EntityType = typeof(T).Name });
             return false;
         }
 
@@ -117,9 +117,9 @@ namespace DevNest.Plugin.Json.Context
         /// <returns></returns>
         public IList<T>? Get()
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return data as IList<T>;
         }
 
@@ -131,10 +131,10 @@ namespace DevNest.Plugin.Json.Context
         /// <exception cref="NotImplementedException"></exception>
         public T? GetById(Guid id)
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Retrieving entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Retrieving entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
             var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             var dataById = data?.FirstOrDefault(a => a.Id == id);
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Retrieved entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id, Entity = dataById });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Retrieved entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id, Entity = dataById });
             return dataById as T;
         }
 
@@ -145,7 +145,7 @@ namespace DevNest.Plugin.Json.Context
         /// <exception cref="NotImplementedException"></exception>
         public T? Update(T? entity)
         {
-            _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Updating entity in JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
+            _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Updating entity in JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             if (entity == null || _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) is not List<CredentialEntityModel> data)
                 return entity;
 
@@ -155,6 +155,15 @@ namespace DevNest.Plugin.Json.Context
             if (existingEntity != null && input != null)
             {
                 if (input.Title != null) existingEntity.Title = input.Title;
+                if (input.Environment != null) existingEntity.Environment = input.Environment;
+                if (input.Category != null) existingEntity.Category = input.Category;
+                if (input.Tags != null) existingEntity.Tags = input.Tags;
+                if (input.Notes != null) existingEntity.Notes = input.Notes;
+                if (input.IsPasswordMasked != null) existingEntity.IsPasswordMasked = input.IsPasswordMasked;
+                if (input.UsageCount != null) existingEntity.UsageCount = input.UsageCount;
+                if (input.AssociatedGroups != null) existingEntity.AssociatedGroups = input.AssociatedGroups;
+
+                // Details update.
                 if (input.Details?.Domain != null)
                 {
                     if (existingEntity.Details != null)
@@ -180,12 +189,13 @@ namespace DevNest.Plugin.Json.Context
                     if (existingEntity.Details != null)
                         existingEntity.Details.Type = input.Details.Type;
                 }
-                if (input.Workspace != null) existingEntity.Workspace = input.Workspace;
-                if (input.Environment != null) existingEntity.Environment = input.Environment;
-                if (input.Category != null) existingEntity.Category = input.Category;
-                if (input.Tags != null) existingEntity.Tags = input.Tags;
-                if (input.Notes != null) existingEntity.Notes = input.Notes;
-                if (input.IsPasswordMasked != null) existingEntity.IsPasswordMasked = input.IsPasswordMasked;
+                if (input.Details?.Port != null)
+                {
+                    if (existingEntity.Details != null)
+                        existingEntity.Details.Port = input.Details.Port;
+                }
+
+                // Security update.
                 if (input.Security?.IsEncrypted != null)
                 {
                     if (existingEntity.Security != null)
@@ -201,10 +211,37 @@ namespace DevNest.Plugin.Json.Context
                     if (existingEntity.Security != null)
                         existingEntity.Security.ShowPasswordAsEncrypted = input.Security.ShowPasswordAsEncrypted;
                 }
-                if (input.AssociatedGroups != null) existingEntity.AssociatedGroups = input.AssociatedGroups;
 
+                // Validity update.
+
+                if (input.Validatity?.IsDisabled != null)
+                {
+                    if (existingEntity.Validatity != null)
+                        existingEntity.Validatity.IsDisabled = input.Validatity.IsDisabled;
+                }
+                if (input.Validatity?.RotationPolicyInDays != null)
+                {
+                    if (existingEntity.Validatity != null)
+                        existingEntity.Validatity.RotationPolicyInDays = input.Validatity.RotationPolicyInDays;
+                }
+                if (input.Validatity?.ExpirationDate != null)
+                {
+                    if (existingEntity.Validatity != null)
+                        existingEntity.Validatity.ExpirationDate = input.Validatity.ExpirationDate;
+                }
+
+                // History information update.
+                if (input.HistoryInformation != null)
+                {
+                    if (existingEntity.HistoryInformation != null)
+                    {
+                        existingEntity.HistoryInformation.UpdatedBy = existingEntity.HistoryInformation.LastAccessedBy = input.HistoryInformation.UpdatedBy;
+                        existingEntity.HistoryInformation.UpdatedAt = existingEntity.HistoryInformation.LastAccessed  = DateTime.Now;
+                    }
+                }
+                
                 _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
-                _logger.LogDebug($"{nameof(JsonCredStoreContext<T>)} => Entity updated successfully in JSON storage context.", new { EntityType = typeof(T).Name, Entity = existingEntity });
+                _logger.LogDebug($"{nameof(JsonCredentialContext<T>)} => Entity updated successfully in JSON storage context.", new { EntityType = typeof(T).Name, Entity = existingEntity });
             }
 
             return existingEntity as T;

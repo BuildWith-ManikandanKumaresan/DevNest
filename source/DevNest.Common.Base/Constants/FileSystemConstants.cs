@@ -5,7 +5,7 @@
     /// </summary>
     public partial class FileSystemConstants
     {
-        // build-debug or build-release constants.
+        // Build or Build constants.
 
         public const string PluginDirectory = "Plugin";
         public const string StoragePluginsDirectory = "Storage";
@@ -30,8 +30,8 @@
         public const string SystemTagsDirectory = "System tags";
         public const string SystemColorCodesDirectory = "System color codes";
 
-        public const string DefaultLoggingDirectory = $"DataNest\\Logger\\";
-        public const string Default_LoggerDirectory = $"DataNest/Logger/";
+        public const string DefaultLoggingDirectory = $"Logger\\";
+        public const string Default_LoggerDirectory = $"Logger/";
 
         // Default directory constants.
         public const string DefaultWorkspace = "Default";

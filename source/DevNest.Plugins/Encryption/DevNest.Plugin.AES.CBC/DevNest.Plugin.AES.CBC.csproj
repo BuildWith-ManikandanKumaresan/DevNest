@@ -5,8 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)build-debug\Plugin\Encryption\$(MSBuildProjectName)</OutputPath>
-    <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)build-release\Plugin\Encryption\$(MSBuildProjectName)</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Debug' ">$(SolutionDir)Build\Plugin\Encryption\$(MSBuildProjectName)</OutputPath>
+    <OutputPath Condition="'$(Configuration)' == 'Release' ">$(SolutionDir)Build\Plugin\Encryption\$(MSBuildProjectName)</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

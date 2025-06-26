@@ -87,7 +87,6 @@ namespace DevNest.Common.Manager.FileSystem
             {
                 string loggerDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
                     FileSystemConstants.DirectoryUp,
-                    FileSystemConstants.DevNestDirectory,
                     FileSystemConstants.LoggerDirectory));
                 if (!Directory.Exists(loggerDir))
                     Directory.CreateDirectory(loggerDir);

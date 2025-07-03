@@ -43,7 +43,7 @@ namespace DevNest.Common.Logger
             Directory.CreateDirectory(logDir); // Ensure log directory exists
 
             string logPath = Path.Combine(logDir, 
-                $"{serviceName.ToLower()}-services-{FileSystemExtensionConstants.LogFileNameWithExtension}");
+                $"{serviceName.ToLower()}-services-{FileSystemConstants.LogFileNameWithExtension}");
 
             var loggerConfig = new LoggerConfiguration()
                 .WriteTo.Console()

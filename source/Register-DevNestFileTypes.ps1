@@ -7,7 +7,7 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 # Get the base path where the script is located
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$iconDir = Join-Path $scriptDir "DataNest\Resources\Icons"
+$iconDir = Join-Path $scriptDir "Data\Resources\System\Icons"
 
 # Define file types and settings
 $fileTypes = @(
@@ -18,9 +18,9 @@ $fileTypes = @(
         Icon = "data.ico"
     },
     @{
-        Extension = ".dncont"
-        TypeName = "devnest.contentfile"
-        Description = "DevNest Content File"
+        Extension = ".dnres"
+        TypeName = "devnest.resourcefile"
+        Description = "DevNest Resource File"
         Icon = "shared.ico"
     },
     @{
@@ -30,7 +30,7 @@ $fileTypes = @(
         Icon = "shared.ico"
     },
     @{
-        Extension = ".dndash"
+        Extension = ".dndsh"
         TypeName = "devnest.dashboardfile"
         Description = "DevNest Dashboard File"
         Icon = "dashboard.ico"

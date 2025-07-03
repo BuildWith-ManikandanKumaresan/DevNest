@@ -12,7 +12,7 @@
         public const string IsArchive = "IsArchive";
         public const string JsonDateFileFormat = "yyyyMMdd_HHmmss";
         public const string EncryptionName = "EncryptionName";
-        public const string PluginStorageId = "StorageId";
+        public const string PluginStoreId = "StoreId";
         public const string PluginEncryptionId = "EncryptionId";
         public const string EncryptionKey = "EncryptionKey";
     }

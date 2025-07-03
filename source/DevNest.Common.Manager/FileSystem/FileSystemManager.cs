@@ -17,9 +17,9 @@ namespace DevNest.Common.Manager.FileSystem
         {
             Plugin = new FileSystem(PluginDirectory ?? string.Empty, FileSearchPatternConstants.DevNest_Plugins);
             Logger = new FileSystem(LoggerDirectory ?? string.Empty, FileSearchPatternConstants.DevNest_Logs);
-            Preferences = new FileSystem(PreferencesDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Preferences);
+            Configurations = new FileSystem(ConfigurationsDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Configurations);
             Resources = new FileSystem(ResourcesDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Resources);
-            SecureVault = new FileSystem(SecureVaultDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Data);
+            Vault = new FileSystem(VaultDirectory ?? string.Empty, FileSearchPatternConstants.Extension_Data);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace DevNest.Common.Manager.FileSystem
         /// <summary>
         /// Gets the directory that contains the preferences files.
         /// </summary>
-        public IFileSystem? Preferences { get; set; }
+        public IFileSystem? Configurations { get; set; }
 
         /// <summary>
         /// Gets the directory that contains the resources files.
@@ -45,7 +45,7 @@ namespace DevNest.Common.Manager.FileSystem
         /// <summary>
         /// Gets the directory that contains the secure vault files for storing sensitive data.
         /// </summary>
-        public IFileSystem? SecureVault { get; set; }
+        public IFileSystem? Vault { get; set; }
 
         #region Private methods
 
@@ -98,14 +98,14 @@ namespace DevNest.Common.Manager.FileSystem
         /// Handler method to get the directory that contains the configuration files.
         /// </summary>
         /// <returns></returns>
-        private static string? PreferencesDirectory
+        private static string? ConfigurationsDirectory
         {
             get
             {
                 string configDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
                     FileSystemConstants.DirectoryUp,
-                    FileSystemConstants.DevNestDirectory,
-                    FileSystemConstants.PreferencesDirectory));
+                    FileSystemConstants.DataDirectory,
+                    FileSystemConstants.ConfigurationsDirectory));
                 if (!Directory.Exists(configDir))
                     Directory.CreateDirectory(configDir);
                 return configDir;
@@ -122,7 +122,7 @@ namespace DevNest.Common.Manager.FileSystem
             {
                 string assetsDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
                     FileSystemConstants.DirectoryUp,
-                    FileSystemConstants.DevNestDirectory,
+                    FileSystemConstants.DataDirectory,
                     FileSystemConstants.ResourcesDirectory));
                 if (!Directory.Exists(assetsDir))
                     Directory.CreateDirectory(assetsDir);
@@ -134,14 +134,14 @@ namespace DevNest.Common.Manager.FileSystem
         /// Handler method to get the directory path that contains the data.
         /// </summary>
         /// <returns></returns>
-        private static string? SecureVaultDirectory
+        private static string? VaultDirectory
         {
             get
             {
                 string credentialDataDir = Path.GetFullPath(Path.Combine(RootDirectory ?? string.Empty,
                     FileSystemConstants.DirectoryUp,
-                    FileSystemConstants.DevNestDirectory,
-                    FileSystemConstants.SecureVaultDirectory));
+                    FileSystemConstants.DataDirectory,
+                    FileSystemConstants.VaultDirectory));
                 if (!Directory.Exists(credentialDataDir))
                     Directory.CreateDirectory(credentialDataDir);
                 return credentialDataDir;

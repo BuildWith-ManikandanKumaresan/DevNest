@@ -2,14 +2,16 @@
 using AutoMapper;
 using DevNest.Common.Base.DTOs;
 using DevNest.Common.Base.Entity;
-using DevNest.Infrastructure.DTOs.Credential.Request;
-using DevNest.Infrastructure.DTOs.Credential.Response;
-using DevNest.Infrastructure.DTOs.CredentialManager.Response;
+using DevNest.Infrastructure.DTOs.VaultX.Request;
+using DevNest.Infrastructure.DTOs.VaultX.Response;
 using DevNest.Infrastructure.DTOs.Search;
-using DevNest.Infrastructure.DTOs.Tags;
-using DevNest.Infrastructure.Entity.Credentials;
+using DevNest.Infrastructure.DTOs.TaggingX;
+using DevNest.Infrastructure.DTOs.VaultX.Request;
 using DevNest.Infrastructure.Entity.Search;
-using DevNest.Infrastructure.Entity.Tags;
+using DevNest.Infrastructure.Entity.TaggingX;
+using DevNest.Infrastructure.Entity.VaultX;
+using DevNest.Infrastructure.Entity.Configurations.VaultX;
+using DevNest.Infrastructure.DTOs.Configurations.VaultX.Response;
 #endregion using directives
 
 namespace DevNest.Business.Domain.Mappers
@@ -80,6 +82,25 @@ namespace DevNest.Business.Domain.Mappers
 
             CreateMap<CategoryEntityModel, CategoryResponseDTO>();
             CreateMap<CategoryResponseDTO, CategoryEntityModel>();
+
+            CreateMap<BackupSettingsEntityModel, BackupSettingsResponseDTO>();
+            CreateMap<BackupSettingsResponseDTO, BackupSettingsEntityModel>();
+
+            CreateMap<EncryptionProviderEntityModel, EncryptionProviderResponseDTO>();
+            CreateMap<EncryptionProviderResponseDTO, EncryptionProviderEntityModel>();
+
+            CreateMap<GeneralSettingsEntityModel, GeneralSettingsResponseDTO>();
+            CreateMap<GeneralSettingsResponseDTO, GeneralSettingsEntityModel>();
+
+            CreateMap<SecuritySettingsEntityModel, SecuritySettingsResponseDTO>();
+            CreateMap<SecuritySettingsResponseDTO, SecuritySettingsEntityModel>();
+
+            CreateMap<StoreProviderEntityModel, StoreProviderResponseDTO>();
+            CreateMap<StoreProviderResponseDTO, StoreProviderEntityModel>();
+
+            CreateMap<VaultXConfigurationsEntityModel, VaultXConfigurationsResponseDTO>();
+            CreateMap<VaultXConfigurationsResponseDTO, VaultXConfigurationsEntityModel>();
+
         }
     }
 }

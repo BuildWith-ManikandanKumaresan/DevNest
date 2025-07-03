@@ -9,7 +9,7 @@
         public const string UndefinedErrorCode = "DEV-EXP-001";
 
         // Plugin Manager
-        public const string NoStoragePluginFound = "DEV-PM-100";
+        public const string NoStorePluginFound = "DEV-PM-100";
         public const string NoEncryptionPluginFound = "DEV-PM-101";
 
         // Credential Manager error codes.

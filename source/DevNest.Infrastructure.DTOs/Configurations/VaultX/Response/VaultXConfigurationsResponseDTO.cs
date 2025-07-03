@@ -1,0 +1,36 @@
+﻿#region using directives
+#endregion using directives
+
+namespace DevNest.Infrastructure.DTOs.Configurations.VaultX.Response
+{
+    /// <summary>
+    /// Represents the configurations for the Credential Manager application.
+    /// </summary>
+    public class VaultXConfigurationsResponseDTO
+    {
+        /// <summary>
+        /// Represents the general settings for the Credential Manager application.
+        /// </summary>
+        public GeneralSettingsResponseDTO? GeneralSettings { get; set; }
+
+        /// <summary>
+        /// Represents the security settings for the Credential Manager application.
+        /// </summary>
+        public SecuritySettingsResponseDTO? SecuritySettings { get; set; }
+
+        /// <summary>
+        /// Represents the store and encryption providers for the Credential Manager application.
+        /// </summary>
+        public IList<StoreProviderResponseDTO>? StoreProviders { get; set; }
+
+        /// <summary>
+        /// Represents the encryption providers for the Credential Manager application.
+        /// </summary>
+        public IList<EncryptionProviderResponseDTO>? EncryptionProviders { get; set; }
+
+        /// <summary>
+        /// Represents the backup settings for the Credential Manager application.
+        /// </summary>
+        public BackupSettingsResponseDTO? BackupSettings { get; set; }
+    }
+}

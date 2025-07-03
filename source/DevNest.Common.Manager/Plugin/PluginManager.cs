@@ -4,11 +4,10 @@ using DevNest.Common.Base.Constants.Message;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Logger;
 using DevNest.Common.Manager.FileSystem;
-using DevNest.Infrastructure.Entity.Credentials;
-using DevNest.Infrastructure.Entity.Tags;
+using DevNest.Infrastructure.Entity.VaultX;
 using DevNest.Plugin.Contracts;
-using DevNest.Plugin.Contracts.Encryption;
-using DevNest.Plugin.Contracts.Storage;
+using DevNest.Plugin.Contracts.Context;
+using DevNest.Plugin.Contracts.Plugin;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Runtime.Loader;
@@ -28,8 +27,8 @@ namespace DevNest.Common.Manager.Plugin
     {
         private readonly IFileSystemManager _fileSystemManager;
         private readonly IAppLogger<PluginManager> _logger;
-        private readonly IList<IStorePlugin>? _pluginStorageInstance;
-        private readonly IList<ICryptoPlugin>? _pluginEncryptionInstance;
+        private IList<IStorePlugin>? _pluginStoreInstance;
+        private IList<IEncryptionPlugin>? _pluginEncryptionInstance;
         private readonly IServiceProvider _serviceProvider;
 
         /// <summary>
@@ -43,10 +42,6 @@ namespace DevNest.Common.Manager.Plugin
             this._fileSystemManager = fileSystemManager;
             this._logger = logger;
             this._serviceProvider = serviceProvider;
-            _pluginStorageInstance = [];
-            _pluginEncryptionInstance = [];
-            LoadStoragePlugins();
-            LoadEncryptionPlugins();
         }
 
         /// <summary>
@@ -55,7 +50,7 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public ICryptoContext<T>? GetCryptoContext<T>(Dictionary<string, object> connectionParams) where T : class
+        public IEncryptionContext<T>? GetEnxryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             var activePlugin = connectionParams[ConnectionParamConstants.PluginEncryptionId] != null ?
                 _pluginEncryptionInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginEncryptionId].ToString() ?? string.Empty) && p.IsActive == true) :
@@ -65,7 +60,7 @@ namespace DevNest.Common.Manager.Plugin
                 _logger.LogError($"{nameof(PluginManager)} => No active primary encryption plugin found.", request: new { connectionParams });
                 return null;
             }
-            return activePlugin?.GetCryptoContext<T>(connectionParams);
+            return activePlugin?.GetEncryptionContext<T>(connectionParams);
         }
 
         /// <summary>
@@ -74,10 +69,10 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStoreContext<T>? GetCredentialContext<T>(Dictionary<string, object> connectionParams) where T : CredentialEntityModel
+        public IStoreContext<T>? GetStoreContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             var activePlugin = GetStorePlugin(connectionParams);
-            return activePlugin?.GetCredentialContext<T>(connectionParams);
+            return activePlugin?.GetStoreContext<T>(connectionParams);
         }
 
         /// <summary>
@@ -86,37 +81,36 @@ namespace DevNest.Common.Manager.Plugin
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStoreContext<T>? GetCredentialCategoryContext<T>(Dictionary<string, object> connectionParams) where T : CategoryEntityModel
+        public IResourceContext<T>? GetResourceContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             var activePlugin = GetStorePlugin(connectionParams);
-            return activePlugin?.GetCredentialCategoryContext<T>(connectionParams);
+            return activePlugin?.GetResourceContext<T>(connectionParams);
         }
 
         /// <summary>
-        /// Gets the tag store context for the plugin with the specified connection parameters.
+        /// Gets the credential store configuration context for the plugin with the specified connection parameters.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
-        public IStoreContext<T>? GetTagContext<T>(Dictionary<string, object> connectionParams) where T : TagEntityModel
+        /// <exception cref="NotImplementedException"></exception>
+        public IConfigurationContext<T> GetConfigurationContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
             var activePlugin = GetStorePlugin(connectionParams);
-            return activePlugin?.GetTagContext<T>(connectionParams);
+            return activePlugin?.GetConfigurationContext<T>(connectionParams);
         }
-
-        #region Private methods
 
         /// <summary>
         /// Loads the plugins from the specified directory and initializes the plugin instance.
         /// </summary>
         /// <exception cref="FileNotFoundException"></exception>
-        private void LoadStoragePlugins()
+        public void LoadStorePlugins()
         {
             try
             {
-                IFileSystem? storagePluginDirectory = _fileSystemManager.Plugin?.GetSubDirectory(FileSystemConstants.StoragePluginsDirectory);
+                IFileSystem? storePluginDirectory = _fileSystemManager.Plugin?.GetSubDirectory(FileSystemConstants.StorePluginDirectory);
 
-                foreach (var pluginDirectory in storagePluginDirectory?.Directories ?? [])
+                foreach (var pluginDirectory in storePluginDirectory?.Directories ?? [])
                 {
                     foreach (var pluginFile in pluginDirectory.GetFilesWithSearchPattern() ?? [])
                     {
@@ -125,14 +119,15 @@ namespace DevNest.Common.Manager.Plugin
                         if (type != null)
                         {
                             var instance = (IStorePlugin)ActivatorUtilities.CreateInstance(_serviceProvider, type);
-                            _pluginStorageInstance?.Add(instance);
+                            _pluginStoreInstance ??= [];
+                            _pluginStoreInstance?.Add(instance);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError($"{nameof(PluginManager)} => {ErrorConstants.NoStoragePluginFound}{ex.Message}", ex);
+                _logger.LogError($"{nameof(PluginManager)} => {ErrorConstants.NoStorePluginFound}{ex.Message}", ex);
             }
         }
 
@@ -140,7 +135,7 @@ namespace DevNest.Common.Manager.Plugin
         /// Loads the encryption plugins from the specified directory and initializes the plugin instance.
         /// </summary>
         /// <exception cref="FileNotFoundException"></exception>
-        private void LoadEncryptionPlugins()
+        public void LoadEncryptionPlugins()
         {
             try
             {
@@ -151,11 +146,12 @@ namespace DevNest.Common.Manager.Plugin
                     foreach (var pluginFile in pluginDirectory.GetFilesWithSearchPattern() ?? [])
                     {
                         Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(pluginFile));
-                        var type = asm.GetTypes().FirstOrDefault(t => typeof(ICryptoPlugin).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
+                        var type = asm.GetTypes().FirstOrDefault(t => typeof(IEncryptionPlugin).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
 
                         if (type != null)
                         {
-                            var instance = (ICryptoPlugin)ActivatorUtilities.CreateInstance(_serviceProvider, type);
+                            var instance = (IEncryptionPlugin)ActivatorUtilities.CreateInstance(_serviceProvider, type);
+                            _pluginEncryptionInstance ??= [];
                             _pluginEncryptionInstance?.Add(instance);
                         }
                     }
@@ -167,20 +163,21 @@ namespace DevNest.Common.Manager.Plugin
             }
         }
 
+        #region Private methods
 
         /// <summary>
-        /// Handler method to get the active storage plugin based on the connection parameters provided.
+        /// Handler method to get the active store plugin based on the connection parameters provided.
         /// </summary>
         /// <param name="connectionParams"></param>
         /// <returns></returns>
         private IStorePlugin? GetStorePlugin(Dictionary<string, object> connectionParams)
         {
-            IStorePlugin? activePlugin = connectionParams[ConnectionParamConstants.PluginStorageId] != null ?
-                _pluginStorageInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginStorageId].ToString() ?? string.Empty) && p.IsActive == true) :
-                _pluginStorageInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
+            IStorePlugin? activePlugin = connectionParams[ConnectionParamConstants.PluginStoreId] != null ?
+                _pluginStoreInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginStoreId].ToString() ?? string.Empty) && p.IsActive == true) :
+                _pluginStoreInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
             if (activePlugin == null)
             {
-                _logger.LogError($"{nameof(PluginManager)} => No active primary storage plugin found.", request: new { connectionParams });
+                _logger.LogError($"{nameof(PluginManager)} => No active primary store plugin found.", request: new { connectionParams });
                 return null;
             }
             return activePlugin;

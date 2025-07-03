@@ -18,7 +18,7 @@
         /// <summary>
         /// Gets or sets the directory that contains the preferences files.
         /// </summary>
-        IFileSystem? Preferences { get; set; }
+        IFileSystem? Configurations { get; set; }
 
         /// <summary>
         /// Gets or sets the directory that contains the resources files.
@@ -28,6 +28,6 @@
         /// <summary>
         /// Gets or sets the directory that contains the secure vault files for storing sensitive data.
         /// </summary>
-        IFileSystem? SecureVault { get; set; }
+        IFileSystem? Vault { get; set; }
     }
 }

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		DevNest.SharedAssembly\AssemblyInfo.cs = DevNest.SharedAssembly\AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Contracts", "DevNest.Plugin.Contracts\DevNest.Plugin.Contracts.csproj", "{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Infrastructure.Entity", "DevNest.Infrastructure.Entity\DevNest.Infrastructure.Entity.csproj", "{1EE54854-05E6-385F-C871-03220A0C078A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Common.Logger", "DevNest.Common.Logger\DevNest.Common.Logger.csproj", "{85708A1C-0DDA-B9C5-8CFE-55EBA02D3C62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNest.Plugin.Json", "DevNest.Plugins\Store\DevNest.Plugin.Json\DevNest.Plugin.Json.csproj", "{DC1FAA82-42F1-BB78-7A51-E2870968758C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE54854-05E6-385F-C871-03220A0C078A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE54854-05E6-385F-C871-03220A0C078A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE54854-05E6-385F-C871-03220A0C078A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE54854-05E6-385F-C871-03220A0C078A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85708A1C-0DDA-B9C5-8CFE-55EBA02D3C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85708A1C-0DDA-B9C5-8CFE-55EBA02D3C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85708A1C-0DDA-B9C5-8CFE-55EBA02D3C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85708A1C-0DDA-B9C5-8CFE-55EBA02D3C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC1FAA82-42F1-BB78-7A51-E2870968758C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC1FAA82-42F1-BB78-7A51-E2870968758C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC1FAA82-42F1-BB78-7A51-E2870968758C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC1FAA82-42F1-BB78-7A51-E2870968758C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{925FBF69-D6B9-4E0A-970F-7D916A9BAD3D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1EE54854-05E6-385F-C871-03220A0C078A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{85708A1C-0DDA-B9C5-8CFE-55EBA02D3C62} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDEACA45-B8C6-42DD-8209-D34D5AC8E8C5}
+	EndGlobalSection
+EndGlobal

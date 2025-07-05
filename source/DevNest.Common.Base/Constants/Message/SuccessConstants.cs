@@ -21,6 +21,9 @@
         public const string CredentialsEncryptedSuccessfully = "DEV-CM-207";
         public const string CredentialsDecryptedSuccessfully = "DEV-CM-208";
 
+        public const string VaultXConfigurationsRetrievedSuccessfully = "DEV-CM-209";
+        public const string VaultXConfigurationsUpdatedSuccessfully = "DEV-CM-210";
+
 
         // Logger Manager
     }

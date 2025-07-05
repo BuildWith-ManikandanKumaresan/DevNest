@@ -14,14 +14,7 @@
         /// Gets the collection of entities of type T.
         /// </summary>
         /// <returns></returns>
-        IList<T>? Get();
-
-        /// <summary>
-        /// Gets an entity by its identifier.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        T? GetByPath(string path);
+        T? Get();
 
         /// <summary>
         /// Updates an existing entity in the data context.

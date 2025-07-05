@@ -52,14 +52,7 @@ namespace DevNest.Common.Manager.Plugin
         /// <returns></returns>
         public IEncryptionContext<T>? GetEnxryptionContext<T>(Dictionary<string, object> connectionParams) where T : class
         {
-            var activePlugin = connectionParams[ConnectionParamConstants.PluginEncryptionId] != null ?
-                _pluginEncryptionInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginEncryptionId].ToString() ?? string.Empty) && p.IsActive == true) :
-                _pluginEncryptionInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
-            if (activePlugin == null)
-            {
-                _logger.LogError($"{nameof(PluginManager)} => No active primary encryption plugin found.", request: new { connectionParams });
-                return null;
-            }
+            var activePlugin = GetEncryptionPlugin(connectionParams);
             return activePlugin?.GetEncryptionContext<T>(connectionParams);
         }
 
@@ -178,6 +171,24 @@ namespace DevNest.Common.Manager.Plugin
             if (activePlugin == null)
             {
                 _logger.LogError($"{nameof(PluginManager)} => No active primary store plugin found.", request: new { connectionParams });
+                return null;
+            }
+            return activePlugin;
+        }
+
+        /// <summary>
+        /// Handler method to get the active encryption plugin based on the connection parameters provided.
+        /// </summary>
+        /// <param name="connectionParams"></param>
+        /// <returns></returns>
+        private IEncryptionPlugin? GetEncryptionPlugin(Dictionary<string, object> connectionParams)
+        {
+            IEncryptionPlugin? activePlugin = connectionParams[ConnectionParamConstants.PluginEncryptionId] != null ?
+                _pluginEncryptionInstance?.FirstOrDefault(p => p.PluginId == Guid.Parse(connectionParams[ConnectionParamConstants.PluginEncryptionId].ToString() ?? string.Empty) && p.IsActive == true) :
+                _pluginEncryptionInstance?.FirstOrDefault(p => p.IsActive == true && p.IsPrimary == true);
+            if (activePlugin == null)
+            {
+                _logger.LogError($"{nameof(PluginManager)} => No active primary encryption plugin found.", request: new { connectionParams });
                 return null;
             }
             return activePlugin;

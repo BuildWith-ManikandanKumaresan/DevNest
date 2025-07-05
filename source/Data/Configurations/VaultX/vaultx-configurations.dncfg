@@ -1,0 +1,52 @@
+{
+	"generalSettings": {
+		"showArchivedCredentials": true,
+		"showPasswordAsMasked": false,
+		"maskingPlaceHolder": "*",
+		"defaultCredentialCategory": "General",
+		"defaultSortingField": "Id",
+		"defaultSortingOrder": "desc",
+		"allowDuplicateTitles": false
+	},
+	"securitySettings": {
+		"enableCredentialExpirationCheck": true,
+		"defaultCredentialExpirationDays": 90,
+		"autoArchiveExpiredCredentials": true,
+		"enablePasswordHistory": true,
+		"enableTwoFactorForDeletion": true,
+		"allowExport": false,
+		"showPasswordStrengthMeter": true
+	},
+	"storeProviders": [
+		{
+			"storeId": "1E9D26C8-0105-4113-9154-230A88D3F8B3",
+			"isPrimary": true,
+			"maxFileSizeBytes": 10485760,
+			"baseFileName": "vaultx.data",
+			"DataDirectory": null
+		}
+	],
+	"encryptionProviders": [
+		{
+			"encryptionId": "33BE6BF2-9CE0-4862-92A9-98497EF19A1A",
+			"encryptionName": "AES-GCM",
+			"isPrimary": true,
+			"encryptionKey": "TEST_AES_GCM_KEY_DECRYPTION"
+		},
+		{
+			"encryptionId": "72CC5A1C-24DB-4E1A-B6ED-00B47450960F",
+			"encryptionName": "AES-CBC",
+			"isPrimary": false,
+			"encryptionKey": "TEST_AES_CBC_KEY_DECRYPTION"
+		},
+		{
+			"encryptionId": "AC05832F-8C88-438A-A1BE-1FCB22F585D2",
+			"encryptionName": "RSA",
+			"isPrimary": false,
+			"encryptionKey": "TEST_RSA_KEY_DECRYPTION"
+		}
+	],
+	"backupSettings": {
+		"enableCloudSync": false
+	}
+}

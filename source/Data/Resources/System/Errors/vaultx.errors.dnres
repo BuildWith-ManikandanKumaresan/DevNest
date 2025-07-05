@@ -74,5 +74,13 @@
   "DEV-CM-119": {
     "Code": "DEV-CM-119",
     "Message": "Credential category Id must be provided."
+  },
+  "DEV-CM-121": {
+    "Code": "DEV-CM-121",
+    "Message": "VaultX configuration not found."
+  },
+  "DEV-CM-122": {
+    "Code": "DEV-CM-122",
+    "Message": "Failed to update VaultX configuration."
   }
 }

@@ -1,5 +1,4 @@
 #region using directives
-using DevNest.Application.Commands.VaultX;
 using DevNest.Application.Queries.VaultX;
 using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Contracts;
@@ -15,10 +14,13 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using DevNest.Infrastructure.Entity.Configurations.VaultX;
+using static DevNest.VaultX.Api.Controllers.VaultXConfigurationController;
+using DevNest.Application.Commands.VaultX.Store;
 #endregion using directives
 
 namespace DevNest.VaultX.Api.Controllers
 {
+
     /// <summary>
     /// Api controller for credential managers.
     /// </summary>
@@ -31,9 +33,9 @@ namespace DevNest.VaultX.Api.Controllers
     [ApiController]
     [Route("api/vaultx")] // api/vaultx
     public class VaultXController(
-        IAppLogger<VaultXController> logger,
-        IAppConfigService<VaultXConfigurationsEntityModel> applicationConfigService,
-        IAppMedidator mediatr) : ControllerBase
+    IAppLogger<VaultXController> logger,
+    IAppConfigService<VaultXConfigurationsEntityModel> applicationConfigService,
+    IAppMedidator mediatr) : ControllerBase
     {
         private readonly IAppLogger<VaultXController> _logger = logger;
         private readonly IAppMedidator _mediator = mediatr;
@@ -69,11 +71,11 @@ namespace DevNest.VaultX.Api.Controllers
             GetCredentialsQuery query = new(
                 workSpace: workspace,
                 category: category,
-                environment:environment,
-                type:type,domain:domain,
-                passwordStrength:passwordStrength,
-                isEncrypted:isEncrypted,
-                isValid:isValid,
+                environment: environment,
+                type: type, domain: domain,
+                passwordStrength: passwordStrength,
+                isEncrypted: isEncrypted,
+                isValid: isValid,
                 isDisabled: isDisabled,
                 isExpired: isExpired,
                 groups: groups,
@@ -186,7 +188,7 @@ namespace DevNest.VaultX.Api.Controllers
         {
             _logger.LogDebug($"Api => {nameof(DeleteCredentialById)} called. ", apiCall: HttpContext.Request, request: credentialId);
 
-            DeleteCredentialByIdCommand command = new(id: credentialId, workSpace:workspace);
+            DeleteCredentialByIdCommand command = new(id: credentialId, workSpace: workspace);
 
             var response = await _mediator.SendCommandAsync(command);
 
@@ -224,7 +226,7 @@ namespace DevNest.VaultX.Api.Controllers
 
             _logger.LogDebug($"Api => {nameof(AddCredentials)} called. ", apiCall: HttpContext.Request, request: request);
 
-            AddCredentialCommand command = new(request: request,workspace:workspace);
+            AddCredentialCommand command = new(request: request, workspace: workspace);
 
             var response = await _mediator.SendCommandAsync(command);
 
@@ -256,12 +258,12 @@ namespace DevNest.VaultX.Api.Controllers
         [ProducesResponseType(typeof(IList<AppErrors>), 404)]
         [ProducesResponseType(typeof(IList<AppErrors>), 500)]
         public async Task<IActionResult> UpdateCredentials(
-            [FromRoute] Guid credentialId, 
+            [FromRoute] Guid credentialId,
             [FromBody] UpdateCredentialRequest request,
             [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(UpdateCredentials)} called. ", apiCall: HttpContext.Request, request: request);
-            UpdateCredentialCommand command = new(credentialId: credentialId, request: request,workspace:workspace);
+            UpdateCredentialCommand command = new(credentialId: credentialId, request: request, workspace: workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {
@@ -327,7 +329,7 @@ namespace DevNest.VaultX.Api.Controllers
             [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(EncryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
-            EncryptCredentialCommand command = new(credentialId: credentialId, workSpace:workspace);
+            EncryptCredentialCommand command = new(credentialId: credentialId, workSpace: workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {
@@ -361,7 +363,7 @@ namespace DevNest.VaultX.Api.Controllers
             [FromQuery][Required] string workspace = FileSystemConstants.DefaultWorkspace)
         {
             _logger.LogDebug($"Api => {nameof(DecryptCredentials)} called. ", apiCall: HttpContext.Request, request: credentialId);
-            DecryptCredentialCommand command = new(credentialId: credentialId, workSpace:workspace);
+            DecryptCredentialCommand command = new(credentialId: credentialId, workSpace: workspace);
             var response = await _mediator.SendCommandAsync(command);
             if (response.IsSuccess)
             {

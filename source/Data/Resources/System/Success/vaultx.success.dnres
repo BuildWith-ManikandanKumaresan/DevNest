@@ -34,5 +34,13 @@
     "DEV-CM-208": {
         "Code": "DEV-CM-208",
         "Message": "Credential '{0}' has been decrypted successfully."
+    },
+    "DEV-CM-209": {
+        "Code": "DEV-CM-209",
+        "Message": "VaultX Configurations has been retreived successfully."
+    },
+    "DEV-CM-210": {
+        "Code": "DEV-CM-210",
+        "Message": "VaultX configuration updated successfully."
     }
 }

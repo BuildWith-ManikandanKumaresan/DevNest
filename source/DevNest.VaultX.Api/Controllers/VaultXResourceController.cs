@@ -1,6 +1,5 @@
 #region using directives
 using DevNest.Application.Commands.VaultX;
-using DevNest.Application.Queries.VaultX;
 using DevNest.Common.Base.Constants;
 using DevNest.Common.Base.Contracts;
 using DevNest.Common.Base.MediatR.Contracts;
@@ -15,6 +14,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using DevNest.Infrastructure.Entity.Configurations.VaultX;
+using DevNest.Application.Queries.VaultX.Resource;
 #endregion using directives
 
 namespace DevNest.VaultX.Api.Controllers

@@ -16,11 +16,6 @@
         public bool? IsPrimary { get; set; }
 
         /// <summary>
-        /// Indicates whether this store provider is secondary or not.
-        /// </summary>
-        public bool? IsSecondary { get; set; }
-
-        /// <summary>
         /// Maximum file size of the file in bytes.
         /// </summary>
         public long? MaxFileSizeBytes { get; set; }

@@ -17,10 +17,10 @@ using System.Windows.Input;
 using DevNest.Common.Manager.FileSystem;
 using DevNest.Common.Manager.Plugin;
 using DevNest.Common.Manager.Tag;
-using DevNest.Application.CommandHandlers.VaultX;
-using DevNest.Application.QueryHandlers.VaultX;
 using DevNest.Infrastructure.Routers.VaultX;
 using DevNest.Infrastructure.Entity.Configurations.VaultX;
+using DevNest.Application.QueryHandlers.VaultX.Store;
+using DevNest.Application.CommandHandlers.VaultX.Store;
 #endregion using directives
 
 namespace DevNest.VaultX.Api
@@ -59,7 +59,7 @@ namespace DevNest.VaultX.Api
         public static void RegisterConfigurations(this WebApplicationBuilder builder)
         {
             FileSystemManager manager = new();
-            List<string> configDirectory = manager?.Configurations?.GetFilesWithSearchPattern()?.ToList() ?? [];
+            List<string> configDirectory = manager?.Configurations?.GetSubDirectory(FileSystemConstants.VaultXDirectory)?.GetFilesWithSearchPattern()?.ToList() ?? [];
             configDirectory.ForEach(item =>
             {
                 builder.Configuration.AddJsonFile(item, optional: true, reloadOnChange: true).AddEnvironmentVariables();
@@ -107,7 +107,7 @@ namespace DevNest.VaultX.Api
                 .AsImplementedInterfaces()
                 .WithScopedLifetime()
 
-                .AddClasses(classes => classes.InNamespaceOf<VaultXRepositoryRouter>())
+                .AddClasses(classes => classes.InNamespaceOf<VaultXStoreRepositoryRouter>())
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
         }

@@ -31,11 +31,11 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Adding entity to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             if (entity == null)
                 return entity as T;
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             if (!data?.Exists(a => a.Id == (entity as CredentialEntityModel ?? new()).Id) ?? false)
             {
                 data?.Add(entity as CredentialEntityModel ?? new());
-                _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
+                _JsonHandler.WriteAsList(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
             }
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Entity added successfully to JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
             return entity;
@@ -50,7 +50,7 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
         public bool Archive(Guid id)
         {
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Archiving entity in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
-            if (_JsonHandler.Read(FileSearchPatternConstants.Extension_Data) is not List<CredentialEntityModel> data) return false;
+            if (_JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) is not List<CredentialEntityModel> data) return false;
 
             var entity = data.FirstOrDefault(a => a.Id == id);
             if (entity == null)
@@ -59,7 +59,7 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
             if (entity != null && entity.Validatity != null)
                 entity.Validatity.IsDisabled = true;
 
-            _JsonHandler.Write([.. data.Cast<T>()], FileSearchPatternConstants.Extension_Data);
+            _JsonHandler.WriteAsList([.. data.Cast<T>()], FileSearchPatternConstants.Extension_Data);
 
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Entity archived successfully in JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
 
@@ -75,11 +75,11 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
         public bool Delete(Guid id)
         {
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Deleting entity from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             int res = data?.RemoveAll(x => x.Id == id) ?? 0;
             if (res > 0)
             {
-                _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
+                _JsonHandler.WriteAsList(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
                 _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Entity deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
                 return true;
             }
@@ -94,11 +94,11 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
         public bool DeleteAll()
         {
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Deleting all entities from JSON storage context.", new { EntityType = typeof(T).Name });
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             int res = data?.RemoveAll(a => a.Id == a.Id) ?? 0;
             if (res > 0)
             {
-                _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
+                _JsonHandler.WriteAsList(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
                 _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => All entities deleted successfully from JSON storage context.", new { EntityType = typeof(T).Name, Count = res });
                 return true;
             }
@@ -113,7 +113,7 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
         public IList<T>? Get()
         {
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return data as IList<T>;
         }
@@ -127,7 +127,7 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
         public T? GetById(Guid id)
         {
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Retrieving entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id });
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) as List<CredentialEntityModel>;
             var dataById = data?.FirstOrDefault(a => a.Id == id);
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Retrieved entity by ID from JSON storage context.", new { EntityType = typeof(T).Name, Id = id, Entity = dataById });
             return dataById as T;
@@ -141,7 +141,7 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
         public T? Update(T? entity)
         {
             _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Updating entity in JSON storage context.", new { EntityType = typeof(T).Name, Entity = entity });
-            if (entity == null || _JsonHandler.Read(FileSearchPatternConstants.Extension_Data) is not List<CredentialEntityModel> data)
+            if (entity == null || _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Data) is not List<CredentialEntityModel> data)
                 return entity;
 
             var input = entity as CredentialEntityModel;
@@ -235,7 +235,7 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Store
                     }
                 }
 
-                _JsonHandler.Write(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
+                _JsonHandler.WriteAsList(data as List<T> ?? [], FileSearchPatternConstants.Extension_Data);
                 _logger.LogDebug($"{nameof(VaultXStoreContext<T>)} => Entity updated successfully in JSON storage context.", new { EntityType = typeof(T).Name, Entity = existingEntity });
             }
 

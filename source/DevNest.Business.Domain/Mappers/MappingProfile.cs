@@ -11,6 +11,7 @@ using DevNest.Infrastructure.Entity.Search;
 using DevNest.Infrastructure.Entity.TaggingX;
 using DevNest.Infrastructure.Entity.VaultX;
 using DevNest.Infrastructure.Entity.Configurations.VaultX;
+using DevNest.Infrastructure.DTOs.Configurations.VaultX.Request;
 using DevNest.Infrastructure.DTOs.Configurations.VaultX.Response;
 #endregion using directives
 
@@ -100,6 +101,24 @@ namespace DevNest.Business.Domain.Mappers
 
             CreateMap<VaultXConfigurationsEntityModel, VaultXConfigurationsResponseDTO>();
             CreateMap<VaultXConfigurationsResponseDTO, VaultXConfigurationsEntityModel>();
+
+            CreateMap<BackupSettingsRequestDTO, BackupSettingsEntityModel>();
+            CreateMap<BackupSettingsEntityModel, BackupSettingsRequestDTO>();
+
+            CreateMap<EncryptionProviderRequestDTO, EncryptionProviderEntityModel>();
+            CreateMap<EncryptionProviderEntityModel, EncryptionProviderRequestDTO>();
+
+            CreateMap<GeneralSettingsRequestDTO, GeneralSettingsEntityModel>();
+            CreateMap<GeneralSettingsEntityModel, GeneralSettingsRequestDTO>();
+
+            CreateMap<SecuritySettingsRequestDTO, SecuritySettingsEntityModel>();
+            CreateMap<SecuritySettingsEntityModel, SecuritySettingsRequestDTO>();
+
+            CreateMap<StoreProviderRequestDTO, StoreProviderEntityModel>();
+            CreateMap<StoreProviderEntityModel, StoreProviderRequestDTO>();
+
+            CreateMap<UpdateVaultXConfigurationsRequestDTO, VaultXConfigurationsEntityModel>();
+            CreateMap<VaultXConfigurationsEntityModel, UpdateVaultXConfigurationsRequestDTO>();
 
         }
     }

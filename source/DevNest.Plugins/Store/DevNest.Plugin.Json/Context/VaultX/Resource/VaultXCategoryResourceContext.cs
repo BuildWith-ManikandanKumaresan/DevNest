@@ -27,9 +27,9 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Resource
         /// <returns></returns>
         public IList<T>? Get()
         {
-            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Resources) as List<CategoryEntityModel>;
-            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
+            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieving entities from JSON resource context.", new { EntityType = typeof(T).Name });
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Resources) as List<CategoryEntityModel>;
+            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieved {data?.Count} entities from JSON resource context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return data as IList<T>;
         }
 
@@ -40,10 +40,10 @@ namespace DevNest.Store.Plugin.Json.Context.VaultX.Resource
         /// <returns></returns>
         public T? GetById(string id)
         {
-            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieving entities from JSON storage context.", new { EntityType = typeof(T).Name });
-            var data = _JsonHandler.Read(FileSearchPatternConstants.Extension_Resources) as List<CategoryEntityModel>;
+            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieving entities from JSON resource context.", new { EntityType = typeof(T).Name });
+            var data = _JsonHandler.ReadAsList(FileSearchPatternConstants.Extension_Resources) as List<CategoryEntityModel>;
             var dataById = data?.FirstOrDefault(a => a.CategoryId.ToString() == id);
-            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieved {data?.Count} entities from JSON storage context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
+            _logger.LogDebug($"{nameof(VaultXCategoryResourceContext<T>)} => Retrieved {data?.Count} entities from JSON resource context.", new { EntityType = typeof(T).Name, Count = data?.Count ?? 0 });
             return dataById as T;
         }
     }

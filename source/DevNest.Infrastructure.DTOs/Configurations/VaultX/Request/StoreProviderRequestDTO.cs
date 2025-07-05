@@ -1,9 +1,9 @@
-﻿namespace DevNest.Infrastructure.Entity.Configurations.VaultX
+﻿namespace DevNest.Infrastructure.DTOs.Configurations.VaultX.Request
 {
     /// <summary>
     /// Represents general settings for the Credential Manager application.
     /// </summary>
-    public class StoreProviderEntityModel
+    public class StoreProviderRequestDTO
     {
         /// <summary>
         /// Unique identifier for the store provider.
